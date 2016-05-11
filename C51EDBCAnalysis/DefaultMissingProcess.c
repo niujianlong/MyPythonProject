@@ -34,7 +34,7 @@ void Setbcm_general_statusMissingDefaultValue(void)
  set_ANTI_THELF_INDICATOR(0);
 }
 
-void Sethum_gpsMissingDefaultValue(void)
+void Sethum_timeMissingDefaultValue(void)
 {
  set_TIME_MODE_HUM(0);
  set_MINUTES_HUM(0);
@@ -67,6 +67,28 @@ void Settpms_sys_statusMissingDefaultValue(void)
  set_LR_PRESSURE_WARNING(0);
  set_RR_PRESSURE_WARNING(0);
  set_SIGNAL_STATUS(0);
+}
+
+void Setpas_general_statusMissingDefaultValue(void)
+{
+ set_PAS_SYS_STATUS(0);
+ set_SVA_SYS_STATUS(0);
+ set_PA_FRONT_SYS_STATUS(0);
+ set_PA_REAR_SYS_STATUS(0);
+ set_PA_REARMIDLEFT_REG_OBJ_STATUS(0);
+ set_PA_REARLEFT_REG_OBJ_STATUS(0);
+ set_PA_FRONTLEFT_REG_OBJ_STATUS(0);
+ set_PA_REARRIGHT_REG_OBJ_STATUS(0);
+ set_PA_FRONTRIGHT_REG_OBJ_STATUS(0);
+ set_PA_FRONTMIDLEFT_REG_OBJ_STATUS(0);
+ set_REAR_MINI_PAS_DISTANCE(0);
+ set_FRONT_MINI_PAS_DISTANCE(0);
+ set_PA_REARMIDRIGHT_REG_OBJ_ST(0);
+ set_SVA_WARNING_STATUS_RIGHT(0);
+ set_SVA_WARNING_STATUS_LEFT(0);
+ set_NEAREST_REAR_PAS(0);
+ set_PA_PAS_SW_STATUS(0);
+ set_PA_FRONTMIDRIGHT_REG_OBJ_ST(0);
 }
 
 void Setpeps_general_statusMissingDefaultValue(void)
@@ -109,6 +131,34 @@ void Setpeps_general_status_2MissingDefaultValue(void)
  set_MIU_MSG_REQ_N16(0);
 }
 
+void Setavm_general_statusMissingDefaultValue(void)
+{
+ set_AVM_HMI_INDEX(0);
+ set_AVM_DISPLAY_REQ(0);
+ set_FRONT_CAMERA_INPUT_FAILED(0);
+ set_REAR_CAMERA_INPUT_FAILED(0);
+ set_LEFT_CAMERA_INPUT_FAILED(0);
+ set_RIGHT_CAMERA_INPUT_FAILED(0);
+ set_VIDEO_OUTPUT_FAILED(0);
+ set_CONTROLLER_OP_FAILED(0);
+ set_CAN_COM_FAILED(0);
+ set_OVERLAY_OP_FAILED(0);
+ set_LDW_OP_STATUS(0);
+ set_BSD_OP_STATUS(0);
+ set_AVM_STATUS(0);
+ set_LDW_LANE_AVALIABILITY(0);
+ set_LDW_WARNING_STATUS(0);
+ set_BSD_LEFT_WARNING_STATUS(0);
+ set_BSD_RIGHT_WARNING_STATUS(0);
+ set_MOD_FRONT_WARNING_STATUS(0);
+ set_MOD_REAR_WARNING_STATUS(0);
+ set_MOD_LEFT_WARNING_STATUS(0);
+ set_MOD_RIGHT_WARNING_STATUS(0);
+ set_BAT_VOLT_OUT_OF_RANGE(0);
+ set_EOL_NOT_COMPLETED(0);
+ set_GUID_VOICE_REQ(0);
+}
+
 void Setems_engine_temp_and_barrometerMissingDefaultValue(void)
 {
  set_COOLANT_TEMPERATURE(0);
@@ -134,6 +184,7 @@ void Seticm_general_status_2MissingDefaultValue(void)
  set_HAND_BRAKE_ICM(0);
  set_REMOTE_START_RESPONSE_ICM(0);
  set_FUELTANK_REMAINING(0);
+ set_OILPUMP_RESISTER_ICM(0);
 }
 
 void Setahl_general_statusMissingDefaultValue(void)
@@ -151,21 +202,18 @@ void Setbcm_general_status_2MissingDefaultValue(void)
  set_ODOMETER_RESET_COUNTER_BCM(0);
 }
 
-void Seticm_event_command_2MissingDefaultValue(void)
+void Sethum_event_command_1MissingDefaultValue(void)
 {
- set_FOLLOW_ME_HOME_SETTING(0);
- set_VSPEED_LOCKING(0);
- set_CUTOFF_UNLOCK_4_DOORS(0);
- set_LOCK_SUCCESS_SOUND(0);
- set_DRL_OPEN(0);
+ set_SYS_LANGUAGE(0);
 }
 
 void Seticm_general_status_3MissingDefaultValue(void)
 {
  set_INSTANT_FUEL_CONSUM(0);
- set_AVERAGE_FUEL_CONSUM(0);
+ set_AVERAGE_FUEL_CONSUM1(0);
  set_ENDURANCE_MILEAGE(0);
  set_REMAIN_MAINTAIN_MILEAGE(0);
+ set_AVERAGE_FUEL_CONSUM2(0);
 }
 
 void Settcu_engine_torque_requestMissingDefaultValue(void)
@@ -194,6 +242,7 @@ void Setems_general_statusMissingDefaultValue(void)
  set_REQ_CHECK_ENGINE_TELLTALE(0);
  set_ENGINE_RUNNING(0);
  set_VALID_ACTUAL_GEAR_EMS(0);
+ set_GEAR_SWITCH_INDICATOR(0);
 }
 
 void Setems_start_stopMissingDefaultValue(void)

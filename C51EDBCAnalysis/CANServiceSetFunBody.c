@@ -154,45 +154,45 @@ void set_ANTI_THELF_INDICATOR( uint8 ANTI_THELF_INDICATOR)
      setuint8SigValue(bcm_general_status.data,52,2,ANTI_THELF_INDICATOR);
 }
 
-/*HUM_GPS missing default process*/
+/*HUM_TIME missing default process*/
 void set_TIME_MODE_HUM( uint8 TIME_MODE_HUM)
 {
-     setuint8SigValue(hum_gps.data,1,2,TIME_MODE_HUM);
+     setuint8SigValue(hum_time.data,1,2,TIME_MODE_HUM);
 }
 
 void set_MINUTES_HUM( uint8 MINUTES_HUM)
 {
-     setuint8SigValue(hum_gps.data,15,6,MINUTES_HUM);
+     setuint8SigValue(hum_time.data,15,6,MINUTES_HUM);
 }
 
 void set_DAY_HUM( uint8 DAY_HUM)
 {
-     setuint8SigValue(hum_gps.data,17,5,DAY_HUM);
+     setuint8SigValue(hum_time.data,17,5,DAY_HUM);
 }
 
 void set_WEEK_HUM( uint8 WEEK_HUM)
 {
-     setuint8SigValue(hum_gps.data,20,3,WEEK_HUM);
+     setuint8SigValue(hum_time.data,20,3,WEEK_HUM);
 }
 
 void set_YEAR_HUM( uint8 YEAR_HUM)
 {
-     setuint8SigValue(hum_gps.data,24,5,YEAR_HUM);
+     setuint8SigValue(hum_time.data,24,5,YEAR_HUM);
 }
 
 void set_MONTH_HUM( uint8 MONTH_HUM)
 {
-     setuint8SigValue(hum_gps.data,28,4,MONTH_HUM);
+     setuint8SigValue(hum_time.data,28,4,MONTH_HUM);
 }
 
 void set_SECOND_HUM( uint8 SECOND_HUM)
 {
-     setuint8SigValue(hum_gps.data,7,6,SECOND_HUM);
+     setuint8SigValue(hum_time.data,7,6,SECOND_HUM);
 }
 
 void set_HOUR_HUM( uint8 HOUR_HUM)
 {
-     setuint8SigValue(hum_gps.data,9,5,HOUR_HUM);
+     setuint8SigValue(hum_time.data,9,5,HOUR_HUM);
 }
 
 /*AC_CONTROL missing default process*/
@@ -270,6 +270,97 @@ void set_RR_PRESSURE_WARNING( uint8 RR_PRESSURE_WARNING)
 void set_SIGNAL_STATUS( uint8 SIGNAL_STATUS)
 {
      setuint8SigValue(tpms_sys_status.data,7,1,SIGNAL_STATUS);
+}
+
+/*PAS_GENERAL_STATUS missing default process*/
+void set_PAS_SYS_STATUS( uint8 PAS_SYS_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,1,2,PAS_SYS_STATUS);
+}
+
+void set_SVA_SYS_STATUS( uint8 SVA_SYS_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,3,2,SVA_SYS_STATUS);
+}
+
+void set_PA_FRONT_SYS_STATUS( uint8 PA_FRONT_SYS_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,5,2,PA_FRONT_SYS_STATUS);
+}
+
+void set_PA_REAR_SYS_STATUS( uint8 PA_REAR_SYS_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,7,2,PA_REAR_SYS_STATUS);
+}
+
+void set_PA_REARMIDLEFT_REG_OBJ_STATUS( uint8 PA_REARMIDLEFT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,11,4,PA_REARMIDLEFT_REG_OBJ_STATUS);
+}
+
+void set_PA_REARLEFT_REG_OBJ_STATUS( uint8 PA_REARLEFT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,15,4,PA_REARLEFT_REG_OBJ_STATUS);
+}
+
+void set_PA_FRONTLEFT_REG_OBJ_STATUS( uint8 PA_FRONTLEFT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,19,4,PA_FRONTLEFT_REG_OBJ_STATUS);
+}
+
+void set_PA_REARRIGHT_REG_OBJ_STATUS( uint8 PA_REARRIGHT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,23,4,PA_REARRIGHT_REG_OBJ_STATUS);
+}
+
+void set_PA_FRONTRIGHT_REG_OBJ_STATUS( uint8 PA_FRONTRIGHT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,27,4,PA_FRONTRIGHT_REG_OBJ_STATUS);
+}
+
+void set_PA_FRONTMIDLEFT_REG_OBJ_STATUS( uint8 PA_FRONTMIDLEFT_REG_OBJ_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,31,4,PA_FRONTMIDLEFT_REG_OBJ_STATUS);
+}
+
+void set_REAR_MINI_PAS_DISTANCE( uint8 REAR_MINI_PAS_DISTANCE)
+{
+     setuint8SigValue(pas_general_status.data,39,8,REAR_MINI_PAS_DISTANCE);
+}
+
+void set_FRONT_MINI_PAS_DISTANCE( uint8 FRONT_MINI_PAS_DISTANCE)
+{
+     setuint8SigValue(pas_general_status.data,47,8,FRONT_MINI_PAS_DISTANCE);
+}
+
+void set_PA_REARMIDRIGHT_REG_OBJ_ST( uint8 PA_REARMIDRIGHT_REG_OBJ_ST)
+{
+     setuint8SigValue(pas_general_status.data,51,4,PA_REARMIDRIGHT_REG_OBJ_ST);
+}
+
+void set_SVA_WARNING_STATUS_RIGHT( uint8 SVA_WARNING_STATUS_RIGHT)
+{
+     setuint8SigValue(pas_general_status.data,53,2,SVA_WARNING_STATUS_RIGHT);
+}
+
+void set_SVA_WARNING_STATUS_LEFT( uint8 SVA_WARNING_STATUS_LEFT)
+{
+     setuint8SigValue(pas_general_status.data,55,2,SVA_WARNING_STATUS_LEFT);
+}
+
+void set_NEAREST_REAR_PAS( uint8 NEAREST_REAR_PAS)
+{
+     setuint8SigValue(pas_general_status.data,57,2,NEAREST_REAR_PAS);
+}
+
+void set_PA_PAS_SW_STATUS( uint8 PA_PAS_SW_STATUS)
+{
+     setuint8SigValue(pas_general_status.data,59,2,PA_PAS_SW_STATUS);
+}
+
+void set_PA_FRONTMIDRIGHT_REG_OBJ_ST( uint8 PA_FRONTMIDRIGHT_REG_OBJ_ST)
+{
+     setuint8SigValue(pas_general_status.data,63,4,PA_FRONTMIDRIGHT_REG_OBJ_ST);
 }
 
 /*PEPS_GENERAL_STATUS missing default process*/
@@ -415,6 +506,127 @@ void set_MIU_MSG_REQ_N16( uint8 MIU_MSG_REQ_N16)
      setuint8SigValue(peps_general_status_2.data,55,1,MIU_MSG_REQ_N16);
 }
 
+/*AVM_GENERAL_STATUS missing default process*/
+void set_AVM_HMI_INDEX( uint8 AVM_HMI_INDEX)
+{
+     setuint8SigValue(avm_general_status.data,11,4,AVM_HMI_INDEX);
+}
+
+void set_AVM_DISPLAY_REQ( uint8 AVM_DISPLAY_REQ)
+{
+     setuint8SigValue(avm_general_status.data,13,2,AVM_DISPLAY_REQ);
+}
+
+void set_FRONT_CAMERA_INPUT_FAILED( uint8 FRONT_CAMERA_INPUT_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,16,1,FRONT_CAMERA_INPUT_FAILED);
+}
+
+void set_REAR_CAMERA_INPUT_FAILED( uint8 REAR_CAMERA_INPUT_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,17,1,REAR_CAMERA_INPUT_FAILED);
+}
+
+void set_LEFT_CAMERA_INPUT_FAILED( uint8 LEFT_CAMERA_INPUT_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,18,1,LEFT_CAMERA_INPUT_FAILED);
+}
+
+void set_RIGHT_CAMERA_INPUT_FAILED( uint8 RIGHT_CAMERA_INPUT_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,19,1,RIGHT_CAMERA_INPUT_FAILED);
+}
+
+void set_VIDEO_OUTPUT_FAILED( uint8 VIDEO_OUTPUT_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,20,1,VIDEO_OUTPUT_FAILED);
+}
+
+void set_CONTROLLER_OP_FAILED( uint8 CONTROLLER_OP_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,21,1,CONTROLLER_OP_FAILED);
+}
+
+void set_CAN_COM_FAILED( uint8 CAN_COM_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,22,1,CAN_COM_FAILED);
+}
+
+void set_OVERLAY_OP_FAILED( uint8 OVERLAY_OP_FAILED)
+{
+     setuint8SigValue(avm_general_status.data,23,1,OVERLAY_OP_FAILED);
+}
+
+void set_LDW_OP_STATUS( uint8 LDW_OP_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,27,2,LDW_OP_STATUS);
+}
+
+void set_BSD_OP_STATUS( uint8 BSD_OP_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,29,2,BSD_OP_STATUS);
+}
+
+void set_AVM_STATUS( uint8 AVM_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,3,4,AVM_STATUS);
+}
+
+void set_LDW_LANE_AVALIABILITY( uint8 LDW_LANE_AVALIABILITY)
+{
+     setuint8SigValue(avm_general_status.data,31,2,LDW_LANE_AVALIABILITY);
+}
+
+void set_LDW_WARNING_STATUS( uint8 LDW_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,35,4,LDW_WARNING_STATUS);
+}
+
+void set_BSD_LEFT_WARNING_STATUS( uint8 BSD_LEFT_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,37,2,BSD_LEFT_WARNING_STATUS);
+}
+
+void set_BSD_RIGHT_WARNING_STATUS( uint8 BSD_RIGHT_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,39,2,BSD_RIGHT_WARNING_STATUS);
+}
+
+void set_MOD_FRONT_WARNING_STATUS( uint8 MOD_FRONT_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,40,1,MOD_FRONT_WARNING_STATUS);
+}
+
+void set_MOD_REAR_WARNING_STATUS( uint8 MOD_REAR_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,41,1,MOD_REAR_WARNING_STATUS);
+}
+
+void set_MOD_LEFT_WARNING_STATUS( uint8 MOD_LEFT_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,42,1,MOD_LEFT_WARNING_STATUS);
+}
+
+void set_MOD_RIGHT_WARNING_STATUS( uint8 MOD_RIGHT_WARNING_STATUS)
+{
+     setuint8SigValue(avm_general_status.data,43,1,MOD_RIGHT_WARNING_STATUS);
+}
+
+void set_BAT_VOLT_OUT_OF_RANGE( uint8 BAT_VOLT_OUT_OF_RANGE)
+{
+     setuint8SigValue(avm_general_status.data,44,1,BAT_VOLT_OUT_OF_RANGE);
+}
+
+void set_EOL_NOT_COMPLETED( uint8 EOL_NOT_COMPLETED)
+{
+     setuint8SigValue(avm_general_status.data,45,1,EOL_NOT_COMPLETED);
+}
+
+void set_GUID_VOICE_REQ( uint8 GUID_VOICE_REQ)
+{
+     setuint8SigValue(avm_general_status.data,7,4,GUID_VOICE_REQ);
+}
+
 /*EMS_ENGINE_TEMP_AND_BARROMETER missing default process*/
 void set_COOLANT_TEMPERATURE( uint8 COOLANT_TEMPERATURE)
 {
@@ -493,6 +705,11 @@ void set_FUELTANK_REMAINING( uint8 FUELTANK_REMAINING)
      setuint8SigValue(icm_general_status_2.data,15,8,FUELTANK_REMAINING);
 }
 
+void set_OILPUMP_RESISTER_ICM( uint16 OILPUMP_RESISTER_ICM)
+{
+     setuint16SigValue(icm_general_status_2.data,19,12,OILPUMP_RESISTER_ICM);
+}
+
 /*AHL_GENERAL_STATUS missing default process*/
 void set_AHL_FAULT_STATUS( uint8 AHL_FAULT_STATUS)
 {
@@ -530,30 +747,10 @@ void set_ODOMETER_RESET_COUNTER_BCM( uint8 ODOMETER_RESET_COUNTER_BCM)
      setuint8SigValue(bcm_general_status_2.data,7,2,ODOMETER_RESET_COUNTER_BCM);
 }
 
-/*ICM_EVENT_COMMAND_2 missing default process*/
-void set_FOLLOW_ME_HOME_SETTING( uint8 FOLLOW_ME_HOME_SETTING)
+/*HUM_EVENT_COMMAND_1 missing default process*/
+void set_SYS_LANGUAGE( uint8 SYS_LANGUAGE)
 {
-     setuint8SigValue(icm_event_command_2.data,2,3,FOLLOW_ME_HOME_SETTING);
-}
-
-void set_VSPEED_LOCKING( uint8 VSPEED_LOCKING)
-{
-     setuint8SigValue(icm_event_command_2.data,5,3,VSPEED_LOCKING);
-}
-
-void set_CUTOFF_UNLOCK_4_DOORS( uint8 CUTOFF_UNLOCK_4_DOORS)
-{
-     setuint8SigValue(icm_event_command_2.data,7,2,CUTOFF_UNLOCK_4_DOORS);
-}
-
-void set_LOCK_SUCCESS_SOUND( uint8 LOCK_SUCCESS_SOUND)
-{
-     setuint8SigValue(icm_event_command_2.data,13,2,LOCK_SUCCESS_SOUND);
-}
-
-void set_DRL_OPEN( uint8 DRL_OPEN)
-{
-     setuint8SigValue(icm_event_command_2.data,15,2,DRL_OPEN);
+     setuint8SigValue(hum_event_command_1.data,23,3,SYS_LANGUAGE);
 }
 
 /*ICM_GENERAL_STATUS_3 missing default process*/
@@ -562,9 +759,9 @@ void set_INSTANT_FUEL_CONSUM( uint16 INSTANT_FUEL_CONSUM)
      setuint16SigValue(icm_general_status_3.data,7,12,INSTANT_FUEL_CONSUM);
 }
 
-void set_AVERAGE_FUEL_CONSUM( uint16 AVERAGE_FUEL_CONSUM)
+void set_AVERAGE_FUEL_CONSUM1( uint16 AVERAGE_FUEL_CONSUM1)
 {
-     setuint16SigValue(icm_general_status_3.data,11,12,AVERAGE_FUEL_CONSUM);
+     setuint16SigValue(icm_general_status_3.data,11,12,AVERAGE_FUEL_CONSUM1);
 }
 
 void set_ENDURANCE_MILEAGE( uint16 ENDURANCE_MILEAGE)
@@ -574,7 +771,12 @@ void set_ENDURANCE_MILEAGE( uint16 ENDURANCE_MILEAGE)
 
 void set_REMAIN_MAINTAIN_MILEAGE( uint16 REMAIN_MAINTAIN_MILEAGE)
 {
-     setuint16SigValue(icm_general_status_3.data,47,16,REMAIN_MAINTAIN_MILEAGE);
+     setuint16SigValue(icm_general_status_3.data,35,16,REMAIN_MAINTAIN_MILEAGE);
+}
+
+void set_AVERAGE_FUEL_CONSUM2( uint16 AVERAGE_FUEL_CONSUM2)
+{
+     setuint16SigValue(icm_general_status_3.data,51,12,AVERAGE_FUEL_CONSUM2);
 }
 
 /*TCU_ENGINE_TORQUE_REQUEST missing default process*/
@@ -658,6 +860,11 @@ void set_ENGINE_RUNNING( uint8 ENGINE_RUNNING)
 void set_VALID_ACTUAL_GEAR_EMS( uint8 VALID_ACTUAL_GEAR_EMS)
 {
      setuint8SigValue(ems_general_status.data,5,2,VALID_ACTUAL_GEAR_EMS);
+}
+
+void set_GEAR_SWITCH_INDICATOR( uint8 GEAR_SWITCH_INDICATOR)
+{
+     setuint8SigValue(ems_general_status.data,59,4,GEAR_SWITCH_INDICATOR);
 }
 
 /*EMS_START_STOP missing default process*/

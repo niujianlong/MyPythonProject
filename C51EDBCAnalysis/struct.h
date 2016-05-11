@@ -1,4 +1,5 @@
 
+/*frame 0x4a0 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -41,7 +42,7 @@ typedef struct
    uint8 ANTI_THELF_INDICATOR;
 }bcm_general_status_struct;
 
-extern   bcm_general_status_struct    bcm_general_status;
+EXTERN   bcm_general_status_struct    bcm_general_status;
 #define  GET_BCM_GENERAL_STATUS_MISSING_FLAG()    get_bcm_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -80,13 +81,14 @@ extern   bcm_general_status_struct    bcm_general_status;
 #define  GET_POSITION_LIGHT_ON_WARNING()    get_POSITION_LIGHT_ON_WARNING()
 #define  GET_ANTI_THELF_INDICATOR()    get_ANTI_THELF_INDICATOR()
 
+/*frame 0x511 struct define*/
 typedef struct
 {
     uint8  data[8];
-    uint8  Hum_gpsMissingFlag;
+    uint8  Hum_timeMissingFlag;
  
 #if  NeverReceFlagEN
-    uint8  Hum_gpsNeverReceFlag;
+    uint8  Hum_timeNeverReceFlag;
  #endif
 
    uint8 TIME_MODE_HUM;
@@ -97,13 +99,13 @@ typedef struct
    uint8 MONTH_HUM;
    uint8 SECOND_HUM;
    uint8 HOUR_HUM;
-}hum_gps_struct;
+}hum_time_struct;
 
-extern   hum_gps_struct    hum_gps;
-#define  GET_HUM_GPS_MISSING_FLAG()    get_hum_gps_missing_flag()
+EXTERN   hum_time_struct    hum_time;
+#define  GET_HUM_TIME_MISSING_FLAG()    get_hum_time_missing_flag()
 
 #if  NeverReceFlagEN
-#define  GET_HUM_GPS_NEVER_RECE_FLAG()    get_hum_gps_never_reve_flag()
+#define  GET_HUM_TIME_NEVER_RECE_FLAG()    get_hum_time_never_reve_flag()
 #endif
 
 #define  GET_TIME_MODE_HUM()    get_TIME_MODE_HUM()
@@ -115,6 +117,7 @@ extern   hum_gps_struct    hum_gps;
 #define  GET_SECOND_HUM()    get_SECOND_HUM()
 #define  GET_HOUR_HUM()    get_HOUR_HUM()
 
+/*frame 0x530 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -128,7 +131,7 @@ typedef struct
    uint8 OUTSIDE_TEMP;
 }ac_control_struct;
 
-extern   ac_control_struct    ac_control;
+EXTERN   ac_control_struct    ac_control;
 #define  GET_AC_CONTROL_MISSING_FLAG()    get_ac_control_missing_flag()
 
 #if  NeverReceFlagEN
@@ -138,6 +141,7 @@ extern   ac_control_struct    ac_control;
 #define  GET_VALID_OTEMP()    get_VALID_OTEMP()
 #define  GET_OUTSIDE_TEMP()    get_OUTSIDE_TEMP()
 
+/*frame 0x540 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -162,7 +166,7 @@ typedef struct
    uint8 SIGNAL_STATUS;
 }tpms_sys_status_struct;
 
-extern   tpms_sys_status_struct    tpms_sys_status;
+EXTERN   tpms_sys_status_struct    tpms_sys_status;
 #define  GET_TPMS_SYS_STATUS_MISSING_FLAG()    get_tpms_sys_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -183,6 +187,63 @@ extern   tpms_sys_status_struct    tpms_sys_status;
 #define  GET_RR_PRESSURE_WARNING()    get_RR_PRESSURE_WARNING()
 #define  GET_SIGNAL_STATUS()    get_SIGNAL_STATUS()
 
+/*frame 0x560 struct define*/
+typedef struct
+{
+    uint8  data[8];
+    uint8  Pas_general_statusMissingFlag;
+ 
+#if  NeverReceFlagEN
+    uint8  Pas_general_statusNeverReceFlag;
+ #endif
+
+   uint8 PAS_SYS_STATUS;
+   uint8 SVA_SYS_STATUS;
+   uint8 PA_FRONT_SYS_STATUS;
+   uint8 PA_REAR_SYS_STATUS;
+   uint8 PA_REARMIDLEFT_REG_OBJ_STATUS;
+   uint8 PA_REARLEFT_REG_OBJ_STATUS;
+   uint8 PA_FRONTLEFT_REG_OBJ_STATUS;
+   uint8 PA_REARRIGHT_REG_OBJ_STATUS;
+   uint8 PA_FRONTRIGHT_REG_OBJ_STATUS;
+   uint8 PA_FRONTMIDLEFT_REG_OBJ_STATUS;
+   uint8 REAR_MINI_PAS_DISTANCE;
+   uint8 FRONT_MINI_PAS_DISTANCE;
+   uint8 PA_REARMIDRIGHT_REG_OBJ_ST;
+   uint8 SVA_WARNING_STATUS_RIGHT;
+   uint8 SVA_WARNING_STATUS_LEFT;
+   uint8 NEAREST_REAR_PAS;
+   uint8 PA_PAS_SW_STATUS;
+   uint8 PA_FRONTMIDRIGHT_REG_OBJ_ST;
+}pas_general_status_struct;
+
+EXTERN   pas_general_status_struct    pas_general_status;
+#define  GET_PAS_GENERAL_STATUS_MISSING_FLAG()    get_pas_general_status_missing_flag()
+
+#if  NeverReceFlagEN
+#define  GET_PAS_GENERAL_STATUS_NEVER_RECE_FLAG()    get_pas_general_status_never_reve_flag()
+#endif
+
+#define  GET_PAS_SYS_STATUS()    get_PAS_SYS_STATUS()
+#define  GET_SVA_SYS_STATUS()    get_SVA_SYS_STATUS()
+#define  GET_PA_FRONT_SYS_STATUS()    get_PA_FRONT_SYS_STATUS()
+#define  GET_PA_REAR_SYS_STATUS()    get_PA_REAR_SYS_STATUS()
+#define  GET_PA_REARMIDLEFT_REG_OBJ_STATUS()    get_PA_REARMIDLEFT_REG_OBJ_STATUS()
+#define  GET_PA_REARLEFT_REG_OBJ_STATUS()    get_PA_REARLEFT_REG_OBJ_STATUS()
+#define  GET_PA_FRONTLEFT_REG_OBJ_STATUS()    get_PA_FRONTLEFT_REG_OBJ_STATUS()
+#define  GET_PA_REARRIGHT_REG_OBJ_STATUS()    get_PA_REARRIGHT_REG_OBJ_STATUS()
+#define  GET_PA_FRONTRIGHT_REG_OBJ_STATUS()    get_PA_FRONTRIGHT_REG_OBJ_STATUS()
+#define  GET_PA_FRONTMIDLEFT_REG_OBJ_STATUS()    get_PA_FRONTMIDLEFT_REG_OBJ_STATUS()
+#define  GET_REAR_MINI_PAS_DISTANCE()    get_REAR_MINI_PAS_DISTANCE()
+#define  GET_FRONT_MINI_PAS_DISTANCE()    get_FRONT_MINI_PAS_DISTANCE()
+#define  GET_PA_REARMIDRIGHT_REG_OBJ_ST()    get_PA_REARMIDRIGHT_REG_OBJ_ST()
+#define  GET_SVA_WARNING_STATUS_RIGHT()    get_SVA_WARNING_STATUS_RIGHT()
+#define  GET_SVA_WARNING_STATUS_LEFT()    get_SVA_WARNING_STATUS_LEFT()
+#define  GET_NEAREST_REAR_PAS()    get_NEAREST_REAR_PAS()
+#define  GET_PA_PAS_SW_STATUS()    get_PA_PAS_SW_STATUS()
+#define  GET_PA_FRONTMIDRIGHT_REG_OBJ_ST()    get_PA_FRONTMIDRIGHT_REG_OBJ_ST()
+
+/*frame 0x570 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -196,7 +257,7 @@ typedef struct
    uint8 REMOTE_START_STATUS;
 }peps_general_status_struct;
 
-extern   peps_general_status_struct    peps_general_status;
+EXTERN   peps_general_status_struct    peps_general_status;
 #define  GET_PEPS_GENERAL_STATUS_MISSING_FLAG()    get_peps_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -206,6 +267,7 @@ extern   peps_general_status_struct    peps_general_status;
 #define  GET_REMOTE_START_RESPONSE_PEPS()    get_REMOTE_START_RESPONSE_PEPS()
 #define  GET_REMOTE_START_STATUS()    get_REMOTE_START_STATUS()
 
+/*frame 0x571 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -226,7 +288,7 @@ typedef struct
    uint8 ESCL_SERVICE_RELEVANT_FAILURE;
 }escl_general_status_struct;
 
-extern   escl_general_status_struct    escl_general_status;
+EXTERN   escl_general_status_struct    escl_general_status;
 #define  GET_ESCL_GENERAL_STATUS_MISSING_FLAG()    get_escl_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -243,6 +305,7 @@ extern   escl_general_status_struct    escl_general_status;
 #define  GET_ESCL_LOCKED()    get_ESCL_LOCKED()
 #define  GET_ESCL_SERVICE_RELEVANT_FAILURE()    get_ESCL_SERVICE_RELEVANT_FAILURE()
 
+/*frame 0x580 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -271,7 +334,7 @@ typedef struct
    uint8 MIU_MSG_REQ_N16;
 }peps_general_status_2_struct;
 
-extern   peps_general_status_2_struct    peps_general_status_2;
+EXTERN   peps_general_status_2_struct    peps_general_status_2;
 #define  GET_PEPS_GENERAL_STATUS_2_MISSING_FLAG()    get_peps_general_status_2_missing_flag()
 
 #if  NeverReceFlagEN
@@ -296,6 +359,75 @@ extern   peps_general_status_2_struct    peps_general_status_2;
 #define  GET_MIU_MSG_REQ_N8()    get_MIU_MSG_REQ_N8()
 #define  GET_MIU_MSG_REQ_N16()    get_MIU_MSG_REQ_N16()
 
+/*frame 0x592 struct define*/
+typedef struct
+{
+    uint8  data[8];
+    uint8  Avm_general_statusMissingFlag;
+ 
+#if  NeverReceFlagEN
+    uint8  Avm_general_statusNeverReceFlag;
+ #endif
+
+   uint8 AVM_HMI_INDEX;
+   uint8 AVM_DISPLAY_REQ;
+   uint8 FRONT_CAMERA_INPUT_FAILED;
+   uint8 REAR_CAMERA_INPUT_FAILED;
+   uint8 LEFT_CAMERA_INPUT_FAILED;
+   uint8 RIGHT_CAMERA_INPUT_FAILED;
+   uint8 VIDEO_OUTPUT_FAILED;
+   uint8 CONTROLLER_OP_FAILED;
+   uint8 CAN_COM_FAILED;
+   uint8 OVERLAY_OP_FAILED;
+   uint8 LDW_OP_STATUS;
+   uint8 BSD_OP_STATUS;
+   uint8 AVM_STATUS;
+   uint8 LDW_LANE_AVALIABILITY;
+   uint8 LDW_WARNING_STATUS;
+   uint8 BSD_LEFT_WARNING_STATUS;
+   uint8 BSD_RIGHT_WARNING_STATUS;
+   uint8 MOD_FRONT_WARNING_STATUS;
+   uint8 MOD_REAR_WARNING_STATUS;
+   uint8 MOD_LEFT_WARNING_STATUS;
+   uint8 MOD_RIGHT_WARNING_STATUS;
+   uint8 BAT_VOLT_OUT_OF_RANGE;
+   uint8 EOL_NOT_COMPLETED;
+   uint8 GUID_VOICE_REQ;
+}avm_general_status_struct;
+
+EXTERN   avm_general_status_struct    avm_general_status;
+#define  GET_AVM_GENERAL_STATUS_MISSING_FLAG()    get_avm_general_status_missing_flag()
+
+#if  NeverReceFlagEN
+#define  GET_AVM_GENERAL_STATUS_NEVER_RECE_FLAG()    get_avm_general_status_never_reve_flag()
+#endif
+
+#define  GET_AVM_HMI_INDEX()    get_AVM_HMI_INDEX()
+#define  GET_AVM_DISPLAY_REQ()    get_AVM_DISPLAY_REQ()
+#define  GET_FRONT_CAMERA_INPUT_FAILED()    get_FRONT_CAMERA_INPUT_FAILED()
+#define  GET_REAR_CAMERA_INPUT_FAILED()    get_REAR_CAMERA_INPUT_FAILED()
+#define  GET_LEFT_CAMERA_INPUT_FAILED()    get_LEFT_CAMERA_INPUT_FAILED()
+#define  GET_RIGHT_CAMERA_INPUT_FAILED()    get_RIGHT_CAMERA_INPUT_FAILED()
+#define  GET_VIDEO_OUTPUT_FAILED()    get_VIDEO_OUTPUT_FAILED()
+#define  GET_CONTROLLER_OP_FAILED()    get_CONTROLLER_OP_FAILED()
+#define  GET_CAN_COM_FAILED()    get_CAN_COM_FAILED()
+#define  GET_OVERLAY_OP_FAILED()    get_OVERLAY_OP_FAILED()
+#define  GET_LDW_OP_STATUS()    get_LDW_OP_STATUS()
+#define  GET_BSD_OP_STATUS()    get_BSD_OP_STATUS()
+#define  GET_AVM_STATUS()    get_AVM_STATUS()
+#define  GET_LDW_LANE_AVALIABILITY()    get_LDW_LANE_AVALIABILITY()
+#define  GET_LDW_WARNING_STATUS()    get_LDW_WARNING_STATUS()
+#define  GET_BSD_LEFT_WARNING_STATUS()    get_BSD_LEFT_WARNING_STATUS()
+#define  GET_BSD_RIGHT_WARNING_STATUS()    get_BSD_RIGHT_WARNING_STATUS()
+#define  GET_MOD_FRONT_WARNING_STATUS()    get_MOD_FRONT_WARNING_STATUS()
+#define  GET_MOD_REAR_WARNING_STATUS()    get_MOD_REAR_WARNING_STATUS()
+#define  GET_MOD_LEFT_WARNING_STATUS()    get_MOD_LEFT_WARNING_STATUS()
+#define  GET_MOD_RIGHT_WARNING_STATUS()    get_MOD_RIGHT_WARNING_STATUS()
+#define  GET_BAT_VOLT_OUT_OF_RANGE()    get_BAT_VOLT_OUT_OF_RANGE()
+#define  GET_EOL_NOT_COMPLETED()    get_EOL_NOT_COMPLETED()
+#define  GET_GUID_VOICE_REQ()    get_GUID_VOICE_REQ()
+
+/*frame 0x5c0 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -309,7 +441,7 @@ typedef struct
    uint8 VALID_COOLANT;
 }ems_engine_temp_and_barrometer_struct;
 
-extern   ems_engine_temp_and_barrometer_struct    ems_engine_temp_and_barrometer;
+EXTERN   ems_engine_temp_and_barrometer_struct    ems_engine_temp_and_barrometer;
 #define  GET_EMS_ENGINE_TEMP_AND_BARROMETER_MISSING_FLAG()    get_ems_engine_temp_and_barrometer_missing_flag()
 
 #if  NeverReceFlagEN
@@ -319,6 +451,7 @@ extern   ems_engine_temp_and_barrometer_struct    ems_engine_temp_and_barrometer
 #define  GET_COOLANT_TEMPERATURE()    get_COOLANT_TEMPERATURE()
 #define  GET_VALID_COOLANT()    get_VALID_COOLANT()
 
+/*frame 0x620 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -340,7 +473,7 @@ typedef struct
    uint8 ODOMETER_OFFSET_ICM;
 }icm_general_status_struct;
 
-extern   icm_general_status_struct    icm_general_status;
+EXTERN   icm_general_status_struct    icm_general_status;
 #define  GET_ICM_GENERAL_STATUS_MISSING_FLAG()    get_icm_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -358,6 +491,7 @@ extern   icm_general_status_struct    icm_general_status;
 #define  GET_BATTERY_VOLTAGE_LEVEL()    get_BATTERY_VOLTAGE_LEVEL()
 #define  GET_ODOMETER_OFFSET_ICM()    get_ODOMETER_OFFSET_ICM()
 
+/*frame 0x621 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -370,9 +504,10 @@ typedef struct
    uint8 HAND_BRAKE_ICM;
    uint8 REMOTE_START_RESPONSE_ICM;
    uint8 FUELTANK_REMAINING;
+    uint16 OILPUMP_RESISTER_ICM;
 }icm_general_status_2_struct;
 
-extern   icm_general_status_2_struct    icm_general_status_2;
+EXTERN   icm_general_status_2_struct    icm_general_status_2;
 #define  GET_ICM_GENERAL_STATUS_2_MISSING_FLAG()    get_icm_general_status_2_missing_flag()
 
 #if  NeverReceFlagEN
@@ -382,7 +517,9 @@ extern   icm_general_status_2_struct    icm_general_status_2;
 #define  GET_HAND_BRAKE_ICM()    get_HAND_BRAKE_ICM()
 #define  GET_REMOTE_START_RESPONSE_ICM()    get_REMOTE_START_RESPONSE_ICM()
 #define  GET_FUELTANK_REMAINING()    get_FUELTANK_REMAINING()
+#define  GET_OILPUMP_RESISTER_ICM()    get_OILPUMP_RESISTER_ICM()
 
+/*frame 0x630 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -395,7 +532,7 @@ typedef struct
    uint8 AHL_FAULT_STATUS;
 }ahl_general_status_struct;
 
-extern   ahl_general_status_struct    ahl_general_status;
+EXTERN   ahl_general_status_struct    ahl_general_status;
 #define  GET_AHL_GENERAL_STATUS_MISSING_FLAG()    get_ahl_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -404,6 +541,7 @@ extern   ahl_general_status_struct    ahl_general_status;
 
 #define  GET_AHL_FAULT_STATUS()    get_AHL_FAULT_STATUS()
 
+/*frame 0x660 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -421,7 +559,7 @@ typedef struct
    uint8 ODOMETER_RESET_COUNTER_BCM;
 }bcm_general_status_2_struct;
 
-extern   bcm_general_status_2_struct    bcm_general_status_2;
+EXTERN   bcm_general_status_2_struct    bcm_general_status_2;
 #define  GET_BCM_GENERAL_STATUS_2_MISSING_FLAG()    get_bcm_general_status_2_missing_flag()
 
 #if  NeverReceFlagEN
@@ -435,35 +573,29 @@ extern   bcm_general_status_2_struct    bcm_general_status_2;
 #define  GET_POWER_MODE_VALIDITY_BCM()    get_POWER_MODE_VALIDITY_BCM()
 #define  GET_ODOMETER_RESET_COUNTER_BCM()    get_ODOMETER_RESET_COUNTER_BCM()
 
+/*frame 0x670 struct define*/
 typedef struct
 {
     uint8  data[8];
-    uint8  Icm_event_command_2MissingFlag;
+    uint8  Hum_event_command_1MissingFlag;
  
 #if  NeverReceFlagEN
-    uint8  Icm_event_command_2NeverReceFlag;
+    uint8  Hum_event_command_1NeverReceFlag;
  #endif
 
-   uint8 FOLLOW_ME_HOME_SETTING;
-   uint8 VSPEED_LOCKING;
-   uint8 CUTOFF_UNLOCK_4_DOORS;
-   uint8 LOCK_SUCCESS_SOUND;
-   uint8 DRL_OPEN;
-}icm_event_command_2_struct;
+   uint8 SYS_LANGUAGE;
+}hum_event_command_1_struct;
 
-extern   icm_event_command_2_struct    icm_event_command_2;
-#define  GET_ICM_EVENT_COMMAND_2_MISSING_FLAG()    get_icm_event_command_2_missing_flag()
+EXTERN   hum_event_command_1_struct    hum_event_command_1;
+#define  GET_HUM_EVENT_COMMAND_1_MISSING_FLAG()    get_hum_event_command_1_missing_flag()
 
 #if  NeverReceFlagEN
-#define  GET_ICM_EVENT_COMMAND_2_NEVER_RECE_FLAG()    get_icm_event_command_2_never_reve_flag()
+#define  GET_HUM_EVENT_COMMAND_1_NEVER_RECE_FLAG()    get_hum_event_command_1_never_reve_flag()
 #endif
 
-#define  GET_FOLLOW_ME_HOME_SETTING()    get_FOLLOW_ME_HOME_SETTING()
-#define  GET_VSPEED_LOCKING()    get_VSPEED_LOCKING()
-#define  GET_CUTOFF_UNLOCK_4_DOORS()    get_CUTOFF_UNLOCK_4_DOORS()
-#define  GET_LOCK_SUCCESS_SOUND()    get_LOCK_SUCCESS_SOUND()
-#define  GET_DRL_OPEN()    get_DRL_OPEN()
+#define  GET_SYS_LANGUAGE()    get_SYS_LANGUAGE()
 
+/*frame 0x6f1 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -474,12 +606,13 @@ typedef struct
  #endif
 
     uint16 INSTANT_FUEL_CONSUM;
-    uint16 AVERAGE_FUEL_CONSUM;
+    uint16 AVERAGE_FUEL_CONSUM1;
     uint16 ENDURANCE_MILEAGE;
     uint16 REMAIN_MAINTAIN_MILEAGE;
+    uint16 AVERAGE_FUEL_CONSUM2;
 }icm_general_status_3_struct;
 
-extern   icm_general_status_3_struct    icm_general_status_3;
+EXTERN   icm_general_status_3_struct    icm_general_status_3;
 #define  GET_ICM_GENERAL_STATUS_3_MISSING_FLAG()    get_icm_general_status_3_missing_flag()
 
 #if  NeverReceFlagEN
@@ -487,10 +620,12 @@ extern   icm_general_status_3_struct    icm_general_status_3;
 #endif
 
 #define  GET_INSTANT_FUEL_CONSUM()    get_INSTANT_FUEL_CONSUM()
-#define  GET_AVERAGE_FUEL_CONSUM()    get_AVERAGE_FUEL_CONSUM()
+#define  GET_AVERAGE_FUEL_CONSUM1()    get_AVERAGE_FUEL_CONSUM1()
 #define  GET_ENDURANCE_MILEAGE()    get_ENDURANCE_MILEAGE()
 #define  GET_REMAIN_MAINTAIN_MILEAGE()    get_REMAIN_MAINTAIN_MILEAGE()
+#define  GET_AVERAGE_FUEL_CONSUM2()    get_AVERAGE_FUEL_CONSUM2()
 
+/*frame 0x110 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -503,7 +638,7 @@ typedef struct
    uint8 TRANSMISSION_OIL_TEMPERATURE;
 }tcu_engine_torque_request_struct;
 
-extern   tcu_engine_torque_request_struct    tcu_engine_torque_request;
+EXTERN   tcu_engine_torque_request_struct    tcu_engine_torque_request;
 #define  GET_TCU_ENGINE_TORQUE_REQUEST_MISSING_FLAG()    get_tcu_engine_torque_request_missing_flag()
 
 #if  NeverReceFlagEN
@@ -512,6 +647,7 @@ extern   tcu_engine_torque_request_struct    tcu_engine_torque_request;
 
 #define  GET_TRANSMISSION_OIL_TEMPERATURE()    get_TRANSMISSION_OIL_TEMPERATURE()
 
+/*frame 0x1a0 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -525,7 +661,7 @@ typedef struct
    uint8 VALID_ESPEED;
 }ems_engine_speed_and_torque_struct;
 
-extern   ems_engine_speed_and_torque_struct    ems_engine_speed_and_torque;
+EXTERN   ems_engine_speed_and_torque_struct    ems_engine_speed_and_torque;
 #define  GET_EMS_ENGINE_SPEED_AND_TORQUE_MISSING_FLAG()    get_ems_engine_speed_and_torque_missing_flag()
 
 #if  NeverReceFlagEN
@@ -535,6 +671,7 @@ extern   ems_engine_speed_and_torque_struct    ems_engine_speed_and_torque;
 #define  GET_ACTUAL_ENGINE_SPEED_UNFILTERED()    get_ACTUAL_ENGINE_SPEED_UNFILTERED()
 #define  GET_VALID_ESPEED()    get_VALID_ESPEED()
 
+/*frame 0x280 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -557,9 +694,10 @@ typedef struct
    uint8 REQ_CHECK_ENGINE_TELLTALE;
    uint8 ENGINE_RUNNING;
    uint8 VALID_ACTUAL_GEAR_EMS;
+   uint8 GEAR_SWITCH_INDICATOR;
 }ems_general_status_struct;
 
-extern   ems_general_status_struct    ems_general_status;
+EXTERN   ems_general_status_struct    ems_general_status;
 #define  GET_EMS_GENERAL_STATUS_MISSING_FLAG()    get_ems_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -579,7 +717,9 @@ extern   ems_general_status_struct    ems_general_status;
 #define  GET_REQ_CHECK_ENGINE_TELLTALE()    get_REQ_CHECK_ENGINE_TELLTALE()
 #define  GET_ENGINE_RUNNING()    get_ENGINE_RUNNING()
 #define  GET_VALID_ACTUAL_GEAR_EMS()    get_VALID_ACTUAL_GEAR_EMS()
+#define  GET_GEAR_SWITCH_INDICATOR()    get_GEAR_SWITCH_INDICATOR()
 
+/*frame 0x281 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -597,7 +737,7 @@ typedef struct
    uint8 SS_ENABLE_LAMP;
 }ems_start_stop_struct;
 
-extern   ems_start_stop_struct    ems_start_stop;
+EXTERN   ems_start_stop_struct    ems_start_stop;
 #define  GET_EMS_START_STOP_MISSING_FLAG()    get_ems_start_stop_missing_flag()
 
 #if  NeverReceFlagEN
@@ -611,6 +751,7 @@ extern   ems_start_stop_struct    ems_start_stop;
 #define  GET_SS_FAULT_LAMP()    get_SS_FAULT_LAMP()
 #define  GET_SS_ENABLE_LAMP()    get_SS_ENABLE_LAMP()
 
+/*frame 0x318 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -628,7 +769,7 @@ typedef struct
     uint16 ODOMETER_ROLLING;
 }general_status_tcs_esp_struct;
 
-extern   general_status_tcs_esp_struct    general_status_tcs_esp;
+EXTERN   general_status_tcs_esp_struct    general_status_tcs_esp;
 #define  GET_GENERAL_STATUS_TCS_ESP_MISSING_FLAG()    get_general_status_tcs_esp_missing_flag()
 
 #if  NeverReceFlagEN
@@ -642,6 +783,7 @@ extern   general_status_tcs_esp_struct    general_status_tcs_esp;
 #define  GET_REQ_ABS_TELLTALE()    get_REQ_ABS_TELLTALE()
 #define  GET_ODOMETER_ROLLING()    get_ODOMETER_ROLLING()
 
+/*frame 0x50 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -655,7 +797,7 @@ typedef struct
    uint8 IMMO_SID;
 }ecs_immo_rand_number_struct;
 
-extern   ecs_immo_rand_number_struct    ecs_immo_rand_number;
+EXTERN   ecs_immo_rand_number_struct    ecs_immo_rand_number;
 #define  GET_ECS_IMMO_RAND_NUMBER_MISSING_FLAG()    get_ecs_immo_rand_number_missing_flag()
 
 #if  NeverReceFlagEN
@@ -665,6 +807,7 @@ extern   ecs_immo_rand_number_struct    ecs_immo_rand_number;
 #define  GET_AUTH_RESULT()    get_AUTH_RESULT()
 #define  GET_IMMO_SID()    get_IMMO_SID()
 
+/*frame 0x320 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -688,7 +831,7 @@ typedef struct
    uint8 YEAR_MIU;
 }icm_event_command_struct;
 
-extern   icm_event_command_struct    icm_event_command;
+EXTERN   icm_event_command_struct    icm_event_command;
 #define  GET_ICM_EVENT_COMMAND_MISSING_FLAG()    get_icm_event_command_missing_flag()
 
 #if  NeverReceFlagEN
@@ -708,6 +851,7 @@ extern   icm_event_command_struct    icm_event_command;
 #define  GET_DAY_MIU()    get_DAY_MIU()
 #define  GET_YEAR_MIU()    get_YEAR_MIU()
 
+/*frame 0x322 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -721,7 +865,7 @@ typedef struct
    uint8 STS_EPS_FAULT_STS;
 }eps_status_struct;
 
-extern   eps_status_struct    eps_status;
+EXTERN   eps_status_struct    eps_status;
 #define  GET_EPS_STATUS_MISSING_FLAG()    get_eps_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -731,6 +875,7 @@ extern   eps_status_struct    eps_status;
 #define  GET_STS_EPS_ACTIVE_STS()    get_STS_EPS_ACTIVE_STS()
 #define  GET_STS_EPS_FAULT_STS()    get_STS_EPS_FAULT_STS()
 
+/*frame 0x350 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -747,7 +892,7 @@ typedef struct
    uint8 SEATBELT_DR_ATT;
 }sdm_general_status_struct;
 
-extern   sdm_general_status_struct    sdm_general_status;
+EXTERN   sdm_general_status_struct    sdm_general_status;
 #define  GET_SDM_GENERAL_STATUS_MISSING_FLAG()    get_sdm_general_status_missing_flag()
 
 #if  NeverReceFlagEN
@@ -760,6 +905,7 @@ extern   sdm_general_status_struct    sdm_general_status;
 #define  GET_SEATBELT_PA_ATT()    get_SEATBELT_PA_ATT()
 #define  GET_SEATBELT_DR_ATT()    get_SEATBELT_DR_ATT()
 
+/*frame 0x370 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -775,7 +921,7 @@ typedef struct
    uint8 VALID_FUEL_INJ;
 }ems_engine_fuel_and_turbo_struct;
 
-extern   ems_engine_fuel_and_turbo_struct    ems_engine_fuel_and_turbo;
+EXTERN   ems_engine_fuel_and_turbo_struct    ems_engine_fuel_and_turbo;
 #define  GET_EMS_ENGINE_FUEL_AND_TURBO_MISSING_FLAG()    get_ems_engine_fuel_and_turbo_missing_flag()
 
 #if  NeverReceFlagEN
@@ -787,6 +933,7 @@ extern   ems_engine_fuel_and_turbo_struct    ems_engine_fuel_and_turbo;
 #define  GET_TURBO_PRESENTATION()    get_TURBO_PRESENTATION()
 #define  GET_VALID_FUEL_INJ()    get_VALID_FUEL_INJ()
 
+/*frame 0x3a0 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -800,7 +947,7 @@ typedef struct
     uint16 VEHICLE_SPEED;
 }ems_engine_idle_and_vspeed_struct;
 
-extern   ems_engine_idle_and_vspeed_struct    ems_engine_idle_and_vspeed;
+EXTERN   ems_engine_idle_and_vspeed_struct    ems_engine_idle_and_vspeed;
 #define  GET_EMS_ENGINE_IDLE_AND_VSPEED_MISSING_FLAG()    get_ems_engine_idle_and_vspeed_missing_flag()
 
 #if  NeverReceFlagEN
@@ -810,6 +957,7 @@ extern   ems_engine_idle_and_vspeed_struct    ems_engine_idle_and_vspeed;
 #define  GET_VALID_VEHICLE_SPEED()    get_VALID_VEHICLE_SPEED()
 #define  GET_VEHICLE_SPEED()    get_VEHICLE_SPEED()
 
+/*frame 0x3e0 struct define*/
 typedef struct
 {
     uint8  data[8];
@@ -832,7 +980,7 @@ typedef struct
    uint8 GEAR_INDICATION;
 }tcu_general_status_struct;
 
-extern   tcu_general_status_struct    tcu_general_status;
+EXTERN   tcu_general_status_struct    tcu_general_status;
 #define  GET_TCU_GENERAL_STATUS_MISSING_FLAG()    get_tcu_general_status_missing_flag()
 
 #if  NeverReceFlagEN

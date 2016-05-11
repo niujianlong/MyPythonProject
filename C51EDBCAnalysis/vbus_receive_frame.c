@@ -1,3 +1,6 @@
+void vbus_receive_frame(uint16 frameID, uint8 *data)
+{
+   switch (frameID)
 {
 
 case 0x4a0:
@@ -5,7 +8,7 @@ case 0x4a0:
 break;
 
 case 0x511:
- FRAME_DATA_HANDLE(hum_gps, Hum_gps);
+ FRAME_DATA_HANDLE(hum_time, Hum_time);
 break;
 
 case 0x530:
@@ -14,6 +17,10 @@ break;
 
 case 0x540:
  FRAME_DATA_HANDLE(tpms_sys_status, Tpms_sys_status);
+break;
+
+case 0x560:
+ FRAME_DATA_HANDLE(pas_general_status, Pas_general_status);
 break;
 
 case 0x570:
@@ -26,6 +33,10 @@ break;
 
 case 0x580:
  FRAME_DATA_HANDLE(peps_general_status_2, Peps_general_status_2);
+break;
+
+case 0x592:
+ FRAME_DATA_HANDLE(avm_general_status, Avm_general_status);
 break;
 
 case 0x5c0:
@@ -49,7 +60,7 @@ case 0x660:
 break;
 
 case 0x670:
- FRAME_DATA_HANDLE(icm_event_command_2, Icm_event_command_2);
+ FRAME_DATA_HANDLE(hum_event_command_1, Hum_event_command_1);
 break;
 
 case 0x6f1:
@@ -74,6 +85,7 @@ break;
 
 case 0x318:
  FRAME_DATA_HANDLE(general_status_tcs_esp, General_status_tcs_esp);
+SetGeneral_status_tcs_espReceivedFlag();
 break;
 
 case 0x50:
@@ -94,6 +106,7 @@ break;
 
 case 0x370:
  FRAME_DATA_HANDLE(ems_engine_fuel_and_turbo, Ems_engine_fuel_and_turbo);
+SetEms_engine_fuel_and_turboReceivedFlag();
 break;
 
 case 0x3a0:
@@ -103,4 +116,5 @@ break;
 case 0x3e0:
  FRAME_DATA_HANDLE(tcu_general_status, Tcu_general_status);
 break;
+}
 }

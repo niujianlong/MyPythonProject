@@ -155,42 +155,42 @@ uint8  get_ANTI_THELF_INDICATOR()
 
 uint8  get_TIME_MODE_HUM()
 {
-  return hum_gps.TIME_MODE_HUM;
+  return hum_time.TIME_MODE_HUM;
 }
 
 uint8  get_MINUTES_HUM()
 {
-  return hum_gps.MINUTES_HUM;
+  return hum_time.MINUTES_HUM;
 }
 
 uint8  get_DAY_HUM()
 {
-  return hum_gps.DAY_HUM;
+  return hum_time.DAY_HUM;
 }
 
 uint8  get_WEEK_HUM()
 {
-  return hum_gps.WEEK_HUM;
+  return hum_time.WEEK_HUM;
 }
 
 uint8  get_YEAR_HUM()
 {
-  return hum_gps.YEAR_HUM;
+  return hum_time.YEAR_HUM;
 }
 
 uint8  get_MONTH_HUM()
 {
-  return hum_gps.MONTH_HUM;
+  return hum_time.MONTH_HUM;
 }
 
 uint8  get_SECOND_HUM()
 {
-  return hum_gps.SECOND_HUM;
+  return hum_time.SECOND_HUM;
 }
 
 uint8  get_HOUR_HUM()
 {
-  return hum_gps.HOUR_HUM;
+  return hum_time.HOUR_HUM;
 }
 
 uint8  get_VALID_OTEMP()
@@ -266,6 +266,96 @@ uint8  get_RR_PRESSURE_WARNING()
 uint8  get_SIGNAL_STATUS()
 {
   return tpms_sys_status.SIGNAL_STATUS;
+}
+
+uint8  get_PAS_SYS_STATUS()
+{
+  return pas_general_status.PAS_SYS_STATUS;
+}
+
+uint8  get_SVA_SYS_STATUS()
+{
+  return pas_general_status.SVA_SYS_STATUS;
+}
+
+uint8  get_PA_FRONT_SYS_STATUS()
+{
+  return pas_general_status.PA_FRONT_SYS_STATUS;
+}
+
+uint8  get_PA_REAR_SYS_STATUS()
+{
+  return pas_general_status.PA_REAR_SYS_STATUS;
+}
+
+uint8  get_PA_REARMIDLEFT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_REARMIDLEFT_REG_OBJ_STATUS;
+}
+
+uint8  get_PA_REARLEFT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_REARLEFT_REG_OBJ_STATUS;
+}
+
+uint8  get_PA_FRONTLEFT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_FRONTLEFT_REG_OBJ_STATUS;
+}
+
+uint8  get_PA_REARRIGHT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_REARRIGHT_REG_OBJ_STATUS;
+}
+
+uint8  get_PA_FRONTRIGHT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_FRONTRIGHT_REG_OBJ_STATUS;
+}
+
+uint8  get_PA_FRONTMIDLEFT_REG_OBJ_STATUS()
+{
+  return pas_general_status.PA_FRONTMIDLEFT_REG_OBJ_STATUS;
+}
+
+uint8  get_REAR_MINI_PAS_DISTANCE()
+{
+  return pas_general_status.REAR_MINI_PAS_DISTANCE;
+}
+
+uint8  get_FRONT_MINI_PAS_DISTANCE()
+{
+  return pas_general_status.FRONT_MINI_PAS_DISTANCE;
+}
+
+uint8  get_PA_REARMIDRIGHT_REG_OBJ_ST()
+{
+  return pas_general_status.PA_REARMIDRIGHT_REG_OBJ_ST;
+}
+
+uint8  get_SVA_WARNING_STATUS_RIGHT()
+{
+  return pas_general_status.SVA_WARNING_STATUS_RIGHT;
+}
+
+uint8  get_SVA_WARNING_STATUS_LEFT()
+{
+  return pas_general_status.SVA_WARNING_STATUS_LEFT;
+}
+
+uint8  get_NEAREST_REAR_PAS()
+{
+  return pas_general_status.NEAREST_REAR_PAS;
+}
+
+uint8  get_PA_PAS_SW_STATUS()
+{
+  return pas_general_status.PA_PAS_SW_STATUS;
+}
+
+uint8  get_PA_FRONTMIDRIGHT_REG_OBJ_ST()
+{
+  return pas_general_status.PA_FRONTMIDRIGHT_REG_OBJ_ST;
 }
 
 uint8  get_REMOTE_START_RESPONSE_PEPS()
@@ -408,6 +498,126 @@ uint8  get_MIU_MSG_REQ_N16()
   return peps_general_status_2.MIU_MSG_REQ_N16;
 }
 
+uint8  get_AVM_HMI_INDEX()
+{
+  return avm_general_status.AVM_HMI_INDEX;
+}
+
+uint8  get_AVM_DISPLAY_REQ()
+{
+  return avm_general_status.AVM_DISPLAY_REQ;
+}
+
+uint8  get_FRONT_CAMERA_INPUT_FAILED()
+{
+  return avm_general_status.FRONT_CAMERA_INPUT_FAILED;
+}
+
+uint8  get_REAR_CAMERA_INPUT_FAILED()
+{
+  return avm_general_status.REAR_CAMERA_INPUT_FAILED;
+}
+
+uint8  get_LEFT_CAMERA_INPUT_FAILED()
+{
+  return avm_general_status.LEFT_CAMERA_INPUT_FAILED;
+}
+
+uint8  get_RIGHT_CAMERA_INPUT_FAILED()
+{
+  return avm_general_status.RIGHT_CAMERA_INPUT_FAILED;
+}
+
+uint8  get_VIDEO_OUTPUT_FAILED()
+{
+  return avm_general_status.VIDEO_OUTPUT_FAILED;
+}
+
+uint8  get_CONTROLLER_OP_FAILED()
+{
+  return avm_general_status.CONTROLLER_OP_FAILED;
+}
+
+uint8  get_CAN_COM_FAILED()
+{
+  return avm_general_status.CAN_COM_FAILED;
+}
+
+uint8  get_OVERLAY_OP_FAILED()
+{
+  return avm_general_status.OVERLAY_OP_FAILED;
+}
+
+uint8  get_LDW_OP_STATUS()
+{
+  return avm_general_status.LDW_OP_STATUS;
+}
+
+uint8  get_BSD_OP_STATUS()
+{
+  return avm_general_status.BSD_OP_STATUS;
+}
+
+uint8  get_AVM_STATUS()
+{
+  return avm_general_status.AVM_STATUS;
+}
+
+uint8  get_LDW_LANE_AVALIABILITY()
+{
+  return avm_general_status.LDW_LANE_AVALIABILITY;
+}
+
+uint8  get_LDW_WARNING_STATUS()
+{
+  return avm_general_status.LDW_WARNING_STATUS;
+}
+
+uint8  get_BSD_LEFT_WARNING_STATUS()
+{
+  return avm_general_status.BSD_LEFT_WARNING_STATUS;
+}
+
+uint8  get_BSD_RIGHT_WARNING_STATUS()
+{
+  return avm_general_status.BSD_RIGHT_WARNING_STATUS;
+}
+
+uint8  get_MOD_FRONT_WARNING_STATUS()
+{
+  return avm_general_status.MOD_FRONT_WARNING_STATUS;
+}
+
+uint8  get_MOD_REAR_WARNING_STATUS()
+{
+  return avm_general_status.MOD_REAR_WARNING_STATUS;
+}
+
+uint8  get_MOD_LEFT_WARNING_STATUS()
+{
+  return avm_general_status.MOD_LEFT_WARNING_STATUS;
+}
+
+uint8  get_MOD_RIGHT_WARNING_STATUS()
+{
+  return avm_general_status.MOD_RIGHT_WARNING_STATUS;
+}
+
+uint8  get_BAT_VOLT_OUT_OF_RANGE()
+{
+  return avm_general_status.BAT_VOLT_OUT_OF_RANGE;
+}
+
+uint8  get_EOL_NOT_COMPLETED()
+{
+  return avm_general_status.EOL_NOT_COMPLETED;
+}
+
+uint8  get_GUID_VOICE_REQ()
+{
+  return avm_general_status.GUID_VOICE_REQ;
+}
+
 uint8  get_COOLANT_TEMPERATURE()
 {
   return ems_engine_temp_and_barrometer.COOLANT_TEMPERATURE;
@@ -483,6 +693,11 @@ uint8  get_FUELTANK_REMAINING()
   return icm_general_status_2.FUELTANK_REMAINING;
 }
 
+uint16  get_OILPUMP_RESISTER_ICM()
+{
+  return icm_general_status_2.OILPUMP_RESISTER_ICM;
+}
+
 uint8  get_AHL_FAULT_STATUS()
 {
   return ahl_general_status.AHL_FAULT_STATUS;
@@ -518,29 +733,9 @@ uint8  get_ODOMETER_RESET_COUNTER_BCM()
   return bcm_general_status_2.ODOMETER_RESET_COUNTER_BCM;
 }
 
-uint8  get_FOLLOW_ME_HOME_SETTING()
+uint8  get_SYS_LANGUAGE()
 {
-  return icm_event_command_2.FOLLOW_ME_HOME_SETTING;
-}
-
-uint8  get_VSPEED_LOCKING()
-{
-  return icm_event_command_2.VSPEED_LOCKING;
-}
-
-uint8  get_CUTOFF_UNLOCK_4_DOORS()
-{
-  return icm_event_command_2.CUTOFF_UNLOCK_4_DOORS;
-}
-
-uint8  get_LOCK_SUCCESS_SOUND()
-{
-  return icm_event_command_2.LOCK_SUCCESS_SOUND;
-}
-
-uint8  get_DRL_OPEN()
-{
-  return icm_event_command_2.DRL_OPEN;
+  return hum_event_command_1.SYS_LANGUAGE;
 }
 
 uint16  get_INSTANT_FUEL_CONSUM()
@@ -548,9 +743,9 @@ uint16  get_INSTANT_FUEL_CONSUM()
   return icm_general_status_3.INSTANT_FUEL_CONSUM;
 }
 
-uint16  get_AVERAGE_FUEL_CONSUM()
+uint16  get_AVERAGE_FUEL_CONSUM1()
 {
-  return icm_general_status_3.AVERAGE_FUEL_CONSUM;
+  return icm_general_status_3.AVERAGE_FUEL_CONSUM1;
 }
 
 uint16  get_ENDURANCE_MILEAGE()
@@ -561,6 +756,11 @@ uint16  get_ENDURANCE_MILEAGE()
 uint16  get_REMAIN_MAINTAIN_MILEAGE()
 {
   return icm_general_status_3.REMAIN_MAINTAIN_MILEAGE;
+}
+
+uint16  get_AVERAGE_FUEL_CONSUM2()
+{
+  return icm_general_status_3.AVERAGE_FUEL_CONSUM2;
 }
 
 uint8  get_TRANSMISSION_OIL_TEMPERATURE()
@@ -641,6 +841,11 @@ uint8  get_ENGINE_RUNNING()
 uint8  get_VALID_ACTUAL_GEAR_EMS()
 {
   return ems_general_status.VALID_ACTUAL_GEAR_EMS;
+}
+
+uint8  get_GEAR_SWITCH_INDICATOR()
+{
+  return ems_general_status.GEAR_SWITCH_INDICATOR;
 }
 
 uint8  get_SS_IDLE_STOP_STATUS()
