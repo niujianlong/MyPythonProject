@@ -63,7 +63,7 @@ for line in open("C51E.txt"):
         fw5.write('  return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'NeverReceFlag;\n}\n')
         #fw5.write('#define  ' + frameStructName.upper() + '_MISSING_CYCLE    MISSING_CYCLE\n')
         #fw6.write(frameStructName.upper() + '_MISSING_CYCLE / TASK_CYCLE,\n')
-        fw7.write('static uint8  ' + frameStructName.lower() + 'Count=0;\n')
+        fw7.write('static uint16  ' + frameStructName.lower() + 'Count=0;\n')
         
         fw14.write('/*'+frameStructName+' missing default process*/\n')
         fw15.write('\nvoid Set'+frameStructName.lower()+'MissingDefaultValue(void)\n{\n')
