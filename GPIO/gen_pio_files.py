@@ -746,7 +746,7 @@ def  main():
                     if row >= port17_start_index and row < port17_end_index:
                         strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC17,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index)
                         fdio_w.write(strline)
-                        strline = '#define %s_BTEST_PORT()              TESTBIT(PPORT_ISOPR17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index)
+                        strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index)
                         fdio_w.write(strline)                        
                     
                     if row >= port21_start_index and row < port21_end_index:
