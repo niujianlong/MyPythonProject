@@ -1,0 +1,8 @@
+0: 生成之前要对dbc的txt文件用compare进行对比，把顺序调整一下，只增加有区别的地方。
+1：目前程序使用的是dbc.py 这个脚本进行的代码的生成
+2：基本结构体的生成都在这个文件里struct.h
+3：所有的set函数的生成都在这个文件里CANServiceSetFunBody.c
+4：所有的get函数体的实现生成都在这个文件里CANServiceFunBody.c
+5：所有的get函数的声明都在这个文件里CANServiceFun.h  这个一定要对应修改啊 
+6: 所有的 默认missing后的处理函数都在DefaultMissingProcess.c
+7：missing后接口函数在DefaultMissingProcess.h

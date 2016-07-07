@@ -1,0 +1,127 @@
+    ADC.o                        578
+    CANMissingProcess.o        4 120
+    CANProcess.o               7 858        4      505
+    CANService.o                 212        2        2
+    CDD_DMA.o                  2 306      192      192                99
+    CRC.o                        172       16
+    ChimesAppMgr.o             3 604       11       60
+    ChimesPolicyMgr.o          2 972      629      239
+    Dio.o                        792    1 312       24                13
+    GAUGE_app.o                2 716                34
+    Gpt.o                         36
+    Icu.o                        220      140
+    IpcDataProvider.o            486      337      320
+    IpcServiceTask.o           1 570      241    3 912
+    Mcu.o                        422                                   4
+    NVM_mgr.o                  1 612      416      478
+    Port.o                     1 058    3 276                         64
+    PowerModingMgr.o             730      136        7
+    PowerModingTimer.o           266        8        8
+    PowerModingVoltage.o         532       96        6
+    SPI.o                      3 892       96      100                44
+    STBC.o                       926                                 150
+    SignalConfig.o                        216      216
+    SignalCore.o               3 348        9    1 159
+    TAUB.o                        34                                   4
+    TC_app.o                   8 014               176
+    Warning.o                    466                14
+    WarningApp.o               2 990                 7
+    Wdt_If.o                       8
+    app.o                        262       16    1 220
+    can_bus_off.o              1 008       10        8
+    can_bus_off_driver.o         134
+    can_table.o                            96
+    clock.o                      904                                 112
+    cpu_a.o                       34
+    cpu_bsp.o                      8
+    cpu_core.o                   334      256       20
+    cstartup1.o                  130
+    default_handler.o             16
+    diagnose.o                    48                30
+    exception_vector.o           512
+    fdl_user.o                    66                 4                 1
+    fe_vector.o                  558
+    framework.o                  192      132      154
+    int_vector.o               3 784
+    intc_function.o              160
+    interrupt_table.o                                     1 152
+    lib_math.o                    48                 4
+    lib_mem.o                    124
+    lib_str.o                    116
+    low_level_init.o              12
+    odo_bcm.o                  1 548                37
+    os_app_hooks.o               160
+    os_cfg_app.o                   2       85    4 432
+    os_core.o                  2 868       38
+    os_cpu_a.o                83 434
+    os_cpu_c.o                   736
+    os_dbg.o                     702      351
+    os_flag.o                  2 052        2
+    os_mem.o                      18
+    os_msg.o                     698
+    os_mutex.o                    18
+    os_prio.o                    218                 8
+    os_q.o                     1 028        2
+    os_sem.o                      20
+    os_stat.o                  1 132       20
+    os_task.o                  2 200        8
+    os_tick.o                  1 280       20
+    os_time.o                    268
+    os_tmr.o                   1 462       21
+    os_var.o                                     1 715
+    osal.o                       164
+    ostm0.o                       72                                   7
+    r_eel_basic_fct.o         13 024        6
+    r_eel_user_if.o            1 944               392
+    r_fdl_hw_access.o          2 574
+    r_fdl_user_if.o            3 052                84
+    r_fdl_user_if_init.o          20
+    r_iic_master.o             1 924                 4                76
+    random.o                      82                 6                 4
+    reset_mgm.o                  840                12
+    rscan.o                    2 708        1       13               182
+    rtc_time_provider.o          356                42
+    s_dirnm.o                  7 200                 1
+    s_dirnm_callout.o            178        1        2
+    s_dirnm_cfg.o                         214      192
+    s_dirnm_internal.o         3 080
+    s_dsm_callout.o           10 270    1 454    1 585
+    s_dsm_cfg.o                         1 287      272
+    s_dsm_check_copyright.o      188       25        9
+    s_fbl_driver.o               634                 2                 4
+    s_tpm_callout.o              492        4       13
+    s_tpm_cfg.o                           112       56
+    swc.o                        358       20       10
+    swdl.o                     1 140                50
+    system.o                     352                 3
+    task.o                     1 466       74    9 720
+    tt_app.o                   2 546                 8
+    tt_diag.o                  1 724                 4
+    tt_mgr.o                   2 050      674       70
+    wait.o                        62
+    wdt.o                         32                                   4
+    s_dsm_core.o               3 126        5       62
+    s_dsm_node.o                 398       12       12
+    s_dsm_node_cc.o              582       25        4
+    s_dsm_node_ccr.o             222       24
+    s_dsm_node_cdi.o             124       24
+    s_dsm_node_cdtcs.o           312       24
+    s_dsm_node_dsc.o             764       24        1
+    s_dsm_node_er.o              418       24        1
+    s_dsm_node_iocbi.o           752       24
+    s_dsm_node_rc.o              722       24
+    s_dsm_node_rdbi.o          1 980       24       25
+    s_dsm_node_rdtci.o           586       24
+    s_dsm_node_sa.o            1 692       24
+    s_dsm_node_tp.o              216       24
+    s_dsm_node_unknown.o         250       24        1
+    s_dsm_node_version.o         216       43
+    s_dsm_node_wdbi.o            346       24        2
+    s_dsm_resp.o                 942
+    s_dsm_sec.o                  564
+    s_tpm.o                      584
+    s_tpm_pdu.o                  816        4        4
+    s_tpm_rx.o                 1 306
+    s_tpm_sm.o                 1 648      138       50
+    s_tpm_tx.o                   990
+    s_tpm_txsm.o                 440

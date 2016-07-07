@@ -1,0 +1,474 @@
+
+/*the function call of BMS_0x450*/
+Can_FrameType canRawDataOfBMS_450_BATT_SOC
+BMS_0x450.BMS_450_BATT_SOC=getBMS_450_BATT_SOCvalue(canRawDataOfBMS_450_BATT_SOC,1,8,15,8,0.4,0);
+
+/*the function call of ECC_0x4E0*/
+Can_FrameType canRawDataOfECC_4E0_WIND_MODE
+ECC_0x4E0.ECC_4E0_WIND_MODE=getECC_4E0_WIND_MODEvalue(canRawDataOfECC_4E0_WIND_MODE,0,2,4,3,1,0);
+Can_FrameType canRawDataOfECC_4E0_CYCLE_STA
+ECC_0x4E0.ECC_4E0_CYCLE_STA=getECC_4E0_CYCLE_STAvalue(canRawDataOfECC_4E0_CYCLE_STA,0,5,5,1,1,0);
+Can_FrameType canRawDataOfECC_4E0_WIND_SPD_STA
+ECC_0x4E0.ECC_4E0_WIND_SPD_STA=getECC_4E0_WIND_SPD_STAvalue(canRawDataOfECC_4E0_WIND_SPD_STA,1,8,11,4,1,0);
+Can_FrameType canRawDataOfECC_4E0_HEATING_COOLING_STAGE
+ECC_0x4E0.ECC_4E0_HEATING_COOLING_STAGE=getECC_4E0_HEATING_COOLING_STAGEvalue(canRawDataOfECC_4E0_HEATING_COOLING_STAGE,1,12,15,4,1,0);
+
+/*the function call of ECC_0x4E1*/
+Can_FrameType canRawDataOfECC_4E1_KNOB_TEM_SET
+ECC_0x4E1.ECC_4E1_KNOB_TEM_SET=getECC_4E1_KNOB_TEM_SETvalue(canRawDataOfECC_4E1_KNOB_TEM_SET,0,0,3,4,1,18);
+Can_FrameType canRawDataOfECC_4E1_TEM_KNOB_SW_ACT
+ECC_0x4E1.ECC_4E1_TEM_KNOB_SW_ACT=getECC_4E1_TEM_KNOB_SW_ACTvalue(canRawDataOfECC_4E1_TEM_KNOB_SW_ACT,1,8,9,2,1,0);
+Can_FrameType canRawDataOfECC_4E1_WIND_KNOB_SW_ACT
+ECC_0x4E1.ECC_4E1_WIND_KNOB_SW_ACT=getECC_4E1_WIND_KNOB_SW_ACTvalue(canRawDataOfECC_4E1_WIND_KNOB_SW_ACT,2,16,17,2,1,0);
+Can_FrameType canRawDataOfECC_4E1_MODE_KNOB_SW_ACT
+ECC_0x4E1.ECC_4E1_MODE_KNOB_SW_ACT=getECC_4E1_MODE_KNOB_SW_ACTvalue(canRawDataOfECC_4E1_MODE_KNOB_SW_ACT,3,24,25,2,1,0);
+
+/*the function call of ECC_0x4E2*/
+Can_FrameType canRawDataOfECC_4E2_AUTO_DIS
+ECC_0x4E2.ECC_4E2_AUTO_DIS=getECC_4E2_AUTO_DISvalue(canRawDataOfECC_4E2_AUTO_DIS,0,0,1,2,1,0);
+Can_FrameType canRawDataOfECC_4E2_EAS_WORK_STA
+ECC_0x4E2.ECC_4E2_EAS_WORK_STA=getECC_4E2_EAS_WORK_STAvalue(canRawDataOfECC_4E2_EAS_WORK_STA,0,2,2,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_EAS_ERROR_STA
+ECC_0x4E2.ECC_4E2_EAS_ERROR_STA=getECC_4E2_EAS_ERROR_STAvalue(canRawDataOfECC_4E2_EAS_ERROR_STA,0,3,3,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_EAS_LIM_START
+ECC_0x4E2.ECC_4E2_EAS_LIM_START=getECC_4E2_EAS_LIM_STARTvalue(canRawDataOfECC_4E2_EAS_LIM_START,0,4,4,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_PTC_WORK_STA
+ECC_0x4E2.ECC_4E2_PTC_WORK_STA=getECC_4E2_PTC_WORK_STAvalue(canRawDataOfECC_4E2_PTC_WORK_STA,0,5,5,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_PTC_ERROR_STA
+ECC_0x4E2.ECC_4E2_PTC_ERROR_STA=getECC_4E2_PTC_ERROR_STAvalue(canRawDataOfECC_4E2_PTC_ERROR_STA,0,6,6,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_PTC_LIM_START
+ECC_0x4E2.ECC_4E2_PTC_LIM_START=getECC_4E2_PTC_LIM_STARTvalue(canRawDataOfECC_4E2_PTC_LIM_START,0,7,7,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_CIRCLE_WORK_STA
+ECC_0x4E2.ECC_4E2_CIRCLE_WORK_STA=getECC_4E2_CIRCLE_WORK_STAvalue(canRawDataOfECC_4E2_CIRCLE_WORK_STA,1,8,8,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_CIRCLE_ERROR_STA
+ECC_0x4E2.ECC_4E2_CIRCLE_ERROR_STA=getECC_4E2_CIRCLE_ERROR_STAvalue(canRawDataOfECC_4E2_CIRCLE_ERROR_STA,1,9,9,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_CIRCLE_LIM_START
+ECC_0x4E2.ECC_4E2_CIRCLE_LIM_START=getECC_4E2_CIRCLE_LIM_STARTvalue(canRawDataOfECC_4E2_CIRCLE_LIM_START,1,10,10,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_WIN_R_HEAT_WORK_STA
+ECC_0x4E2.ECC_4E2_WIN_R_HEAT_WORK_STA=getECC_4E2_WIN_R_HEAT_WORK_STAvalue(canRawDataOfECC_4E2_WIN_R_HEAT_WORK_STA,1,11,11,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_WIN_R_HEAT_ERROR_STA
+ECC_0x4E2.ECC_4E2_WIN_R_HEAT_ERROR_STA=getECC_4E2_WIN_R_HEAT_ERROR_STAvalue(canRawDataOfECC_4E2_WIN_R_HEAT_ERROR_STA,1,12,12,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_WIN_R_HEAT_LIM_START
+ECC_0x4E2.ECC_4E2_WIN_R_HEAT_LIM_START=getECC_4E2_WIN_R_HEAT_LIM_STARTvalue(canRawDataOfECC_4E2_WIN_R_HEAT_LIM_START,1,13,13,1,1,0);
+Can_FrameType canRawDataOfECC_4E2_POWER_DIS
+ECC_0x4E2.ECC_4E2_POWER_DIS=getECC_4E2_POWER_DISvalue(canRawDataOfECC_4E2_POWER_DIS,2,16,23,8,0.1,0);
+
+/*the function call of RMS_0x4F0*/
+Can_FrameType canRawDataOfTBOX_4F0_CHG_TIME_SET
+RMS_0x4F0.TBOX_4F0_CHG_TIME_SET=getTBOX_4F0_CHG_TIME_SETvalue(canRawDataOfTBOX_4F0_CHG_TIME_SET,2,16,16,1,1,0);
+Can_FrameType canRawDataOfTBOX_4F0_CHG_TIME_CANC
+RMS_0x4F0.TBOX_4F0_CHG_TIME_CANC=getTBOX_4F0_CHG_TIME_CANCvalue(canRawDataOfTBOX_4F0_CHG_TIME_CANC,2,17,17,1,1,0);
+
+/*the function call of PEPS_0x570*/
+Can_FrameType canRawDataOfPEPS_570_Door_Lock_Cmd
+PEPS_0x570.PEPS_570_Door_Lock_Cmd=getPEPS_570_Door_Lock_Cmdvalue(canRawDataOfPEPS_570_Door_Lock_Cmd,0,0,1,2,1,0);
+
+/*the function call of EHU_0x585*/
+Can_FrameType canRawDataOfEHU_585_SC_CHG_SET_SIG
+EHU_0x585.EHU_585_SC_CHG_SET_SIG=getEHU_585_SC_CHG_SET_SIGvalue(canRawDataOfEHU_585_SC_CHG_SET_SIG,0,0,0,1,1,0);
+Can_FrameType canRawDataOfEHU_585_SC_CHG_CANC_SIG
+EHU_0x585.EHU_585_SC_CHG_CANC_SIG=getEHU_585_SC_CHG_CANC_SIGvalue(canRawDataOfEHU_585_SC_CHG_CANC_SIG,0,1,1,1,1,0);
+Can_FrameType canRawDataOfEHU_585_LOW_POWER_SET
+EHU_0x585.EHU_585_LOW_POWER_SET=getEHU_585_LOW_POWER_SETvalue(canRawDataOfEHU_585_LOW_POWER_SET,0,3,3,1,1,0);
+Can_FrameType canRawDataOfEHU_585_SC_CHG_HOUR_START
+EHU_0x585.EHU_585_SC_CHG_HOUR_START=getEHU_585_SC_CHG_HOUR_STARTvalue(canRawDataOfEHU_585_SC_CHG_HOUR_START,2,16,20,5,1,0);
+Can_FrameType canRawDataOfEHU_585_SC_CHG_MIN_START
+EHU_0x585.EHU_585_SC_CHG_MIN_START=getEHU_585_SC_CHG_MIN_STARTvalue(canRawDataOfEHU_585_SC_CHG_MIN_START,3,24,29,6,1,0);
+Can_FrameType canRawDataOfEHU_585_DEFAULT_D_REG_LEVLE
+EHU_0x585.EHU_585_DEFAULT_D_REG_LEVLE=getEHU_585_DEFAULT_D_REG_LEVLEvalue(canRawDataOfEHU_585_DEFAULT_D_REG_LEVLE,3,30,31,2,1,0);
+Can_FrameType canRawDataOfEHU_585_SC_CHG_HOUR_END
+EHU_0x585.EHU_585_SC_CHG_HOUR_END=getEHU_585_SC_CHG_HOUR_ENDvalue(canRawDataOfEHU_585_SC_CHG_HOUR_END,4,32,36,5,1,0);
+Can_FrameType canRawDataOfEHU_585_SC_CHG_NIN_END
+EHU_0x585.EHU_585_SC_CHG_NIN_END=getEHU_585_SC_CHG_NIN_ENDvalue(canRawDataOfEHU_585_SC_CHG_NIN_END,5,40,45,6,1,0);
+Can_FrameType canRawDataOfEHU_585_DEFAULT_E_REG_LEVLE
+EHU_0x585.EHU_585_DEFAULT_E_REG_LEVLE=getEHU_585_DEFAULT_E_REG_LEVLEvalue(canRawDataOfEHU_585_DEFAULT_E_REG_LEVLE,5,46,47,2,1,0);
+Can_FrameType canRawDataOfEHU_585_EHU_Theme
+EHU_0x585.EHU_585_EHU_Theme=getEHU_585_EHU_Themevalue(canRawDataOfEHU_585_EHU_Theme,6,48,49,2,1,0);
+Can_FrameType canRawDataOfEHU_585_EHU_State
+EHU_0x585.EHU_585_EHU_State=getEHU_585_EHU_Statevalue(canRawDataOfEHU_585_EHU_State,6,50,51,2,1,0);
+
+/*the function call of VCU_0x615*/
+Can_FrameType canRawDataOfVCU_615_VEH_ENERGY_FLOW
+VCU_0x615.VCU_615_VEH_ENERGY_FLOW=getVCU_615_VEH_ENERGY_FLOWvalue(canRawDataOfVCU_615_VEH_ENERGY_FLOW,0,0,1,2,1,0);
+Can_FrameType canRawDataOfVCU_615_ONE_KM_FLG
+VCU_0x615.VCU_615_ONE_KM_FLG=getVCU_615_ONE_KM_FLGvalue(canRawDataOfVCU_615_ONE_KM_FLG,0,3,3,1,1,0);
+Can_FrameType canRawDataOfVCU_615_VEH_FAULT_STA
+VCU_0x615.VCU_615_VEH_FAULT_STA=getVCU_615_VEH_FAULT_STAvalue(canRawDataOfVCU_615_VEH_FAULT_STA,0,5,6,2,1,0);
+Can_FrameType canRawDataOfVCU_615_ENERGY_FLOW_LEVEL
+VCU_0x615.VCU_615_ENERGY_FLOW_LEVEL=getVCU_615_ENERGY_FLOW_LEVELvalue(canRawDataOfVCU_615_ENERGY_FLOW_LEVEL,2,16,18,3,1,-3);
+Can_FrameType canRawDataOfVCU_615_SOC_LOW
+VCU_0x615.VCU_615_SOC_LOW=getVCU_615_SOC_LOWvalue(canRawDataOfVCU_615_SOC_LOW,3,24,24,1,1,0);
+Can_FrameType canRawDataOfVU_615_DOOR_OPEN
+VCU_0x615.VU_615_DOOR_OPEN=getVU_615_DOOR_OPENvalue(canRawDataOfVU_615_DOOR_OPEN,3,25,25,1,1,0);
+Can_FrameType canRawDataOfVCU_615_ENERGY_CONSUM_AV
+VCU_0x615.VCU_615_ENERGY_CONSUM_AV=getVCU_615_ENERGY_CONSUM_AVvalue(canRawDataOfVCU_615_ENERGY_CONSUM_AV,7,56,55,16,0.01,0);
+
+/*the function call of VCU_0x616*/
+Can_FrameType canRawDataOfVCU_616_DRIVE_RANGE
+VCU_0x616.VCU_616_DRIVE_RANGE=getVCU_616_DRIVE_RANGEvalue(canRawDataOfVCU_616_DRIVE_RANGE,1,8,7,16,0.1,0);
+
+/*the function call of VCU_0x617*/
+Can_FrameType canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_STA
+VCU_0x617.VCU_617_BRAKE_ENGERY_RECOV_STA=getVCU_617_BRAKE_ENGERY_RECOV_STAvalue(canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_STA,0,2,2,1,1,0);
+Can_FrameType canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_LEVEL
+VCU_0x617.VCU_617_BRAKE_ENGERY_RECOV_LEVEL=getVCU_617_BRAKE_ENGERY_RECOV_LEVELvalue(canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_LEVEL,0,3,5,3,1,0);
+
+/*the function call of ICM_0x6A0*/
+Can_FrameType canRawDataOfICM_6A0_ODO
+ICM_0x6A0.ICM_6A0_ODO=getICM_6A0_ODOvalue(canRawDataOfICM_6A0_ODO,3,24,15,24,1,0);
+
+/*the function call of ICM_0x6A2*/
+Can_FrameType canRawDataOfICM_6A2_IP_Theme
+ICM_0x6A2.ICM_6A2_IP_Theme=getICM_6A2_IP_Themevalue(canRawDataOfICM_6A2_IP_Theme,0,3,4,2,1,0);
+Can_FrameType canRawDataOfICM_6A2_Distance_To_Service
+ICM_0x6A2.ICM_6A2_Distance_To_Service=getICM_6A2_Distance_To_Servicevalue(canRawDataOfICM_6A2_Distance_To_Service,3,24,15,24,1,0);
+Can_FrameType canRawDataOfICM_6A2_Day_To_Service
+ICM_0x6A2.ICM_6A2_Day_To_Service=getICM_6A2_Day_To_Servicevalue(canRawDataOfICM_6A2_Day_To_Service,6,48,47,16,1,0);
+
+/*the function call of TBOX_0x6F3*/
+Can_FrameType canRawDataOfTBOX_6F3_VOLT_LOW
+TBOX_0x6F3.TBOX_6F3_VOLT_LOW=getTBOX_6F3_VOLT_LOWvalue(canRawDataOfTBOX_6F3_VOLT_LOW,0,0,0,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_VOLT_HIGH
+TBOX_0x6F3.TBOX_6F3_VOLT_HIGH=getTBOX_6F3_VOLT_HIGHvalue(canRawDataOfTBOX_6F3_VOLT_HIGH,0,1,1,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_3G_LOSS
+TBOX_0x6F3.TBOX_6F3_3G_LOSS=getTBOX_6F3_3G_LOSSvalue(canRawDataOfTBOX_6F3_3G_LOSS,0,2,2,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_GPS_LOSS
+TBOX_0x6F3.TBOX_6F3_GPS_LOSS=getTBOX_6F3_GPS_LOSSvalue(canRawDataOfTBOX_6F3_GPS_LOSS,0,3,3,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_TSP_NOT_CONN
+TBOX_0x6F3.TBOX_6F3_TSP_NOT_CONN=getTBOX_6F3_TSP_NOT_CONNvalue(canRawDataOfTBOX_6F3_TSP_NOT_CONN,0,4,4,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_EHU_NOT_CONN
+TBOX_0x6F3.TBOX_6F3_EHU_NOT_CONN=getTBOX_6F3_EHU_NOT_CONNvalue(canRawDataOfTBOX_6F3_EHU_NOT_CONN,0,5,5,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_WIFI_ERROR
+TBOX_0x6F3.TBOX_6F3_WIFI_ERROR=getTBOX_6F3_WIFI_ERRORvalue(canRawDataOfTBOX_6F3_WIFI_ERROR,0,6,6,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_INNER_batt_ERROR
+TBOX_0x6F3.TBOX_6F3_INNER_batt_ERROR=getTBOX_6F3_INNER_batt_ERRORvalue(canRawDataOfTBOX_6F3_INNER_batt_ERROR,0,7,7,1,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_3G_SIG_IND
+TBOX_0x6F3.TBOX_6F3_3G_SIG_IND=getTBOX_6F3_3G_SIG_INDvalue(canRawDataOfTBOX_6F3_3G_SIG_IND,1,8,9,2,1,0);
+Can_FrameType canRawDataOfTBOX_6F3_GPS_SIG_IND
+TBOX_0x6F3.TBOX_6F3_GPS_SIG_IND=getTBOX_6F3_GPS_SIG_INDvalue(canRawDataOfTBOX_6F3_GPS_SIG_IND,1,10,10,1,1,0);
+
+/*the function call of EHU_0x780*/
+Can_FrameType canRawDataOfEHU_780_CAL_VERS
+EHU_0x780.EHU_780_CAL_VERS=getEHU_780_CAL_VERSvalue(canRawDataOfEHU_780_CAL_VERS,1,8,15,8,1,0);
+Can_FrameType canRawDataOfEHU_780_PART_VERS
+EHU_0x780.EHU_780_PART_VERS=getEHU_780_PART_VERSvalue(canRawDataOfEHU_780_PART_VERS,5,40,23,32,1,0);
+Can_FrameType canRawDataOfEHU_780_HW_VERS
+EHU_0x780.EHU_780_HW_VERS=getEHU_780_HW_VERSvalue(canRawDataOfEHU_780_HW_VERS,6,48,55,8,1,0);
+Can_FrameType canRawDataOfEHU_780_SW_VERS
+EHU_0x780.EHU_780_SW_VERS=getEHU_780_SW_VERSvalue(canRawDataOfEHU_780_SW_VERS,7,56,63,8,1,0);
+
+/*the function call of EHU_0x781*/
+Can_FrameType canRawDataOfEHU_781_ICALL_STA
+EHU_0x781.EHU_781_ICALL_STA=getEHU_781_ICALL_STAvalue(canRawDataOfEHU_781_ICALL_STA,0,0,0,1,1,0);
+Can_FrameType canRawDataOfEHU_781_ICALL_VALID
+EHU_0x781.EHU_781_ICALL_VALID=getEHU_781_ICALL_VALIDvalue(canRawDataOfEHU_781_ICALL_VALID,0,1,1,1,1,0);
+
+/*the function call of VCU_0x212*/
+Can_FrameType canRawDataOfVCU_212_SHIFT_POSITON
+VCU_0x212.VCU_212_SHIFT_POSITON=getVCU_212_SHIFT_POSITONvalue(canRawDataOfVCU_212_SHIFT_POSITON,4,34,36,3,1,0);
+
+/*the function call of VCU_0x214*/
+Can_FrameType canRawDataOfVCU_214_VEH_STATE
+VCU_0x214.VCU_214_VEH_STATE=getVCU_214_VEH_STATEvalue(canRawDataOfVCU_214_VEH_STATE,1,8,7,16,1,0);
+
+/*the function call of ABS_0x318*/
+Can_FrameType canRawDataOfABS_318_VehSpd
+ABS_0x318.ABS_318_VehSpd=getABS_318_VehSpdvalue(canRawDataOfABS_318_VehSpd,4,32,31,16,0.01,0);
+Can_FrameType canRawDataOfABS_318_VehicleSpeedValid
+ABS_0x318.ABS_318_VehicleSpeedValid=getABS_318_VehicleSpeedValidvalue(canRawDataOfABS_318_VehicleSpeedValid,2,23,23,1,1,0);
+
+/*the function call of MCU_0x430*/
+Can_FrameType canRawDataOfMCU_430_MOT_SPD
+MCU_0x430.MCU_430_MOT_SPD=getMCU_430_MOT_SPDvalue(canRawDataOfMCU_430_MOT_SPD,3,24,23,16,0.25,0);
+
+/*the function call of BMS_0x450*/
+Can_FrameType canRawDataOfBMS_450_BATT_SOC
+BMS_0x450.BMS_450_BATT_SOC=getBMS_450_BATT_SOCvalue(canRawDataOfBMS_450_BATT_SOC,1,8,15,8,0.4,0);
+
+/*the function call of BMS_0x451*/
+Can_FrameType canRawDataOfBMS_451_BATT_CUR
+BMS_0x451.BMS_451_BATT_CUR=getBMS_451_BATT_CURvalue(canRawDataOfBMS_451_BATT_CUR,3,24,23,16,0.02,-400);
+Can_FrameType canRawDataOfBMS_451_BATT_VOLT_V2
+BMS_0x451.BMS_451_BATT_VOLT_V2=getBMS_451_BATT_VOLT_V2value(canRawDataOfBMS_451_BATT_VOLT_V2,5,40,39,16,0.02,0);
+
+/*the function call of BMS_0x458*/
+Can_FrameType canRawDataOfBMS_458_BATT_CHG_TYPE
+BMS_0x458.BMS_458_BATT_CHG_TYPE=getBMS_458_BATT_CHG_TYPEvalue(canRawDataOfBMS_458_BATT_CHG_TYPE,0,3,4,2,1,0);
+
+/*the function call of EPS_0x470*/
+Can_FrameType canRawDataOfEPS_470_EPS_STA
+EPS_0x470.EPS_470_EPS_STA=getEPS_470_EPS_STAvalue(canRawDataOfEPS_470_EPS_STA,0,1,2,2,1,0);
+
+/*the function call of EPB_0x4C8*/
+Can_FrameType canRawDataOfEPB_4C8_EPB_ParkLampState
+EPB_0x4C8.EPB_4C8_EPB_ParkLampState=getEPB_4C8_EPB_ParkLampStatevalue(canRawDataOfEPB_4C8_EPB_ParkLampState,0,0,1,2,1,0);
+Can_FrameType canRawDataOfEPB_4C8_EPB_WarningLampState
+EPB_0x4C8.EPB_4C8_EPB_WarningLampState=getEPB_4C8_EPB_WarningLampStatevalue(canRawDataOfEPB_4C8_EPB_WarningLampState,0,2,3,2,1,0);
+
+/*the function call of ECC_0x4E0*/
+Can_FrameType canRawDataOfECC_4E0_OUT_TEMP
+ECC_0x4E0.ECC_4E0_OUT_TEMP=getECC_4E0_OUT_TEMPvalue(canRawDataOfECC_4E0_OUT_TEMP,2,16,23,8,0.5,-40);
+
+/*the function call of EHU_0x585*/
+Can_FrameType canRawDataOfEHU_585_EHU_Theme
+EHU_0x585.EHU_585_EHU_Theme=getEHU_585_EHU_Themevalue(canRawDataOfEHU_585_EHU_Theme,6,48,49,2,1,0);
+Can_FrameType canRawDataOfEHU_585_EHU_State
+EHU_0x585.EHU_585_EHU_State=getEHU_585_EHU_Statevalue(canRawDataOfEHU_585_EHU_State,6,50,51,2,1,0);
+
+/*the function call of VCU_0x611*/
+Can_FrameType canRawDataOfVCU_611_READY_LAMP
+VCU_0x611.VCU_611_READY_LAMP=getVCU_611_READY_LAMPvalue(canRawDataOfVCU_611_READY_LAMP,0,3,3,1,1,0);
+Can_FrameType canRawDataOfVCU_611_PARKING_IND
+VCU_0x611.VCU_611_PARKING_IND=getVCU_611_PARKING_INDvalue(canRawDataOfVCU_611_PARKING_IND,0,5,5,1,1,0);
+Can_FrameType canRawDataOfVCU_611_FAULT_ALARM
+VCU_0x611.VCU_611_FAULT_ALARM=getVCU_611_FAULT_ALARMvalue(canRawDataOfVCU_611_FAULT_ALARM,1,10,11,2,1,0);
+Can_FrameType canRawDataOfVCU_611_Batt_FAULT_IND
+VCU_0x611.VCU_611_Batt_FAULT_IND=getVCU_611_Batt_FAULT_INDvalue(canRawDataOfVCU_611_Batt_FAULT_IND,1,13,13,1,1,0);
+Can_FrameType canRawDataOfVCU_611_LIMP_LAMP
+VCU_0x611.VCU_611_LIMP_LAMP=getVCU_611_LIMP_LAMPvalue(canRawDataOfVCU_611_LIMP_LAMP,3,24,24,1,1,0);
+Can_FrameType canRawDataOfVCU_611_VEH_INSULATION_FAULT_IND
+VCU_0x611.VCU_611_VEH_INSULATION_FAULT_IND=getVCU_611_VEH_INSULATION_FAULT_INDvalue(canRawDataOfVCU_611_VEH_INSULATION_FAULT_IND,3,25,25,1,1,0);
+Can_FrameType canRawDataOfVCU_611_MOT_TEMP_H_IND
+VCU_0x611.VCU_611_MOT_TEMP_H_IND=getVCU_611_MOT_TEMP_H_INDvalue(canRawDataOfVCU_611_MOT_TEMP_H_IND,3,27,27,1,1,0);
+Can_FrameType canRawDataOfVCU_611_BATT_FAULT_IND
+VCU_0x611.VCU_611_BATT_FAULT_IND=getVCU_611_BATT_FAULT_INDvalue(canRawDataOfVCU_611_BATT_FAULT_IND,3,28,28,1,1,0);
+Can_FrameType canRawDataOfVCU_611_MOT_FAULT_IND
+VCU_0x611.VCU_611_MOT_FAULT_IND=getVCU_611_MOT_FAULT_INDvalue(canRawDataOfVCU_611_MOT_FAULT_IND,3,29,29,1,1,0);
+Can_FrameType canRawDataOfVCU_611_BRAKE_FAULT_IND
+VCU_0x611.VCU_611_BRAKE_FAULT_IND=getVCU_611_BRAKE_FAULT_INDvalue(canRawDataOfVCU_611_BRAKE_FAULT_IND,3,30,30,1,1,0);
+Can_FrameType canRawDataOfVCU_611_N_START_REQ
+VCU_0x611.VCU_611_N_START_REQ=getVCU_611_N_START_REQvalue(canRawDataOfVCU_611_N_START_REQ,4,35,35,1,1,0);
+Can_FrameType canRawDataOfVCU_611_VEH_MODE
+VCU_0x611.VCU_611_VEH_MODE=getVCU_611_VEH_MODEvalue(canRawDataOfVCU_611_VEH_MODE,6,48,55,8,1,0);
+Can_FrameType canRawDataOfVCU_611_MOT_FAULT_LAMP
+VCU_0x611.VCU_611_MOT_FAULT_LAMP=getVCU_611_MOT_FAULT_LAMPvalue(canRawDataOfVCU_611_MOT_FAULT_LAMP,7,56,57,2,1,0);
+Can_FrameType canRawDataOfVCU_611_BATT_FAULT_LAMP
+VCU_0x611.VCU_611_BATT_FAULT_LAMP=getVCU_611_BATT_FAULT_LAMPvalue(canRawDataOfVCU_611_BATT_FAULT_LAMP,7,58,58,1,1,0);
+Can_FrameType canRawDataOfVCU_611_MOT_SYS_TEMP_HIGH_LAMP
+VCU_0x611.VCU_611_MOT_SYS_TEMP_HIGH_LAMP=getVCU_611_MOT_SYS_TEMP_HIGH_LAMPvalue(canRawDataOfVCU_611_MOT_SYS_TEMP_HIGH_LAMP,7,59,59,1,1,0);
+Can_FrameType canRawDataOfVCU_611_CHG_REMIND_LAMP
+VCU_0x611.VCU_611_CHG_REMIND_LAMP=getVCU_611_CHG_REMIND_LAMPvalue(canRawDataOfVCU_611_CHG_REMIND_LAMP,7,60,60,1,1,0);
+
+/*the function call of VCU_0x615*/
+Can_FrameType canRawDataOfVCU_615_ENERGY_CONSUM_AV
+VCU_0x615.VCU_615_ENERGY_CONSUM_AV=getVCU_615_ENERGY_CONSUM_AVvalue(canRawDataOfVCU_615_ENERGY_CONSUM_AV,7,56,55,16,0.01,0);
+
+/*the function call of VCU_0x616*/
+Can_FrameType canRawDataOfVCU_616_DRIVE_RANGE
+VCU_0x616.VCU_616_DRIVE_RANGE=getVCU_616_DRIVE_RANGEvalue(canRawDataOfVCU_616_DRIVE_RANGE,1,8,7,16,0.1,0);
+
+/*the function call of VCU_0x617*/
+Can_FrameType canRawDataOfVCU_617_SYS_FAULT_LAMP
+VCU_0x617.VCU_617_SYS_FAULT_LAMP=getVCU_617_SYS_FAULT_LAMPvalue(canRawDataOfVCU_617_SYS_FAULT_LAMP,0,0,1,2,1,0);
+Can_FrameType canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_STA
+VCU_0x617.VCU_617_BRAKE_ENGERY_RECOV_STA=getVCU_617_BRAKE_ENGERY_RECOV_STAvalue(canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_STA,0,2,2,1,1,0);
+Can_FrameType canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_LEVEL
+VCU_0x617.VCU_617_BRAKE_ENGERY_RECOV_LEVEL=getVCU_617_BRAKE_ENGERY_RECOV_LEVELvalue(canRawDataOfVCU_617_BRAKE_ENGERY_RECOV_LEVEL,0,3,5,3,1,0);
+Can_FrameType canRawDataOfVCU_617_ENERGY_CONSUM_IN
+VCU_0x617.VCU_617_ENERGY_CONSUM_IN=getVCU_617_ENERGY_CONSUM_INvalue(canRawDataOfVCU_617_ENERGY_CONSUM_IN,7,56,55,16,0.01,0);
+
+/*the function call of BMS_0x650*/
+Can_FrameType canRawDataOfBMS_650_BATT_HEAT_STA
+BMS_0x650.BMS_650_BATT_HEAT_STA=getBMS_650_BATT_HEAT_STAvalue(canRawDataOfBMS_650_BATT_HEAT_STA,0,4,5,2,1,0);
+
+/*the function call of ICM_0x6A0*/
+Can_FrameType canRawDataOfICM_6A0_ODO
+ICM_0x6A0.ICM_6A0_ODO=getICM_6A0_ODOvalue(canRawDataOfICM_6A0_ODO,3,24,15,24,1,0);
+
+/*the function call of ICM_0x6A2*/
+Can_FrameType canRawDataOfICM_6A2_IP_Fault
+ICM_0x6A2.ICM_6A2_IP_Fault=getICM_6A2_IP_Faultvalue(canRawDataOfICM_6A2_IP_Fault,0,2,2,1,1,0);
+Can_FrameType canRawDataOfICM_6A2_IP_Theme
+ICM_0x6A2.ICM_6A2_IP_Theme=getICM_6A2_IP_Themevalue(canRawDataOfICM_6A2_IP_Theme,0,3,4,2,1,0);
+Can_FrameType canRawDataOfICM_6A2_Distance_To_Service
+ICM_0x6A2.ICM_6A2_Distance_To_Service=getICM_6A2_Distance_To_Servicevalue(canRawDataOfICM_6A2_Distance_To_Service,3,24,15,24,1,0);
+Can_FrameType canRawDataOfICM_6A2_Day_To_Service
+ICM_0x6A2.ICM_6A2_Day_To_Service=getICM_6A2_Day_To_Servicevalue(canRawDataOfICM_6A2_Day_To_Service,6,48,47,16,1,0);
+
+/*the function call of ICM_0x6AF*/
+Can_FrameType canRawDataOfICM_6AF_CAL_VERS
+ICM_0x6AF.ICM_6AF_CAL_VERS=getICM_6AF_CAL_VERSvalue(canRawDataOfICM_6AF_CAL_VERS,1,8,15,8,1,0);
+Can_FrameType canRawDataOfICM_6AF_PART_VERS
+ICM_0x6AF.ICM_6AF_PART_VERS=getICM_6AF_PART_VERSvalue(canRawDataOfICM_6AF_PART_VERS,5,40,23,32,1,0);
+Can_FrameType canRawDataOfICM_6AF_HW_VERS
+ICM_0x6AF.ICM_6AF_HW_VERS=getICM_6AF_HW_VERSvalue(canRawDataOfICM_6AF_HW_VERS,6,48,55,8,1,0);
+Can_FrameType canRawDataOfICM_6AF_SW_VERS
+ICM_0x6AF.ICM_6AF_SW_VERS=getICM_6AF_SW_VERSvalue(canRawDataOfICM_6AF_SW_VERS,7,56,63,8,1,0);
+
+/*the function call of CHG_0x6D0*/
+Can_FrameType canRawDataOfCHG_6D0_CHG_STA
+CHG_0x6D0.CHG_6D0_CHG_STA=getCHG_6D0_CHG_STAvalue(canRawDataOfCHG_6D0_CHG_STA,0,0,3,4,1,0);
+
+/*the function call of VCU_0x212*/
+Can_FrameType canRawDataOfVCU_212_SHIFT_POSITON
+VCU_0x212.VCU_212_SHIFT_POSITON=getVCU_212_SHIFT_POSITONvalue(canRawDataOfVCU_212_SHIFT_POSITON,4,34,36,3,1,0);
+Can_FrameType canRawDataOfVCU_212_SHIFT_ERROR_OP
+VCU_0x212.VCU_212_SHIFT_ERROR_OP=getVCU_212_SHIFT_ERROR_OPvalue(canRawDataOfVCU_212_SHIFT_ERROR_OP,4,38,38,1,1,0);
+
+/*the function call of VCU_0x214*/
+Can_FrameType canRawDataOfVCU_214_VEH_STATE
+VCU_0x214.VCU_214_VEH_STATE=getVCU_214_VEH_STATEvalue(canRawDataOfVCU_214_VEH_STATE,1,8,7,16,1,0);
+Can_FrameType canRawDataOfVCU_214_REMOTE_SWITCH_STA
+VCU_0x214.VCU_214_REMOTE_SWITCH_STA=getVCU_214_REMOTE_SWITCH_STAvalue(canRawDataOfVCU_214_REMOTE_SWITCH_STA,3,28,28,1,1,0);
+
+/*the function call of ABS_0x318*/
+Can_FrameType canRawDataOfABS_318_VehSpd
+ABS_0x318.ABS_318_VehSpd=getABS_318_VehSpdvalue(canRawDataOfABS_318_VehSpd,4,32,31,16,0.01,0);
+Can_FrameType canRawDataOfABS_318_VehicleSpeedValid
+ABS_0x318.ABS_318_VehicleSpeedValid=getABS_318_VehicleSpeedValidvalue(canRawDataOfABS_318_VehicleSpeedValid,2,23,23,1,1,0);
+Can_FrameType canRawDataOfABS_318_ABSActive
+ABS_0x318.ABS_318_ABSActive=getABS_318_ABSActivevalue(canRawDataOfABS_318_ABSActive,2,22,22,1,1,0);
+Can_FrameType canRawDataOfABS_318_ABSFail
+ABS_0x318.ABS_318_ABSFail=getABS_318_ABSFailvalue(canRawDataOfABS_318_ABSFail,2,21,21,1,1,0);
+Can_FrameType canRawDataOfABS_318_EBDFail
+ABS_0x318.ABS_318_EBDFail=getABS_318_EBDFailvalue(canRawDataOfABS_318_EBDFail,2,20,20,1,1,0);
+
+/*the function call of ICM_0x420*/
+Can_FrameType canRawDataOfICM_420_NM_DEST_ADDRESS
+ICM_0x420.ICM_420_NM_DEST_ADDRESS=getICM_420_NM_DEST_ADDRESSvalue(canRawDataOfICM_420_NM_DEST_ADDRESS,0,0,7,8,1,0);
+Can_FrameType canRawDataOfICM_420_NM_ALIVE
+ICM_0x420.ICM_420_NM_ALIVE=getICM_420_NM_ALIVEvalue(canRawDataOfICM_420_NM_ALIVE,1,8,8,1,1,0);
+Can_FrameType canRawDataOfICM_420_NM_RING
+ICM_0x420.ICM_420_NM_RING=getICM_420_NM_RINGvalue(canRawDataOfICM_420_NM_RING,1,9,9,1,1,0);
+Can_FrameType canRawDataOfICM_420_NM_LIMPHOME
+ICM_0x420.ICM_420_NM_LIMPHOME=getICM_420_NM_LIMPHOMEvalue(canRawDataOfICM_420_NM_LIMPHOME,1,10,10,1,1,0);
+Can_FrameType canRawDataOfICM_420_NM_SLEEP_IND
+ICM_0x420.ICM_420_NM_SLEEP_IND=getICM_420_NM_SLEEP_INDvalue(canRawDataOfICM_420_NM_SLEEP_IND,1,12,12,1,1,0);
+Can_FrameType canRawDataOfICM_420_NM_SLEEP_ACK
+ICM_0x420.ICM_420_NM_SLEEP_ACK=getICM_420_NM_SLEEP_ACKvalue(canRawDataOfICM_420_NM_SLEEP_ACK,1,13,13,1,1,0);
+
+/*the function call of GW_0x421*/
+Can_FrameType canRawDataOfGW_421_NM_DEST_ADDRESS
+GW_0x421.GW_421_NM_DEST_ADDRESS=getGW_421_NM_DEST_ADDRESSvalue(canRawDataOfGW_421_NM_DEST_ADDRESS,0,0,7,8,1,0);
+Can_FrameType canRawDataOfGW_421_NM_ALIVE
+GW_0x421.GW_421_NM_ALIVE=getGW_421_NM_ALIVEvalue(canRawDataOfGW_421_NM_ALIVE,1,8,8,1,1,0);
+Can_FrameType canRawDataOfGW_421_NM_RING
+GW_0x421.GW_421_NM_RING=getGW_421_NM_RINGvalue(canRawDataOfGW_421_NM_RING,1,9,9,1,1,0);
+Can_FrameType canRawDataOfGW_421_NM_LIMPHOME
+GW_0x421.GW_421_NM_LIMPHOME=getGW_421_NM_LIMPHOMEvalue(canRawDataOfGW_421_NM_LIMPHOME,1,10,10,1,1,0);
+Can_FrameType canRawDataOfGW_421_NM_SLEEP_IND
+GW_0x421.GW_421_NM_SLEEP_IND=getGW_421_NM_SLEEP_INDvalue(canRawDataOfGW_421_NM_SLEEP_IND,1,12,12,1,1,0);
+Can_FrameType canRawDataOfGW_421_NM_SLEEP_ACK
+GW_0x421.GW_421_NM_SLEEP_ACK=getGW_421_NM_SLEEP_ACKvalue(canRawDataOfGW_421_NM_SLEEP_ACK,1,13,13,1,1,0);
+
+/*the function call of BCM_0x425*/
+Can_FrameType canRawDataOfBCM_425_NM_DEST_ADDRESS
+BCM_0x425.BCM_425_NM_DEST_ADDRESS=getBCM_425_NM_DEST_ADDRESSvalue(canRawDataOfBCM_425_NM_DEST_ADDRESS,0,0,7,8,1,0);
+Can_FrameType canRawDataOfBCM_425_NM_ALIVE
+BCM_0x425.BCM_425_NM_ALIVE=getBCM_425_NM_ALIVEvalue(canRawDataOfBCM_425_NM_ALIVE,1,8,8,1,1,0);
+Can_FrameType canRawDataOfBCM_425_NM_RING
+BCM_0x425.BCM_425_NM_RING=getBCM_425_NM_RINGvalue(canRawDataOfBCM_425_NM_RING,1,9,9,1,1,0);
+Can_FrameType canRawDataOfBCM_425_NM_LIMPHOME
+BCM_0x425.BCM_425_NM_LIMPHOME=getBCM_425_NM_LIMPHOMEvalue(canRawDataOfBCM_425_NM_LIMPHOME,1,10,10,1,1,0);
+Can_FrameType canRawDataOfBCM_425_NM_SLEEP_IND
+BCM_0x425.BCM_425_NM_SLEEP_IND=getBCM_425_NM_SLEEP_INDvalue(canRawDataOfBCM_425_NM_SLEEP_IND,1,12,12,1,1,0);
+Can_FrameType canRawDataOfBCM_425_NM_SLEEP_ACK
+BCM_0x425.BCM_425_NM_SLEEP_ACK=getBCM_425_NM_SLEEP_ACKvalue(canRawDataOfBCM_425_NM_SLEEP_ACK,1,13,13,1,1,0);
+
+/*the function call of PEPS_0x429*/
+Can_FrameType canRawDataOfPEPS_429_NM_DEST_ADDRESS
+PEPS_0x429.PEPS_429_NM_DEST_ADDRESS=getPEPS_429_NM_DEST_ADDRESSvalue(canRawDataOfPEPS_429_NM_DEST_ADDRESS,0,0,7,8,1,0);
+Can_FrameType canRawDataOfPEPS_429_NM_ALIVE
+PEPS_0x429.PEPS_429_NM_ALIVE=getPEPS_429_NM_ALIVEvalue(canRawDataOfPEPS_429_NM_ALIVE,1,8,8,1,1,0);
+Can_FrameType canRawDataOfPEPS_429_NM_RING
+PEPS_0x429.PEPS_429_NM_RING=getPEPS_429_NM_RINGvalue(canRawDataOfPEPS_429_NM_RING,1,9,9,1,1,0);
+Can_FrameType canRawDataOfPEPS_429_NM_LIMPHOME
+PEPS_0x429.PEPS_429_NM_LIMPHOME=getPEPS_429_NM_LIMPHOMEvalue(canRawDataOfPEPS_429_NM_LIMPHOME,1,10,10,1,1,0);
+Can_FrameType canRawDataOfPEPS_429_NM_SLEEP_IND
+PEPS_0x429.PEPS_429_NM_SLEEP_IND=getPEPS_429_NM_SLEEP_INDvalue(canRawDataOfPEPS_429_NM_SLEEP_IND,1,12,12,1,1,0);
+Can_FrameType canRawDataOfPEPS_429_NM_SLEEP_ACK
+PEPS_0x429.PEPS_429_NM_SLEEP_ACK=getPEPS_429_NM_SLEEP_ACKvalue(canRawDataOfPEPS_429_NM_SLEEP_ACK,1,13,13,1,1,0);
+
+/*the function call of PEPS_0x479*/
+Can_FrameType canRawDataOfPEPS_479_POWER_MODE
+PEPS_0x479.PEPS_479_POWER_MODE=getPEPS_479_POWER_MODEvalue(canRawDataOfPEPS_479_POWER_MODE,1,8,9,2,1,0);
+Can_FrameType canRawDataOfPEPS_479_RM_Key_LowBattery_Alert
+PEPS_0x479.PEPS_479_RM_Key_LowBattery_Alert=getPEPS_479_RM_Key_LowBattery_Alertvalue(canRawDataOfPEPS_479_RM_Key_LowBattery_Alert,3,28,28,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_AuthFailWarning
+PEPS_0x479.PEPS_479_AuthFailWarning=getPEPS_479_AuthFailWarningvalue(canRawDataOfPEPS_479_AuthFailWarning,3,29,29,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_One_KeyStart_Swith_Error
+PEPS_0x479.PEPS_479_One_KeyStart_Swith_Error=getPEPS_479_One_KeyStart_Swith_Errorvalue(canRawDataOfPEPS_479_One_KeyStart_Swith_Error,3,30,30,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_Press_Brake_Pedal_Alert
+PEPS_0x479.PEPS_479_Press_Brake_Pedal_Alert=getPEPS_479_Press_Brake_Pedal_Alertvalue(canRawDataOfPEPS_479_Press_Brake_Pedal_Alert,3,31,31,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_ESCLWarning
+PEPS_0x479.PEPS_479_ESCLWarning=getPEPS_479_ESCLWarningvalue(canRawDataOfPEPS_479_ESCLWarning,4,32,32,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_ETWS_Alert
+PEPS_0x479.PEPS_479_ETWS_Alert=getPEPS_479_ETWS_Alertvalue(canRawDataOfPEPS_479_ETWS_Alert,4,33,33,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_CID_Left_Alert
+PEPS_0x479.PEPS_479_CID_Left_Alert=getPEPS_479_CID_Left_Alertvalue(canRawDataOfPEPS_479_CID_Left_Alert,4,34,34,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_DOOR_Lock_Ig_NotOff_Alert
+PEPS_0x479.PEPS_479_DOOR_Lock_Ig_NotOff_Alert=getPEPS_479_DOOR_Lock_Ig_NotOff_Alertvalue(canRawDataOfPEPS_479_DOOR_Lock_Ig_NotOff_Alert,4,35,35,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_DOOR_Open_Lock_Alert
+PEPS_0x479.PEPS_479_DOOR_Open_Lock_Alert=getPEPS_479_DOOR_Open_Lock_Alertvalue(canRawDataOfPEPS_479_DOOR_Open_Lock_Alert,4,36,36,1,1,0);
+Can_FrameType canRawDataOfPEPS_479_Key_Insid_Vehicle_Alert
+PEPS_0x479.PEPS_479_Key_Insid_Vehicle_Alert=getPEPS_479_Key_Insid_Vehicle_Alertvalue(canRawDataOfPEPS_479_Key_Insid_Vehicle_Alert,4,37,37,1,1,0);
+
+/*the function call of BCM_0x4A0*/
+Can_FrameType canRawDataOfBCM_4A0_HIGH_BEAM_LIGHT_CMD
+BCM_0x4A0.BCM_4A0_HIGH_BEAM_LIGHT_CMD=getBCM_4A0_HIGH_BEAM_LIGHT_CMDvalue(canRawDataOfBCM_4A0_HIGH_BEAM_LIGHT_CMD,0,0,0,1,1,0);
+Can_FrameType canRawDataOfBCM_4A0_LOW_BEAM_LIGHT_CMD
+BCM_0x4A0.BCM_4A0_LOW_BEAM_LIGHT_CMD=getBCM_4A0_LOW_BEAM_LIGHT_CMDvalue(canRawDataOfBCM_4A0_LOW_BEAM_LIGHT_CMD,0,1,1,1,1,0);
+Can_FrameType canRawDataOfBCM_4A0_FRONT_POSITION_LAMP_CMD
+BCM_0x4A0.BCM_4A0_FRONT_POSITION_LAMP_CMD=getBCM_4A0_FRONT_POSITION_LAMP_CMDvalue(canRawDataOfBCM_4A0_FRONT_POSITION_LAMP_CMD,0,2,2,1,1,0);
+Can_FrameType canRawDataOfBCM_4A0_FRONT_FOG_LAMP_CMD
+BCM_0x4A0.BCM_4A0_FRONT_FOG_LAMP_CMD=getBCM_4A0_FRONT_FOG_LAMP_CMDvalue(canRawDataOfBCM_4A0_FRONT_FOG_LAMP_CMD,0,3,3,1,1,0);
+Can_FrameType canRawDataOfBCM_4A0_EXTERIOR_LAMP_SWITCH
+BCM_0x4A0.BCM_4A0_EXTERIOR_LAMP_SWITCH=getBCM_4A0_EXTERIOR_LAMP_SWITCHvalue(canRawDataOfBCM_4A0_EXTERIOR_LAMP_SWITCH,2,21,22,2,1,0);
+Can_FrameType canRawDataOfBCM_4A0_REAR_FOG_LAMP_SWITCH
+BCM_0x4A0.BCM_4A0_REAR_FOG_LAMP_SWITCH=getBCM_4A0_REAR_FOG_LAMP_SWITCHvalue(canRawDataOfBCM_4A0_REAR_FOG_LAMP_SWITCH,3,27,27,1,1,0);
+
+/*the function call of UEC_0x4C9*/
+Can_FrameType canRawDataOfUEC_4C9_Hs_HLBeam_Lamp_Left_Err
+UEC_0x4C9.UEC_4C9_Hs_HLBeam_Lamp_Left_Err=getUEC_4C9_Hs_HLBeam_Lamp_Left_Errvalue(canRawDataOfUEC_4C9_Hs_HLBeam_Lamp_Left_Err,0,0,0,1,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_HLBeam_Light_Left_Err
+UEC_0x4C9.UEC_4C9_Hs_HLBeam_Light_Left_Err=getUEC_4C9_Hs_HLBeam_Light_Left_Errvalue(canRawDataOfUEC_4C9_Hs_HLBeam_Light_Left_Err,0,1,2,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_HLBeam_Light_Right_Err
+UEC_0x4C9.UEC_4C9_Hs_HLBeam_Light_Right_Err=getUEC_4C9_Hs_HLBeam_Light_Right_Errvalue(canRawDataOfUEC_4C9_Hs_HLBeam_Light_Right_Err,0,3,3,1,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_HLBeam_Lamp_Right_Err
+UEC_0x4C9.UEC_4C9_Hs_HLBeam_Lamp_Right_Err=getUEC_4C9_Hs_HLBeam_Lamp_Right_Errvalue(canRawDataOfUEC_4C9_Hs_HLBeam_Lamp_Right_Err,0,4,5,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_HLBeam_FDSF_Err
+UEC_0x4C9.UEC_4C9_Hs_HLBeam_FDSF_Err=getUEC_4C9_Hs_HLBeam_FDSF_Errvalue(canRawDataOfUEC_4C9_Hs_HLBeam_FDSF_Err,0,6,7,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_Position_Lamp_Err
+UEC_0x4C9.UEC_4C9_Hs_Position_Lamp_Err=getUEC_4C9_Hs_Position_Lamp_Errvalue(canRawDataOfUEC_4C9_Hs_Position_Lamp_Err,1,8,9,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_Daytime_Light_Left_Err
+UEC_0x4C9.UEC_4C9_Hs_Daytime_Light_Left_Err=getUEC_4C9_Hs_Daytime_Light_Left_Errvalue(canRawDataOfUEC_4C9_Hs_Daytime_Light_Left_Err,1,10,11,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_Daytime_Light_Right_Err
+UEC_0x4C9.UEC_4C9_Hs_Daytime_Light_Right_Err=getUEC_4C9_Hs_Daytime_Light_Right_Errvalue(canRawDataOfUEC_4C9_Hs_Daytime_Light_Right_Err,1,12,13,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_FrontFog_Lamp_Left_Err
+UEC_0x4C9.UEC_4C9_Hs_FrontFog_Lamp_Left_Err=getUEC_4C9_Hs_FrontFog_Lamp_Left_Errvalue(canRawDataOfUEC_4C9_Hs_FrontFog_Lamp_Left_Err,1,14,15,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_FrontFog_Lamp_Right_Err
+UEC_0x4C9.UEC_4C9_Hs_FrontFog_Lamp_Right_Err=getUEC_4C9_Hs_FrontFog_Lamp_Right_Errvalue(canRawDataOfUEC_4C9_Hs_FrontFog_Lamp_Right_Err,2,16,17,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_LR_Brake_Lamp_Err
+UEC_0x4C9.UEC_4C9_Hs_LR_Brake_Lamp_Err=getUEC_4C9_Hs_LR_Brake_Lamp_Errvalue(canRawDataOfUEC_4C9_Hs_LR_Brake_Lamp_Err,2,18,19,2,1,0);
+Can_FrameType canRawDataOfUEC_4C9_Hs_High_Brake_Lamp_Err
+UEC_0x4C9.UEC_4C9_Hs_High_Brake_Lamp_Err=getUEC_4C9_Hs_High_Brake_Lamp_Errvalue(canRawDataOfUEC_4C9_Hs_High_Brake_Lamp_Err,2,20,21,2,1,0);
+
+/*the function call of PEPS_0x570*/
+Can_FrameType canRawDataOfPEPS_570_Door_Lock_Cmd
+PEPS_0x570.PEPS_570_Door_Lock_Cmd=getPEPS_570_Door_Lock_Cmdvalue(canRawDataOfPEPS_570_Door_Lock_Cmd,0,0,1,2,1,0);
+
+/*the function call of BCM_0x660*/
+Can_FrameType canRawDataOfBCM_660_FD_DOOR_STS
+BCM_0x660.BCM_660_FD_DOOR_STS=getBCM_660_FD_DOOR_STSvalue(canRawDataOfBCM_660_FD_DOOR_STS,0,2,2,1,1,0);
+Can_FrameType canRawDataOfBCM_660_FP_DOOR_STS
+BCM_0x660.BCM_660_FP_DOOR_STS=getBCM_660_FP_DOOR_STSvalue(canRawDataOfBCM_660_FP_DOOR_STS,0,3,3,1,1,0);
+Can_FrameType canRawDataOfBCM_660_FOLLOW_ME_HOME_STS
+BCM_0x660.BCM_660_FOLLOW_ME_HOME_STS=getBCM_660_FOLLOW_ME_HOME_STSvalue(canRawDataOfBCM_660_FOLLOW_ME_HOME_STS,0,6,6,1,1,0);
+Can_FrameType canRawDataOfBCM_660_TRUNK_STA
+BCM_0x660.BCM_660_TRUNK_STA=getBCM_660_TRUNK_STAvalue(canRawDataOfBCM_660_TRUNK_STA,0,7,7,1,1,0);
+
+/*the function call of RMS_0x6F2*/
+Can_FrameType canRawDataOfRMS_6F2_YEAR_TIME
+RMS_0x6F2.RMS_6F2_YEAR_TIME=getRMS_6F2_YEAR_TIMEvalue(canRawDataOfRMS_6F2_YEAR_TIME,0,0,7,8,1,2015);
+Can_FrameType canRawDataOfRMS_6F2_MONTH_TIME
+RMS_0x6F2.RMS_6F2_MONTH_TIME=getRMS_6F2_MONTH_TIMEvalue(canRawDataOfRMS_6F2_MONTH_TIME,1,12,15,4,1,1);
+Can_FrameType canRawDataOfRMS_6F2_DAY_TIME
+RMS_0x6F2.RMS_6F2_DAY_TIME=getRMS_6F2_DAY_TIMEvalue(canRawDataOfRMS_6F2_DAY_TIME,2,16,20,5,1,1);
+Can_FrameType canRawDataOfRMS_6F2_HOUR_TIME
+RMS_0x6F2.RMS_6F2_HOUR_TIME=getRMS_6F2_HOUR_TIMEvalue(canRawDataOfRMS_6F2_HOUR_TIME,3,27,31,5,1,0);
+Can_FrameType canRawDataOfRMS_6F2_MINUTE_TIME
+RMS_0x6F2.RMS_6F2_MINUTE_TIME=getRMS_6F2_MINUTE_TIMEvalue(canRawDataOfRMS_6F2_MINUTE_TIME,4,32,37,6,1,0);
+
+/*the function call of VCU_0x214*/
+Can_FrameType canRawDataOfVCU_214_VEH_STATE
+VCU_0x214.VCU_214_VEH_STATE=getVCU_214_VEH_STATEvalue(canRawDataOfVCU_214_VEH_STATE,1,8,7,16,1,0);
