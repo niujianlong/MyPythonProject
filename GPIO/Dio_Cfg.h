@@ -11,7 +11,7 @@
 **          Author:  jiangyuchang
 **          Porting: niujianlong
 **
-**          Date  : 2016-07-07 15:15:35
+**          Date  : 2016-07-07 15:49:52
 **
 **
 ******************************************************************************/
@@ -436,15 +436,15 @@
 #define DIO_00_BTEST_PORT()              TESTBIT(PORT_AWOPPR0, BIT_0)
 #define IGN_INT_DBNC_CHANNEL              DIO_00_DBNC_CHANNEL
 #define IGN_INT_BTEST_DBNC_PORT()              Dio_getDbncState(IGN_INT_DBNC_CHANNEL)
-#define DIO_01_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_0);SETBIT(PORT_ISOPM8,BIT_0)
+#define DIO_01_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_0);SETBIT(PORT_ISOPM1,BIT_0)
 #define DIO_01_BTEST_PORT()              TESTBIT(PORT_ISOPPR1, BIT_0)
 #define HW_I_WASH_FLUID_IN_DBNC_CHANNEL              DIO_01_DBNC_CHANNEL
 #define HW_I_WASH_FLUID_IN_BTEST_DBNC_PORT()              Dio_getDbncState(HW_I_WASH_FLUID_IN_DBNC_CHANNEL)
-#define DIO_02_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_1);SETBIT(PORT_ISOPM8,BIT_1)
+#define DIO_02_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_1);SETBIT(PORT_ISOPM1,BIT_1)
 #define DIO_02_BTEST_PORT()              TESTBIT(PORT_ISOPPR1, BIT_1)
 #define HW_I_BRAKE_FLUID_IN_DBNC_CHANNEL              DIO_02_DBNC_CHANNEL
 #define HW_I_BRAKE_FLUID_IN_BTEST_DBNC_PORT()              Dio_getDbncState(HW_I_BRAKE_FLUID_IN_DBNC_CHANNEL)
-#define DIO_03_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_2);SETBIT(PORT_ISOPM8,BIT_2)
+#define DIO_03_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_2);SETBIT(PORT_ISOPM1,BIT_2)
 #define DIO_03_BTEST_PORT()              TESTBIT(PORT_ISOPPR1, BIT_2)
 #define HW_I_PARK_BRAKE_IN_DBNC_CHANNEL              DIO_03_DBNC_CHANNEL
 #define HW_I_PARK_BRAKE_IN_BTEST_DBNC_PORT()              Dio_getDbncState(HW_I_PARK_BRAKE_IN_DBNC_CHANNEL)

@@ -714,13 +714,13 @@ def  main():
                         fdio_w.write(strline)
 
                     if row >= port1_start_index and row < port1_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_%s);SETBIT(PORT_ISOPM8,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_%s);SETBIT(PORT_ISOPM1,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index)
                         fdio_w.write(strline)
 
                     if row >= port3_start_index and row < port3_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC3,BIT_%s);SETBIT(PORT_ISOPM9,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC3,BIT_%s);SETBIT(PORT_ISOPM3,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index)
                         fdio_w.write(strline)
