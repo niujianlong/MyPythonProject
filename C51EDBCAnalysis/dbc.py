@@ -41,8 +41,8 @@ for line in open("C51E.txt"):
         fw.write('\n#if  NeverReceFlagEN\n    uint8  ' + frameStructName.capitalize() + "NeverReceFlag;\n #endif\n\n")
         #fw4.write('#define  ' + frameStructName.upper() + '_CYCLE    \n')
         #fw6.write(frameStructName.upper() + '_CYCLE *')
-        fw2.write('uint8 get_'+frameStructName.lower()+'_missing_flag();\n')
-        fw3.write('uint8 get_'+frameStructName.lower()+'_never_reve_flag();\n')
+        fw2.write('extern uint8 get_'+frameStructName.lower()+'_missing_flag(void);\n')
+        fw3.write('extern uint8 get_'+frameStructName.lower()+'_never_reve_flag(void);\n')
         fw4.write('uint8 get_'+frameStructName.lower()+'_missing_flag(){\n')
         fw4.write('      return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'MissingFlag;\n}\n')
         fw5.write('uint8 get_'+frameStructName.lower()+'_never_reve_flag(){\n')        
@@ -149,13 +149,13 @@ for line in open("C51E.txt"):
             fw.write('get_')
             
             if bitLengthList[a]<=8:   
-                fw8.write('uint8  get_')
+                fw8.write('extern uint8  get_')
                 fw9.write('uint8  get_')
             elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:  
-                fw8.write('uint16  get_')
+                fw8.write('extern uint16  get_')
                 fw9.write('uint16  get_')  
             else:
-                fw8.write('uint32  get_')
+                fw8.write('extern uint32  get_')
                 fw9.write('uint32  get_')   
             for j in range(len(i)):
                 if j != len(i) - 1:
@@ -163,7 +163,7 @@ for line in open("C51E.txt"):
                     fw8.write(i[j] + '_')
                     fw9.write(i[j] + '_')
             fw.write(i[j] + '()\n') 
-            fw8.write(i[j] + '();\n') 
+            fw8.write(i[j] + '(void);\n') 
             fw9.write(i[j] + '()\n{\n') 
             for k in ibackup:
                 if bitLengthList[a]<=8: 
