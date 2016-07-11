@@ -19,11 +19,19 @@ fw15=file("DefaultMissingProcess.c","w+") #生成获取信号的get函数的函�
 fw16=file("DefaultMissingProcess.h","w+") #生成获取信号的get函数的函数体
 fw17=file("vbus_receive_frame.c","w+") #生成vbus_receive_frame函数的函数体
 fw18=file("frameMissingProcess.c","w+") #生成frameMissingProcess函数的函数体
+fw19=file("ICMSendFrameInterface.h","w+") #生成frameMissingProcess函数的函数体
 singleSigName = []  # 这个是记录每个信号名字的列表
 structName = []  # 去除dbc里边的重复定义的报文
 bitLengthList = []
 bitPragram = []
 global frameID 
+
+def isICMNodeSendFrame(frameStructName):  
+    frameStructNameArr = frameStructName.split('_')
+    if frameStructNameArr[0] == 'ICM':
+        return True
+    else:
+        return False
 
 fw11.write("void SignalAnalysisTask(){\n")
 fw17.write('{\n')
@@ -56,6 +64,8 @@ for line in open("C51E.txt"):
         fw16.write('extern void Set'+frameStructName.lower()+'MissingDefaultValue(void);\n')
         #vcu_0x212.Vcu_0x212NeverReceFlag = 1u;
         fw13.write("  " + frameStructName.lower() + "."+frameStructName.capitalize() +'NeverReceFlag = 1u;\n')  # 打印函数原型的注释
+        if isICMNodeSendFrame(frameStructName)==True:
+            fw19.write('/*'+str(hex(frameID))+'  '+frameStructName+'*/\n')
     elif line_split[0] == '':
         singleSigName.append(line_split[2])  # 这个列表是记录所有信号的名字用的
         tempEndBit = line_split[4].split("|")  # 先解析出来endBit
@@ -109,14 +119,20 @@ for line in open("C51E.txt"):
         
         if bitLength <= 8:
             fw14.write('void set_'+line_split[2] + "( uint8 "+line_split[2]+')\n{\n')
+            if isICMNodeSendFrame(frameStructName)==True:
+                fw19.write('extern void set_'+line_split[2] + "( uint8 "+line_split[2]+');\n')
             fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint8SigValue(' + frameStructName.lower() + ".data,"+ str(startByte) + "," + str(startBit) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         elif 8 < bitLength and bitLength <= 16:
             fw14.write('void set_'+line_split[2] + "( uint16 "+line_split[2]+')\n{\n')
+            if isICMNodeSendFrame(frameStructName)==True:
+                fw19.write('extern void set_'+line_split[2] + "( uint16 "+line_split[2]+');\n')           
             fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint16SigValue(' + frameStructName.lower() + ".data,"+ str(startByte) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         elif bitLength > 16:
             fw14.write('void set_'+line_split[2] + "( uint32 "+line_split[2]+')\n{\n')
+            if isICMNodeSendFrame(frameStructName)==True:
+                fw19.write('extern void set_'+line_split[2] + "( uint32 "+line_split[2]+');\n')           
             fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint32SigValue(' + frameStructName.lower() + ".data,"+ str(startByte) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         fw14.write('\n')          
@@ -185,6 +201,6 @@ fw11.write("}\n")
 fw17.write('}\n')            
 fw18.write('}\n')            
         
-       
-                              
+
+                         
         
