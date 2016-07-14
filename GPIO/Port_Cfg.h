@@ -11,7 +11,7 @@
 **          Author:  jiangyuchang
 **          Porting: niujianlong
 **
-**          Date  : 2016-07-07 16:10:21
+**          Date  : 2016-07-14 19:26:51
 **
 **
 ******************************************************************************/
@@ -35,8 +35,8 @@
 #define       PORT_AWOPIPC0_INIT                            (0x0000u)
 #define       PORT_AWOPFCE0_INIT                            (0x0030u)
 #define       PORT_AWOPFC0_INIT                            (0x0030u)
-#define       PORT_AWOPIBC0_INIT                            (0x0061u)
-#define       PORT_AWOPBDC0_INIT                            (0x0061u)
+#define       PORT_AWOPIBC0_INIT                            (0x0001u)
+#define       PORT_AWOPBDC0_INIT                            (0x0001u)
 #define       PORT_AWOP0_INIT                            (0x028Cu)
 #define       PORT_AWOPU0_INIT                            (0x0000u)
 #define       PORT_AWOPD0_INIT                            (0x0000u)
@@ -91,8 +91,8 @@
 #define       PORT_ISOPIPC11_INIT                            (0x0000u)
 #define       PORT_ISOPFCE11_INIT                            (0x0000u)
 #define       PORT_ISOPFC11_INIT                            (0x000Bu)
-#define       PORT_ISOPIBC11_INIT                            (0x0003u)
-#define       PORT_ISOPBDC11_INIT                            (0x0003u)
+#define       PORT_ISOPIBC11_INIT                            (0x0000u)
+#define       PORT_ISOPBDC11_INIT                            (0x0000u)
 #define       PORT_ISOP11_INIT                            (0x0000u)
 #define       PORT_ISOPU11_INIT                            (0x0000u)
 #define       PORT_ISOPD11_INIT                            (0x0000u)
@@ -133,8 +133,8 @@
 #define       PORT_ISOPIPC21_INIT                            (0x0000u)
 #define       PORT_ISOPFCE21_INIT                            (0x0000u)
 #define       PORT_ISOPFC21_INIT                            (0x0000u)
-#define       PORT_ISOPIBC21_INIT                            (0x003Cu)
-#define       PORT_ISOPBDC21_INIT                            (0x003Cu)
+#define       PORT_ISOPIBC21_INIT                            (0x0000u)
+#define       PORT_ISOPBDC21_INIT                            (0x0000u)
 #define       PORT_ISOP21_INIT                            (0x0041u)
 #define       PORT_ISOPU21_INIT                            (0x0000u)
 #define       PORT_ISOPD21_INIT                            (0x0000u)
@@ -147,8 +147,8 @@
 #define       PORT_ISOPIPC42_INIT                            (0x0000u)
 #define       PORT_ISOPFCE42_INIT                            (0x0000u)
 #define       PORT_ISOPFC42_INIT                            (0x01FFu)
-#define       PORT_ISOPIBC42_INIT                            (0x81FFu)
-#define       PORT_ISOPBDC42_INIT                            (0x81FFu)
+#define       PORT_ISOPIBC42_INIT                            (0x8000u)
+#define       PORT_ISOPBDC42_INIT                            (0x8000u)
 #define       PORT_ISOP42_INIT                            (0x6000u)
 #define       PORT_ISOPU42_INIT                            (0x0000u)
 #define       PORT_ISOPD42_INIT                            (0x0000u)

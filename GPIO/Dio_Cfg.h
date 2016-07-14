@@ -11,7 +11,7 @@
 **          Author:  jiangyuchang
 **          Porting: niujianlong
 **
-**          Date  : 2016-07-07 16:10:21
+**          Date  : 2016-07-14 19:26:51
 **
 **
 ******************************************************************************/
@@ -465,7 +465,7 @@
 #define RADA_DATA_IN_DBNC_CHANNEL              DIO_07_DBNC_CHANNEL
 #define RADA_DATA_IN_BTEST_DBNC_PORT()              Dio_getDbncState(RADA_DATA_IN_DBNC_CHANNEL)
 #define DIO_08_SET_TO_INPUT()              SETBIT(PORT_ISOPMC17,BIT_0)
-#define DIO_08_BTEST_PORT()              TESTBIT(PPORT_ISOPR17, BIT_0)
+#define DIO_08_BTEST_PORT()              TESTBIT(PORT_ISOPPR17, BIT_0)
 #define HW_I_CHARGE_IN_DBNC_CHANNEL              DIO_08_DBNC_CHANNEL
 #define HW_I_CHARGE_IN_BTEST_DBNC_PORT()              Dio_getDbncState(HW_I_CHARGE_IN_DBNC_CHANNEL)
 
