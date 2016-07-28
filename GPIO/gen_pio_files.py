@@ -7,8 +7,8 @@ import datetime
 
 def  main():
     #Read vehicle variants configure information from excel file
-    pio_filename = ur'.\Port_Cfg.h'
-    dio_filename = ur'.\Dio_Cfg.h'
+    pio_filename = ur'.\Port_Cfg_temp.h'
+    dio_filename = ur'.\Dio_Cfg_temp.h'
     port_filename = ur'.\Port.h'
     Dio_H_filename = ur'.\Dio.h'
     filename = './RH850D1M1H_176Pin_IO_Config.xlsx'
@@ -22,7 +22,7 @@ def  main():
     now = datetime.datetime.now()
     
     fw.write('/******************************************************************************\n')
-    fw.write('**  (c) copyright 2015\n')   
+    fw.write('**  (c) copyright 2016\n')   
     fw.write('**  Company       O-film\n')    
     fw.write('**                All rights reserved\n')    
     fw.write('**  Secrecy Level STRICTLY CONFIDENTIAL\n')    
@@ -55,7 +55,7 @@ def  main():
     fw.write('******************************************************************************/\n')    
 
     fdio_w.write('/******************************************************************************\n')
-    fdio_w.write('**  (c) copyright 2015\n')   
+    fdio_w.write('**  (c) copyright 2016\n')   
     fdio_w.write('**  Company       O-film\n')    
     fdio_w.write('**                All rights reserved\n')    
     fdio_w.write('**  Secrecy Level STRICTLY CONFIDENTIAL\n')    
@@ -365,7 +365,7 @@ def  main():
         fpor_w.write('#define      PORT_PIN_REG16_LIST     '+'\\'+'\n')
         fdio_h_w.write('#define      PIN_DIO_REG16_LIST     '+'\\'+'\n')
         for row in range(port0_start_index,port0_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_%s);SETBIT(PORT_AWOPM0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index,row-port0_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_%s);SETBIT(PORT_AWOPM0, BIT_%s);SETBIT(PORT_AWOPIBC0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index,row-port0_start_index,row-port0_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_%s);CLEARBIT(PORT_AWOPM0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index,row-port0_start_index)
             fw.write(strline)
@@ -378,7 +378,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_AWOPMC'+PortNum+' , (uint16 *) &PORT_AWOPM'+PortNum+', (uint16 *) &PORT_AWOPFC'+PortNum+', (uint16 *) &PORT_AWOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_AWOPMC'+PortNum+' , (uint16 *) &PORT_AWOPM'+PortNum+', (uint16 *) &PORT_AWOPFC'+PortNum+', (uint16 *) &PORT_AWOPFCE'+PortNum+', (uint16 *) &PORT_AWOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_AWOP'+PortNum+' , (uint16 *) &PORT_AWOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             i = i + 1
             
@@ -390,7 +390,7 @@ def  main():
         i = 0 #add for port.h
         fpor_w.write('\\\n')	
         for row in range(port1_start_index,port1_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_%s);SETBIT(PORT_ISOPM1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_%s);SETBIT(PORT_ISOPM1, BIT_%s);SETBIT(PORT_ISOPIBC1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index,row-port1_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_%s);CLEARBIT(PORT_ISOPM1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index)
             fw.write(strline)
@@ -403,7 +403,7 @@ def  main():
             fdio_w.write(strline)  
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             i = i + 1         
 
@@ -415,7 +415,7 @@ def  main():
         i = 0 #add for port.h
         fpor_w.write('\\\n')    	
         for row in range(port3_start_index,port3_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_%s);SETBIT(PORT_ISOPM3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_%s);SETBIT(PORT_ISOPM3, BIT_%s);SETBIT(PORT_ISOPIBC3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index,row-port3_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_%s);CLEARBIT(PORT_ISOPM3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index)
             fw.write(strline)
@@ -428,7 +428,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             i = i + 1            
     fw.write('\n')
@@ -440,7 +440,7 @@ def  main():
         fpor_w.write('\\\n')	
         for row in range(port10_start_index,port10_end_index):
             
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_%s);SETBIT(PORT_ISOPM10, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_%s);SETBIT(PORT_ISOPM10, BIT_%s);SETBIT(PORT_ISOPIBC10, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index,row-port10_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_%s);CLEARBIT(PORT_ISOPM10, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index)
             fw.write(strline)
@@ -453,7 +453,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -465,7 +465,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')	
         for row in range(port11_start_index,port11_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_%s);SETBIT(PORT_ISOPM11, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_%s);SETBIT(PORT_ISOPM11, BIT_%s);SETBIT(PORT_ISOPIBC11, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index,row-port11_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_%s);CLEARBIT(PORT_ISOPM11, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index)
             fw.write(strline)
@@ -478,7 +478,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -490,7 +490,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')        
         for row in range(port16_start_index,port16_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_%s);SETBIT(PORT_ISOPM16, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index,row-port16_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_%s);SETBIT(PORT_ISOPM16, BIT_%s);SETBIT(PORT_ISOPIBC16, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index,row-port16_start_index,row-port16_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_%s);CLEARBIT(PORT_ISOPM16, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index,row-port16_start_index)
             fw.write(strline)
@@ -503,7 +503,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -515,7 +515,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')     
         for row in range(port17_start_index,port17_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_%s);SETBIT(PORT_ISOPM17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index,row-port17_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_%s);SETBIT(PORT_ISOPM17, BIT_%s);SETBIT(PORT_ISOPIBC17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index,row-port17_start_index,row-port17_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_%s);CLEARBIT(PORT_ISOPM17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index,row-port17_start_index)
             fw.write(strline)
@@ -528,7 +528,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -540,7 +540,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')       
         for row in range(port21_start_index,port21_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_%s);SETBIT(PORT_ISOPM21, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index,row-port21_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_%s);SETBIT(PORT_ISOPM21, BIT_%s);SETBIT(PORT_ISOPIBC21, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index,row-port21_start_index,row-port21_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_%s);CLEARBIT(PORT_ISOPM21, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index,row-port21_start_index)
             fw.write(strline)
@@ -553,7 +553,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     
@@ -566,7 +566,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')     
         for row in range(port42_start_index,port42_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_%s);SETBIT(PORT_ISOPM42, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index,row-port42_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_%s);SETBIT(PORT_ISOPM42, BIT_%s);SETBIT(PORT_ISOPIBC42, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index,row-port42_start_index,row-port42_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_%s);CLEARBIT(PORT_ISOPM42, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index,row-port42_start_index)
             fw.write(strline)
@@ -579,7 +579,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -591,7 +591,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')    
         for row in range(port43_start_index,port43_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_%s);SETBIT(PORT_ISOPM43, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index,row-port43_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_%s);SETBIT(PORT_ISOPM43, BIT_%s);SETBIT(PORT_ISOPIBC43, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index,row-port43_start_index,row-port43_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC43, BIT_%s);CLEARBIT(PORT_ISOPM43, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index,row-port43_start_index)
             fw.write(strline)
@@ -604,7 +604,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     
@@ -617,7 +617,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')     
         for row in range(port44_start_index,port44_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC44, BIT_%s);SETBIT(PORT_ISOPM44, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index,row-port44_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC44, BIT_%s);SETBIT(PORT_ISOPM44, BIT_%s);SETBIT(PORT_ISOPIBC44, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index,row-port44_start_index,row-port44_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC44, BIT_%s);CLEARBIT(PORT_ISOPM44, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index,row-port44_start_index)
             fw.write(strline)
@@ -630,7 +630,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')          
             i = i + 1
     fw.write('\n')
@@ -642,7 +642,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')      
         for row in range(port45_start_index,port45_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC45, BIT_%s);SETBIT(PORT_ISOPM45, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index,row-port45_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC45, BIT_%s);SETBIT(PORT_ISOPM45, BIT_%s);SETBIT(PORT_ISOPIBC45, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index,row-port45_start_index,row-port45_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC45, BIT_%s);CLEARBIT(PORT_ISOPM45, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index,row-port45_start_index)
             fw.write(strline)
@@ -655,7 +655,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1
     
@@ -670,7 +670,7 @@ def  main():
         i = 0 
         fpor_w.write('\\\n')   
         for row in range(jp0_start_index,jp0_end_index):
-            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORTJ_AWOJPMC0, BIT_%s);SETBIT(PORTJ_AWOJPM0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index,row-jp0_start_index)
+            strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORTJ_AWOJPMC0, BIT_%s);SETBIT(PORTJ_AWOJPM0, BIT_%s);SETBIT(PORTJ_AWOJPIBC0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index,row-jp0_start_index,row-jp0_start_index)
             fw.write(strline)
             strline = '#define      %s_SET_TO_OUTPUT()          CLEARBIT(PORTJ_AWOJPMC0, BIT_%s);CLEARBIT(PORTJ_AWOJPM0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index,row-jp0_start_index)
             fw.write(strline)
@@ -683,7 +683,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORTJ_AWOJPMC'+PortNum+' , (uint16 *) &PORTJ_AWOJPM'+PortNum+', (uint16 *) &PORTJ_AWOJPFC'+PortNum+', (uint16 *) &PORTJ_AWOJPFCE'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORTJ_AWOJPMC'+PortNum+' , (uint16 *) &PORTJ_AWOJPM'+PortNum+', (uint16 *) &PORTJ_AWOJPFC'+PortNum+', (uint16 *) &PORTJ_AWOJPFCE'+PortNum+', (uint16 *) &PORT_AWOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_AWOP'+PortNum+' , (uint16 *) &PORT_AWOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1
     
@@ -708,79 +708,79 @@ def  main():
             for index in range(0,32):
                 if debounce_array[index] == str(sheet.cell(row,col).value):
                     if row >= port0_start_index and row < port0_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_AWOPMC0,BIT_%s);SETBIT(PORT_AWOPM0,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index,row-port0_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_AWOPMC0,BIT_%s);SETBIT(PORT_AWOPM0,BIT_%s);SETBIT(PORT_AWOPIBC0,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index,row-port0_start_index,row-port0_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_AWOPPR0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port0_start_index)
                         fdio_w.write(strline)
 
                     if row >= port1_start_index and row < port1_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_%s);SETBIT(PORT_ISOPM1,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC1,BIT_%s);SETBIT(PORT_ISOPM1,BIT_%s);SETBIT(PORT_ISOPIBC1,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index,row-port1_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index)
                         fdio_w.write(strline)
 
                     if row >= port3_start_index and row < port3_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC3,BIT_%s);SETBIT(PORT_ISOPM3,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC3,BIT_%s);SETBIT(PORT_ISOPM3,BIT_%s);SETBIT(PORT_ISOPIBC3,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index,row-port3_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index)
                         fdio_w.write(strline)
 
                     if row >= port10_start_index and row < port10_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC10,BIT_%s);SETBIT(PORT_ISOPM10,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC10,BIT_%s);SETBIT(PORT_ISOPM10,BIT_%s);SETBIT(PORT_ISOPIBC10,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index,row-port10_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR10, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index)
                         fdio_w.write(strline)
 
                     if row >= port11_start_index and row < port11_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC11,BIT_%s);SETBIT(PORT_ISOPM11,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC11,BIT_%s);SETBIT(PORT_ISOPM11,BIT_%s);SETBIT(PORT_ISOPIBC11,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index,row-port11_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR11, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index)
                         fdio_w.write(strline)
 
                     if row >= port16_start_index and row < port16_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC16,BIT_%s);SETBIT(PORT_ISOPM16,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index,row-port16_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC16,BIT_%s);SETBIT(PORT_ISOPM16,BIT_%s);SETBIT(PORT_ISOPIBC16,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index,row-port16_start_index,row-port16_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR16, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port16_start_index)
                         fdio_w.write(strline)
 
                     if row >= port17_start_index and row < port17_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC17,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC17,BIT_%s);SETBIT(PORT_ISOPMC17,BIT_%s);SETBIT(PORT_ISOPIBC17,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index,row-port17_start_index,row-port17_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR17, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port17_start_index)
                         fdio_w.write(strline)                        
                     
                     if row >= port21_start_index and row < port21_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC21,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC21,BIT_%s);SETBIT(PORT_ISOPMC21,BIT_%s);SETBIT(PORT_ISOPIBC21,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index,row-port21_start_index,row-port21_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR21, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port21_start_index)
                         fdio_w.write(strline)
                     
                     if row >= port42_start_index and row < port42_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC42,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC42,BIT_%s);SETBIT(PORT_ISOPMC42,BIT_%s);SETBIT(PORT_ISOPIBC42,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index,row-port42_start_index,row-port42_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR42, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port42_start_index)
                         fdio_w.write(strline)
                     
                     if row >= port43_start_index and row < port43_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC43,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC43,BIT_%s);SETBIT(PORT_ISOPMC43,BIT_%s);SETBIT(PORT_ISOPIBC43,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index,row-port43_start_index,row-port43_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR43, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port43_start_index)
                         fdio_w.write(strline)
                     
                     if row >= port44_start_index and row < port44_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC44,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC44,BIT_%s);SETBIT(PORT_ISOPMC44,BIT_%s);SETBIT(PORT_ISOPIBC44,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index,row-port44_start_index,row-port44_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR44, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port44_start_index)
                         fdio_w.write(strline)
                     
                     if row >= port45_start_index and row < port45_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORT_ISOPMC45,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORT_ISOPMC45,BIT_%s);SETBIT(PORT_ISOPMC45,BIT_%s);SETBIT(PORT_ISOPIBC45,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index,row-port45_start_index,row-port45_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORT_ISOPPR45, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port45_start_index)
                         fdio_w.write(strline)
                         
                     if row >= jp0_start_index and row < jp0_end_index:
-                        strline = '#define %s_SET_TO_INPUT()              SETBIT(PORTJ_AWOJPMC0,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index)
+                        strline = '#define %s_SET_TO_INPUT()              CLEARBIT(PORTJ_ISOPMC0,BIT_%s);SETBIT(PORTJ_AWOJPMC0,BIT_%s);SETBIT(PORTJ_AWOJPIBC0,BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index,row-jp0_start_index,row-jp0_start_index)
                         fdio_w.write(strline)
                         strline = '#define %s_BTEST_PORT()              TESTBIT(PORTJ_AWOJPPR0, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-jp0_start_index)
                         fdio_w.write(strline)    
@@ -812,16 +812,14 @@ def  main():
         fdio_w.write('#define DIO_DBNC_INIT_COUNTER_BIT2    (%d)\n'%(b2_dbnc_init_value))
         fdio_w.write('#define DIO_DBNC_INIT_COUNTER_BIT3    (%d)\n'%(b3_dbnc_init_value))
                         
-    fw.write('\n')
-    fw.write('\n')
-    fw.write('\n')    
+    fw.write('\n') 
+    fw.write('/**************END OF PORT DIRECTION SETTING******************/\n')   
     fw.write('#endif\n')	
     fw.write('\n')
     fw.write('/**************************************End Of File******************************************/\n')
 
     fdio_w.write('\n')
-    fdio_w.write('\n')
-    fdio_w.write('\n')    
+    fdio_w.write('/*************END OF DIO DBNC CONFIGURATION**************/\n')      
     fdio_w.write('#endif\n')	
     fdio_w.write('\n')
     fdio_w.write('/**************************************End Of File******************************************/\n')
