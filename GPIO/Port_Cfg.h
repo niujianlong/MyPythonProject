@@ -11,7 +11,7 @@
 **          Author:  jiangyuchang
 **          Porting: niujianlong
 **
-**          Date  : 2016-07-28 17:19:39
+**          Date  : 2016-07-29 19:58:12
 **
 **
 ******************************************************************************/
@@ -30,42 +30,42 @@
 ******************************************************************************/
 
 /*****************PORT GROUP 0 INIT CONFIGURATION**********************/
-#define       PORT_AWOPMC0_INIT                            (0x0033u)
-#define       PORT_AWOPM0_INIT                            (0x0063u)
+#define       PORT_AWOPMC0_INIT                            (0x00F2u)
+#define       PORT_AWOPM0_INIT                            (0x01A3u)
 #define       PORT_AWOPIPC0_INIT                            (0x0000u)
-#define       PORT_AWOPFCE0_INIT                            (0x0030u)
-#define       PORT_AWOPFC0_INIT                            (0x0030u)
-#define       PORT_AWOPIBC0_INIT                            (0x0001u)
-#define       PORT_AWOPBDC0_INIT                            (0x0001u)
-#define       PORT_AWOP0_INIT                            (0x028Cu)
+#define       PORT_AWOPFCE0_INIT                            (0x00F0u)
+#define       PORT_AWOPFC0_INIT                            (0x00F0u)
+#define       PORT_AWOPIBC0_INIT                            (0x0101u)
+#define       PORT_AWOPBDC0_INIT                            (0x0000u)
+#define       PORT_AWOP0_INIT                            (0x000Cu)
 #define       PORT_AWOPU0_INIT                            (0x0000u)
 #define       PORT_AWOPD0_INIT                            (0x0000u)
 #define       PORT_AWOPODC0_INIT                            (0x0000u)
 #define       PORT_AWOPDSC0_INIT                            (0x0000u)
 
 /*****************PORT GROUP 1 INIT CONFIGURATION**********************/
-#define       PORT_ISOPMC1_INIT                            (0x0000u)
-#define       PORT_ISOPM1_INIT                            (0x0007u)
+#define       PORT_ISOPMC1_INIT                            (0x002Du)
+#define       PORT_ISOPM1_INIT                            (0x0000u)
 #define       PORT_ISOPIPC1_INIT                            (0x0000u)
 #define       PORT_ISOPFCE1_INIT                            (0x0000u)
 #define       PORT_ISOPFC1_INIT                            (0x0000u)
-#define       PORT_ISOPIBC1_INIT                            (0x0007u)
-#define       PORT_ISOPBDC1_INIT                            (0x0007u)
-#define       PORT_ISOP1_INIT                            (0x0038u)
+#define       PORT_ISOPIBC1_INIT                            (0x0000u)
+#define       PORT_ISOPBDC1_INIT                            (0x0000u)
+#define       PORT_ISOP1_INIT                            (0x003Fu)
 #define       PORT_ISOPU1_INIT                            (0x0000u)
 #define       PORT_ISOPD1_INIT                            (0x0000u)
 #define       PORT_ISOPODC1_INIT                            (0x0000u)
 #define       PORT_ISOPDSC1_INIT                            (0x0000u)
 
 /*****************PORT GROUP 3 INIT CONFIGURATION**********************/
-#define       PORT_ISOPMC3_INIT                            (0x017Bu)
-#define       PORT_ISOPM3_INIT                            (0x0000u)
+#define       PORT_ISOPMC3_INIT                            (0x037Bu)
+#define       PORT_ISOPM3_INIT                            (0x0004u)
 #define       PORT_ISOPIPC3_INIT                            (0x0000u)
-#define       PORT_ISOPFCE3_INIT                            (0x0100u)
-#define       PORT_ISOPFC3_INIT                            (0x0078u)
-#define       PORT_ISOPIBC3_INIT                            (0x0000u)
+#define       PORT_ISOPFCE3_INIT                            (0x0300u)
+#define       PORT_ISOPFC3_INIT                            (0x0278u)
+#define       PORT_ISOPIBC3_INIT                            (0x0004u)
 #define       PORT_ISOPBDC3_INIT                            (0x0000u)
-#define       PORT_ISOP3_INIT                            (0x007Cu)
+#define       PORT_ISOP3_INIT                            (0x0278u)
 #define       PORT_ISOPU3_INIT                            (0x0000u)
 #define       PORT_ISOPD3_INIT                            (0x0000u)
 #define       PORT_ISOPODC3_INIT                            (0x0000u)
@@ -73,27 +73,27 @@
 
 /*****************PORT GROUP 10 INIT CONFIGURATION**********************/
 #define       PORT_ISOPMC10_INIT                            (0x0000u)
-#define       PORT_ISOPM10_INIT                            (0x0DFFu)
+#define       PORT_ISOPM10_INIT                            (0x01FFu)
 #define       PORT_ISOPIPC10_INIT                            (0x0000u)
 #define       PORT_ISOPFCE10_INIT                            (0x0000u)
 #define       PORT_ISOPFC10_INIT                            (0x0000u)
 #define       PORT_ISOPIBC10_INIT                            (0x0DFFu)
-#define       PORT_ISOPBDC10_INIT                            (0x0DFFu)
-#define       PORT_ISOP10_INIT                            (0x0000u)
+#define       PORT_ISOPBDC10_INIT                            (0x0000u)
+#define       PORT_ISOP10_INIT                            (0x0C00u)
 #define       PORT_ISOPU10_INIT                            (0x0000u)
 #define       PORT_ISOPD10_INIT                            (0x0000u)
 #define       PORT_ISOPODC10_INIT                            (0x0000u)
 #define       PORT_ISOPDSC10_INIT                            (0x0000u)
 
 /*****************PORT GROUP 11 INIT CONFIGURATION**********************/
-#define       PORT_ISOPMC11_INIT                            (0x000Bu)
+#define       PORT_ISOPMC11_INIT                            (0x0001u)
 #define       PORT_ISOPM11_INIT                            (0x0003u)
 #define       PORT_ISOPIPC11_INIT                            (0x0000u)
 #define       PORT_ISOPFCE11_INIT                            (0x0000u)
-#define       PORT_ISOPFC11_INIT                            (0x000Bu)
-#define       PORT_ISOPIBC11_INIT                            (0x0000u)
+#define       PORT_ISOPFC11_INIT                            (0x0001u)
+#define       PORT_ISOPIBC11_INIT                            (0x0002u)
 #define       PORT_ISOPBDC11_INIT                            (0x0000u)
-#define       PORT_ISOP11_INIT                            (0x0000u)
+#define       PORT_ISOP11_INIT                            (0x000Cu)
 #define       PORT_ISOPU11_INIT                            (0x0000u)
 #define       PORT_ISOPD11_INIT                            (0x0000u)
 #define       PORT_ISOPODC11_INIT                            (0x0000u)
@@ -102,7 +102,7 @@
 /*****************PORT GROUP 16 INIT CONFIGURATION**********************/
 #define       PORT_ISOPMC16_INIT                            (0x0FFFu)
 #define       PORT_ISOPM16_INIT                            (0x0000u)
-#define       PORT_ISOPIPC16_INIT                            (0x0FFFu)
+#define       PORT_ISOPIPC16_INIT                            (0x0000u)
 #define       PORT_ISOPFCE16_INIT                            (0x0000u)
 #define       PORT_ISOPFC16_INIT                            (0x0000u)
 #define       PORT_ISOPIBC16_INIT                            (0x0000u)
@@ -115,13 +115,13 @@
 
 /*****************PORT GROUP 17 INIT CONFIGURATION**********************/
 #define       PORT_ISOPMC17_INIT                            (0x017Cu)
-#define       PORT_ISOPM17_INIT                            (0x0001u)
+#define       PORT_ISOPM17_INIT                            (0x0C81u)
 #define       PORT_ISOPIPC17_INIT                            (0x0000u)
 #define       PORT_ISOPFCE17_INIT                            (0x0000u)
 #define       PORT_ISOPFC17_INIT                            (0x017Cu)
-#define       PORT_ISOPIBC17_INIT                            (0x0001u)
-#define       PORT_ISOPBDC17_INIT                            (0x0001u)
-#define       PORT_ISOP17_INIT                            (0x03FEu)
+#define       PORT_ISOPIBC17_INIT                            (0x0C81u)
+#define       PORT_ISOPBDC17_INIT                            (0x0000u)
+#define       PORT_ISOP17_INIT                            (0x037Cu)
 #define       PORT_ISOPU17_INIT                            (0x0000u)
 #define       PORT_ISOPD17_INIT                            (0x0000u)
 #define       PORT_ISOPODC17_INIT                            (0x0000u)
@@ -129,27 +129,27 @@
 
 /*****************PORT GROUP 21 INIT CONFIGURATION**********************/
 #define       PORT_ISOPMC21_INIT                            (0x003Fu)
-#define       PORT_ISOPM21_INIT                            (0x003Cu)
-#define       PORT_ISOPIPC21_INIT                            (0x0003u)
+#define       PORT_ISOPM21_INIT                            (0x033Cu)
+#define       PORT_ISOPIPC21_INIT                            (0x0000u)
 #define       PORT_ISOPFCE21_INIT                            (0x0000u)
 #define       PORT_ISOPFC21_INIT                            (0x0000u)
-#define       PORT_ISOPIBC21_INIT                            (0x0000u)
+#define       PORT_ISOPIBC21_INIT                            (0x033Cu)
 #define       PORT_ISOPBDC21_INIT                            (0x0000u)
-#define       PORT_ISOP21_INIT                            (0x0041u)
+#define       PORT_ISOP21_INIT                            (0x00C1u)
 #define       PORT_ISOPU21_INIT                            (0x0000u)
 #define       PORT_ISOPD21_INIT                            (0x0000u)
 #define       PORT_ISOPODC21_INIT                            (0x0000u)
 #define       PORT_ISOPDSC21_INIT                            (0x0000u)
 
 /*****************PORT GROUP 42 INIT CONFIGURATION**********************/
-#define       PORT_ISOPMC42_INIT                            (0x01FFu)
-#define       PORT_ISOPM42_INIT                            (0x81FFu)
+#define       PORT_ISOPMC42_INIT                            (0x03FFu)
+#define       PORT_ISOPM42_INIT                            (0x8000u)
 #define       PORT_ISOPIPC42_INIT                            (0x0000u)
 #define       PORT_ISOPFCE42_INIT                            (0x0000u)
-#define       PORT_ISOPFC42_INIT                            (0x01FFu)
+#define       PORT_ISOPFC42_INIT                            (0x0000u)
 #define       PORT_ISOPIBC42_INIT                            (0x8000u)
-#define       PORT_ISOPBDC42_INIT                            (0x8000u)
-#define       PORT_ISOP42_INIT                            (0x6000u)
+#define       PORT_ISOPBDC42_INIT                            (0x0000u)
+#define       PORT_ISOP42_INIT                            (0x63FFu)
 #define       PORT_ISOPU42_INIT                            (0x0000u)
 #define       PORT_ISOPD42_INIT                            (0x0000u)
 #define       PORT_ISOPODC42_INIT                            (0x0000u)
@@ -199,7 +199,7 @@
 
 /*****************JPORT GROUP 0 INIT CONFIGURATION**********************/
 #define       PORTJ_AWOJPMC0_INIT                            (0x0000u)
-#define       PORTJ_AWOJPM0_INIT                            (0x001Fu)
+#define       PORTJ_AWOJPM0_INIT                            (0x0000u)
 #define       PORTJ_AWOJPIPC0_INIT                            (0x0000u)
 #define       PORTJ_AWOJPFCE0_INIT                            (0x0000u)
 #define       PORTJ_AWOJPFC0_INIT                            (0x0000u)
@@ -212,14 +212,14 @@
 #define       PORTJ_AWOJPDSC0_INIT                            (0x0000u)
 
 /*****************PORT GROUP 0 SLEEP CONFIGURATION**********************/
-#define       PORT_AWOPMC0_SLEEP                            (0x0023u)
-#define       PORT_AWOPM0_SLEEP                            (0x0063u)
+#define       PORT_AWOPMC0_SLEEP                            (0x00A3u)
+#define       PORT_AWOPM0_SLEEP                            (0x01A3u)
 #define       PORT_AWOPIPC0_SLEEP                            (0x0000u)
-#define       PORT_AWOPFCE0_SLEEP                            (0x0020u)
-#define       PORT_AWOPFC0_SLEEP                            (0x0020u)
-#define       PORT_AWOPIBC0_SLEEP                            (0x0061u)
-#define       PORT_AWOPBDC0_SLEEP                            (0x0061u)
-#define       PORT_AWOP0_SLEEP                            (0x0100u)
+#define       PORT_AWOPFCE0_SLEEP                            (0x00A0u)
+#define       PORT_AWOPFC0_SLEEP                            (0x00A0u)
+#define       PORT_AWOPIBC0_SLEEP                            (0x0000u)
+#define       PORT_AWOPBDC0_SLEEP                            (0x0000u)
+#define       PORT_AWOP0_SLEEP                            (0x0000u)
 #define       PORT_AWOPU0_SLEEP                            (0x0000u)
 #define       PORT_AWOPD0_SLEEP                            (0x0000u)
 #define       PORT_AWOPODC0_SLEEP                            (0x0000u)
@@ -227,12 +227,12 @@
 
 /*****************PORT GROUP 1 SLEEP CONFIGURATION**********************/
 #define       PORT_ISOPMC1_SLEEP                            (0x0000u)
-#define       PORT_ISOPM1_SLEEP                            (0x0007u)
+#define       PORT_ISOPM1_SLEEP                            (0x0000u)
 #define       PORT_ISOPIPC1_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE1_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC1_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC1_SLEEP                            (0x0007u)
-#define       PORT_ISOPBDC1_SLEEP                            (0x0007u)
+#define       PORT_ISOPIBC1_SLEEP                            (0x0000u)
+#define       PORT_ISOPBDC1_SLEEP                            (0x0000u)
 #define       PORT_ISOP1_SLEEP                            (0x0000u)
 #define       PORT_ISOPU1_SLEEP                            (0x0000u)
 #define       PORT_ISOPD1_SLEEP                            (0x0000u)
@@ -245,8 +245,8 @@
 #define       PORT_ISOPIPC3_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE3_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC3_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC3_SLEEP                            (0x0005u)
-#define       PORT_ISOPBDC3_SLEEP                            (0x0005u)
+#define       PORT_ISOPIBC3_SLEEP                            (0x0004u)
+#define       PORT_ISOPBDC3_SLEEP                            (0x0000u)
 #define       PORT_ISOP3_SLEEP                            (0x0080u)
 #define       PORT_ISOPU3_SLEEP                            (0x0000u)
 #define       PORT_ISOPD3_SLEEP                            (0x0000u)
@@ -255,12 +255,12 @@
 
 /*****************PORT GROUP 10 SLEEP CONFIGURATION**********************/
 #define       PORT_ISOPMC10_SLEEP                            (0x0000u)
-#define       PORT_ISOPM10_SLEEP                            (0x0DFFu)
+#define       PORT_ISOPM10_SLEEP                            (0x01FFu)
 #define       PORT_ISOPIPC10_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE10_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC10_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC10_SLEEP                            (0x0DFFu)
-#define       PORT_ISOPBDC10_SLEEP                            (0x0DFFu)
+#define       PORT_ISOPIBC10_SLEEP                            (0x01FFu)
+#define       PORT_ISOPBDC10_SLEEP                            (0x0000u)
 #define       PORT_ISOP10_SLEEP                            (0x0000u)
 #define       PORT_ISOPU10_SLEEP                            (0x0000u)
 #define       PORT_ISOPD10_SLEEP                            (0x0000u)
@@ -273,8 +273,8 @@
 #define       PORT_ISOPIPC11_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE11_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC11_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC11_SLEEP                            (0x0003u)
-#define       PORT_ISOPBDC11_SLEEP                            (0x0003u)
+#define       PORT_ISOPIBC11_SLEEP                            (0x0000u)
+#define       PORT_ISOPBDC11_SLEEP                            (0x0000u)
 #define       PORT_ISOP11_SLEEP                            (0x0000u)
 #define       PORT_ISOPU11_SLEEP                            (0x0000u)
 #define       PORT_ISOPD11_SLEEP                            (0x0000u)
@@ -297,13 +297,13 @@
 
 /*****************PORT GROUP 17 SLEEP CONFIGURATION**********************/
 #define       PORT_ISOPMC17_SLEEP                            (0x0000u)
-#define       PORT_ISOPM17_SLEEP                            (0x0001u)
+#define       PORT_ISOPM17_SLEEP                            (0x0C81u)
 #define       PORT_ISOPIPC17_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE17_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC17_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC17_SLEEP                            (0x0001u)
-#define       PORT_ISOPBDC17_SLEEP                            (0x0001u)
-#define       PORT_ISOP17_SLEEP                            (0x0000u)
+#define       PORT_ISOPIBC17_SLEEP                            (0x0C81u)
+#define       PORT_ISOPBDC17_SLEEP                            (0x0000u)
+#define       PORT_ISOP17_SLEEP                            (0x0002u)
 #define       PORT_ISOPU17_SLEEP                            (0x0000u)
 #define       PORT_ISOPD17_SLEEP                            (0x0000u)
 #define       PORT_ISOPODC17_SLEEP                            (0x0000u)
@@ -311,13 +311,13 @@
 
 /*****************PORT GROUP 21 SLEEP CONFIGURATION**********************/
 #define       PORT_ISOPMC21_SLEEP                            (0x0000u)
-#define       PORT_ISOPM21_SLEEP                            (0x0000u)
+#define       PORT_ISOPM21_SLEEP                            (0x0300u)
 #define       PORT_ISOPIPC21_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE21_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC21_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC21_SLEEP                            (0x0000u)
+#define       PORT_ISOPIBC21_SLEEP                            (0x0300u)
 #define       PORT_ISOPBDC21_SLEEP                            (0x0000u)
-#define       PORT_ISOP21_SLEEP                            (0x0042u)
+#define       PORT_ISOP21_SLEEP                            (0x0002u)
 #define       PORT_ISOPU21_SLEEP                            (0x0000u)
 #define       PORT_ISOPD21_SLEEP                            (0x0000u)
 #define       PORT_ISOPODC21_SLEEP                            (0x0000u)
@@ -325,12 +325,12 @@
 
 /*****************PORT GROUP 42 SLEEP CONFIGURATION**********************/
 #define       PORT_ISOPMC42_SLEEP                            (0x0000u)
-#define       PORT_ISOPM42_SLEEP                            (0x81FFu)
+#define       PORT_ISOPM42_SLEEP                            (0xFC00u)
 #define       PORT_ISOPIPC42_SLEEP                            (0x0000u)
 #define       PORT_ISOPFCE42_SLEEP                            (0x0000u)
 #define       PORT_ISOPFC42_SLEEP                            (0x0000u)
-#define       PORT_ISOPIBC42_SLEEP                            (0x81FFu)
-#define       PORT_ISOPBDC42_SLEEP                            (0x81FFu)
+#define       PORT_ISOPIBC42_SLEEP                            (0xFC00u)
+#define       PORT_ISOPBDC42_SLEEP                            (0x0000u)
 #define       PORT_ISOP42_SLEEP                            (0x0000u)
 #define       PORT_ISOPU42_SLEEP                            (0x0000u)
 #define       PORT_ISOPD42_SLEEP                            (0x0000u)
@@ -381,7 +381,7 @@
 
 /*****************JPORT GROUP 0 SLEEP CONFIGURATION**********************/
 #define       PORTJ_AWOJPMC0_SLEEP                            (0x0000u)
-#define       PORTJ_AWOJPM0_SLEEP                            (0x001Fu)
+#define       PORTJ_AWOJPM0_SLEEP                            (0x0000u)
 #define       PORTJ_AWOJPIPC0_SLEEP                            (0x0000u)
 #define       PORTJ_AWOJPFCE0_SLEEP                            (0x0000u)
 #define       PORTJ_AWOJPFC0_SLEEP                            (0x0000u)
@@ -407,34 +407,34 @@
 #define      M_CAN_TX_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_4);CLEARBIT(PORT_AWOPM0, BIT_4)
 #define      M_CAN_RX_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_5);SETBIT(PORT_AWOPM0, BIT_5);SETBIT(PORT_AWOPIBC0, BIT_5)
 #define      M_CAN_RX_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_5);CLEARBIT(PORT_AWOPM0, BIT_5)
-#define      HW_I_M_CAN_ERR_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_6);SETBIT(PORT_AWOPM0, BIT_6);SETBIT(PORT_AWOPIBC0, BIT_6)
-#define      HW_I_M_CAN_ERR_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_6);CLEARBIT(PORT_AWOPM0, BIT_6)
-#define      HW_O_SBATT_EN_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_7);SETBIT(PORT_AWOPM0, BIT_7);SETBIT(PORT_AWOPIBC0, BIT_7)
-#define      HW_O_SBATT_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_7);CLEARBIT(PORT_AWOPM0, BIT_7)
-#define      HW_O_3V3_EN_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_8);SETBIT(PORT_AWOPM0, BIT_8);SETBIT(PORT_AWOPIBC0, BIT_8)
-#define      HW_O_3V3_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_8);CLEARBIT(PORT_AWOPM0, BIT_8)
-#define      HW_O_SW5V_EN_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_9);SETBIT(PORT_AWOPM0, BIT_9);SETBIT(PORT_AWOPIBC0, BIT_9)
-#define      HW_O_SW5V_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_9);CLEARBIT(PORT_AWOPM0, BIT_9)
+#define      V_CAN_TX_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_6);SETBIT(PORT_AWOPM0, BIT_6);SETBIT(PORT_AWOPIBC0, BIT_6)
+#define      V_CAN_TX_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_6);CLEARBIT(PORT_AWOPM0, BIT_6)
+#define      V_CAN_RX_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_7);SETBIT(PORT_AWOPM0, BIT_7);SETBIT(PORT_AWOPIBC0, BIT_7)
+#define      V_CAN_RX_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_7);CLEARBIT(PORT_AWOPM0, BIT_7)
+#define      M_CAN_ERR_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_8);SETBIT(PORT_AWOPM0, BIT_8);SETBIT(PORT_AWOPIBC0, BIT_8)
+#define      M_CAN_ERR_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_8);CLEARBIT(PORT_AWOPM0, BIT_8)
+#define      TELLTALE_SPI_CS_SET_TO_INPUT()          CLEARBIT(PORT_AWOPMC0, BIT_9);SETBIT(PORT_AWOPM0, BIT_9);SETBIT(PORT_AWOPIBC0, BIT_9)
+#define      TELLTALE_SPI_CS_SET_TO_OUTPUT()          CLEARBIT(PORT_AWOPMC0, BIT_9);CLEARBIT(PORT_AWOPM0, BIT_9)
 
-#define      HW_I_WASH_FLUID_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_0);SETBIT(PORT_ISOPM1, BIT_0);SETBIT(PORT_ISOPIBC1, BIT_0)
-#define      HW_I_WASH_FLUID_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_0);CLEARBIT(PORT_ISOPM1, BIT_0)
-#define      HW_I_BRAKE_FLUID_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_1);SETBIT(PORT_ISOPM1, BIT_1);SETBIT(PORT_ISOPIBC1, BIT_1)
-#define      HW_I_BRAKE_FLUID_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_1);CLEARBIT(PORT_ISOPM1, BIT_1)
-#define      HW_I_PARK_BRAKE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_2);SETBIT(PORT_ISOPM1, BIT_2);SETBIT(PORT_ISOPIBC1, BIT_2)
-#define      HW_I_PARK_BRAKE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_2);CLEARBIT(PORT_ISOPM1, BIT_2)
-#define      HW_O_LEFT_TT_TT1_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_3);SETBIT(PORT_ISOPM1, BIT_3);SETBIT(PORT_ISOPIBC1, BIT_3)
-#define      HW_O_LEFT_TT_TT1_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_3);CLEARBIT(PORT_ISOPM1, BIT_3)
-#define      HW_O_LEFT_TT_TT2_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_4);SETBIT(PORT_ISOPM1, BIT_4);SETBIT(PORT_ISOPIBC1, BIT_4)
-#define      HW_O_LEFT_TT_TT2_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_4);CLEARBIT(PORT_ISOPM1, BIT_4)
-#define      HW_O_LEFT_TT_TT3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_5);SETBIT(PORT_ISOPM1, BIT_5);SETBIT(PORT_ISOPIBC1, BIT_5)
-#define      HW_O_LEFT_TT_TT3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_5);CLEARBIT(PORT_ISOPM1, BIT_5)
+#define      LED_SPI_DATA_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_0);SETBIT(PORT_ISOPM1, BIT_0);SETBIT(PORT_ISOPIBC1, BIT_0)
+#define      LED_SPI_DATA_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_0);CLEARBIT(PORT_ISOPM1, BIT_0)
+#define      LED_SPI_LATCH_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_1);SETBIT(PORT_ISOPM1, BIT_1);SETBIT(PORT_ISOPIBC1, BIT_1)
+#define      LED_SPI_LATCH_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_1);CLEARBIT(PORT_ISOPM1, BIT_1)
+#define      LED_SPI_CLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_2);SETBIT(PORT_ISOPM1, BIT_2);SETBIT(PORT_ISOPIBC1, BIT_2)
+#define      LED_SPI_CLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_2);CLEARBIT(PORT_ISOPM1, BIT_2)
+#define      TELLTALE_SPI_DATA_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_3);SETBIT(PORT_ISOPM1, BIT_3);SETBIT(PORT_ISOPIBC1, BIT_3)
+#define      TELLTALE_SPI_DATA_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_3);CLEARBIT(PORT_ISOPM1, BIT_3)
+#define      TELLTALE_SPI_LATCH_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_4);SETBIT(PORT_ISOPM1, BIT_4);SETBIT(PORT_ISOPIBC1, BIT_4)
+#define      TELLTALE_SPI_LATCH_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_4);CLEARBIT(PORT_ISOPM1, BIT_4)
+#define      TELLTALE_SPI_CLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_5);SETBIT(PORT_ISOPM1, BIT_5);SETBIT(PORT_ISOPIBC1, BIT_5)
+#define      TELLTALE_SPI_CLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC1, BIT_5);CLEARBIT(PORT_ISOPM1, BIT_5)
 
-#define      VIDEO_SDA_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_0);SETBIT(PORT_ISOPM3, BIT_0);SETBIT(PORT_ISOPIBC3, BIT_0)
-#define      VIDEO_SDA_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_0);CLEARBIT(PORT_ISOPM3, BIT_0)
-#define      VIDEO_SCL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_1);SETBIT(PORT_ISOPM3, BIT_1);SETBIT(PORT_ISOPIBC3, BIT_1)
-#define      VIDEO_SCL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_1);CLEARBIT(PORT_ISOPM3, BIT_1)
-#define      HW_O_VIDEO_RESET_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_2);SETBIT(PORT_ISOPM3, BIT_2);SETBIT(PORT_ISOPIBC3, BIT_2)
-#define      HW_O_VIDEO_RESET_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_2);CLEARBIT(PORT_ISOPM3, BIT_2)
+#define      VIDEO_SDA_MDIO_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_0);SETBIT(PORT_ISOPM3, BIT_0);SETBIT(PORT_ISOPIBC3, BIT_0)
+#define      VIDEO_SDA_MDIO_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_0);CLEARBIT(PORT_ISOPM3, BIT_0)
+#define      VIDEO_SCL_MDC_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_1);SETBIT(PORT_ISOPM3, BIT_1);SETBIT(PORT_ISOPIBC3, BIT_1)
+#define      VIDEO_SCL_MDC_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_1);CLEARBIT(PORT_ISOPM3, BIT_1)
+#define      ETNB_INT_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_2);SETBIT(PORT_ISOPM3, BIT_2);SETBIT(PORT_ISOPIBC3, BIT_2)
+#define      ETNB_INT_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_2);CLEARBIT(PORT_ISOPM3, BIT_2)
 #define      SPEAKER_I2S_TXD_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_3);SETBIT(PORT_ISOPM3, BIT_3);SETBIT(PORT_ISOPIBC3, BIT_3)
 #define      SPEAKER_I2S_TXD_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_3);CLEARBIT(PORT_ISOPM3, BIT_3)
 #define      SPEAKER_I2S_BIT_CLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_4);SETBIT(PORT_ISOPM3, BIT_4);SETBIT(PORT_ISOPIBC3, BIT_4)
@@ -443,12 +443,12 @@
 #define      SPEAKER_I2S_WS_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_5);CLEARBIT(PORT_ISOPM3, BIT_5)
 #define      SPEAKER_SYSCLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_6);SETBIT(PORT_ISOPM3, BIT_6);SETBIT(PORT_ISOPIBC3, BIT_6)
 #define      SPEAKER_SYSCLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_6);CLEARBIT(PORT_ISOPM3, BIT_6)
-#define      HW_O_CODEC_MUTE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_7);SETBIT(PORT_ISOPM3, BIT_7);SETBIT(PORT_ISOPIBC3, BIT_7)
-#define      HW_O_CODEC_MUTE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_7);CLEARBIT(PORT_ISOPM3, BIT_7)
+#define      CODEC_MUTE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_7);SETBIT(PORT_ISOPM3, BIT_7);SETBIT(PORT_ISOPIBC3, BIT_7)
+#define      CODEC_MUTE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_7);CLEARBIT(PORT_ISOPM3, BIT_7)
 #define      SPEAKER_OUTPUT_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_8);SETBIT(PORT_ISOPM3, BIT_8);SETBIT(PORT_ISOPIBC3, BIT_8)
 #define      SPEAKER_OUTPUT_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_8);CLEARBIT(PORT_ISOPM3, BIT_8)
-#define      NO_USED_PIN3_9_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_9);SETBIT(PORT_ISOPM3, BIT_9);SETBIT(PORT_ISOPIBC3, BIT_9)
-#define      NO_USED_PIN3_9_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_9);CLEARBIT(PORT_ISOPM3, BIT_9)
+#define      SS_CTRL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_9);SETBIT(PORT_ISOPM3, BIT_9);SETBIT(PORT_ISOPIBC3, BIT_9)
+#define      SS_CTRL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC3, BIT_9);CLEARBIT(PORT_ISOPM3, BIT_9)
 
 #define      TFT_THERMAL_MON_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_0);SETBIT(PORT_ISOPM10, BIT_0);SETBIT(PORT_ISOPIBC10, BIT_0)
 #define      TFT_THERMAL_MON_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_0);CLEARBIT(PORT_ISOPM10, BIT_0)
@@ -468,51 +468,51 @@
 #define      BACKLIGHT_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_7);CLEARBIT(PORT_ISOPM10, BIT_7)
 #define      AIRBAG_FB_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_8);SETBIT(PORT_ISOPM10, BIT_8);SETBIT(PORT_ISOPIBC10, BIT_8)
 #define      AIRBAG_FB_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_8);CLEARBIT(PORT_ISOPM10, BIT_8)
-#define      NO_USED_PIN10_9_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_9);SETBIT(PORT_ISOPM10, BIT_9);SETBIT(PORT_ISOPIBC10, BIT_9)
-#define      NO_USED_PIN10_9_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_9);CLEARBIT(PORT_ISOPM10, BIT_9)
-#define      HW_I_NIGHT_PANNEL_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_10);SETBIT(PORT_ISOPM10, BIT_10);SETBIT(PORT_ISOPIBC10, BIT_10)
-#define      HW_I_NIGHT_PANNEL_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_10);CLEARBIT(PORT_ISOPM10, BIT_10)
-#define      HW_I_LOW_OIL_PRESSURE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_11);SETBIT(PORT_ISOPM10, BIT_11);SETBIT(PORT_ISOPIBC10, BIT_11)
-#define      HW_I_LOW_OIL_PRESSURE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_11);CLEARBIT(PORT_ISOPM10, BIT_11)
+#define      NO_USED_PIN_109_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_9);SETBIT(PORT_ISOPM10, BIT_9);SETBIT(PORT_ISOPIBC10, BIT_9)
+#define      NO_USED_PIN_109_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_9);CLEARBIT(PORT_ISOPM10, BIT_9)
+#define      SW5V_EN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_10);SETBIT(PORT_ISOPM10, BIT_10);SETBIT(PORT_ISOPIBC10, BIT_10)
+#define      SW5V_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_10);CLEARBIT(PORT_ISOPM10, BIT_10)
+#define      V_CAN_STB_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_11);SETBIT(PORT_ISOPM10, BIT_11);SETBIT(PORT_ISOPIBC10, BIT_11)
+#define      V_CAN_STB_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC10, BIT_11);CLEARBIT(PORT_ISOPM10, BIT_11)
 
 #define      RADA_CLK_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_0);SETBIT(PORT_ISOPM11, BIT_0);SETBIT(PORT_ISOPIBC11, BIT_0)
 #define      RADA_CLK_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_0);CLEARBIT(PORT_ISOPM11, BIT_0)
 #define      RADA_DATA_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_1);SETBIT(PORT_ISOPM11, BIT_1);SETBIT(PORT_ISOPIBC11, BIT_1)
 #define      RADA_DATA_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_1);CLEARBIT(PORT_ISOPM11, BIT_1)
-#define      RIGHT_TT_TT12_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_2);SETBIT(PORT_ISOPM11, BIT_2);SETBIT(PORT_ISOPIBC11, BIT_2)
-#define      RIGHT_TT_TT12_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_2);CLEARBIT(PORT_ISOPM11, BIT_2)
-#define      SS_CTRL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_3);SETBIT(PORT_ISOPM11, BIT_3);SETBIT(PORT_ISOPIBC11, BIT_3)
-#define      SS_CTRL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_3);CLEARBIT(PORT_ISOPM11, BIT_3)
+#define      SBATT_EN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_2);SETBIT(PORT_ISOPM11, BIT_2);SETBIT(PORT_ISOPIBC11, BIT_2)
+#define      SBATT_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_2);CLEARBIT(PORT_ISOPM11, BIT_2)
+#define      LEFT_TT_TT3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_3);SETBIT(PORT_ISOPM11, BIT_3);SETBIT(PORT_ISOPIBC11, BIT_3)
+#define      LEFT_TT_TT3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC11, BIT_3);CLEARBIT(PORT_ISOPM11, BIT_3)
 
-#define      SPEEDO_1_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_0);SETBIT(PORT_ISOPM16, BIT_0);SETBIT(PORT_ISOPIBC16, BIT_0)
-#define      SPEEDO_1_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_0);CLEARBIT(PORT_ISOPM16, BIT_0)
-#define      SPEEDO_1_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_1);SETBIT(PORT_ISOPM16, BIT_1);SETBIT(PORT_ISOPIBC16, BIT_1)
-#define      SPEEDO_1_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_1);CLEARBIT(PORT_ISOPM16, BIT_1)
-#define      SPEEDO_2_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_2);SETBIT(PORT_ISOPM16, BIT_2);SETBIT(PORT_ISOPIBC16, BIT_2)
-#define      SPEEDO_2_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_2);CLEARBIT(PORT_ISOPM16, BIT_2)
-#define      SPEEDO_2_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_3);SETBIT(PORT_ISOPM16, BIT_3);SETBIT(PORT_ISOPIBC16, BIT_3)
-#define      SPEEDO_2_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_3);CLEARBIT(PORT_ISOPM16, BIT_3)
-#define      TEMP_1_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_4);SETBIT(PORT_ISOPM16, BIT_4);SETBIT(PORT_ISOPIBC16, BIT_4)
-#define      TEMP_1_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_4);CLEARBIT(PORT_ISOPM16, BIT_4)
-#define      TEMP_1_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_5);SETBIT(PORT_ISOPM16, BIT_5);SETBIT(PORT_ISOPIBC16, BIT_5)
-#define      TEMP_1_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_5);CLEARBIT(PORT_ISOPM16, BIT_5)
-#define      TEMP_2_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_6);SETBIT(PORT_ISOPM16, BIT_6);SETBIT(PORT_ISOPIBC16, BIT_6)
-#define      TEMP_2_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_6);CLEARBIT(PORT_ISOPM16, BIT_6)
-#define      TEMP_2_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_7);SETBIT(PORT_ISOPM16, BIT_7);SETBIT(PORT_ISOPIBC16, BIT_7)
-#define      TEMP_2_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_7);CLEARBIT(PORT_ISOPM16, BIT_7)
-#define      FUEL_1_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_8);SETBIT(PORT_ISOPM16, BIT_8);SETBIT(PORT_ISOPIBC16, BIT_8)
-#define      FUEL_1_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_8);CLEARBIT(PORT_ISOPM16, BIT_8)
-#define      FUEL_1_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_9);SETBIT(PORT_ISOPM16, BIT_9);SETBIT(PORT_ISOPIBC16, BIT_9)
-#define      FUEL_1_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_9);CLEARBIT(PORT_ISOPM16, BIT_9)
-#define      FUEL_2_POSITIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_10);SETBIT(PORT_ISOPM16, BIT_10);SETBIT(PORT_ISOPIBC16, BIT_10)
-#define      FUEL_2_POSITIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_10);CLEARBIT(PORT_ISOPM16, BIT_10)
-#define      FUEL_2_NEGATIVE_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_11);SETBIT(PORT_ISOPM16, BIT_11);SETBIT(PORT_ISOPIBC16, BIT_11)
-#define      FUEL_2_NEGATIVE_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_11);CLEARBIT(PORT_ISOPM16, BIT_11)
+#define      SPEEDO_1P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_0);SETBIT(PORT_ISOPM16, BIT_0);SETBIT(PORT_ISOPIBC16, BIT_0)
+#define      SPEEDO_1P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_0);CLEARBIT(PORT_ISOPM16, BIT_0)
+#define      SPEEDO_1N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_1);SETBIT(PORT_ISOPM16, BIT_1);SETBIT(PORT_ISOPIBC16, BIT_1)
+#define      SPEEDO_1N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_1);CLEARBIT(PORT_ISOPM16, BIT_1)
+#define      SPEEDO_2P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_2);SETBIT(PORT_ISOPM16, BIT_2);SETBIT(PORT_ISOPIBC16, BIT_2)
+#define      SPEEDO_2P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_2);CLEARBIT(PORT_ISOPM16, BIT_2)
+#define      SPEEDO_2N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_3);SETBIT(PORT_ISOPM16, BIT_3);SETBIT(PORT_ISOPIBC16, BIT_3)
+#define      SPEEDO_2N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_3);CLEARBIT(PORT_ISOPM16, BIT_3)
+#define      TEMP_1P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_4);SETBIT(PORT_ISOPM16, BIT_4);SETBIT(PORT_ISOPIBC16, BIT_4)
+#define      TEMP_1P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_4);CLEARBIT(PORT_ISOPM16, BIT_4)
+#define      TEMP_1N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_5);SETBIT(PORT_ISOPM16, BIT_5);SETBIT(PORT_ISOPIBC16, BIT_5)
+#define      TEMP_1N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_5);CLEARBIT(PORT_ISOPM16, BIT_5)
+#define      TEMP_2P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_6);SETBIT(PORT_ISOPM16, BIT_6);SETBIT(PORT_ISOPIBC16, BIT_6)
+#define      TEMP_2P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_6);CLEARBIT(PORT_ISOPM16, BIT_6)
+#define      TEMP_2N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_7);SETBIT(PORT_ISOPM16, BIT_7);SETBIT(PORT_ISOPIBC16, BIT_7)
+#define      TEMP_2N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_7);CLEARBIT(PORT_ISOPM16, BIT_7)
+#define      FUEL_1P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_8);SETBIT(PORT_ISOPM16, BIT_8);SETBIT(PORT_ISOPIBC16, BIT_8)
+#define      FUEL_1P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_8);CLEARBIT(PORT_ISOPM16, BIT_8)
+#define      FUEL_1N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_9);SETBIT(PORT_ISOPM16, BIT_9);SETBIT(PORT_ISOPIBC16, BIT_9)
+#define      FUEL_1N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_9);CLEARBIT(PORT_ISOPM16, BIT_9)
+#define      FUEL_2P_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_10);SETBIT(PORT_ISOPM16, BIT_10);SETBIT(PORT_ISOPIBC16, BIT_10)
+#define      FUEL_2P_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_10);CLEARBIT(PORT_ISOPM16, BIT_10)
+#define      FUEL_2N_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC16, BIT_11);SETBIT(PORT_ISOPM16, BIT_11);SETBIT(PORT_ISOPIBC16, BIT_11)
+#define      FUEL_2N_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC16, BIT_11);CLEARBIT(PORT_ISOPM16, BIT_11)
 
-#define      HW_I_CHARGE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_0);SETBIT(PORT_ISOPM17, BIT_0);SETBIT(PORT_ISOPIBC17, BIT_0)
-#define      HW_I_CHARGE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_0);CLEARBIT(PORT_ISOPM17, BIT_0)
-#define      HW_O_RIGHT_TT_TT8_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_1);SETBIT(PORT_ISOPM17, BIT_1);SETBIT(PORT_ISOPIBC17, BIT_1)
-#define      HW_O_RIGHT_TT_TT8_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_1);CLEARBIT(PORT_ISOPM17, BIT_1)
+#define      CHARGE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_0);SETBIT(PORT_ISOPM17, BIT_0);SETBIT(PORT_ISOPIBC17, BIT_0)
+#define      CHARGE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_0);CLEARBIT(PORT_ISOPM17, BIT_0)
+#define      P3V3_SW_EN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_1);SETBIT(PORT_ISOPM17, BIT_1);SETBIT(PORT_ISOPIBC17, BIT_1)
+#define      P3V3_SW_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_1);CLEARBIT(PORT_ISOPM17, BIT_1)
 #define      LEFT_GAUGE_PWM_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_2);SETBIT(PORT_ISOPM17, BIT_2);SETBIT(PORT_ISOPIBC17, BIT_2)
 #define      LEFT_GAUGE_PWM_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_2);CLEARBIT(PORT_ISOPM17, BIT_2)
 #define      LEFT_POINTER_PWM_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_3);SETBIT(PORT_ISOPM17, BIT_3);SETBIT(PORT_ISOPIBC17, BIT_3)
@@ -523,16 +523,16 @@
 #define      RIGHT_GAUGE_PWM_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_5);CLEARBIT(PORT_ISOPM17, BIT_5)
 #define      TT_PWM_CTRL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_6);SETBIT(PORT_ISOPM17, BIT_6);SETBIT(PORT_ISOPIBC17, BIT_6)
 #define      TT_PWM_CTRL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_6);CLEARBIT(PORT_ISOPM17, BIT_6)
-#define      HW_O_RIGHT_TT_TT9_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_7);SETBIT(PORT_ISOPM17, BIT_7);SETBIT(PORT_ISOPIBC17, BIT_7)
-#define      HW_O_RIGHT_TT_TT9_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_7);CLEARBIT(PORT_ISOPM17, BIT_7)
+#define      PARK_BRAKE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_7);SETBIT(PORT_ISOPM17, BIT_7);SETBIT(PORT_ISOPIBC17, BIT_7)
+#define      PARK_BRAKE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_7);CLEARBIT(PORT_ISOPM17, BIT_7)
 #define      TFT_BL_PWM_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_8);SETBIT(PORT_ISOPM17, BIT_8);SETBIT(PORT_ISOPIBC17, BIT_8)
 #define      TFT_BL_PWM_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_8);CLEARBIT(PORT_ISOPM17, BIT_8)
-#define      HW_O_NIGHT_PANEL_CTRL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_9);SETBIT(PORT_ISOPM17, BIT_9);SETBIT(PORT_ISOPIBC17, BIT_9)
-#define      HW_O_NIGHT_PANEL_CTRL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_9);CLEARBIT(PORT_ISOPM17, BIT_9)
-#define      HW_O_RIGHT_TT_TT10_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_10);SETBIT(PORT_ISOPM17, BIT_10);SETBIT(PORT_ISOPIBC17, BIT_10)
-#define      HW_O_RIGHT_TT_TT10_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_10);CLEARBIT(PORT_ISOPM17, BIT_10)
-#define      HW_O_RIGHT_TT_TT11_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_11);SETBIT(PORT_ISOPM17, BIT_11);SETBIT(PORT_ISOPIBC17, BIT_11)
-#define      HW_O_RIGHT_TT_TT11_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_11);CLEARBIT(PORT_ISOPM17, BIT_11)
+#define      NIGHT_PANEL_CTRL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_9);SETBIT(PORT_ISOPM17, BIT_9);SETBIT(PORT_ISOPIBC17, BIT_9)
+#define      NIGHT_PANEL_CTRL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_9);CLEARBIT(PORT_ISOPM17, BIT_9)
+#define      WASH_FLUID_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_10);SETBIT(PORT_ISOPM17, BIT_10);SETBIT(PORT_ISOPIBC17, BIT_10)
+#define      WASH_FLUID_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_10);CLEARBIT(PORT_ISOPM17, BIT_10)
+#define      BRAKE_FLUID_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC17, BIT_11);SETBIT(PORT_ISOPM17, BIT_11);SETBIT(PORT_ISOPIBC17, BIT_11)
+#define      BRAKE_FLUID_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC17, BIT_11);CLEARBIT(PORT_ISOPM17, BIT_11)
 
 #define      QSPI_SCK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_0);SETBIT(PORT_ISOPM21, BIT_0);SETBIT(PORT_ISOPIBC21, BIT_0)
 #define      QSPI_SCK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_0);CLEARBIT(PORT_ISOPM21, BIT_0)
@@ -546,52 +546,52 @@
 #define      QSPI_IO2_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_4);CLEARBIT(PORT_ISOPM21, BIT_4)
 #define      QSPI_IO3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_5);SETBIT(PORT_ISOPM21, BIT_5);SETBIT(PORT_ISOPIBC21, BIT_5)
 #define      QSPI_IO3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_5);CLEARBIT(PORT_ISOPM21, BIT_5)
-#define      HW_O_DISP_PWR_EN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_6);SETBIT(PORT_ISOPM21, BIT_6);SETBIT(PORT_ISOPIBC21, BIT_6)
-#define      HW_O_DISP_PWR_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_6);CLEARBIT(PORT_ISOPM21, BIT_6)
-#define      NO_USED_PIN21_7_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_7);SETBIT(PORT_ISOPM21, BIT_7);SETBIT(PORT_ISOPIBC21, BIT_7)
-#define      NO_USED_PIN21_7_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_7);CLEARBIT(PORT_ISOPM21, BIT_7)
-#define      NO_USED_PIN21_8_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_8);SETBIT(PORT_ISOPM21, BIT_8);SETBIT(PORT_ISOPIBC21, BIT_8)
-#define      NO_USED_PIN21_8_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_8);CLEARBIT(PORT_ISOPM21, BIT_8)
-#define      NO_USED_PIN21_9_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_9);SETBIT(PORT_ISOPM21, BIT_9);SETBIT(PORT_ISOPIBC21, BIT_9)
-#define      NO_USED_PIN21_9_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_9);CLEARBIT(PORT_ISOPM21, BIT_9)
+#define      ETNB_RST_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_6);SETBIT(PORT_ISOPM21, BIT_6);SETBIT(PORT_ISOPIBC21, BIT_6)
+#define      ETNB_RST_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_6);CLEARBIT(PORT_ISOPM21, BIT_6)
+#define      ETNB_EN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_7);SETBIT(PORT_ISOPM21, BIT_7);SETBIT(PORT_ISOPIBC21, BIT_7)
+#define      ETNB_EN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_7);CLEARBIT(PORT_ISOPM21, BIT_7)
+#define      LOW_OIL_PRESSURE_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_8);SETBIT(PORT_ISOPM21, BIT_8);SETBIT(PORT_ISOPIBC21, BIT_8)
+#define      LOW_OIL_PRESSURE_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_8);CLEARBIT(PORT_ISOPM21, BIT_8)
+#define      NIGHT_PANNEL_IN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC21, BIT_9);SETBIT(PORT_ISOPM21, BIT_9);SETBIT(PORT_ISOPIBC21, BIT_9)
+#define      NIGHT_PANNEL_IN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC21, BIT_9);CLEARBIT(PORT_ISOPM21, BIT_9)
 
-#define      VIU7_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_0);SETBIT(PORT_ISOPM42, BIT_0);SETBIT(PORT_ISOPIBC42, BIT_0)
-#define      VIU7_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_0);CLEARBIT(PORT_ISOPM42, BIT_0)
-#define      VIU6_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_1);SETBIT(PORT_ISOPM42, BIT_1);SETBIT(PORT_ISOPIBC42, BIT_1)
-#define      VIU6_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_1);CLEARBIT(PORT_ISOPM42, BIT_1)
-#define      VIU5_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_2);SETBIT(PORT_ISOPM42, BIT_2);SETBIT(PORT_ISOPIBC42, BIT_2)
-#define      VIU5_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_2);CLEARBIT(PORT_ISOPM42, BIT_2)
-#define      VIU4_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_3);SETBIT(PORT_ISOPM42, BIT_3);SETBIT(PORT_ISOPIBC42, BIT_3)
-#define      VIU4_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_3);CLEARBIT(PORT_ISOPM42, BIT_3)
-#define      VIU3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_4);SETBIT(PORT_ISOPM42, BIT_4);SETBIT(PORT_ISOPIBC42, BIT_4)
-#define      VIU3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_4);CLEARBIT(PORT_ISOPM42, BIT_4)
-#define      VIU2_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_5);SETBIT(PORT_ISOPM42, BIT_5);SETBIT(PORT_ISOPIBC42, BIT_5)
-#define      VIU2_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_5);CLEARBIT(PORT_ISOPM42, BIT_5)
-#define      VIU1_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_6);SETBIT(PORT_ISOPM42, BIT_6);SETBIT(PORT_ISOPIBC42, BIT_6)
-#define      VIU1_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_6);CLEARBIT(PORT_ISOPM42, BIT_6)
-#define      VIU0_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_7);SETBIT(PORT_ISOPM42, BIT_7);SETBIT(PORT_ISOPIBC42, BIT_7)
-#define      VIU0_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_7);CLEARBIT(PORT_ISOPM42, BIT_7)
-#define      VIU_PCLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_8);SETBIT(PORT_ISOPM42, BIT_8);SETBIT(PORT_ISOPIBC42, BIT_8)
-#define      VIU_PCLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_8);CLEARBIT(PORT_ISOPM42, BIT_8)
-#define      HW_O_I2C_LCD_SCL_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_9);SETBIT(PORT_ISOPM42, BIT_9);SETBIT(PORT_ISOPIBC42, BIT_9)
-#define      HW_O_I2C_LCD_SCL_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_9);CLEARBIT(PORT_ISOPM42, BIT_9)
-#define      HW_O_I2C_LCD_SDA_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_10);SETBIT(PORT_ISOPM42, BIT_10);SETBIT(PORT_ISOPIBC42, BIT_10)
-#define      HW_O_I2C_LCD_SDA_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_10);CLEARBIT(PORT_ISOPM42, BIT_10)
-#define      NO_USED_PIN42_11_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_11);SETBIT(PORT_ISOPM42, BIT_11);SETBIT(PORT_ISOPIBC42, BIT_11)
-#define      NO_USED_PIN42_11_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_11);CLEARBIT(PORT_ISOPM42, BIT_11)
-#define      NO_USED_PIN42_12_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_12);SETBIT(PORT_ISOPM42, BIT_12);SETBIT(PORT_ISOPIBC42, BIT_12)
-#define      NO_USED_PIN42_12_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_12);CLEARBIT(PORT_ISOPM42, BIT_12)
-#define      HW_O_LVDS_PDB_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_13);SETBIT(PORT_ISOPM42, BIT_13);SETBIT(PORT_ISOPIBC42, BIT_13)
-#define      HW_O_LVDS_PDB_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_13);CLEARBIT(PORT_ISOPM42, BIT_13)
-#define      HW_O_LVDS_OEN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_14);SETBIT(PORT_ISOPM42, BIT_14);SETBIT(PORT_ISOPIBC42, BIT_14)
-#define      HW_O_LVDS_OEN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_14);CLEARBIT(PORT_ISOPM42, BIT_14)
-#define      HW_I_LVDS_LOCK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_15);SETBIT(PORT_ISOPM42, BIT_15);SETBIT(PORT_ISOPIBC42, BIT_15)
-#define      HW_I_LVDS_LOCK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_15);CLEARBIT(PORT_ISOPM42, BIT_15)
+#define      ETNB_TXD3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_0);SETBIT(PORT_ISOPM42, BIT_0);SETBIT(PORT_ISOPIBC42, BIT_0)
+#define      ETNB_TXD3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_0);CLEARBIT(PORT_ISOPM42, BIT_0)
+#define      ETNB_TXD2_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_1);SETBIT(PORT_ISOPM42, BIT_1);SETBIT(PORT_ISOPIBC42, BIT_1)
+#define      ETNB_TXD2_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_1);CLEARBIT(PORT_ISOPM42, BIT_1)
+#define      ETNB_TXD1_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_2);SETBIT(PORT_ISOPM42, BIT_2);SETBIT(PORT_ISOPIBC42, BIT_2)
+#define      ETNB_TXD1_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_2);CLEARBIT(PORT_ISOPM42, BIT_2)
+#define      ETNB_TXD0_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_3);SETBIT(PORT_ISOPM42, BIT_3);SETBIT(PORT_ISOPIBC42, BIT_3)
+#define      ETNB_TXD0_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_3);CLEARBIT(PORT_ISOPM42, BIT_3)
+#define      ETNB_TXEN_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_4);SETBIT(PORT_ISOPM42, BIT_4);SETBIT(PORT_ISOPIBC42, BIT_4)
+#define      ETNB_TXEN_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_4);CLEARBIT(PORT_ISOPM42, BIT_4)
+#define      ETNB_TXER_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_5);SETBIT(PORT_ISOPM42, BIT_5);SETBIT(PORT_ISOPIBC42, BIT_5)
+#define      ETNB_TXER_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_5);CLEARBIT(PORT_ISOPM42, BIT_5)
+#define      NO_USED_PIN426_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_6);SETBIT(PORT_ISOPM42, BIT_6);SETBIT(PORT_ISOPIBC42, BIT_6)
+#define      NO_USED_PIN426_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_6);CLEARBIT(PORT_ISOPM42, BIT_6)
+#define      NO_USED_PIN427_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_7);SETBIT(PORT_ISOPM42, BIT_7);SETBIT(PORT_ISOPIBC42, BIT_7)
+#define      NO_USED_PIN427_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_7);CLEARBIT(PORT_ISOPM42, BIT_7)
+#define      ETNB_TXCLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_8);SETBIT(PORT_ISOPM42, BIT_8);SETBIT(PORT_ISOPIBC42, BIT_8)
+#define      ETNB_TXCLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_8);CLEARBIT(PORT_ISOPM42, BIT_8)
+#define      ETNB_RXCLK_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_9);SETBIT(PORT_ISOPM42, BIT_9);SETBIT(PORT_ISOPIBC42, BIT_9)
+#define      ETNB_RXCLK_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_9);CLEARBIT(PORT_ISOPM42, BIT_9)
+#define      ETNB_RXD3_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_10);SETBIT(PORT_ISOPM42, BIT_10);SETBIT(PORT_ISOPIBC42, BIT_10)
+#define      ETNB_RXD3_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_10);CLEARBIT(PORT_ISOPM42, BIT_10)
+#define      ETNB_RXD2_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_11);SETBIT(PORT_ISOPM42, BIT_11);SETBIT(PORT_ISOPIBC42, BIT_11)
+#define      ETNB_RXD2_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_11);CLEARBIT(PORT_ISOPM42, BIT_11)
+#define      ETNB_RXD1_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_12);SETBIT(PORT_ISOPM42, BIT_12);SETBIT(PORT_ISOPIBC42, BIT_12)
+#define      ETNB_RXD1_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_12);CLEARBIT(PORT_ISOPM42, BIT_12)
+#define      ETNB_RXD0_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_13);SETBIT(PORT_ISOPM42, BIT_13);SETBIT(PORT_ISOPIBC42, BIT_13)
+#define      ETNB_RXD0_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_13);CLEARBIT(PORT_ISOPM42, BIT_13)
+#define      ETNB_RXDV_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_14);SETBIT(PORT_ISOPM42, BIT_14);SETBIT(PORT_ISOPIBC42, BIT_14)
+#define      ETNB_RXDV_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_14);CLEARBIT(PORT_ISOPM42, BIT_14)
+#define      ETNB_RXER_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC42, BIT_15);SETBIT(PORT_ISOPM42, BIT_15);SETBIT(PORT_ISOPIBC42, BIT_15)
+#define      ETNB_RXER_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC42, BIT_15);CLEARBIT(PORT_ISOPM42, BIT_15)
 
-#define      HW_O_TFT_RESET_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_0);SETBIT(PORT_ISOPM43, BIT_0);SETBIT(PORT_ISOPIBC43, BIT_0)
-#define      HW_O_TFT_RESET_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC43, BIT_0);CLEARBIT(PORT_ISOPM43, BIT_0)
-#define      HW_O_TFT_STBYB_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_1);SETBIT(PORT_ISOPM43, BIT_1);SETBIT(PORT_ISOPIBC43, BIT_1)
-#define      HW_O_TFT_STBYB_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC43, BIT_1);CLEARBIT(PORT_ISOPM43, BIT_1)
+#define      TFT_RESET_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_0);SETBIT(PORT_ISOPM43, BIT_0);SETBIT(PORT_ISOPIBC43, BIT_0)
+#define      TFT_RESET_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC43, BIT_0);CLEARBIT(PORT_ISOPM43, BIT_0)
+#define      TFT_STBYB_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC43, BIT_1);SETBIT(PORT_ISOPM43, BIT_1);SETBIT(PORT_ISOPIBC43, BIT_1)
+#define      TFT_STBYB_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC43, BIT_1);CLEARBIT(PORT_ISOPM43, BIT_1)
 
 #define      TFT_RED7_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC44, BIT_0);SETBIT(PORT_ISOPM44, BIT_0);SETBIT(PORT_ISOPIBC44, BIT_0)
 #define      TFT_RED7_SET_TO_OUTPUT()          CLEARBIT(PORT_ISOPMC44, BIT_0);CLEARBIT(PORT_ISOPM44, BIT_0)
@@ -666,7 +666,7 @@
 ** Description:     RH850 D1M1H Port Init Register List generated by tool
 **                  automatically  Don't modify it manually.
 ** Author:          niujianlong
-** Generated Date:  2016-07-28 17:19:39
+** Generated Date:  2016-07-29 19:58:12
 ************************************************************************/
 #define      PORT_INIT_REG16_LIST \
 { (uint16 *) &PORT_AWOPMC0 ,    (uint16)(PORT_AWOPMC0_INIT) }, \
@@ -830,7 +830,7 @@
 ** Description:     RH850 D1M1H Port Sleep Register List generated by tool
 **                  automatically  Don't modify it manually.
 ** Author:          niujianlong
-** Generated Date:  2016-07-28 17:19:39
+** Generated Date:  2016-07-29 19:58:12
 ************************************************************************/
 #define      PORT_SLEEP_REG16_LIST \
 { (uint16 *) &PORT_AWOPMC0 ,    (uint16)(PORT_AWOPMC0_SLEEP) }, \
@@ -994,7 +994,7 @@
 ** Description:     RH850 D1M1H Port Pin Register Map List generated by tool
 **                  automatically  Don't modify it manually.
 ** Author:          niujianlong
-** Generated Date:  2016-07-28 17:19:39
+** Generated Date:  2016-07-29 19:58:12
 ***************************************************************************/
 #define      PORT_PIN_REG16_LIST     \
 { PORT0_0, (uint16 *) &PORT_AWOPMC0 , (uint16 *) &PORT_AWOPM0, (uint16 *) &PORT_AWOPFC0, (uint16 *) &PORT_AWOPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_0)   }, \
@@ -1039,10 +1039,10 @@
 { PORT10_10, (uint16 *) &PORT_ISOPMC10 , (uint16 *) &PORT_ISOPM10, (uint16 *) &PORT_ISOPFC10, (uint16 *) &PORT_ISOPFCE10, (uint16 *) &PORT_ISOPIBC10,  (uint16)(BIT_10)   }, \
 { PORT10_11, (uint16 *) &PORT_ISOPMC10 , (uint16 *) &PORT_ISOPM10, (uint16 *) &PORT_ISOPFC10, (uint16 *) &PORT_ISOPFCE10, (uint16 *) &PORT_ISOPIBC10,  (uint16)(BIT_11)   }, \
 \
-{ PORT11_0, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) &PORT_ISOPFCE11, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_0)   }, \
-{ PORT11_1, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) &PORT_ISOPFCE11, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_1)   }, \
-{ PORT11_2, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) &PORT_ISOPFCE11, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_2)   }, \
-{ PORT11_3, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) &PORT_ISOPFCE11, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_3)   }, \
+{ PORT11_0, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_0)   }, \
+{ PORT11_1, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_1)   }, \
+{ PORT11_2, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_2)   }, \
+{ PORT11_3, (uint16 *) &PORT_ISOPMC11 , (uint16 *) &PORT_ISOPM11, (uint16 *) &PORT_ISOPFC11, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC11,  (uint16)(BIT_3)   }, \
 \
 { PORT16_0, (uint16 *) &PORT_ISOPMC16 , (uint16 *) &PORT_ISOPM16, (uint16 *) &PORT_ISOPFC16, (uint16 *) &PORT_ISOPFCE16, (uint16 *) &PORT_ISOPIBC16,  (uint16)(BIT_0)   }, \
 { PORT16_1, (uint16 *) &PORT_ISOPMC16 , (uint16 *) &PORT_ISOPM16, (uint16 *) &PORT_ISOPFC16, (uint16 *) &PORT_ISOPFCE16, (uint16 *) &PORT_ISOPIBC16,  (uint16)(BIT_1)   }, \
@@ -1098,8 +1098,8 @@
 { PORT42_14, (uint16 *) &PORT_ISOPMC42 , (uint16 *) &PORT_ISOPM42, (uint16 *) &PORT_ISOPFC42, (uint16 *) &PORT_ISOPFCE42, (uint16 *) &PORT_ISOPIBC42,  (uint16)(BIT_14)   }, \
 { PORT42_15, (uint16 *) &PORT_ISOPMC42 , (uint16 *) &PORT_ISOPM42, (uint16 *) &PORT_ISOPFC42, (uint16 *) &PORT_ISOPFCE42, (uint16 *) &PORT_ISOPIBC42,  (uint16)(BIT_15)   }, \
 \
-{ PORT43_0, (uint16 *) &PORT_ISOPMC43 , (uint16 *) &PORT_ISOPM43, (uint16 *) &PORT_ISOPFC43, (uint16 *) &PORT_ISOPFCE43, (uint16 *) &PORT_ISOPIBC43,  (uint16)(BIT_0)   }, \
-{ PORT43_1, (uint16 *) &PORT_ISOPMC43 , (uint16 *) &PORT_ISOPM43, (uint16 *) &PORT_ISOPFC43, (uint16 *) &PORT_ISOPFCE43, (uint16 *) &PORT_ISOPIBC43,  (uint16)(BIT_1)   }, \
+{ PORT43_0, (uint16 *) &PORT_ISOPMC43 , (uint16 *) &PORT_ISOPM43, (uint16 *) &PORT_ISOPFC43, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC43,  (uint16)(BIT_0)   }, \
+{ PORT43_1, (uint16 *) &PORT_ISOPMC43 , (uint16 *) &PORT_ISOPM43, (uint16 *) &PORT_ISOPFC43, (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC43,  (uint16)(BIT_1)   }, \
 \
 { PORT44_0, (uint16 *) &PORT_ISOPMC44 , (uint16 *) &PORT_ISOPM44, (uint16 *) &PORT_ISOPFC44, (uint16 *) &PORT_ISOPFCE44, (uint16 *) &PORT_ISOPIBC44,  (uint16)(BIT_0)   }, \
 { PORT44_1, (uint16 *) &PORT_ISOPMC44 , (uint16 *) &PORT_ISOPM44, (uint16 *) &PORT_ISOPFC44, (uint16 *) &PORT_ISOPFCE44, (uint16 *) &PORT_ISOPIBC44,  (uint16)(BIT_1)   }, \
@@ -1129,11 +1129,11 @@
 { PORT45_12, (uint16 *) &PORT_ISOPMC45 , (uint16 *) &PORT_ISOPM45, (uint16 *) &PORT_ISOPFC45, (uint16 *) &PORT_ISOPFCE45, (uint16 *) &PORT_ISOPIBC45,  (uint16)(BIT_12)   }, \
 { PORT45_13, (uint16 *) &PORT_ISOPMC45 , (uint16 *) &PORT_ISOPM45, (uint16 *) &PORT_ISOPFC45, (uint16 *) &PORT_ISOPFCE45, (uint16 *) &PORT_ISOPIBC45,  (uint16)(BIT_13)   }, \
 \
-{ JPORT0_0, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_0)   }, \
-{ JPORT0_1, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_1)   }, \
-{ JPORT0_2, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_2)   }, \
-{ JPORT0_3, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_3)   }, \
-{ JPORT0_4, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORT_AWOPIBC0,  (uint16)(BIT_4)   }, \
+{ JPORT0_0, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORTJ_AWOJPIBC0,  (uint16)(BIT_0)   }, \
+{ JPORT0_1, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORTJ_AWOJPIBC0,  (uint16)(BIT_1)   }, \
+{ JPORT0_2, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORTJ_AWOJPIBC0,  (uint16)(BIT_2)   }, \
+{ JPORT0_3, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORTJ_AWOJPIBC0,  (uint16)(BIT_3)   }, \
+{ JPORT0_4, (uint16 *) &PORTJ_AWOJPMC0 , (uint16 *) &PORTJ_AWOJPM0, (uint16 *) &PORTJ_AWOJPFC0, (uint16 *) &PORTJ_AWOJPFCE0, (uint16 *) &PORTJ_AWOJPIBC0,  (uint16)(BIT_4)   }, \
 
 
 #endif

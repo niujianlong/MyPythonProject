@@ -478,7 +478,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     fw.write('\n')
@@ -604,7 +604,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) &PORT_ISOPFCE'+PortNum+', (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOPMC'+PortNum+' , (uint16 *) &PORT_ISOPM'+PortNum+', (uint16 *) &PORT_ISOPFC'+PortNum+', (uint16 *) NULL, (uint16 *) &PORT_ISOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ PORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_ISOP'+PortNum+' , (uint16 *) &PORT_ISOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1 
     
@@ -683,7 +683,7 @@ def  main():
             fdio_w.write(strline)
             #add by niujianlong for gen the port.h file
             PortNum = get_port_number(sheet,row);
-            fpor_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORTJ_AWOJPMC'+PortNum+' , (uint16 *) &PORTJ_AWOJPM'+PortNum+', (uint16 *) &PORTJ_AWOJPFC'+PortNum+', (uint16 *) &PORTJ_AWOJPFCE'+PortNum+', (uint16 *) &PORT_AWOPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
+            fpor_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORTJ_AWOJPMC'+PortNum+' , (uint16 *) &PORTJ_AWOJPM'+PortNum+', (uint16 *) &PORTJ_AWOJPFC'+PortNum+', (uint16 *) &PORTJ_AWOJPFCE'+PortNum+', (uint16 *) &PORTJ_AWOJPIBC'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')
             fdio_h_w.write('{ JPORT'+PortNum+'_'+str(i)+', (uint16 *) &PORT_AWOP'+PortNum+' , (uint16 *) &PORT_AWOPPR'+PortNum+',  (uint16)(BIT_'+str(i)+')   }, '+'\\'+'\n')            
             i = i + 1
     

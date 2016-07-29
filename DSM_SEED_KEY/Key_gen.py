@@ -5,7 +5,8 @@
 
 @author: cetc
 '''
-seed = 0x8969b69d
+import os
+seed = 0x8969b6123
 Key = ((((seed>>4) ^ seed)<<3) ^ seed)
 print hex(Key)
 
