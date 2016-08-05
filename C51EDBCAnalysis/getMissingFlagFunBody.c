@@ -14,10 +14,6 @@ uint8 get_tpms_sys_status_missing_flag()
 {
   return  tpms_sys_status.Tpms_sys_statusMissingFlag;
 }
-uint8 get_pas_general_status_missing_flag()
-{
-  return  pas_general_status.Pas_general_statusMissingFlag;
-}
 uint8 get_peps_general_status_missing_flag()
 {
   return  peps_general_status.Peps_general_statusMissingFlag;
@@ -38,14 +34,6 @@ uint8 get_ems_engine_temp_and_barrometer_missing_flag()
 {
   return  ems_engine_temp_and_barrometer.Ems_engine_temp_and_barrometerMissingFlag;
 }
-uint8 get_icm_general_status_missing_flag()
-{
-  return  icm_general_status.Icm_general_statusMissingFlag;
-}
-uint8 get_icm_general_status_2_missing_flag()
-{
-  return  icm_general_status_2.Icm_general_status_2MissingFlag;
-}
 uint8 get_ahl_general_status_missing_flag()
 {
   return  ahl_general_status.Ahl_general_statusMissingFlag;
@@ -57,10 +45,6 @@ uint8 get_bcm_general_status_2_missing_flag()
 uint8 get_hum_event_command_1_missing_flag()
 {
   return  hum_event_command_1.Hum_event_command_1MissingFlag;
-}
-uint8 get_icm_general_status_3_missing_flag()
-{
-  return  icm_general_status_3.Icm_general_status_3MissingFlag;
 }
 uint8 get_tcu_engine_torque_request_missing_flag()
 {

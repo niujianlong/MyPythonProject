@@ -14,10 +14,6 @@ uint8 get_tpms_sys_status_never_reve_flag()
 {
   return  tpms_sys_status.Tpms_sys_statusNeverReceFlag;
 }
-uint8 get_pas_general_status_never_reve_flag()
-{
-  return  pas_general_status.Pas_general_statusNeverReceFlag;
-}
 uint8 get_peps_general_status_never_reve_flag()
 {
   return  peps_general_status.Peps_general_statusNeverReceFlag;
@@ -38,14 +34,6 @@ uint8 get_ems_engine_temp_and_barrometer_never_reve_flag()
 {
   return  ems_engine_temp_and_barrometer.Ems_engine_temp_and_barrometerNeverReceFlag;
 }
-uint8 get_icm_general_status_never_reve_flag()
-{
-  return  icm_general_status.Icm_general_statusNeverReceFlag;
-}
-uint8 get_icm_general_status_2_never_reve_flag()
-{
-  return  icm_general_status_2.Icm_general_status_2NeverReceFlag;
-}
 uint8 get_ahl_general_status_never_reve_flag()
 {
   return  ahl_general_status.Ahl_general_statusNeverReceFlag;
@@ -57,10 +45,6 @@ uint8 get_bcm_general_status_2_never_reve_flag()
 uint8 get_hum_event_command_1_never_reve_flag()
 {
   return  hum_event_command_1.Hum_event_command_1NeverReceFlag;
-}
-uint8 get_icm_general_status_3_never_reve_flag()
-{
-  return  icm_general_status_3.Icm_general_status_3NeverReceFlag;
 }
 uint8 get_tcu_engine_torque_request_never_reve_flag()
 {

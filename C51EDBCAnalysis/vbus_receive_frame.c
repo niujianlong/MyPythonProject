@@ -19,10 +19,6 @@ case 0x540:
  FRAME_DATA_HANDLE(tpms_sys_status, Tpms_sys_status);
 break;
 
-case 0x560:
- FRAME_DATA_HANDLE(pas_general_status, Pas_general_status);
-break;
-
 case 0x570:
  FRAME_DATA_HANDLE(peps_general_status, Peps_general_status);
 break;
@@ -43,14 +39,6 @@ case 0x5c0:
  FRAME_DATA_HANDLE(ems_engine_temp_and_barrometer, Ems_engine_temp_and_barrometer);
 break;
 
-case 0x620:
- FRAME_DATA_HANDLE(icm_general_status, Icm_general_status);
-break;
-
-case 0x621:
- FRAME_DATA_HANDLE(icm_general_status_2, Icm_general_status_2);
-break;
-
 case 0x630:
  FRAME_DATA_HANDLE(ahl_general_status, Ahl_general_status);
 break;
@@ -61,10 +49,6 @@ break;
 
 case 0x670:
  FRAME_DATA_HANDLE(hum_event_command_1, Hum_event_command_1);
-break;
-
-case 0x6f1:
- FRAME_DATA_HANDLE(icm_general_status_3, Icm_general_status_3);
 break;
 
 case 0x110:

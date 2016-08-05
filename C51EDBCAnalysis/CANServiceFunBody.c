@@ -268,96 +268,6 @@ uint8  get_SIGNAL_STATUS()
   return tpms_sys_status.SIGNAL_STATUS;
 }
 
-uint8  get_PAS_SYS_STATUS()
-{
-  return pas_general_status.PAS_SYS_STATUS;
-}
-
-uint8  get_SVA_SYS_STATUS()
-{
-  return pas_general_status.SVA_SYS_STATUS;
-}
-
-uint8  get_PA_FRONT_SYS_STATUS()
-{
-  return pas_general_status.PA_FRONT_SYS_STATUS;
-}
-
-uint8  get_PA_REAR_SYS_STATUS()
-{
-  return pas_general_status.PA_REAR_SYS_STATUS;
-}
-
-uint8  get_PA_REARMIDLEFT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_REARMIDLEFT_REG_OBJ_STATUS;
-}
-
-uint8  get_PA_REARLEFT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_REARLEFT_REG_OBJ_STATUS;
-}
-
-uint8  get_PA_FRONTLEFT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_FRONTLEFT_REG_OBJ_STATUS;
-}
-
-uint8  get_PA_REARRIGHT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_REARRIGHT_REG_OBJ_STATUS;
-}
-
-uint8  get_PA_FRONTRIGHT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_FRONTRIGHT_REG_OBJ_STATUS;
-}
-
-uint8  get_PA_FRONTMIDLEFT_REG_OBJ_STATUS()
-{
-  return pas_general_status.PA_FRONTMIDLEFT_REG_OBJ_STATUS;
-}
-
-uint8  get_REAR_MINI_PAS_DISTANCE()
-{
-  return pas_general_status.REAR_MINI_PAS_DISTANCE;
-}
-
-uint8  get_FRONT_MINI_PAS_DISTANCE()
-{
-  return pas_general_status.FRONT_MINI_PAS_DISTANCE;
-}
-
-uint8  get_PA_REARMIDRIGHT_REG_OBJ_ST()
-{
-  return pas_general_status.PA_REARMIDRIGHT_REG_OBJ_ST;
-}
-
-uint8  get_SVA_WARNING_STATUS_RIGHT()
-{
-  return pas_general_status.SVA_WARNING_STATUS_RIGHT;
-}
-
-uint8  get_SVA_WARNING_STATUS_LEFT()
-{
-  return pas_general_status.SVA_WARNING_STATUS_LEFT;
-}
-
-uint8  get_NEAREST_REAR_PAS()
-{
-  return pas_general_status.NEAREST_REAR_PAS;
-}
-
-uint8  get_PA_PAS_SW_STATUS()
-{
-  return pas_general_status.PA_PAS_SW_STATUS;
-}
-
-uint8  get_PA_FRONTMIDRIGHT_REG_OBJ_ST()
-{
-  return pas_general_status.PA_FRONTMIDRIGHT_REG_OBJ_ST;
-}
-
 uint8  get_REMOTE_START_RESPONSE_PEPS()
 {
   return peps_general_status.REMOTE_START_RESPONSE_PEPS;
@@ -628,76 +538,6 @@ uint8  get_VALID_COOLANT()
   return ems_engine_temp_and_barrometer.VALID_COOLANT;
 }
 
-uint8  get_DATA_VALID()
-{
-  return icm_general_status.DATA_VALID;
-}
-
-uint8  get_AIRBAG_WARNINGLAMP_STATUS()
-{
-  return icm_general_status.AIRBAG_WARNINGLAMP_STATUS;
-}
-
-uint8  get_NIGHT_PANEL()
-{
-  return icm_general_status.NIGHT_PANEL;
-}
-
-uint8  get_DATA_VALID_RHEOSTAT()
-{
-  return icm_general_status.DATA_VALID_RHEOSTAT;
-}
-
-uint8  get_WASHER_FLUID_LEVEL_LOW()
-{
-  return icm_general_status.WASHER_FLUID_LEVEL_LOW;
-}
-
-uint8  get_ODOMETER_RESET_COUNTER_ICM()
-{
-  return icm_general_status.ODOMETER_RESET_COUNTER_ICM;
-}
-
-uint8  get_RHEOSTAT_LEVEL()
-{
-  return icm_general_status.RHEOSTAT_LEVEL;
-}
-
-uint32  get_DISPLAYED_TOTAL_DISTANCE()
-{
-  return icm_general_status.DISPLAYED_TOTAL_DISTANCE;
-}
-
-uint8  get_BATTERY_VOLTAGE_LEVEL()
-{
-  return icm_general_status.BATTERY_VOLTAGE_LEVEL;
-}
-
-uint8  get_ODOMETER_OFFSET_ICM()
-{
-  return icm_general_status.ODOMETER_OFFSET_ICM;
-}
-
-uint8  get_HAND_BRAKE_ICM()
-{
-  return icm_general_status_2.HAND_BRAKE_ICM;
-}
-
-uint8  get_REMOTE_START_RESPONSE_ICM()
-{
-  return icm_general_status_2.REMOTE_START_RESPONSE_ICM;
-}
-
-uint8  get_FUELTANK_REMAINING()
-{
-  return icm_general_status_2.FUELTANK_REMAINING;
-}
-
-uint16  get_OILPUMP_RESISTER_ICM()
-{
-  return icm_general_status_2.OILPUMP_RESISTER_ICM;
-}
-
 uint8  get_AHL_FAULT_STATUS()
 {
   return ahl_general_status.AHL_FAULT_STATUS;
@@ -736,31 +576,6 @@ uint8  get_ODOMETER_RESET_COUNTER_BCM()
 uint8  get_SYS_LANGUAGE()
 {
   return hum_event_command_1.SYS_LANGUAGE;
-}
-
-uint16  get_INSTANT_FUEL_CONSUM()
-{
-  return icm_general_status_3.INSTANT_FUEL_CONSUM;
-}
-
-uint16  get_AVERAGE_FUEL_CONSUM1()
-{
-  return icm_general_status_3.AVERAGE_FUEL_CONSUM1;
-}
-
-uint16  get_ENDURANCE_MILEAGE()
-{
-  return icm_general_status_3.ENDURANCE_MILEAGE;
-}
-
-uint16  get_REMAIN_MAINTAIN_MILEAGE()
-{
-  return icm_general_status_3.REMAIN_MAINTAIN_MILEAGE;
-}
-
-uint16  get_AVERAGE_FUEL_CONSUM2()
-{
-  return icm_general_status_3.AVERAGE_FUEL_CONSUM2;
 }
 
 uint8  get_TRANSMISSION_OIL_TEMPERATURE()

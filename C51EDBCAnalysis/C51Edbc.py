@@ -25,6 +25,7 @@ structName = []  # 去除dbc里边的重复定义的报文
 bitLengthList = []
 bitPragram = []
 global frameID 
+sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3']
 
 def isICMNodeSendFrame(frameStructName):  
     frameStructNameArr = frameStructName.split('_')
@@ -45,31 +46,36 @@ for line in open("C51E.txt"):
         frameStructName = line_split[2][:-1]  # [:-1]的目的是去掉末尾的：号
         if hex(frameID)== '0x318' or hex(frameID)== '0x370':
             fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
-        else:    
-            fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nbreak;\n')
+        else: 
+            if frameStructName.lower() not in sendFrameStructName:   
+                fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nbreak;\n')
 
-        fw18.write('FRAME_MISSING_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize()+');\n')
+        if frameStructName.lower() not in sendFrameStructName:
+            fw18.write('FRAME_MISSING_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize()+');\n')
         structName.append(frameStructName)
         fw.write('\n/*frame '+str(hex(frameID))+' struct define*/')
         fw.write("\ntypedef struct\n{\n    uint8  data[8];\n    uint8  " + frameStructName.capitalize() + "MissingFlag;\n ")
         fw.write('\n#if  NeverReceFlagEN\n    uint8  ' + frameStructName.capitalize() + "NeverReceFlag;\n #endif\n\n")
         #fw4.write('#define  ' + frameStructName.upper() + '_CYCLE    \n')
         #fw6.write(frameStructName.upper() + '_CYCLE *')
-        fw2.write('EXTERN uint8 get_'+frameStructName.lower()+'_missing_flag(void);\n')
-        fw3.write('EXTERN uint8 get_'+frameStructName.lower()+'_never_reve_flag(void);\n')
-        fw4.write('uint8 get_'+frameStructName.lower()+'_missing_flag()\n{\n')
-        fw4.write('  return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'MissingFlag;\n}\n')
-        fw5.write('uint8 get_'+frameStructName.lower()+'_never_reve_flag()\n{\n')        
-        fw5.write('  return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'NeverReceFlag;\n}\n')
+        if frameStructName.lower() not in sendFrameStructName:
+            fw2.write('EXTERN uint8 get_'+frameStructName.lower()+'_missing_flag(void);\n')
+            fw3.write('EXTERN uint8 get_'+frameStructName.lower()+'_never_reve_flag(void);\n')
+            fw4.write('uint8 get_'+frameStructName.lower()+'_missing_flag()\n{\n')
+            fw4.write('  return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'MissingFlag;\n}\n')
+            fw5.write('uint8 get_'+frameStructName.lower()+'_never_reve_flag()\n{\n')        
+            fw5.write('  return  '+frameStructName.lower()+'.'+frameStructName.capitalize()+'NeverReceFlag;\n}\n')
         #fw5.write('#define  ' + frameStructName.upper() + '_MISSING_CYCLE    MISSING_CYCLE\n')
         #fw6.write(frameStructName.upper() + '_MISSING_CYCLE / TASK_CYCLE,\n')
-        fw7.write('static uint16  ' + frameStructName.lower() + 'Count=0;\n')
+        if frameStructName.lower() not in sendFrameStructName:
+            fw7.write('static uint16  ' + frameStructName.lower() + 'Count=0;\n')
         
         fw14.write('/*'+frameStructName+' missing default process*/\n')
         fw15.write('\nvoid Set'+frameStructName.lower()+'MissingDefaultValue(void)\n{\n')
         fw16.write('EXTERN void Set'+frameStructName.lower()+'MissingDefaultValue(void);\n')
         #vcu_0x212.Vcu_0x212NeverReceFlag = 1u;
-        fw13.write("  " + frameStructName.lower() + "."+frameStructName.capitalize() +'NeverReceFlag = 1u;\n')  # 打印函数原型的注释
+        if frameStructName.lower() not in sendFrameStructName:
+            fw13.write("  " + frameStructName.lower() + "."+frameStructName.capitalize() +'NeverReceFlag = 1u;\n')  # 打印函数原型的注释
         if isICMNodeSendFrame(frameStructName)==True:
             fw19.write('/*'+str(hex(frameID))+'  '+frameStructName+'*/\n')
     elif line_split[0] == '':
@@ -171,32 +177,40 @@ for line in open("C51E.txt"):
             fw.write('get_')
             
             if bitLengthList[a]<=8:   
-                fw8.write('EXTERN uint8  get_')
-                fw9.write('uint8  get_')
+                if frameStructName.lower() not in sendFrameStructName:
+                    fw8.write('EXTERN uint8  get_')
+                    fw9.write('uint8  get_')
             elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:  
-                fw8.write('EXTERN uint16  get_')
-                fw9.write('uint16  get_')  
+                if frameStructName.lower() not in sendFrameStructName:
+                    fw8.write('EXTERN uint16  get_')
+                    fw9.write('uint16  get_')  
             else:
-                fw8.write('EXTERN uint32  get_')
-                fw9.write('uint32  get_')   
+                if frameStructName.lower() not in sendFrameStructName:
+                    fw8.write('EXTERN uint32  get_')
+                    fw9.write('uint32  get_')   
             for j in range(len(i)):
                 if j != len(i) - 1:
                     fw.write(i[j] + '_')
-                    fw8.write(i[j] + '_')
-                    fw9.write(i[j] + '_')
+                    if frameStructName.lower() not in sendFrameStructName:
+                        fw8.write(i[j] + '_')
+                        fw9.write(i[j] + '_')
             fw.write(i[j] + '()\n') 
-            fw8.write(i[j] + '(void);\n') 
-            fw9.write(i[j] + '()\n{\n') 
+            if frameStructName.lower() not in sendFrameStructName:
+                fw8.write(i[j] + '(void);\n') 
+                fw9.write(i[j] + '()\n{\n') 
             for k in ibackup:
                 if bitLengthList[a]<=8: 
-                    fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
-                    fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
-                elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:  
-                    fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
-                    fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
+                    if frameStructName.lower() not in sendFrameStructName:
+                        fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                        fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
+                elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:
+                    if frameStructName.lower() not in sendFrameStructName:  
+                        fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                        fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
                 else: 
-                    fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint32SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
-                    fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
+                    if frameStructName.lower() not in sendFrameStructName:
+                        fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint32SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                        fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
             a=a+1       
         sumSigList = []  # 全局变量要清零  为下一次的循环做准备
         singleSigName = []
