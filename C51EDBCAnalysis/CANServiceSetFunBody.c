@@ -1,3 +1,350 @@
+/*ECS_IMMO_RAND_NUMBER missing default process*/
+void set_AUTH_RESULT( uint8 AUTH_RESULT)
+{
+     setuint8SigValue(ecs_immo_rand_number.data,47,8,AUTH_RESULT);
+}
+
+void set_IMMO_SID( uint8 IMMO_SID)
+{
+     setuint8SigValue(ecs_immo_rand_number.data,7,8,IMMO_SID);
+}
+
+/*TCU_ENGINE_TORQUE_REQUEST missing default process*/
+void set_TRANSMISSION_OIL_TEMPERATURE( uint8 TRANSMISSION_OIL_TEMPERATURE)
+{
+     setuint8SigValue(tcu_engine_torque_request.data,47,8,TRANSMISSION_OIL_TEMPERATURE);
+}
+
+/*EMS_ENGINE_SPEED_AND_TORQUE missing default process*/
+void set_ACTUAL_ENGINE_SPEED_UNFILTERED( uint16 ACTUAL_ENGINE_SPEED_UNFILTERED)
+{
+     setuint16SigValue(ems_engine_speed_and_torque.data,15,16,ACTUAL_ENGINE_SPEED_UNFILTERED);
+}
+
+void set_VALID_ESPEED( uint8 VALID_ESPEED)
+{
+     setuint8SigValue(ems_engine_speed_and_torque.data,4,1,VALID_ESPEED);
+}
+
+/*EMS_GENERAL_STATUS missing default process*/
+void set_EMS_ACTUAL_GEAR( uint8 EMS_ACTUAL_GEAR)
+{
+     setuint8SigValue(ems_general_status.data,15,8,EMS_ACTUAL_GEAR);
+}
+
+void set_BRAKE_STATUS_EMS( uint8 BRAKE_STATUS_EMS)
+{
+     setuint8SigValue(ems_general_status.data,17,1,BRAKE_STATUS_EMS);
+}
+
+void set_HAND_BRAKE_EMS( uint8 HAND_BRAKE_EMS)
+{
+     setuint8SigValue(ems_general_status.data,2,1,HAND_BRAKE_EMS);
+}
+
+void set_REQ_SHIFT_DOWN_TELLTALE( uint8 REQ_SHIFT_DOWN_TELLTALE)
+{
+     setuint8SigValue(ems_general_status.data,21,1,REQ_SHIFT_DOWN_TELLTALE);
+}
+
+void set_CRUISE_ACTIVE( uint8 CRUISE_ACTIVE)
+{
+     setuint8SigValue(ems_general_status.data,22,1,CRUISE_ACTIVE);
+}
+
+void set_ACTUAL_GEARBOX( uint8 ACTUAL_GEARBOX)
+{
+     setuint8SigValue(ems_general_status.data,29,1,ACTUAL_GEARBOX);
+}
+
+void set_VALID_BRAKE_STATUS_EMS( uint8 VALID_BRAKE_STATUS_EMS)
+{
+     setuint8SigValue(ems_general_status.data,3,1,VALID_BRAKE_STATUS_EMS);
+}
+
+void set_EMS_AUTHRESULT( uint8 EMS_AUTHRESULT)
+{
+     setuint8SigValue(ems_general_status.data,36,2,EMS_AUTHRESULT);
+}
+
+void set_REQ_CRUISE_TELLTALE( uint8 REQ_CRUISE_TELLTALE)
+{
+     setuint8SigValue(ems_general_status.data,37,1,REQ_CRUISE_TELLTALE);
+}
+
+void set_REQ_SHIFT_UP_TELLTALE( uint8 REQ_SHIFT_UP_TELLTALE)
+{
+     setuint8SigValue(ems_general_status.data,38,1,REQ_SHIFT_UP_TELLTALE);
+}
+
+void set_REQ_CHECK_ENGINE_TELLTALE( uint8 REQ_CHECK_ENGINE_TELLTALE)
+{
+     setuint8SigValue(ems_general_status.data,39,1,REQ_CHECK_ENGINE_TELLTALE);
+}
+
+void set_ENGINE_RUNNING( uint8 ENGINE_RUNNING)
+{
+     setuint8SigValue(ems_general_status.data,47,2,ENGINE_RUNNING);
+}
+
+void set_VALID_ACTUAL_GEAR_EMS( uint8 VALID_ACTUAL_GEAR_EMS)
+{
+     setuint8SigValue(ems_general_status.data,5,2,VALID_ACTUAL_GEAR_EMS);
+}
+
+void set_GEAR_SWITCH_INDICATOR( uint8 GEAR_SWITCH_INDICATOR)
+{
+     setuint8SigValue(ems_general_status.data,59,4,GEAR_SWITCH_INDICATOR);
+}
+
+/*EMS_START_STOP missing default process*/
+void set_SS_IDLE_STOP_STATUS( uint8 SS_IDLE_STOP_STATUS)
+{
+     setuint8SigValue(ems_start_stop.data,0,1,SS_IDLE_STOP_STATUS);
+}
+
+void set_SS_SYS_STS( uint8 SS_SYS_STS)
+{
+     setuint8SigValue(ems_start_stop.data,10,2,SS_SYS_STS);
+}
+
+void set_AUTO_STOP_REQUEST( uint8 AUTO_STOP_REQUEST)
+{
+     setuint8SigValue(ems_start_stop.data,11,1,AUTO_STOP_REQUEST);
+}
+
+void set_ENG_SS_STS( uint8 ENG_SS_STS)
+{
+     setuint8SigValue(ems_start_stop.data,15,4,ENG_SS_STS);
+}
+
+void set_SS_FAULT_LAMP( uint8 SS_FAULT_LAMP)
+{
+     setuint8SigValue(ems_start_stop.data,5,1,SS_FAULT_LAMP);
+}
+
+void set_SS_ENABLE_LAMP( uint8 SS_ENABLE_LAMP)
+{
+     setuint8SigValue(ems_start_stop.data,6,1,SS_ENABLE_LAMP);
+}
+
+/*GENERAL_STATUS_TCS_ESP missing default process*/
+void set_REQ_TCS_ESP_FAILURE_TELLTALE( uint8 REQ_TCS_ESP_FAILURE_TELLTALE)
+{
+     setuint8SigValue(general_status_tcs_esp.data,14,1,REQ_TCS_ESP_FAILURE_TELLTALE);
+}
+
+void set_REQ_TCS_ESP_ACTIVE_TELLTALE( uint8 REQ_TCS_ESP_ACTIVE_TELLTALE)
+{
+     setuint8SigValue(general_status_tcs_esp.data,20,1,REQ_TCS_ESP_ACTIVE_TELLTALE);
+}
+
+void set_REQ_TCS_ESP_OFF_TELLTALE( uint8 REQ_TCS_ESP_OFF_TELLTALE)
+{
+     setuint8SigValue(general_status_tcs_esp.data,21,1,REQ_TCS_ESP_OFF_TELLTALE);
+}
+
+void set_REQ_EBD_TELLTALE( uint8 REQ_EBD_TELLTALE)
+{
+     setuint8SigValue(general_status_tcs_esp.data,22,1,REQ_EBD_TELLTALE);
+}
+
+void set_REQ_ABS_TELLTALE( uint8 REQ_ABS_TELLTALE)
+{
+     setuint8SigValue(general_status_tcs_esp.data,23,1,REQ_ABS_TELLTALE);
+}
+
+void set_ODOMETER_ROLLING( uint16 ODOMETER_ROLLING)
+{
+     setuint16SigValue(general_status_tcs_esp.data,31,16,ODOMETER_ROLLING);
+}
+
+/*ICM_EVENT_COMMAND missing default process*/
+void set_MIRROR_FADE_IN_OUT( uint8 MIRROR_FADE_IN_OUT)
+{
+     setuint8SigValue(icm_event_command.data,1,2,MIRROR_FADE_IN_OUT);
+}
+
+void set_MEMO_OUTSIDE_RMIRROR_GND_PSTN( uint8 MEMO_OUTSIDE_RMIRROR_GND_PSTN)
+{
+     setuint8SigValue(icm_event_command.data,3,2,MEMO_OUTSIDE_RMIRROR_GND_PSTN);
+}
+
+void set_OUTSIDE_RMIRROR_SEE_GROUND( uint8 OUTSIDE_RMIRROR_SEE_GROUND)
+{
+     setuint8SigValue(icm_event_command.data,5,2,OUTSIDE_RMIRROR_SEE_GROUND);
+}
+
+void set_PAS_SYSTEM_SWITCH( uint8 PAS_SYSTEM_SWITCH)
+{
+     setuint8SigValue(icm_event_command.data,9,2,PAS_SYSTEM_SWITCH);
+}
+
+void set_SVA_SYSTEM_SWITCH( uint8 SVA_SYSTEM_SWITCH)
+{
+     setuint8SigValue(icm_event_command.data,11,2,SVA_SYSTEM_SWITCH);
+}
+
+void set_MINUTES_MIU( uint8 MINUTES_MIU)
+{
+     setuint8SigValue(icm_event_command.data,21,6,MINUTES_MIU);
+}
+
+void set_TIME_MODE_MIU( uint8 TIME_MODE_MIU)
+{
+     setuint8SigValue(icm_event_command.data,23,2,TIME_MODE_MIU);
+}
+
+void set_WEEK_MIU( uint8 WEEK_MIU)
+{
+     setuint8SigValue(icm_event_command.data,26,3,WEEK_MIU);
+}
+
+void set_HOUR_MIU( uint8 HOUR_MIU)
+{
+     setuint8SigValue(icm_event_command.data,31,5,HOUR_MIU);
+}
+
+void set_MONTH_MIU( uint8 MONTH_MIU)
+{
+     setuint8SigValue(icm_event_command.data,34,4,MONTH_MIU);
+}
+
+void set_DAY_MIU( uint8 DAY_MIU)
+{
+     setuint8SigValue(icm_event_command.data,39,5,DAY_MIU);
+}
+
+void set_YEAR_MIU( uint8 YEAR_MIU)
+{
+     setuint8SigValue(icm_event_command.data,46,5,YEAR_MIU);
+}
+
+/*EPS_STATUS missing default process*/
+void set_STS_EPS_ACTIVE_STS( uint8 STS_EPS_ACTIVE_STS)
+{
+     setuint8SigValue(eps_status.data,3,1,STS_EPS_ACTIVE_STS);
+}
+
+void set_STS_EPS_FAULT_STS( uint8 STS_EPS_FAULT_STS)
+{
+     setuint8SigValue(eps_status.data,7,4,STS_EPS_FAULT_STS);
+}
+
+/*SDM_GENERAL_STATUS missing default process*/
+void set_CHK_BELTS( uint8 CHK_BELTS)
+{
+     setuint8SigValue(sdm_general_status.data,0,1,CHK_BELTS);
+}
+
+void set_AIRBAG_WARNINGLAMP( uint8 AIRBAG_WARNINGLAMP)
+{
+     setuint8SigValue(sdm_general_status.data,1,1,AIRBAG_WARNINGLAMP);
+}
+
+void set_PASSENGER_AIRBAG_OFF( uint8 PASSENGER_AIRBAG_OFF)
+{
+     setuint8SigValue(sdm_general_status.data,11,1,PASSENGER_AIRBAG_OFF);
+}
+
+void set_SEATBELT_PA_ATT( uint8 SEATBELT_PA_ATT)
+{
+     setuint8SigValue(sdm_general_status.data,6,1,SEATBELT_PA_ATT);
+}
+
+void set_SEATBELT_DR_ATT( uint8 SEATBELT_DR_ATT)
+{
+     setuint8SigValue(sdm_general_status.data,7,1,SEATBELT_DR_ATT);
+}
+
+/*EMS_ENGINE_FUEL_AND_TURBO missing default process*/
+void set_ENGINE_FUEAL_INJECTED( uint16 ENGINE_FUEAL_INJECTED)
+{
+     setuint16SigValue(ems_engine_fuel_and_turbo.data,15,16,ENGINE_FUEAL_INJECTED);
+}
+
+void set_VALID_TURBO( uint8 VALID_TURBO)
+{
+     setuint8SigValue(ems_engine_fuel_and_turbo.data,3,2,VALID_TURBO);
+}
+
+void set_TURBO_PRESENTATION( uint8 TURBO_PRESENTATION)
+{
+     setuint8SigValue(ems_engine_fuel_and_turbo.data,31,8,TURBO_PRESENTATION);
+}
+
+void set_VALID_FUEL_INJ( uint8 VALID_FUEL_INJ)
+{
+     setuint8SigValue(ems_engine_fuel_and_turbo.data,5,2,VALID_FUEL_INJ);
+}
+
+/*EMS_ENGINE_IDLE_AND_VSPEED missing default process*/
+void set_VALID_VEHICLE_SPEED( uint8 VALID_VEHICLE_SPEED)
+{
+     setuint8SigValue(ems_engine_idle_and_vspeed.data,3,2,VALID_VEHICLE_SPEED);
+}
+
+void set_VEHICLE_SPEED( uint16 VEHICLE_SPEED)
+{
+     setuint16SigValue(ems_engine_idle_and_vspeed.data,31,16,VEHICLE_SPEED);
+}
+
+/*TCU_GENERAL_STATUS missing default process*/
+void set_TCU_TARGET_GEAR( uint8 TCU_TARGET_GEAR)
+{
+     setuint8SigValue(tcu_general_status.data,15,8,TCU_TARGET_GEAR);
+}
+
+void set_TCU_SELECTED_GEAR( uint8 TCU_SELECTED_GEAR)
+{
+     setuint8SigValue(tcu_general_status.data,23,8,TCU_SELECTED_GEAR);
+}
+
+void set_REQ_MIL_ACTIVE( uint8 REQ_MIL_ACTIVE)
+{
+     setuint8SigValue(tcu_general_status.data,24,1,REQ_MIL_ACTIVE);
+}
+
+void set_REQ_WINTER_TELLTALE( uint8 REQ_WINTER_TELLTALE)
+{
+     setuint8SigValue(tcu_general_status.data,29,1,REQ_WINTER_TELLTALE);
+}
+
+void set_VALID_SELECTED_GEAR( uint8 VALID_SELECTED_GEAR)
+{
+     setuint8SigValue(tcu_general_status.data,3,2,VALID_SELECTED_GEAR);
+}
+
+void set_REQ_SPORTS_TELLTALE( uint8 REQ_SPORTS_TELLTALE)
+{
+     setuint8SigValue(tcu_general_status.data,30,1,REQ_SPORTS_TELLTALE);
+}
+
+void set_REQ_CHK_GEARBOX_TELLTALE( uint8 REQ_CHK_GEARBOX_TELLTALE)
+{
+     setuint8SigValue(tcu_general_status.data,31,1,REQ_CHK_GEARBOX_TELLTALE);
+}
+
+void set_CHK_HIGH_OIL_TEMP( uint8 CHK_HIGH_OIL_TEMP)
+{
+     setuint8SigValue(tcu_general_status.data,39,1,CHK_HIGH_OIL_TEMP);
+}
+
+void set_TRANS_SHIFT_PATTERN_STATUS( uint8 TRANS_SHIFT_PATTERN_STATUS)
+{
+     setuint8SigValue(tcu_general_status.data,47,8,TRANS_SHIFT_PATTERN_STATUS);
+}
+
+void set_VALID_ACTUAL_GEAR_TCU( uint8 VALID_ACTUAL_GEAR_TCU)
+{
+     setuint8SigValue(tcu_general_status.data,5,2,VALID_ACTUAL_GEAR_TCU);
+}
+
+void set_GEAR_INDICATION( uint8 GEAR_INDICATION)
+{
+     setuint8SigValue(tcu_general_status.data,55,8,GEAR_INDICATION);
+}
+
 /*BCM_GENERAL_STATUS missing default process*/
 void set_CHECK_FRONT_FOG_LIGHT( uint8 CHECK_FRONT_FOG_LIGHT)
 {
@@ -777,352 +1124,5 @@ void set_REMAIN_MAINTAIN_MILEAGE( uint16 REMAIN_MAINTAIN_MILEAGE)
 void set_AVERAGE_FUEL_CONSUM2( uint16 AVERAGE_FUEL_CONSUM2)
 {
      setuint16SigValue(icm_general_status_3.data,51,12,AVERAGE_FUEL_CONSUM2);
-}
-
-/*TCU_ENGINE_TORQUE_REQUEST missing default process*/
-void set_TRANSMISSION_OIL_TEMPERATURE( uint8 TRANSMISSION_OIL_TEMPERATURE)
-{
-     setuint8SigValue(tcu_engine_torque_request.data,47,8,TRANSMISSION_OIL_TEMPERATURE);
-}
-
-/*EMS_ENGINE_SPEED_AND_TORQUE missing default process*/
-void set_ACTUAL_ENGINE_SPEED_UNFILTERED( uint16 ACTUAL_ENGINE_SPEED_UNFILTERED)
-{
-     setuint16SigValue(ems_engine_speed_and_torque.data,15,16,ACTUAL_ENGINE_SPEED_UNFILTERED);
-}
-
-void set_VALID_ESPEED( uint8 VALID_ESPEED)
-{
-     setuint8SigValue(ems_engine_speed_and_torque.data,4,1,VALID_ESPEED);
-}
-
-/*EMS_GENERAL_STATUS missing default process*/
-void set_EMS_ACTUAL_GEAR( uint8 EMS_ACTUAL_GEAR)
-{
-     setuint8SigValue(ems_general_status.data,15,8,EMS_ACTUAL_GEAR);
-}
-
-void set_BRAKE_STATUS_EMS( uint8 BRAKE_STATUS_EMS)
-{
-     setuint8SigValue(ems_general_status.data,17,1,BRAKE_STATUS_EMS);
-}
-
-void set_HAND_BRAKE_EMS( uint8 HAND_BRAKE_EMS)
-{
-     setuint8SigValue(ems_general_status.data,2,1,HAND_BRAKE_EMS);
-}
-
-void set_REQ_SHIFT_DOWN_TELLTALE( uint8 REQ_SHIFT_DOWN_TELLTALE)
-{
-     setuint8SigValue(ems_general_status.data,21,1,REQ_SHIFT_DOWN_TELLTALE);
-}
-
-void set_CRUISE_ACTIVE( uint8 CRUISE_ACTIVE)
-{
-     setuint8SigValue(ems_general_status.data,22,1,CRUISE_ACTIVE);
-}
-
-void set_ACTUAL_GEARBOX( uint8 ACTUAL_GEARBOX)
-{
-     setuint8SigValue(ems_general_status.data,29,1,ACTUAL_GEARBOX);
-}
-
-void set_VALID_BRAKE_STATUS_EMS( uint8 VALID_BRAKE_STATUS_EMS)
-{
-     setuint8SigValue(ems_general_status.data,3,1,VALID_BRAKE_STATUS_EMS);
-}
-
-void set_EMS_AUTHRESULT( uint8 EMS_AUTHRESULT)
-{
-     setuint8SigValue(ems_general_status.data,36,2,EMS_AUTHRESULT);
-}
-
-void set_REQ_CRUISE_TELLTALE( uint8 REQ_CRUISE_TELLTALE)
-{
-     setuint8SigValue(ems_general_status.data,37,1,REQ_CRUISE_TELLTALE);
-}
-
-void set_REQ_SHIFT_UP_TELLTALE( uint8 REQ_SHIFT_UP_TELLTALE)
-{
-     setuint8SigValue(ems_general_status.data,38,1,REQ_SHIFT_UP_TELLTALE);
-}
-
-void set_REQ_CHECK_ENGINE_TELLTALE( uint8 REQ_CHECK_ENGINE_TELLTALE)
-{
-     setuint8SigValue(ems_general_status.data,39,1,REQ_CHECK_ENGINE_TELLTALE);
-}
-
-void set_ENGINE_RUNNING( uint8 ENGINE_RUNNING)
-{
-     setuint8SigValue(ems_general_status.data,47,2,ENGINE_RUNNING);
-}
-
-void set_VALID_ACTUAL_GEAR_EMS( uint8 VALID_ACTUAL_GEAR_EMS)
-{
-     setuint8SigValue(ems_general_status.data,5,2,VALID_ACTUAL_GEAR_EMS);
-}
-
-void set_GEAR_SWITCH_INDICATOR( uint8 GEAR_SWITCH_INDICATOR)
-{
-     setuint8SigValue(ems_general_status.data,59,4,GEAR_SWITCH_INDICATOR);
-}
-
-/*EMS_START_STOP missing default process*/
-void set_SS_IDLE_STOP_STATUS( uint8 SS_IDLE_STOP_STATUS)
-{
-     setuint8SigValue(ems_start_stop.data,0,1,SS_IDLE_STOP_STATUS);
-}
-
-void set_SS_SYS_STS( uint8 SS_SYS_STS)
-{
-     setuint8SigValue(ems_start_stop.data,10,2,SS_SYS_STS);
-}
-
-void set_AUTO_STOP_REQUEST( uint8 AUTO_STOP_REQUEST)
-{
-     setuint8SigValue(ems_start_stop.data,11,1,AUTO_STOP_REQUEST);
-}
-
-void set_ENG_SS_STS( uint8 ENG_SS_STS)
-{
-     setuint8SigValue(ems_start_stop.data,15,4,ENG_SS_STS);
-}
-
-void set_SS_FAULT_LAMP( uint8 SS_FAULT_LAMP)
-{
-     setuint8SigValue(ems_start_stop.data,5,1,SS_FAULT_LAMP);
-}
-
-void set_SS_ENABLE_LAMP( uint8 SS_ENABLE_LAMP)
-{
-     setuint8SigValue(ems_start_stop.data,6,1,SS_ENABLE_LAMP);
-}
-
-/*GENERAL_STATUS_TCS_ESP missing default process*/
-void set_REQ_TCS_ESP_FAILURE_TELLTALE( uint8 REQ_TCS_ESP_FAILURE_TELLTALE)
-{
-     setuint8SigValue(general_status_tcs_esp.data,14,1,REQ_TCS_ESP_FAILURE_TELLTALE);
-}
-
-void set_REQ_TCS_ESP_ACTIVE_TELLTALE( uint8 REQ_TCS_ESP_ACTIVE_TELLTALE)
-{
-     setuint8SigValue(general_status_tcs_esp.data,20,1,REQ_TCS_ESP_ACTIVE_TELLTALE);
-}
-
-void set_REQ_TCS_ESP_OFF_TELLTALE( uint8 REQ_TCS_ESP_OFF_TELLTALE)
-{
-     setuint8SigValue(general_status_tcs_esp.data,21,1,REQ_TCS_ESP_OFF_TELLTALE);
-}
-
-void set_REQ_EBD_TELLTALE( uint8 REQ_EBD_TELLTALE)
-{
-     setuint8SigValue(general_status_tcs_esp.data,22,1,REQ_EBD_TELLTALE);
-}
-
-void set_REQ_ABS_TELLTALE( uint8 REQ_ABS_TELLTALE)
-{
-     setuint8SigValue(general_status_tcs_esp.data,23,1,REQ_ABS_TELLTALE);
-}
-
-void set_ODOMETER_ROLLING( uint16 ODOMETER_ROLLING)
-{
-     setuint16SigValue(general_status_tcs_esp.data,31,16,ODOMETER_ROLLING);
-}
-
-/*ECS_IMMO_RAND_NUMBER missing default process*/
-void set_AUTH_RESULT( uint8 AUTH_RESULT)
-{
-     setuint8SigValue(ecs_immo_rand_number.data,47,8,AUTH_RESULT);
-}
-
-void set_IMMO_SID( uint8 IMMO_SID)
-{
-     setuint8SigValue(ecs_immo_rand_number.data,7,8,IMMO_SID);
-}
-
-/*ICM_EVENT_COMMAND missing default process*/
-void set_MIRROR_FADE_IN_OUT( uint8 MIRROR_FADE_IN_OUT)
-{
-     setuint8SigValue(icm_event_command.data,1,2,MIRROR_FADE_IN_OUT);
-}
-
-void set_MEMO_OUTSIDE_RMIRROR_GND_PSTN( uint8 MEMO_OUTSIDE_RMIRROR_GND_PSTN)
-{
-     setuint8SigValue(icm_event_command.data,3,2,MEMO_OUTSIDE_RMIRROR_GND_PSTN);
-}
-
-void set_OUTSIDE_RMIRROR_SEE_GROUND( uint8 OUTSIDE_RMIRROR_SEE_GROUND)
-{
-     setuint8SigValue(icm_event_command.data,5,2,OUTSIDE_RMIRROR_SEE_GROUND);
-}
-
-void set_PAS_SYSTEM_SWITCH( uint8 PAS_SYSTEM_SWITCH)
-{
-     setuint8SigValue(icm_event_command.data,9,2,PAS_SYSTEM_SWITCH);
-}
-
-void set_SVA_SYSTEM_SWITCH( uint8 SVA_SYSTEM_SWITCH)
-{
-     setuint8SigValue(icm_event_command.data,11,2,SVA_SYSTEM_SWITCH);
-}
-
-void set_MINUTES_MIU( uint8 MINUTES_MIU)
-{
-     setuint8SigValue(icm_event_command.data,21,6,MINUTES_MIU);
-}
-
-void set_TIME_MODE_MIU( uint8 TIME_MODE_MIU)
-{
-     setuint8SigValue(icm_event_command.data,23,2,TIME_MODE_MIU);
-}
-
-void set_WEEK_MIU( uint8 WEEK_MIU)
-{
-     setuint8SigValue(icm_event_command.data,26,3,WEEK_MIU);
-}
-
-void set_HOUR_MIU( uint8 HOUR_MIU)
-{
-     setuint8SigValue(icm_event_command.data,31,5,HOUR_MIU);
-}
-
-void set_MONTH_MIU( uint8 MONTH_MIU)
-{
-     setuint8SigValue(icm_event_command.data,34,4,MONTH_MIU);
-}
-
-void set_DAY_MIU( uint8 DAY_MIU)
-{
-     setuint8SigValue(icm_event_command.data,39,5,DAY_MIU);
-}
-
-void set_YEAR_MIU( uint8 YEAR_MIU)
-{
-     setuint8SigValue(icm_event_command.data,46,5,YEAR_MIU);
-}
-
-/*EPS_STATUS missing default process*/
-void set_STS_EPS_ACTIVE_STS( uint8 STS_EPS_ACTIVE_STS)
-{
-     setuint8SigValue(eps_status.data,3,1,STS_EPS_ACTIVE_STS);
-}
-
-void set_STS_EPS_FAULT_STS( uint8 STS_EPS_FAULT_STS)
-{
-     setuint8SigValue(eps_status.data,7,4,STS_EPS_FAULT_STS);
-}
-
-/*SDM_GENERAL_STATUS missing default process*/
-void set_CHK_BELTS( uint8 CHK_BELTS)
-{
-     setuint8SigValue(sdm_general_status.data,0,1,CHK_BELTS);
-}
-
-void set_AIRBAG_WARNINGLAMP( uint8 AIRBAG_WARNINGLAMP)
-{
-     setuint8SigValue(sdm_general_status.data,1,1,AIRBAG_WARNINGLAMP);
-}
-
-void set_PASSENGER_AIRBAG_OFF( uint8 PASSENGER_AIRBAG_OFF)
-{
-     setuint8SigValue(sdm_general_status.data,11,1,PASSENGER_AIRBAG_OFF);
-}
-
-void set_SEATBELT_PA_ATT( uint8 SEATBELT_PA_ATT)
-{
-     setuint8SigValue(sdm_general_status.data,6,1,SEATBELT_PA_ATT);
-}
-
-void set_SEATBELT_DR_ATT( uint8 SEATBELT_DR_ATT)
-{
-     setuint8SigValue(sdm_general_status.data,7,1,SEATBELT_DR_ATT);
-}
-
-/*EMS_ENGINE_FUEL_AND_TURBO missing default process*/
-void set_ENGINE_FUEAL_INJECTED( uint16 ENGINE_FUEAL_INJECTED)
-{
-     setuint16SigValue(ems_engine_fuel_and_turbo.data,15,16,ENGINE_FUEAL_INJECTED);
-}
-
-void set_VALID_TURBO( uint8 VALID_TURBO)
-{
-     setuint8SigValue(ems_engine_fuel_and_turbo.data,3,2,VALID_TURBO);
-}
-
-void set_TURBO_PRESENTATION( uint8 TURBO_PRESENTATION)
-{
-     setuint8SigValue(ems_engine_fuel_and_turbo.data,31,8,TURBO_PRESENTATION);
-}
-
-void set_VALID_FUEL_INJ( uint8 VALID_FUEL_INJ)
-{
-     setuint8SigValue(ems_engine_fuel_and_turbo.data,5,2,VALID_FUEL_INJ);
-}
-
-/*EMS_ENGINE_IDLE_AND_VSPEED missing default process*/
-void set_VALID_VEHICLE_SPEED( uint8 VALID_VEHICLE_SPEED)
-{
-     setuint8SigValue(ems_engine_idle_and_vspeed.data,3,2,VALID_VEHICLE_SPEED);
-}
-
-void set_VEHICLE_SPEED( uint16 VEHICLE_SPEED)
-{
-     setuint16SigValue(ems_engine_idle_and_vspeed.data,31,16,VEHICLE_SPEED);
-}
-
-/*TCU_GENERAL_STATUS missing default process*/
-void set_TCU_TARGET_GEAR( uint8 TCU_TARGET_GEAR)
-{
-     setuint8SigValue(tcu_general_status.data,15,8,TCU_TARGET_GEAR);
-}
-
-void set_TCU_SELECTED_GEAR( uint8 TCU_SELECTED_GEAR)
-{
-     setuint8SigValue(tcu_general_status.data,23,8,TCU_SELECTED_GEAR);
-}
-
-void set_REQ_MIL_ACTIVE( uint8 REQ_MIL_ACTIVE)
-{
-     setuint8SigValue(tcu_general_status.data,24,1,REQ_MIL_ACTIVE);
-}
-
-void set_REQ_WINTER_TELLTALE( uint8 REQ_WINTER_TELLTALE)
-{
-     setuint8SigValue(tcu_general_status.data,29,1,REQ_WINTER_TELLTALE);
-}
-
-void set_VALID_SELECTED_GEAR( uint8 VALID_SELECTED_GEAR)
-{
-     setuint8SigValue(tcu_general_status.data,3,2,VALID_SELECTED_GEAR);
-}
-
-void set_REQ_SPORTS_TELLTALE( uint8 REQ_SPORTS_TELLTALE)
-{
-     setuint8SigValue(tcu_general_status.data,30,1,REQ_SPORTS_TELLTALE);
-}
-
-void set_REQ_CHK_GEARBOX_TELLTALE( uint8 REQ_CHK_GEARBOX_TELLTALE)
-{
-     setuint8SigValue(tcu_general_status.data,31,1,REQ_CHK_GEARBOX_TELLTALE);
-}
-
-void set_CHK_HIGH_OIL_TEMP( uint8 CHK_HIGH_OIL_TEMP)
-{
-     setuint8SigValue(tcu_general_status.data,39,1,CHK_HIGH_OIL_TEMP);
-}
-
-void set_TRANS_SHIFT_PATTERN_STATUS( uint8 TRANS_SHIFT_PATTERN_STATUS)
-{
-     setuint8SigValue(tcu_general_status.data,47,8,TRANS_SHIFT_PATTERN_STATUS);
-}
-
-void set_VALID_ACTUAL_GEAR_TCU( uint8 VALID_ACTUAL_GEAR_TCU)
-{
-     setuint8SigValue(tcu_general_status.data,5,2,VALID_ACTUAL_GEAR_TCU);
-}
-
-void set_GEAR_INDICATION( uint8 GEAR_INDICATION)
-{
-     setuint8SigValue(tcu_general_status.data,55,8,GEAR_INDICATION);
 }
 

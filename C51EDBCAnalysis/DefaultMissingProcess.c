@@ -1,4 +1,119 @@
 
+void Setecs_immo_rand_numberMissingDefaultValue(void)
+{
+ set_AUTH_RESULT(0);
+ set_IMMO_SID(0);
+}
+
+void Settcu_engine_torque_requestMissingDefaultValue(void)
+{
+ set_TRANSMISSION_OIL_TEMPERATURE(0);
+}
+
+void Setems_engine_speed_and_torqueMissingDefaultValue(void)
+{
+ set_ACTUAL_ENGINE_SPEED_UNFILTERED(0);
+ set_VALID_ESPEED(0);
+}
+
+void Setems_general_statusMissingDefaultValue(void)
+{
+ set_EMS_ACTUAL_GEAR(0);
+ set_BRAKE_STATUS_EMS(0);
+ set_HAND_BRAKE_EMS(0);
+ set_REQ_SHIFT_DOWN_TELLTALE(0);
+ set_CRUISE_ACTIVE(0);
+ set_ACTUAL_GEARBOX(0);
+ set_VALID_BRAKE_STATUS_EMS(0);
+ set_EMS_AUTHRESULT(0);
+ set_REQ_CRUISE_TELLTALE(0);
+ set_REQ_SHIFT_UP_TELLTALE(0);
+ set_REQ_CHECK_ENGINE_TELLTALE(0);
+ set_ENGINE_RUNNING(0);
+ set_VALID_ACTUAL_GEAR_EMS(0);
+ set_GEAR_SWITCH_INDICATOR(0);
+}
+
+void Setems_start_stopMissingDefaultValue(void)
+{
+ set_SS_IDLE_STOP_STATUS(0);
+ set_SS_SYS_STS(0);
+ set_AUTO_STOP_REQUEST(0);
+ set_ENG_SS_STS(0);
+ set_SS_FAULT_LAMP(0);
+ set_SS_ENABLE_LAMP(0);
+}
+
+void Setgeneral_status_tcs_espMissingDefaultValue(void)
+{
+ set_REQ_TCS_ESP_FAILURE_TELLTALE(0);
+ set_REQ_TCS_ESP_ACTIVE_TELLTALE(0);
+ set_REQ_TCS_ESP_OFF_TELLTALE(0);
+ set_REQ_EBD_TELLTALE(0);
+ set_REQ_ABS_TELLTALE(0);
+ set_ODOMETER_ROLLING(0);
+}
+
+void Seticm_event_commandMissingDefaultValue(void)
+{
+ set_MIRROR_FADE_IN_OUT(0);
+ set_MEMO_OUTSIDE_RMIRROR_GND_PSTN(0);
+ set_OUTSIDE_RMIRROR_SEE_GROUND(0);
+ set_PAS_SYSTEM_SWITCH(0);
+ set_SVA_SYSTEM_SWITCH(0);
+ set_MINUTES_MIU(0);
+ set_TIME_MODE_MIU(0);
+ set_WEEK_MIU(0);
+ set_HOUR_MIU(0);
+ set_MONTH_MIU(0);
+ set_DAY_MIU(0);
+ set_YEAR_MIU(0);
+}
+
+void Seteps_statusMissingDefaultValue(void)
+{
+ set_STS_EPS_ACTIVE_STS(0);
+ set_STS_EPS_FAULT_STS(0);
+}
+
+void Setsdm_general_statusMissingDefaultValue(void)
+{
+ set_CHK_BELTS(0);
+ set_AIRBAG_WARNINGLAMP(0);
+ set_PASSENGER_AIRBAG_OFF(0);
+ set_SEATBELT_PA_ATT(0);
+ set_SEATBELT_DR_ATT(0);
+}
+
+void Setems_engine_fuel_and_turboMissingDefaultValue(void)
+{
+ set_ENGINE_FUEAL_INJECTED(0);
+ set_VALID_TURBO(0);
+ set_TURBO_PRESENTATION(0);
+ set_VALID_FUEL_INJ(0);
+}
+
+void Setems_engine_idle_and_vspeedMissingDefaultValue(void)
+{
+ set_VALID_VEHICLE_SPEED(0);
+ set_VEHICLE_SPEED(0);
+}
+
+void Settcu_general_statusMissingDefaultValue(void)
+{
+ set_TCU_TARGET_GEAR(0);
+ set_TCU_SELECTED_GEAR(0);
+ set_REQ_MIL_ACTIVE(0);
+ set_REQ_WINTER_TELLTALE(0);
+ set_VALID_SELECTED_GEAR(0);
+ set_REQ_SPORTS_TELLTALE(0);
+ set_REQ_CHK_GEARBOX_TELLTALE(0);
+ set_CHK_HIGH_OIL_TEMP(0);
+ set_TRANS_SHIFT_PATTERN_STATUS(0);
+ set_VALID_ACTUAL_GEAR_TCU(0);
+ set_GEAR_INDICATION(0);
+}
+
 void Setbcm_general_statusMissingDefaultValue(void)
 {
  set_CHECK_FRONT_FOG_LIGHT(0);
@@ -214,119 +329,4 @@ void Seticm_general_status_3MissingDefaultValue(void)
  set_ENDURANCE_MILEAGE(0);
  set_REMAIN_MAINTAIN_MILEAGE(0);
  set_AVERAGE_FUEL_CONSUM2(0);
-}
-
-void Settcu_engine_torque_requestMissingDefaultValue(void)
-{
- set_TRANSMISSION_OIL_TEMPERATURE(0);
-}
-
-void Setems_engine_speed_and_torqueMissingDefaultValue(void)
-{
- set_ACTUAL_ENGINE_SPEED_UNFILTERED(0);
- set_VALID_ESPEED(0);
-}
-
-void Setems_general_statusMissingDefaultValue(void)
-{
- set_EMS_ACTUAL_GEAR(0);
- set_BRAKE_STATUS_EMS(0);
- set_HAND_BRAKE_EMS(0);
- set_REQ_SHIFT_DOWN_TELLTALE(0);
- set_CRUISE_ACTIVE(0);
- set_ACTUAL_GEARBOX(0);
- set_VALID_BRAKE_STATUS_EMS(0);
- set_EMS_AUTHRESULT(0);
- set_REQ_CRUISE_TELLTALE(0);
- set_REQ_SHIFT_UP_TELLTALE(0);
- set_REQ_CHECK_ENGINE_TELLTALE(0);
- set_ENGINE_RUNNING(0);
- set_VALID_ACTUAL_GEAR_EMS(0);
- set_GEAR_SWITCH_INDICATOR(0);
-}
-
-void Setems_start_stopMissingDefaultValue(void)
-{
- set_SS_IDLE_STOP_STATUS(0);
- set_SS_SYS_STS(0);
- set_AUTO_STOP_REQUEST(0);
- set_ENG_SS_STS(0);
- set_SS_FAULT_LAMP(0);
- set_SS_ENABLE_LAMP(0);
-}
-
-void Setgeneral_status_tcs_espMissingDefaultValue(void)
-{
- set_REQ_TCS_ESP_FAILURE_TELLTALE(0);
- set_REQ_TCS_ESP_ACTIVE_TELLTALE(0);
- set_REQ_TCS_ESP_OFF_TELLTALE(0);
- set_REQ_EBD_TELLTALE(0);
- set_REQ_ABS_TELLTALE(0);
- set_ODOMETER_ROLLING(0);
-}
-
-void Setecs_immo_rand_numberMissingDefaultValue(void)
-{
- set_AUTH_RESULT(0);
- set_IMMO_SID(0);
-}
-
-void Seticm_event_commandMissingDefaultValue(void)
-{
- set_MIRROR_FADE_IN_OUT(0);
- set_MEMO_OUTSIDE_RMIRROR_GND_PSTN(0);
- set_OUTSIDE_RMIRROR_SEE_GROUND(0);
- set_PAS_SYSTEM_SWITCH(0);
- set_SVA_SYSTEM_SWITCH(0);
- set_MINUTES_MIU(0);
- set_TIME_MODE_MIU(0);
- set_WEEK_MIU(0);
- set_HOUR_MIU(0);
- set_MONTH_MIU(0);
- set_DAY_MIU(0);
- set_YEAR_MIU(0);
-}
-
-void Seteps_statusMissingDefaultValue(void)
-{
- set_STS_EPS_ACTIVE_STS(0);
- set_STS_EPS_FAULT_STS(0);
-}
-
-void Setsdm_general_statusMissingDefaultValue(void)
-{
- set_CHK_BELTS(0);
- set_AIRBAG_WARNINGLAMP(0);
- set_PASSENGER_AIRBAG_OFF(0);
- set_SEATBELT_PA_ATT(0);
- set_SEATBELT_DR_ATT(0);
-}
-
-void Setems_engine_fuel_and_turboMissingDefaultValue(void)
-{
- set_ENGINE_FUEAL_INJECTED(0);
- set_VALID_TURBO(0);
- set_TURBO_PRESENTATION(0);
- set_VALID_FUEL_INJ(0);
-}
-
-void Setems_engine_idle_and_vspeedMissingDefaultValue(void)
-{
- set_VALID_VEHICLE_SPEED(0);
- set_VEHICLE_SPEED(0);
-}
-
-void Settcu_general_statusMissingDefaultValue(void)
-{
- set_TCU_TARGET_GEAR(0);
- set_TCU_SELECTED_GEAR(0);
- set_REQ_MIL_ACTIVE(0);
- set_REQ_WINTER_TELLTALE(0);
- set_VALID_SELECTED_GEAR(0);
- set_REQ_SPORTS_TELLTALE(0);
- set_REQ_CHK_GEARBOX_TELLTALE(0);
- set_CHK_HIGH_OIL_TEMP(0);
- set_TRANS_SHIFT_PATTERN_STATUS(0);
- set_VALID_ACTUAL_GEAR_TCU(0);
- set_GEAR_INDICATION(0);
 }
