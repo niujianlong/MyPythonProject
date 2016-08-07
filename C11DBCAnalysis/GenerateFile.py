@@ -52,6 +52,8 @@ def GenCANProcessH():
         CANProcessH.write(line)
     CANProcessH.write('\n\nEXTERN void abus_receive_frame(uint16 frameID, uint8 *data);\n') 
     CANProcessH.write('EXTERN void vbus_receive_frame(uint16 frameID, uint8 *data);\n') 
+    CANProcessH.write('EXTERN void CANProcess_Init(void);\n') 
+    CANProcessH.write('EXTERN void frameMissingProcess(void);\n') 
     CANProcessH.write('\n\n#undef EXTERN\n')   
     CANProcessH.write('#endif\n')
     
