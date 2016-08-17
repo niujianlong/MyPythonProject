@@ -41,6 +41,11 @@ def GenCANProcessH():
     for line in open('struct.h'):
         CANProcessH.write(line)
     CANProcessH.write('\n/*************************************************************************\n')
+    CANProcessH.write('**                  Is NO Frame Received                                **\n')
+    CANProcessH.write('**************************************************************************/\n')
+    for line in open('CAN_IsNoMsgReceived.h'):
+        CANProcessH.write(line)    
+    CANProcessH.write('\n/*************************************************************************\n')
     CANProcessH.write('**                  Frame Signal Analysis Prototype                     **\n')
     CANProcessH.write('**************************************************************************/\n')
     for line in open('SignalAnalysis.h'):

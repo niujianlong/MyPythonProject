@@ -184,28 +184,6 @@ void Settpms_sys_statusMissingDefaultValue(void)
  set_SIGNAL_STATUS(0);
 }
 
-void Setpas_general_statusMissingDefaultValue(void)
-{
- set_PAS_SYS_STATUS(0);
- set_SVA_SYS_STATUS(0);
- set_PA_FRONT_SYS_STATUS(0);
- set_PA_REAR_SYS_STATUS(0);
- set_PA_REARMIDLEFT_REG_OBJ_STATUS(0);
- set_PA_REARLEFT_REG_OBJ_STATUS(0);
- set_PA_FRONTLEFT_REG_OBJ_STATUS(0);
- set_PA_REARRIGHT_REG_OBJ_STATUS(0);
- set_PA_FRONTRIGHT_REG_OBJ_STATUS(0);
- set_PA_FRONTMIDLEFT_REG_OBJ_STATUS(0);
- set_REAR_MINI_PAS_DISTANCE(0);
- set_FRONT_MINI_PAS_DISTANCE(0);
- set_PA_REARMIDRIGHT_REG_OBJ_ST(0);
- set_SVA_WARNING_STATUS_RIGHT(0);
- set_SVA_WARNING_STATUS_LEFT(0);
- set_NEAREST_REAR_PAS(0);
- set_PA_PAS_SW_STATUS(0);
- set_PA_FRONTMIDRIGHT_REG_OBJ_ST(0);
-}
-
 void Setpeps_general_statusMissingDefaultValue(void)
 {
  set_REMOTE_START_RESPONSE_PEPS(0);
@@ -280,28 +258,6 @@ void Setems_engine_temp_and_barrometerMissingDefaultValue(void)
  set_VALID_COOLANT(0);
 }
 
-void Seticm_general_statusMissingDefaultValue(void)
-{
- set_DATA_VALID(0);
- set_AIRBAG_WARNINGLAMP_STATUS(0);
- set_NIGHT_PANEL(0);
- set_DATA_VALID_RHEOSTAT(0);
- set_WASHER_FLUID_LEVEL_LOW(0);
- set_ODOMETER_RESET_COUNTER_ICM(0);
- set_RHEOSTAT_LEVEL(0);
- set_DISPLAYED_TOTAL_DISTANCE(0);
- set_BATTERY_VOLTAGE_LEVEL(0);
- set_ODOMETER_OFFSET_ICM(0);
-}
-
-void Seticm_general_status_2MissingDefaultValue(void)
-{
- set_HAND_BRAKE_ICM(0);
- set_REMOTE_START_RESPONSE_ICM(0);
- set_FUELTANK_REMAINING(0);
- set_OILPUMP_RESISTER_ICM(0);
-}
-
 void Setahl_general_statusMissingDefaultValue(void)
 {
  set_AHL_FAULT_STATUS(0);
@@ -320,13 +276,4 @@ void Setbcm_general_status_2MissingDefaultValue(void)
 void Sethum_event_command_1MissingDefaultValue(void)
 {
  set_SYS_LANGUAGE(0);
-}
-
-void Seticm_general_status_3MissingDefaultValue(void)
-{
- set_INSTANT_FUEL_CONSUM(0);
- set_AVERAGE_FUEL_CONSUM1(0);
- set_ENDURANCE_MILEAGE(0);
- set_REMAIN_MAINTAIN_MILEAGE(0);
- set_AVERAGE_FUEL_CONSUM2(0);
 }

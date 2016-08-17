@@ -3,6 +3,7 @@ import string
 global frameStructName
 fw = file("struct.h", "w+")
 fw1 = file("VariableDefinition.c", "w+")
+fw4 = file("CAN_IsNoMsgReceived.h", "w+")
 # fw2 = file("getMissingFlagPrototype.h", "w+")
 # fw3 = file("getNeverReceFlagPrototype.h", "w+")
 # fw4 = file("getMissingFlagFunBody.c", "w+")
@@ -31,6 +32,7 @@ sendFrameStructName = ['icm_0x620', 'icm_0x6a0', 'icm_0x6a2', 'icm_0x6af']
 ABUSframeID = [0x212, 0x318, 0x430, 0x450, 0x451, 0x470, 0x4c8, 0x4e0, 0x585, 0x611, 0x615, 0x616, 0x617, 0x61d]
 CommonframeID = [0x230, 0x214]
 global commonIDCount
+CAN_IsNoMsgReceived = 0
 def isICMNodeSendFrame(frameStructName):  
     frameStructNameArr = frameStructName.split('_')
     if frameStructNameArr[0] == 'ICM' or frameStructNameArr[0] == 'PAS':
@@ -55,6 +57,7 @@ fw3.write('void abus_receive_frame(uint16 frameID, uint8 *data)\n{\n   switch (f
 fw18.write('void frameMissingProcess(void)\n{\n')
 fw13.write('void CANProcess_Init(void)\n{\n')
 fw2.write('typedef enum\n{\n')
+fw4.write('#define ISNOMSGRECEIVED()\\\n(')
 for line in open("C11DBCSorted.txt"):  
     line_split = line.split(' ')
     # print line_split
@@ -221,9 +224,20 @@ for line in open("C11DBCSorted.txt"):
             if  commonIDCount > 2 and frameID in CommonframeID:
                 fw.write('#define  GET_VBUS_' + frameStructName.upper() + '_MISSING_FLAG()    (vbus_' + frameStructName.lower() + '.' + frameStructName.capitalize() + 'MissingFlag)\n')
                 fw.write('#define  GET_VBUS_' + frameStructName.upper() + '_NEVER_RECE_FLAG() (vbus_' + frameStructName.lower() + '.' + frameStructName.capitalize() + 'NeverReceFlag)\n')
+                if CAN_IsNoMsgReceived==0:
+                    fw4.write('  (GET_VBUS_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
+                    CAN_IsNoMsgReceived = CAN_IsNoMsgReceived + 1
+                else:
+                    fw4.write(' &&(GET_VBUS_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
             else:
                 fw.write('#define  GET_' + frameStructName.upper() + '_MISSING_FLAG()    (' + frameStructName.lower() + '.' + frameStructName.capitalize() + 'MissingFlag)\n')
                 fw.write('#define  GET_' + frameStructName.upper() + '_NEVER_RECE_FLAG() (' + frameStructName.lower() + '.' + frameStructName.capitalize() + 'NeverReceFlag)\n')
+                if CAN_IsNoMsgReceived==0:
+                    fw4.write('  (GET_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
+                    CAN_IsNoMsgReceived = CAN_IsNoMsgReceived + 1
+                else:
+                    fw4.write(' &&(GET_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
+        
         a = 0
         for i in singleSigName:  # 打印宏定义供外界来调用
             ibackup = []
@@ -304,6 +318,6 @@ fw3.write('}\n}\n')
 fw18.write('}\n')            
 fw13.write('}\n')      
 fw2.write('}FrameMissingCounterEnum;\n')      
-
+fw4.write(')\\\n')
                          
         

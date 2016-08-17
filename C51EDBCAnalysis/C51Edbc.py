@@ -2,6 +2,7 @@
 import string
 global frameStructName
 fw = file("struct.h", "w+")
+fw3 = file("CAN_IsNoMsgReceived.h", "w+")
 fw1 = file("VariableDefinition.c", "w+")
 #fw2 = file("getMissingFlagPrototype.h", "w+")
 #fw3 = file("getNeverReceFlagPrototype.h", "w+")
@@ -26,11 +27,13 @@ structName = []  # 去除dbc里边的重复定义的报文
 bitLengthList = []
 bitPragram = []
 global frameID 
-sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3']
+CAN_IsNoMsgReceived = 0;
+sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3','frame0_reserve','frame1_reserve','frame2_reserve','frame3_reserve','frame4_reserve']
+eventSendFrame = ['ECS_IMMO_RAND_NUMBER','ICM_EVENT_COMMAND','HUM_EVENT_COMMAND_1']
 
 def isICMNodeSendFrame(frameStructName):  
     frameStructNameArr = frameStructName.split('_')
-    if frameStructNameArr[0] == 'ICM' or frameStructNameArr[0] == 'PAS':
+    if frameStructNameArr[0] == 'ICM' or frameStructNameArr[0] == 'PAS' or frameStructName.lower() in sendFrameStructName:
         return True
     else:
         return False
@@ -40,13 +43,14 @@ fw17.write('void vbus_receive_frame(uint16 frameID, uint8 *data)\n{\n   switch (
 fw18.write('void frameMissingProcess(void)\n{\n')
 fw13.write('void CANProcess_Init(void)\n{\n')
 fw2.write('typedef enum\n{\n')
+fw3.write('#define ISNOMSGRECEIVED()\\\n(')
 for line in open("C51ESorted.txt"):  
     line_split = line.split(' ')
     #print line_split
     if line_split[0] == 'BO_':
         frameID = int(line_split[1])
         frameStructName = line_split[2][:-1]  # [:-1]的目的是去掉末尾的：号
-        if hex(frameID)== '0x318' or hex(frameID)== '0x370':
+        if hex(frameID)== '0x318' or hex(frameID)== '0x370' or hex(frameID)== '0x660':
             fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
         else: 
             if frameStructName.lower() not in sendFrameStructName:   
@@ -54,7 +58,7 @@ for line in open("C51ESorted.txt"):
 
         if frameStructName.lower() not in sendFrameStructName:
             fw18.write('FRAME_MISSING_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize()+', '+ frameStructName.capitalize()+'MissingCounter);\n')
-            fw2.write('  '+frameStructName.capitalize()+'MissingCounter = 400,\n')
+            fw2.write('  '+frameStructName.capitalize()+'MissingCounter = ((10*'+frameStructName.upper()+'_MSG_CYCLE)/5),\n')
         structName.append(frameStructName)
         fw.write('\n/*frame '+str(hex(frameID))+' struct define*/')
         fw.write("\ntypedef struct\n{\n")
@@ -78,10 +82,10 @@ for line in open("C51ESorted.txt"):
         #fw6.write(frameStructName.upper() + '_MISSING_CYCLE / TASK_CYCLE,\n')
         if frameStructName.lower() not in sendFrameStructName:
             fw7.write('static uint16  ' + frameStructName.lower() + 'Count=0;\n')
-        
+            fw15.write('\nvoid Set'+frameStructName.lower()+'MissingDefaultValue(void)\n{\n')
+            fw16.write('EXTERN void Set'+frameStructName.lower()+'MissingDefaultValue(void);\n')
         fw14.write('/*'+frameStructName+' missing default process*/\n')
-        fw15.write('\nvoid Set'+frameStructName.lower()+'MissingDefaultValue(void)\n{\n')
-        fw16.write('EXTERN void Set'+frameStructName.lower()+'MissingDefaultValue(void);\n')
+        
         #vcu_0x212.Vcu_0x212NeverReceFlag = 1u;
         if frameStructName.lower() not in sendFrameStructName:
             fw13.write("  " + frameStructName.lower() + "."+frameStructName.capitalize() +'NeverReceFlag = 1u;\n')  # 打印函数原型的注释
@@ -91,6 +95,7 @@ for line in open("C51ESorted.txt"):
             fw11.write('void '+ frameStructName.lower() +'SigAlysis(void)\n{\n')    
             fw12.write('EXTERN void '+ frameStructName.lower() +'SigAlysis(void);\n')    
     elif line_split[0] == '':
+        #print line_split
         singleSigName.append(line_split[2])  # 这个列表是记录所有信号的名字用的
         tempEndBit = line_split[4].split("|")  # 先解析出来endBit
         endBit = tempEndBit[0]
@@ -145,19 +150,22 @@ for line in open("C51ESorted.txt"):
             fw14.write('void set_'+line_split[2] + "( uint8 "+line_split[2]+')\n{\n')
             if isICMNodeSendFrame(frameStructName)==True:
                 fw19.write('EXTERN void set_'+line_split[2] + "( uint8 "+line_split[2]+');\n')
-            fw15.write(' set_'+line_split[2] + '(0);\n')
+            if frameStructName.lower() not in sendFrameStructName:    
+                fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint8SigValue(' + frameStructName.lower() + ".data" + "," + str(endBit) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         elif 8 < bitLength and bitLength <= 16:
             fw14.write('void set_'+line_split[2] + "( uint16 "+line_split[2]+')\n{\n')
             if isICMNodeSendFrame(frameStructName)==True:
                 fw19.write('EXTERN void set_'+line_split[2] + "( uint16 "+line_split[2]+');\n')           
-            fw15.write(' set_'+line_split[2] + '(0);\n')
+            if frameStructName.lower() not in sendFrameStructName:
+                fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint16SigValue(' + frameStructName.lower() + ".data,"+ str(endBit) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         elif bitLength > 16:
             fw14.write('void set_'+line_split[2] + "( uint32 "+line_split[2]+')\n{\n')
             if isICMNodeSendFrame(frameStructName)==True:
                 fw19.write('EXTERN void set_'+line_split[2] + "( uint32 "+line_split[2]+');\n')           
-            fw15.write(' set_'+line_split[2] + '(0);\n')
+            if frameStructName.lower() not in sendFrameStructName:
+                fw15.write(' set_'+line_split[2] + '(0);\n')
             fw14.write('     setuint32SigValue(' + frameStructName.lower() + ".data,"+ str(endBit) + "," + str(bitLength)+','+line_split[2]+');\n}\n')
         fw14.write('\n')          
                
@@ -166,12 +174,19 @@ for line in open("C51ESorted.txt"):
         
 
     else: 
-        fw15.write('}\n') 
+        if frameStructName.lower() not in sendFrameStructName:
+            fw15.write('}\n') 
         fw.write("}" + str(frameStructName).lower() + "_struct;\n") 
         fw.write("\nEXTERN   " + frameStructName.lower() + "_struct    " + frameStructName.lower() + ";\n")
         fw1.write("\n" + frameStructName.lower() + "_struct    " + frameStructName.lower() + ";")
-        if frameStructName.lower() not in sendFrameStructName:
+        if frameStructName.lower() not in sendFrameStructName and frameStructName.upper() not in eventSendFrame:
             fw.write('#define  GET_' + frameStructName.upper() + '_MISSING_FLAG()    (' + frameStructName.lower() +'.'+frameStructName.capitalize()+ 'MissingFlag)\n')
+            if frameStructName.upper() not in eventSendFrame:
+                if CAN_IsNoMsgReceived==0:
+                    fw3.write('  (GET_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
+                    CAN_IsNoMsgReceived = CAN_IsNoMsgReceived + 1
+                else:
+                    fw3.write(' &&(GET_' + frameStructName.upper() + '_MISSING_FLAG()==1)\\\n')
             fw.write('#define  GET_' + frameStructName.upper() + '_NEVER_RECE_FLAG() (' + frameStructName.lower() + '.'+frameStructName.capitalize()+ 'NeverReceFlag)\n')
         a = 0
         for i in singleSigName:  # 打印宏定义供外界来调用
@@ -239,6 +254,6 @@ fw17.write('}\n}\n')
 fw18.write('}\n')            
 fw13.write('}\n')      
 fw2.write('}FrameMissingCounterEnum;\n')      
-
+fw3.write(')\\\n')
                          
         

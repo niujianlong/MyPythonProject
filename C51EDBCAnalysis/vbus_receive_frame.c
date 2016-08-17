@@ -95,6 +95,7 @@ break;
 
 case 0x660:
  FRAME_DATA_HANDLE(bcm_general_status_2, Bcm_general_status_2);
+SetBcm_general_status_2ReceivedFlag();
 break;
 
 case 0x670:

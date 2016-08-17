@@ -1126,3 +1126,208 @@ void set_AVERAGE_FUEL_CONSUM2( uint16 AVERAGE_FUEL_CONSUM2)
      setuint16SigValue(icm_general_status_3.data,51,12,AVERAGE_FUEL_CONSUM2);
 }
 
+/*FRAME0_RESERVE missing default process*/
+void set_FRAME0_SIGNAL0_RESERVE( uint8 FRAME0_SIGNAL0_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,7,8,FRAME0_SIGNAL0_RESERVE);
+}
+
+void set_FRAME0_SIGNAL1_RESERVE( uint8 FRAME0_SIGNAL1_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,15,8,FRAME0_SIGNAL1_RESERVE);
+}
+
+void set_FRAME0_SIGNAL2_RESERVE( uint8 FRAME0_SIGNAL2_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,23,8,FRAME0_SIGNAL2_RESERVE);
+}
+
+void set_FRAME0_SIGNAL3_RESERVE( uint8 FRAME0_SIGNAL3_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,31,8,FRAME0_SIGNAL3_RESERVE);
+}
+
+void set_FRAME0_SIGNAL4_RESERVE( uint8 FRAME0_SIGNAL4_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,39,8,FRAME0_SIGNAL4_RESERVE);
+}
+
+void set_FRAME0_SIGNAL5_RESERVE( uint8 FRAME0_SIGNAL5_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,47,8,FRAME0_SIGNAL5_RESERVE);
+}
+
+void set_FRAME0_SIGNAL6_RESERVE( uint8 FRAME0_SIGNAL6_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,55,8,FRAME0_SIGNAL6_RESERVE);
+}
+
+void set_FRAME0_SIGNAL7_RESERVE( uint8 FRAME0_SIGNAL7_RESERVE)
+{
+     setuint8SigValue(frame0_reserve.data,63,8,FRAME0_SIGNAL7_RESERVE);
+}
+
+/*FRAME1_RESERVE missing default process*/
+void set_FRAME1_SIGNAL0_RESERVE( uint8 FRAME1_SIGNAL0_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,7,8,FRAME1_SIGNAL0_RESERVE);
+}
+
+void set_FRAME1_SIGNAL1_RESERVE( uint8 FRAME1_SIGNAL1_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,15,8,FRAME1_SIGNAL1_RESERVE);
+}
+
+void set_FRAME1_SIGNAL2_RESERVE( uint8 FRAME1_SIGNAL2_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,23,8,FRAME1_SIGNAL2_RESERVE);
+}
+
+void set_FRAME1_SIGNAL3_RESERVE( uint8 FRAME1_SIGNAL3_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,31,8,FRAME1_SIGNAL3_RESERVE);
+}
+
+void set_FRAME1_SIGNAL4_RESERVE( uint8 FRAME1_SIGNAL4_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,39,8,FRAME1_SIGNAL4_RESERVE);
+}
+
+void set_FRAME1_SIGNAL5_RESERVE( uint8 FRAME1_SIGNAL5_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,47,8,FRAME1_SIGNAL5_RESERVE);
+}
+
+void set_FRAME1_SIGNAL6_RESERVE( uint8 FRAME1_SIGNAL6_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,55,8,FRAME1_SIGNAL6_RESERVE);
+}
+
+void set_FRAME1_SIGNAL7_RESERVE( uint8 FRAME1_SIGNAL7_RESERVE)
+{
+     setuint8SigValue(frame1_reserve.data,63,8,FRAME1_SIGNAL7_RESERVE);
+}
+
+/*FRAME2_RESERVE missing default process*/
+void set_FRAME2_SIGNAL0_RESERVE( uint8 FRAME2_SIGNAL0_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,7,8,FRAME2_SIGNAL0_RESERVE);
+}
+
+void set_FRAME2_SIGNAL1_RESERVE( uint8 FRAME2_SIGNAL1_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,15,8,FRAME2_SIGNAL1_RESERVE);
+}
+
+void set_FRAME2_SIGNAL2_RESERVE( uint8 FRAME2_SIGNAL2_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,23,8,FRAME2_SIGNAL2_RESERVE);
+}
+
+void set_FRAME2_SIGNAL3_RESERVE( uint8 FRAME2_SIGNAL3_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,31,8,FRAME2_SIGNAL3_RESERVE);
+}
+
+void set_FRAME2_SIGNAL4_RESERVE( uint8 FRAME2_SIGNAL4_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,39,8,FRAME2_SIGNAL4_RESERVE);
+}
+
+void set_FRAME2_SIGNAL5_RESERVE( uint8 FRAME2_SIGNAL5_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,47,8,FRAME2_SIGNAL5_RESERVE);
+}
+
+void set_FRAME2_SIGNAL6_RESERVE( uint8 FRAME2_SIGNAL6_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,55,8,FRAME2_SIGNAL6_RESERVE);
+}
+
+void set_FRAME2_SIGNAL7_RESERVE( uint8 FRAME2_SIGNAL7_RESERVE)
+{
+     setuint8SigValue(frame2_reserve.data,63,8,FRAME2_SIGNAL7_RESERVE);
+}
+
+/*FRAME3_RESERVE missing default process*/
+void set_FRAME3_SIGNAL0_RESERVE( uint8 FRAME3_SIGNAL0_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,7,8,FRAME3_SIGNAL0_RESERVE);
+}
+
+void set_FRAME3_SIGNAL1_RESERVE( uint8 FRAME3_SIGNAL1_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,15,8,FRAME3_SIGNAL1_RESERVE);
+}
+
+void set_FRAME3_SIGNAL2_RESERVE( uint8 FRAME3_SIGNAL2_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,23,8,FRAME3_SIGNAL2_RESERVE);
+}
+
+void set_FRAME3_SIGNAL3_RESERVE( uint8 FRAME3_SIGNAL3_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,31,8,FRAME3_SIGNAL3_RESERVE);
+}
+
+void set_FRAME3_SIGNAL4_RESERVE( uint8 FRAME3_SIGNAL4_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,39,8,FRAME3_SIGNAL4_RESERVE);
+}
+
+void set_FRAME3_SIGNAL5_RESERVE( uint8 FRAME3_SIGNAL5_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,47,8,FRAME3_SIGNAL5_RESERVE);
+}
+
+void set_FRAME3_SIGNAL6_RESERVE( uint8 FRAME3_SIGNAL6_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,55,8,FRAME3_SIGNAL6_RESERVE);
+}
+
+void set_FRAME3_SIGNAL7_RESERVE( uint8 FRAME3_SIGNAL7_RESERVE)
+{
+     setuint8SigValue(frame3_reserve.data,63,8,FRAME3_SIGNAL7_RESERVE);
+}
+
+/*FRAME4_RESERVE missing default process*/
+void set_FRAME4_SIGNAL0_RESERVE( uint8 FRAME4_SIGNAL0_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,7,8,FRAME4_SIGNAL0_RESERVE);
+}
+
+void set_FRAME4_SIGNAL1_RESERVE( uint8 FRAME4_SIGNAL1_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,15,8,FRAME4_SIGNAL1_RESERVE);
+}
+
+void set_FRAME4_SIGNAL2_RESERVE( uint8 FRAME4_SIGNAL2_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,23,8,FRAME4_SIGNAL2_RESERVE);
+}
+
+void set_FRAME4_SIGNAL3_RESERVE( uint8 FRAME4_SIGNAL3_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,31,8,FRAME4_SIGNAL3_RESERVE);
+}
+
+void set_FRAME4_SIGNAL4_RESERVE( uint8 FRAME4_SIGNAL4_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,39,8,FRAME4_SIGNAL4_RESERVE);
+}
+
+void set_FRAME4_SIGNAL5_RESERVE( uint8 FRAME4_SIGNAL5_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,47,8,FRAME4_SIGNAL5_RESERVE);
+}
+
+void set_FRAME4_SIGNAL6_RESERVE( uint8 FRAME4_SIGNAL6_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,55,8,FRAME4_SIGNAL6_RESERVE);
+}
+
+void set_FRAME4_SIGNAL7_RESERVE( uint8 FRAME4_SIGNAL7_RESERVE)
+{
+     setuint8SigValue(frame4_reserve.data,63,8,FRAME4_SIGNAL7_RESERVE);
+}
+

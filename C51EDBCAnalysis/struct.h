@@ -12,8 +12,6 @@ typedef struct
 }ecs_immo_rand_number_struct;
 
 EXTERN   ecs_immo_rand_number_struct    ecs_immo_rand_number;
-#define  GET_ECS_IMMO_RAND_NUMBER_MISSING_FLAG()    (ecs_immo_rand_number.Ecs_immo_rand_numberMissingFlag)
-#define  GET_ECS_IMMO_RAND_NUMBER_NEVER_RECE_FLAG() (ecs_immo_rand_number.Ecs_immo_rand_numberNeverReceFlag)
 #define  GET_AUTH_RESULT()    (ecs_immo_rand_number.AUTH_RESULT)
 #define  GET_IMMO_SID()    (ecs_immo_rand_number.IMMO_SID)
 
@@ -168,8 +166,6 @@ typedef struct
 }icm_event_command_struct;
 
 EXTERN   icm_event_command_struct    icm_event_command;
-#define  GET_ICM_EVENT_COMMAND_MISSING_FLAG()    (icm_event_command.Icm_event_commandMissingFlag)
-#define  GET_ICM_EVENT_COMMAND_NEVER_RECE_FLAG() (icm_event_command.Icm_event_commandNeverReceFlag)
 #define  GET_MIRROR_FADE_IN_OUT()    (icm_event_command.MIRROR_FADE_IN_OUT)
 #define  GET_MEMO_OUTSIDE_RMIRROR_GND_PSTN()    (icm_event_command.MEMO_OUTSIDE_RMIRROR_GND_PSTN)
 #define  GET_OUTSIDE_RMIRROR_SEE_GROUND()    (icm_event_command.OUTSIDE_RMIRROR_SEE_GROUND)
@@ -756,8 +752,6 @@ typedef struct
 }hum_event_command_1_struct;
 
 EXTERN   hum_event_command_1_struct    hum_event_command_1;
-#define  GET_HUM_EVENT_COMMAND_1_MISSING_FLAG()    (hum_event_command_1.Hum_event_command_1MissingFlag)
-#define  GET_HUM_EVENT_COMMAND_1_NEVER_RECE_FLAG() (hum_event_command_1.Hum_event_command_1NeverReceFlag)
 #define  GET_SYS_LANGUAGE()    (hum_event_command_1.SYS_LANGUAGE)
 
 /*frame 0x6f1 struct define*/
@@ -773,3 +767,88 @@ typedef struct
 }icm_general_status_3_struct;
 
 EXTERN   icm_general_status_3_struct    icm_general_status_3;
+
+/*frame 0x6fa struct define*/
+typedef struct
+{
+   uint8  data[8];
+
+   uint8  FRAME0_SIGNAL0_RESERVE;
+   uint8  FRAME0_SIGNAL1_RESERVE;
+   uint8  FRAME0_SIGNAL2_RESERVE;
+   uint8  FRAME0_SIGNAL3_RESERVE;
+   uint8  FRAME0_SIGNAL4_RESERVE;
+   uint8  FRAME0_SIGNAL5_RESERVE;
+   uint8  FRAME0_SIGNAL6_RESERVE;
+   uint8  FRAME0_SIGNAL7_RESERVE;
+}frame0_reserve_struct;
+
+EXTERN   frame0_reserve_struct    frame0_reserve;
+
+/*frame 0x6fb struct define*/
+typedef struct
+{
+   uint8  data[8];
+
+   uint8  FRAME1_SIGNAL0_RESERVE;
+   uint8  FRAME1_SIGNAL1_RESERVE;
+   uint8  FRAME1_SIGNAL2_RESERVE;
+   uint8  FRAME1_SIGNAL3_RESERVE;
+   uint8  FRAME1_SIGNAL4_RESERVE;
+   uint8  FRAME1_SIGNAL5_RESERVE;
+   uint8  FRAME1_SIGNAL6_RESERVE;
+   uint8  FRAME1_SIGNAL7_RESERVE;
+}frame1_reserve_struct;
+
+EXTERN   frame1_reserve_struct    frame1_reserve;
+
+/*frame 0x6fc struct define*/
+typedef struct
+{
+   uint8  data[8];
+
+   uint8  FRAME2_SIGNAL0_RESERVE;
+   uint8  FRAME2_SIGNAL1_RESERVE;
+   uint8  FRAME2_SIGNAL2_RESERVE;
+   uint8  FRAME2_SIGNAL3_RESERVE;
+   uint8  FRAME2_SIGNAL4_RESERVE;
+   uint8  FRAME2_SIGNAL5_RESERVE;
+   uint8  FRAME2_SIGNAL6_RESERVE;
+   uint8  FRAME2_SIGNAL7_RESERVE;
+}frame2_reserve_struct;
+
+EXTERN   frame2_reserve_struct    frame2_reserve;
+
+/*frame 0x6fd struct define*/
+typedef struct
+{
+   uint8  data[8];
+
+   uint8  FRAME3_SIGNAL0_RESERVE;
+   uint8  FRAME3_SIGNAL1_RESERVE;
+   uint8  FRAME3_SIGNAL2_RESERVE;
+   uint8  FRAME3_SIGNAL3_RESERVE;
+   uint8  FRAME3_SIGNAL4_RESERVE;
+   uint8  FRAME3_SIGNAL5_RESERVE;
+   uint8  FRAME3_SIGNAL6_RESERVE;
+   uint8  FRAME3_SIGNAL7_RESERVE;
+}frame3_reserve_struct;
+
+EXTERN   frame3_reserve_struct    frame3_reserve;
+
+/*frame 0x6fe struct define*/
+typedef struct
+{
+   uint8  data[8];
+
+   uint8  FRAME4_SIGNAL0_RESERVE;
+   uint8  FRAME4_SIGNAL1_RESERVE;
+   uint8  FRAME4_SIGNAL2_RESERVE;
+   uint8  FRAME4_SIGNAL3_RESERVE;
+   uint8  FRAME4_SIGNAL4_RESERVE;
+   uint8  FRAME4_SIGNAL5_RESERVE;
+   uint8  FRAME4_SIGNAL6_RESERVE;
+   uint8  FRAME4_SIGNAL7_RESERVE;
+}frame4_reserve_struct;
+
+EXTERN   frame4_reserve_struct    frame4_reserve;

@@ -27,3 +27,8 @@ ahl_general_status_struct    ahl_general_status;
 bcm_general_status_2_struct    bcm_general_status_2;
 hum_event_command_1_struct    hum_event_command_1;
 icm_general_status_3_struct    icm_general_status_3;
+frame0_reserve_struct    frame0_reserve;
+frame1_reserve_struct    frame1_reserve;
+frame2_reserve_struct    frame2_reserve;
+frame3_reserve_struct    frame3_reserve;
+frame4_reserve_struct    frame4_reserve;
