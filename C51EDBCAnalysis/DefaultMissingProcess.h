@@ -22,37 +22,3 @@ EXTERN void Setems_engine_temp_and_barrometerMissingDefaultValue(void);
 EXTERN void Setahl_general_statusMissingDefaultValue(void);
 EXTERN void Setbcm_general_status_2MissingDefaultValue(void);
 EXTERN void Sethum_event_command_1MissingDefaultValue(void);
-
-
-void sendFrame(void)
-{
-    /**************send the 0x560*******************/
-    send_icm_node_frame(INDEXNO0, 0x560, BUFFNO1, pas_general_status.data);
-    /**************send the 0x620*******************/
-    send_icm_node_frame(INDEXNO1, 0x620, BUFFNO2, icm_general_status.data);
-    /**************send the 0x621*******************/
-    send_icm_node_frame(INDEXNO2, 0x621, BUFFNO3, icm_general_status_2.data);
-    /**************send the 0x6F1*******************/
-    send_icm_node_frame(INDEXNO3, 0x6F1, BUFFNO4, icm_general_status_3.data);
-    /**************send the 0x6F1*******************/
-    send_icm_node_frame(INDEXNO3, 0x6F1, BUFFNO4, icm_general_status_3.data);
-}
-
-
-
-
-static void SchemeInitValue(void)
-{
-   Yank.nodetype = aString;
-   Yank.a_string = YankString;
-   Diab.nodetype = aString;
-   Diab.a_string = DiabString;
-   Inte2.nodetype = aInteger;
-   Inte2.aintnum = 2;
-   Inte1.nodetype = aInteger;
-   Inte1.aintnum = 1;
-   List0.nodetype = aList;
-   List0.afront = &Yank;
-   List0.aback = &Diab;
-
-}

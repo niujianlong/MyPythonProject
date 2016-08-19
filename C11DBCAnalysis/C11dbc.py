@@ -77,7 +77,10 @@ for line in open("C11DBCSorted.txt"):
                 fw3.write('\ncase ' + hex(frameID) + ':\n FRAME_DATA_HANDLE(' + frameStructName.lower() + ', ' + frameStructName.capitalize() + ');\nbreak;\n')
         else:
             if frameStructName.lower() not in sendFrameStructName:   
-                fw17.write('\ncase ' + hex(frameID) + ':\n FRAME_DATA_HANDLE(' + frameStructName.lower() + ', ' + frameStructName.capitalize() + ');\nbreak;\n')
+                if hex(frameID)== '0x661' or hex(frameID)== '0xfff' or hex(frameID)== '0xfff':
+                    fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
+                else:   
+                    fw17.write('\ncase ' + hex(frameID) + ':\n FRAME_DATA_HANDLE(' + frameStructName.lower() + ', ' + frameStructName.capitalize() + ');\nbreak;\n')
         if frameStructName.lower() not in sendFrameStructName:
             if  commonIDCount > 2 and frameID in CommonframeID: 
                 fw18.write('FRAME_MISSING_HANDLE(vbus_' + frameStructName.lower() + ', ' + frameStructName.capitalize() + ', ' + frameStructName.capitalize() + 'MissingCounter);\n')

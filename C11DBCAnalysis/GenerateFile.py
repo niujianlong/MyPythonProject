@@ -1,10 +1,10 @@
 # coding=utf-8
 import datetime
 
-CANProcessH = file("CANProcess.h", "w+")
-CANProcessC = file("CANProcess.c", "w+")
-CANMissingProcessH = file("CANMissingProcess.h", "w+")
-CANMissingProcessC = file("CANMissingProcess.c", "w+")
+CANProcessH = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\CANProcess.h", "w+")
+CANProcessC = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\private\\CANProcess.c", "w+")
+CANMissingProcessH = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\CANMissingProcess.h", "w+")
+CANMissingProcessC = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\private\\CANMissingProcess.c", "w+")
                          
         
 def WriteNowTime():

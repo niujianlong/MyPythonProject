@@ -41,6 +41,7 @@ break;
 
 case 0x661:
  FRAME_DATA_HANDLE(bcm_0x661, Bcm_0x661);
+SetBcm_0x661ReceivedFlag();
 break;
 
 case 0x6f2:
