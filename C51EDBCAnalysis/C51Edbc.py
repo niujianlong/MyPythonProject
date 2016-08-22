@@ -29,7 +29,7 @@ bitPragram = []
 global frameID 
 CAN_IsNoMsgReceived = 0;
 sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3','frame0_reserve','frame1_reserve','frame2_reserve','frame3_reserve','frame4_reserve']
-eventSendFrame = ['ECS_IMMO_RAND_NUMBER','ICM_EVENT_COMMAND','HUM_EVENT_COMMAND_1']
+eventSendFrame = ['ECS_IMMO_RAND_NUMBER','HUM_EVENT_COMMAND_2','HUM_EVENT_COMMAND_1']
 
 def isICMNodeSendFrame(frameStructName):  
     frameStructNameArr = frameStructName.split('_')
@@ -44,7 +44,7 @@ fw18.write('void frameMissingProcess(void)\n{\n')
 fw13.write('void CANProcess_Init(void)\n{\n')
 fw2.write('typedef enum\n{\n')
 fw3.write('#define ISNOMSGRECEIVED()\\\n(')
-for line in open("C51ESorted.txt"):  
+for line in open("C51E48Sorted.txt"):  
     line_split = line.split(' ')
     #print line_split
     if line_split[0] == 'BO_':

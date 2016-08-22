@@ -103,6 +103,8 @@ typedef struct
    uint8  SS_SYS_STS;
    uint8  AUTO_STOP_REQUEST;
    uint8  ENG_SS_STS;
+   uint8  CRUISE_CONTROL_SET_SPEED;
+   uint8  LIMIT_SPEED_CRUISE_STATUS;
    uint8  SS_FAULT_LAMP;
    uint8  SS_ENABLE_LAMP;
 }ems_start_stop_struct;
@@ -114,6 +116,8 @@ EXTERN   ems_start_stop_struct    ems_start_stop;
 #define  GET_SS_SYS_STS()    (ems_start_stop.SS_SYS_STS)
 #define  GET_AUTO_STOP_REQUEST()    (ems_start_stop.AUTO_STOP_REQUEST)
 #define  GET_ENG_SS_STS()    (ems_start_stop.ENG_SS_STS)
+#define  GET_CRUISE_CONTROL_SET_SPEED()    (ems_start_stop.CRUISE_CONTROL_SET_SPEED)
+#define  GET_LIMIT_SPEED_CRUISE_STATUS()    (ems_start_stop.LIMIT_SPEED_CRUISE_STATUS)
 #define  GET_SS_FAULT_LAMP()    (ems_start_stop.SS_FAULT_LAMP)
 #define  GET_SS_ENABLE_LAMP()    (ems_start_stop.SS_ENABLE_LAMP)
 
@@ -142,42 +146,6 @@ EXTERN   general_status_tcs_esp_struct    general_status_tcs_esp;
 #define  GET_REQ_EBD_TELLTALE()    (general_status_tcs_esp.REQ_EBD_TELLTALE)
 #define  GET_REQ_ABS_TELLTALE()    (general_status_tcs_esp.REQ_ABS_TELLTALE)
 #define  GET_ODOMETER_ROLLING()    (general_status_tcs_esp.ODOMETER_ROLLING)
-
-/*frame 0x320 struct define*/
-typedef struct
-{
-   uint8  Icm_event_commandUpdatedFlag;
-   uint8  Icm_event_commandNeverReceFlag;
-   uint8  Icm_event_commandMissingFlag;
-   uint8  data[8];
-
-   uint8  MIRROR_FADE_IN_OUT;
-   uint8  MEMO_OUTSIDE_RMIRROR_GND_PSTN;
-   uint8  OUTSIDE_RMIRROR_SEE_GROUND;
-   uint8  PAS_SYSTEM_SWITCH;
-   uint8  SVA_SYSTEM_SWITCH;
-   uint8  MINUTES_MIU;
-   uint8  TIME_MODE_MIU;
-   uint8  WEEK_MIU;
-   uint8  HOUR_MIU;
-   uint8  MONTH_MIU;
-   uint8  DAY_MIU;
-   uint8  YEAR_MIU;
-}icm_event_command_struct;
-
-EXTERN   icm_event_command_struct    icm_event_command;
-#define  GET_MIRROR_FADE_IN_OUT()    (icm_event_command.MIRROR_FADE_IN_OUT)
-#define  GET_MEMO_OUTSIDE_RMIRROR_GND_PSTN()    (icm_event_command.MEMO_OUTSIDE_RMIRROR_GND_PSTN)
-#define  GET_OUTSIDE_RMIRROR_SEE_GROUND()    (icm_event_command.OUTSIDE_RMIRROR_SEE_GROUND)
-#define  GET_PAS_SYSTEM_SWITCH()    (icm_event_command.PAS_SYSTEM_SWITCH)
-#define  GET_SVA_SYSTEM_SWITCH()    (icm_event_command.SVA_SYSTEM_SWITCH)
-#define  GET_MINUTES_MIU()    (icm_event_command.MINUTES_MIU)
-#define  GET_TIME_MODE_MIU()    (icm_event_command.TIME_MODE_MIU)
-#define  GET_WEEK_MIU()    (icm_event_command.WEEK_MIU)
-#define  GET_HOUR_MIU()    (icm_event_command.HOUR_MIU)
-#define  GET_MONTH_MIU()    (icm_event_command.MONTH_MIU)
-#define  GET_DAY_MIU()    (icm_event_command.DAY_MIU)
-#define  GET_YEAR_MIU()    (icm_event_command.YEAR_MIU)
 
 /*frame 0x322 struct define*/
 typedef struct
@@ -753,6 +721,86 @@ typedef struct
 
 EXTERN   hum_event_command_1_struct    hum_event_command_1;
 #define  GET_SYS_LANGUAGE()    (hum_event_command_1.SYS_LANGUAGE)
+
+/*frame 0x671 struct define*/
+typedef struct
+{
+   uint8  Hum_event_command_2UpdatedFlag;
+   uint8  Hum_event_command_2NeverReceFlag;
+   uint8  Hum_event_command_2MissingFlag;
+   uint8  data[8];
+
+   uint8  BSD_SYS_SWITCH;
+   uint8  LDW_SWITCH;
+}hum_event_command_2_struct;
+
+EXTERN   hum_event_command_2_struct    hum_event_command_2;
+#define  GET_BSD_SYS_SWITCH()    (hum_event_command_2.BSD_SYS_SWITCH)
+#define  GET_LDW_SWITCH()    (hum_event_command_2.LDW_SWITCH)
+
+/*frame 0x672 struct define*/
+typedef struct
+{
+   uint8  Navi_informationUpdatedFlag;
+   uint8  Navi_informationNeverReceFlag;
+   uint8  Navi_informationMissingFlag;
+   uint8  data[8];
+
+   uint8  NAVI_DATA_FIELD_1;
+   uint8  NAVI_DATA_FIELD_2;
+   uint8  NAVI_DATA_FIELD_3;
+   uint8  NAVI_DATA_FIELD_4;
+   uint8  LENGTH_of_MESSAGE_NAVI;
+   uint8  NAVI_DATA_FIELD_5;
+   uint8  NAVI_DATA_FIELD_6;
+   uint8  NAVI_DATA_FIELD_7;
+   uint8  NUM_of_MESSAGE_NAVI;
+}navi_information_struct;
+
+EXTERN   navi_information_struct    navi_information;
+#define  GET_NAVI_INFORMATION_MISSING_FLAG()    (navi_information.Navi_informationMissingFlag)
+#define  GET_NAVI_INFORMATION_NEVER_RECE_FLAG() (navi_information.Navi_informationNeverReceFlag)
+#define  GET_NAVI_DATA_FIELD_1()    (navi_information.NAVI_DATA_FIELD_1)
+#define  GET_NAVI_DATA_FIELD_2()    (navi_information.NAVI_DATA_FIELD_2)
+#define  GET_NAVI_DATA_FIELD_3()    (navi_information.NAVI_DATA_FIELD_3)
+#define  GET_NAVI_DATA_FIELD_4()    (navi_information.NAVI_DATA_FIELD_4)
+#define  GET_LENGTH_of_MESSAGE_NAVI()    (navi_information.LENGTH_of_MESSAGE_NAVI)
+#define  GET_NAVI_DATA_FIELD_5()    (navi_information.NAVI_DATA_FIELD_5)
+#define  GET_NAVI_DATA_FIELD_6()    (navi_information.NAVI_DATA_FIELD_6)
+#define  GET_NAVI_DATA_FIELD_7()    (navi_information.NAVI_DATA_FIELD_7)
+#define  GET_NUM_of_MESSAGE_NAVI()    (navi_information.NUM_of_MESSAGE_NAVI)
+
+/*frame 0x673 struct define*/
+typedef struct
+{
+   uint8  Media_informationUpdatedFlag;
+   uint8  Media_informationNeverReceFlag;
+   uint8  Media_informationMissingFlag;
+   uint8  data[8];
+
+   uint8  MEDIA_DATA_FIELD_1;
+   uint8  MEDIA_DATA_FIELD_2;
+   uint8  MEDIA_DATA_FIELD_3;
+   uint8  MEDIA_DATA_FIELD_4;
+   uint8  LENGTH_of_MESSAGE_MEDIA;
+   uint8  MEDIA_DATA_FIELD_5;
+   uint8  MEDIA_DATA_FIELD_6;
+   uint8  MEDIA_DATA_FIELD_7;
+   uint8  NUM_of_MESSAGE_MEDIA;
+}media_information_struct;
+
+EXTERN   media_information_struct    media_information;
+#define  GET_MEDIA_INFORMATION_MISSING_FLAG()    (media_information.Media_informationMissingFlag)
+#define  GET_MEDIA_INFORMATION_NEVER_RECE_FLAG() (media_information.Media_informationNeverReceFlag)
+#define  GET_MEDIA_DATA_FIELD_1()    (media_information.MEDIA_DATA_FIELD_1)
+#define  GET_MEDIA_DATA_FIELD_2()    (media_information.MEDIA_DATA_FIELD_2)
+#define  GET_MEDIA_DATA_FIELD_3()    (media_information.MEDIA_DATA_FIELD_3)
+#define  GET_MEDIA_DATA_FIELD_4()    (media_information.MEDIA_DATA_FIELD_4)
+#define  GET_LENGTH_of_MESSAGE_MEDIA()    (media_information.LENGTH_of_MESSAGE_MEDIA)
+#define  GET_MEDIA_DATA_FIELD_5()    (media_information.MEDIA_DATA_FIELD_5)
+#define  GET_MEDIA_DATA_FIELD_6()    (media_information.MEDIA_DATA_FIELD_6)
+#define  GET_MEDIA_DATA_FIELD_7()    (media_information.MEDIA_DATA_FIELD_7)
+#define  GET_NUM_of_MESSAGE_MEDIA()    (media_information.NUM_of_MESSAGE_MEDIA)
 
 /*frame 0x6f1 struct define*/
 typedef struct

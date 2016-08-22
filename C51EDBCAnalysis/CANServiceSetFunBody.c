@@ -118,6 +118,16 @@ void set_ENG_SS_STS( uint8 ENG_SS_STS)
      setuint8SigValue(ems_start_stop.data,15,4,ENG_SS_STS);
 }
 
+void set_CRUISE_CONTROL_SET_SPEED( uint8 CRUISE_CONTROL_SET_SPEED)
+{
+     setuint8SigValue(ems_start_stop.data,31,8,CRUISE_CONTROL_SET_SPEED);
+}
+
+void set_LIMIT_SPEED_CRUISE_STATUS( uint8 LIMIT_SPEED_CRUISE_STATUS)
+{
+     setuint8SigValue(ems_start_stop.data,47,3,LIMIT_SPEED_CRUISE_STATUS);
+}
+
 void set_SS_FAULT_LAMP( uint8 SS_FAULT_LAMP)
 {
      setuint8SigValue(ems_start_stop.data,5,1,SS_FAULT_LAMP);
@@ -157,67 +167,6 @@ void set_REQ_ABS_TELLTALE( uint8 REQ_ABS_TELLTALE)
 void set_ODOMETER_ROLLING( uint16 ODOMETER_ROLLING)
 {
      setuint16SigValue(general_status_tcs_esp.data,31,16,ODOMETER_ROLLING);
-}
-
-/*ICM_EVENT_COMMAND missing default process*/
-void set_MIRROR_FADE_IN_OUT( uint8 MIRROR_FADE_IN_OUT)
-{
-     setuint8SigValue(icm_event_command.data,1,2,MIRROR_FADE_IN_OUT);
-}
-
-void set_MEMO_OUTSIDE_RMIRROR_GND_PSTN( uint8 MEMO_OUTSIDE_RMIRROR_GND_PSTN)
-{
-     setuint8SigValue(icm_event_command.data,3,2,MEMO_OUTSIDE_RMIRROR_GND_PSTN);
-}
-
-void set_OUTSIDE_RMIRROR_SEE_GROUND( uint8 OUTSIDE_RMIRROR_SEE_GROUND)
-{
-     setuint8SigValue(icm_event_command.data,5,2,OUTSIDE_RMIRROR_SEE_GROUND);
-}
-
-void set_PAS_SYSTEM_SWITCH( uint8 PAS_SYSTEM_SWITCH)
-{
-     setuint8SigValue(icm_event_command.data,9,2,PAS_SYSTEM_SWITCH);
-}
-
-void set_SVA_SYSTEM_SWITCH( uint8 SVA_SYSTEM_SWITCH)
-{
-     setuint8SigValue(icm_event_command.data,11,2,SVA_SYSTEM_SWITCH);
-}
-
-void set_MINUTES_MIU( uint8 MINUTES_MIU)
-{
-     setuint8SigValue(icm_event_command.data,21,6,MINUTES_MIU);
-}
-
-void set_TIME_MODE_MIU( uint8 TIME_MODE_MIU)
-{
-     setuint8SigValue(icm_event_command.data,23,2,TIME_MODE_MIU);
-}
-
-void set_WEEK_MIU( uint8 WEEK_MIU)
-{
-     setuint8SigValue(icm_event_command.data,26,3,WEEK_MIU);
-}
-
-void set_HOUR_MIU( uint8 HOUR_MIU)
-{
-     setuint8SigValue(icm_event_command.data,31,5,HOUR_MIU);
-}
-
-void set_MONTH_MIU( uint8 MONTH_MIU)
-{
-     setuint8SigValue(icm_event_command.data,34,4,MONTH_MIU);
-}
-
-void set_DAY_MIU( uint8 DAY_MIU)
-{
-     setuint8SigValue(icm_event_command.data,39,5,DAY_MIU);
-}
-
-void set_YEAR_MIU( uint8 YEAR_MIU)
-{
-     setuint8SigValue(icm_event_command.data,46,5,YEAR_MIU);
 }
 
 /*EPS_STATUS missing default process*/
@@ -1098,6 +1047,109 @@ void set_ODOMETER_RESET_COUNTER_BCM( uint8 ODOMETER_RESET_COUNTER_BCM)
 void set_SYS_LANGUAGE( uint8 SYS_LANGUAGE)
 {
      setuint8SigValue(hum_event_command_1.data,23,3,SYS_LANGUAGE);
+}
+
+/*HUM_EVENT_COMMAND_2 missing default process*/
+void set_BSD_SYS_SWITCH( uint8 BSD_SYS_SWITCH)
+{
+     setuint8SigValue(hum_event_command_2.data,25,2,BSD_SYS_SWITCH);
+}
+
+void set_LDW_SWITCH( uint8 LDW_SWITCH)
+{
+     setuint8SigValue(hum_event_command_2.data,47,2,LDW_SWITCH);
+}
+
+/*NAVI_INFORMATION missing default process*/
+void set_NAVI_DATA_FIELD_1( uint8 NAVI_DATA_FIELD_1)
+{
+     setuint8SigValue(navi_information.data,15,8,NAVI_DATA_FIELD_1);
+}
+
+void set_NAVI_DATA_FIELD_2( uint8 NAVI_DATA_FIELD_2)
+{
+     setuint8SigValue(navi_information.data,23,8,NAVI_DATA_FIELD_2);
+}
+
+void set_NAVI_DATA_FIELD_3( uint8 NAVI_DATA_FIELD_3)
+{
+     setuint8SigValue(navi_information.data,31,8,NAVI_DATA_FIELD_3);
+}
+
+void set_NAVI_DATA_FIELD_4( uint8 NAVI_DATA_FIELD_4)
+{
+     setuint8SigValue(navi_information.data,39,8,NAVI_DATA_FIELD_4);
+}
+
+void set_LENGTH_of_MESSAGE_NAVI( uint8 LENGTH_of_MESSAGE_NAVI)
+{
+     setuint8SigValue(navi_information.data,4,5,LENGTH_of_MESSAGE_NAVI);
+}
+
+void set_NAVI_DATA_FIELD_5( uint8 NAVI_DATA_FIELD_5)
+{
+     setuint8SigValue(navi_information.data,47,8,NAVI_DATA_FIELD_5);
+}
+
+void set_NAVI_DATA_FIELD_6( uint8 NAVI_DATA_FIELD_6)
+{
+     setuint8SigValue(navi_information.data,55,8,NAVI_DATA_FIELD_6);
+}
+
+void set_NAVI_DATA_FIELD_7( uint8 NAVI_DATA_FIELD_7)
+{
+     setuint8SigValue(navi_information.data,63,8,NAVI_DATA_FIELD_7);
+}
+
+void set_NUM_of_MESSAGE_NAVI( uint8 NUM_of_MESSAGE_NAVI)
+{
+     setuint8SigValue(navi_information.data,7,3,NUM_of_MESSAGE_NAVI);
+}
+
+/*MEDIA_INFORMATION missing default process*/
+void set_MEDIA_DATA_FIELD_1( uint8 MEDIA_DATA_FIELD_1)
+{
+     setuint8SigValue(media_information.data,15,8,MEDIA_DATA_FIELD_1);
+}
+
+void set_MEDIA_DATA_FIELD_2( uint8 MEDIA_DATA_FIELD_2)
+{
+     setuint8SigValue(media_information.data,23,8,MEDIA_DATA_FIELD_2);
+}
+
+void set_MEDIA_DATA_FIELD_3( uint8 MEDIA_DATA_FIELD_3)
+{
+     setuint8SigValue(media_information.data,31,8,MEDIA_DATA_FIELD_3);
+}
+
+void set_MEDIA_DATA_FIELD_4( uint8 MEDIA_DATA_FIELD_4)
+{
+     setuint8SigValue(media_information.data,39,8,MEDIA_DATA_FIELD_4);
+}
+
+void set_LENGTH_of_MESSAGE_MEDIA( uint8 LENGTH_of_MESSAGE_MEDIA)
+{
+     setuint8SigValue(media_information.data,4,5,LENGTH_of_MESSAGE_MEDIA);
+}
+
+void set_MEDIA_DATA_FIELD_5( uint8 MEDIA_DATA_FIELD_5)
+{
+     setuint8SigValue(media_information.data,47,8,MEDIA_DATA_FIELD_5);
+}
+
+void set_MEDIA_DATA_FIELD_6( uint8 MEDIA_DATA_FIELD_6)
+{
+     setuint8SigValue(media_information.data,55,8,MEDIA_DATA_FIELD_6);
+}
+
+void set_MEDIA_DATA_FIELD_7( uint8 MEDIA_DATA_FIELD_7)
+{
+     setuint8SigValue(media_information.data,63,8,MEDIA_DATA_FIELD_7);
+}
+
+void set_NUM_of_MESSAGE_MEDIA( uint8 NUM_of_MESSAGE_MEDIA)
+{
+     setuint8SigValue(media_information.data,7,3,NUM_of_MESSAGE_MEDIA);
 }
 
 /*ICM_GENERAL_STATUS_3 missing default process*/

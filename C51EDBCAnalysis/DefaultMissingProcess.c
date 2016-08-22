@@ -40,6 +40,8 @@ void Setems_start_stopMissingDefaultValue(void)
  set_SS_SYS_STS(0);
  set_AUTO_STOP_REQUEST(0);
  set_ENG_SS_STS(0);
+ set_CRUISE_CONTROL_SET_SPEED(0);
+ set_LIMIT_SPEED_CRUISE_STATUS(0);
  set_SS_FAULT_LAMP(0);
  set_SS_ENABLE_LAMP(0);
 }
@@ -52,22 +54,6 @@ void Setgeneral_status_tcs_espMissingDefaultValue(void)
  set_REQ_EBD_TELLTALE(0);
  set_REQ_ABS_TELLTALE(0);
  set_ODOMETER_ROLLING(0);
-}
-
-void Seticm_event_commandMissingDefaultValue(void)
-{
- set_MIRROR_FADE_IN_OUT(0);
- set_MEMO_OUTSIDE_RMIRROR_GND_PSTN(0);
- set_OUTSIDE_RMIRROR_SEE_GROUND(0);
- set_PAS_SYSTEM_SWITCH(0);
- set_SVA_SYSTEM_SWITCH(0);
- set_MINUTES_MIU(0);
- set_TIME_MODE_MIU(0);
- set_WEEK_MIU(0);
- set_HOUR_MIU(0);
- set_MONTH_MIU(0);
- set_DAY_MIU(0);
- set_YEAR_MIU(0);
 }
 
 void Seteps_statusMissingDefaultValue(void)
@@ -276,4 +262,36 @@ void Setbcm_general_status_2MissingDefaultValue(void)
 void Sethum_event_command_1MissingDefaultValue(void)
 {
  set_SYS_LANGUAGE(0);
+}
+
+void Sethum_event_command_2MissingDefaultValue(void)
+{
+ set_BSD_SYS_SWITCH(0);
+ set_LDW_SWITCH(0);
+}
+
+void Setnavi_informationMissingDefaultValue(void)
+{
+ set_NAVI_DATA_FIELD_1(0);
+ set_NAVI_DATA_FIELD_2(0);
+ set_NAVI_DATA_FIELD_3(0);
+ set_NAVI_DATA_FIELD_4(0);
+ set_LENGTH_of_MESSAGE_NAVI(0);
+ set_NAVI_DATA_FIELD_5(0);
+ set_NAVI_DATA_FIELD_6(0);
+ set_NAVI_DATA_FIELD_7(0);
+ set_NUM_of_MESSAGE_NAVI(0);
+}
+
+void Setmedia_informationMissingDefaultValue(void)
+{
+ set_MEDIA_DATA_FIELD_1(0);
+ set_MEDIA_DATA_FIELD_2(0);
+ set_MEDIA_DATA_FIELD_3(0);
+ set_MEDIA_DATA_FIELD_4(0);
+ set_LENGTH_of_MESSAGE_MEDIA(0);
+ set_MEDIA_DATA_FIELD_5(0);
+ set_MEDIA_DATA_FIELD_6(0);
+ set_MEDIA_DATA_FIELD_7(0);
+ set_NUM_of_MESSAGE_MEDIA(0);
 }

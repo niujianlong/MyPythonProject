@@ -28,10 +28,6 @@ case 0x318:
 SetGeneral_status_tcs_espReceivedFlag();
 break;
 
-case 0x320:
- FRAME_DATA_HANDLE(icm_event_command, Icm_event_command);
-break;
-
 case 0x322:
  FRAME_DATA_HANDLE(eps_status, Eps_status);
 break;
@@ -100,6 +96,18 @@ break;
 
 case 0x670:
  FRAME_DATA_HANDLE(hum_event_command_1, Hum_event_command_1);
+break;
+
+case 0x671:
+ FRAME_DATA_HANDLE(hum_event_command_2, Hum_event_command_2);
+break;
+
+case 0x672:
+ FRAME_DATA_HANDLE(navi_information, Navi_information);
+break;
+
+case 0x673:
+ FRAME_DATA_HANDLE(media_information, Media_information);
 break;
 }
 }

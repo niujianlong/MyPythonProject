@@ -6,7 +6,6 @@ FRAME_MISSING_HANDLE(ems_engine_speed_and_torque, Ems_engine_speed_and_torque, E
 FRAME_MISSING_HANDLE(ems_general_status, Ems_general_status, Ems_general_statusMissingCounter);
 FRAME_MISSING_HANDLE(ems_start_stop, Ems_start_stop, Ems_start_stopMissingCounter);
 FRAME_MISSING_HANDLE(general_status_tcs_esp, General_status_tcs_esp, General_status_tcs_espMissingCounter);
-FRAME_MISSING_HANDLE(icm_event_command, Icm_event_command, Icm_event_commandMissingCounter);
 FRAME_MISSING_HANDLE(eps_status, Eps_status, Eps_statusMissingCounter);
 FRAME_MISSING_HANDLE(sdm_general_status, Sdm_general_status, Sdm_general_statusMissingCounter);
 FRAME_MISSING_HANDLE(ems_engine_fuel_and_turbo, Ems_engine_fuel_and_turbo, Ems_engine_fuel_and_turboMissingCounter);
@@ -24,4 +23,7 @@ FRAME_MISSING_HANDLE(ems_engine_temp_and_barrometer, Ems_engine_temp_and_barrome
 FRAME_MISSING_HANDLE(ahl_general_status, Ahl_general_status, Ahl_general_statusMissingCounter);
 FRAME_MISSING_HANDLE(bcm_general_status_2, Bcm_general_status_2, Bcm_general_status_2MissingCounter);
 FRAME_MISSING_HANDLE(hum_event_command_1, Hum_event_command_1, Hum_event_command_1MissingCounter);
+FRAME_MISSING_HANDLE(hum_event_command_2, Hum_event_command_2, Hum_event_command_2MissingCounter);
+FRAME_MISSING_HANDLE(navi_information, Navi_information, Navi_informationMissingCounter);
+FRAME_MISSING_HANDLE(media_information, Media_information, Media_informationMissingCounter);
 }

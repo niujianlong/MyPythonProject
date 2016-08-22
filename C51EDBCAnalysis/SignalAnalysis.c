@@ -35,6 +35,8 @@ void ems_start_stopSigAlysis(void)
   ems_start_stop.SS_SYS_STS = getuint8SigValue(ems_start_stop.data,10,2);
   ems_start_stop.AUTO_STOP_REQUEST = getuint8SigValue(ems_start_stop.data,11,1);
   ems_start_stop.ENG_SS_STS = getuint8SigValue(ems_start_stop.data,15,4);
+  ems_start_stop.CRUISE_CONTROL_SET_SPEED = getuint8SigValue(ems_start_stop.data,31,8);
+  ems_start_stop.LIMIT_SPEED_CRUISE_STATUS = getuint8SigValue(ems_start_stop.data,47,3);
   ems_start_stop.SS_FAULT_LAMP = getuint8SigValue(ems_start_stop.data,5,1);
   ems_start_stop.SS_ENABLE_LAMP = getuint8SigValue(ems_start_stop.data,6,1);
 }
@@ -46,21 +48,6 @@ void general_status_tcs_espSigAlysis(void)
   general_status_tcs_esp.REQ_EBD_TELLTALE = getuint8SigValue(general_status_tcs_esp.data,22,1);
   general_status_tcs_esp.REQ_ABS_TELLTALE = getuint8SigValue(general_status_tcs_esp.data,23,1);
   general_status_tcs_esp.ODOMETER_ROLLING = getuint16SigValue(general_status_tcs_esp.data,31,16);
-}
-void icm_event_commandSigAlysis(void)
-{
-  icm_event_command.MIRROR_FADE_IN_OUT = getuint8SigValue(icm_event_command.data,1,2);
-  icm_event_command.MEMO_OUTSIDE_RMIRROR_GND_PSTN = getuint8SigValue(icm_event_command.data,3,2);
-  icm_event_command.OUTSIDE_RMIRROR_SEE_GROUND = getuint8SigValue(icm_event_command.data,5,2);
-  icm_event_command.PAS_SYSTEM_SWITCH = getuint8SigValue(icm_event_command.data,9,2);
-  icm_event_command.SVA_SYSTEM_SWITCH = getuint8SigValue(icm_event_command.data,11,2);
-  icm_event_command.MINUTES_MIU = getuint8SigValue(icm_event_command.data,21,6);
-  icm_event_command.TIME_MODE_MIU = getuint8SigValue(icm_event_command.data,23,2);
-  icm_event_command.WEEK_MIU = getuint8SigValue(icm_event_command.data,26,3);
-  icm_event_command.HOUR_MIU = getuint8SigValue(icm_event_command.data,31,5);
-  icm_event_command.MONTH_MIU = getuint8SigValue(icm_event_command.data,34,4);
-  icm_event_command.DAY_MIU = getuint8SigValue(icm_event_command.data,39,5);
-  icm_event_command.YEAR_MIU = getuint8SigValue(icm_event_command.data,46,5);
 }
 void eps_statusSigAlysis(void)
 {
@@ -252,4 +239,33 @@ void bcm_general_status_2SigAlysis(void)
 void hum_event_command_1SigAlysis(void)
 {
   hum_event_command_1.SYS_LANGUAGE = getuint8SigValue(hum_event_command_1.data,23,3);
+}
+void hum_event_command_2SigAlysis(void)
+{
+  hum_event_command_2.BSD_SYS_SWITCH = getuint8SigValue(hum_event_command_2.data,25,2);
+  hum_event_command_2.LDW_SWITCH = getuint8SigValue(hum_event_command_2.data,47,2);
+}
+void navi_informationSigAlysis(void)
+{
+  navi_information.NAVI_DATA_FIELD_1 = getuint8SigValue(navi_information.data,15,8);
+  navi_information.NAVI_DATA_FIELD_2 = getuint8SigValue(navi_information.data,23,8);
+  navi_information.NAVI_DATA_FIELD_3 = getuint8SigValue(navi_information.data,31,8);
+  navi_information.NAVI_DATA_FIELD_4 = getuint8SigValue(navi_information.data,39,8);
+  navi_information.LENGTH_of_MESSAGE_NAVI = getuint8SigValue(navi_information.data,4,5);
+  navi_information.NAVI_DATA_FIELD_5 = getuint8SigValue(navi_information.data,47,8);
+  navi_information.NAVI_DATA_FIELD_6 = getuint8SigValue(navi_information.data,55,8);
+  navi_information.NAVI_DATA_FIELD_7 = getuint8SigValue(navi_information.data,63,8);
+  navi_information.NUM_of_MESSAGE_NAVI = getuint8SigValue(navi_information.data,7,3);
+}
+void media_informationSigAlysis(void)
+{
+  media_information.MEDIA_DATA_FIELD_1 = getuint8SigValue(media_information.data,15,8);
+  media_information.MEDIA_DATA_FIELD_2 = getuint8SigValue(media_information.data,23,8);
+  media_information.MEDIA_DATA_FIELD_3 = getuint8SigValue(media_information.data,31,8);
+  media_information.MEDIA_DATA_FIELD_4 = getuint8SigValue(media_information.data,39,8);
+  media_information.LENGTH_of_MESSAGE_MEDIA = getuint8SigValue(media_information.data,4,5);
+  media_information.MEDIA_DATA_FIELD_5 = getuint8SigValue(media_information.data,47,8);
+  media_information.MEDIA_DATA_FIELD_6 = getuint8SigValue(media_information.data,55,8);
+  media_information.MEDIA_DATA_FIELD_7 = getuint8SigValue(media_information.data,63,8);
+  media_information.NUM_of_MESSAGE_MEDIA = getuint8SigValue(media_information.data,7,3);
 }
