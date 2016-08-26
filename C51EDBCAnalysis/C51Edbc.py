@@ -1,27 +1,46 @@
 # coding=utf-8
 import string
+import os
+
+Base_Dir = os.path.dirname(__file__)
+'''
+print Base_Dir
+print os.getcwd()
+print os.path.abspath(os.curdir)
+print os.path.abspath('.')
+print os.path.abspath('..')
+'''
 global frameStructName
-fw = file("struct.h", "w+")
-fw3 = file("CAN_IsNoMsgReceived.h", "w+")
-fw1 = file("VariableDefinition.c", "w+")
-#fw2 = file("getMissingFlagPrototype.h", "w+")
-#fw3 = file("getNeverReceFlagPrototype.h", "w+")
-#fw4 = file("getMissingFlagFunBody.c", "w+")
-#fw5 = file("getNeverReceFlagFunBody.c", "w+")
-fw7 = file("missingCounter.c", "w+")
-#fw8=file("CANServiceFun.h","w+") #生成获取信号的get函数的函数原型
-#fw9=file("CANServiceFunBody.c","w+") #生成获取信号的get函数的函数体
-fw11=file("SignalAnalysis.c","w+") #信号解析函数体
-fw12=file("SignalAnalysis.h","w+") #信号解析函数原型
-fw14=file("CANServiceSetFunBody.c","w+") #生成获取信号的get函数的函数体
-#fw10=file("bitlength.txt","w+") #生成获取信号的get函数的函数体
-fw13=file("CANProcess_Init.c","w+") #生成获取信号的get函数的函数体
-fw15=file("DefaultMissingProcess.c","w+") #生成获取信号的get函数的函数体
-fw16=file("DefaultMissingProcess.h","w+") #生成获取信号的get函数的函数体
-fw17=file("vbus_receive_frame.c","w+") #生成vbus_receive_frame函数的函数体
-fw18=file("frameMissingProcess.c","w+") #生成frameMissingProcess函数的函数体
-fw2=file("frameMissingProcessEnum.h","w+") #生成frameMissingProcess函数的函数体中couter的enum
-fw19=file("ICMSendFrameInterface.h","w+") #生成frameMissingProcess函数的函数体
+#路径定义
+struct_h_dir = os.path.join(Base_Dir,'GenFile','struct.h')
+CAN_IsNoMsgReceived_h_dir = os.path.join(Base_Dir,'GenFile',"CAN_IsNoMsgReceived.h")
+VariableDefinition_c_dir = os.path.join(Base_Dir,'GenFile',"VariableDefinition.c")
+missingCounter_c_dir = os.path.join(Base_Dir,'GenFile',"missingCounter.c")
+SignalAnalysis_c_dir = os.path.join(Base_Dir,'GenFile',"SignalAnalysis.c")
+SignalAnalysis_h_dir = os.path.join(Base_Dir,'GenFile',"SignalAnalysis.h")
+CANServiceSetFunBody_c_dir = os.path.join(Base_Dir,'GenFile',"CANServiceSetFunBody.c")
+CANProcess_Init_c_dir = os.path.join(Base_Dir,'GenFile',"CANProcess_Init.c")
+DefaultMissingProcess_c_dir = os.path.join(Base_Dir,'GenFile',"DefaultMissingProcess.c")
+DefaultMissingProcess_h_dir = os.path.join(Base_Dir,'GenFile',"DefaultMissingProcess.h")
+vbus_receive_frame_c_dir = os.path.join(Base_Dir,'GenFile',"vbus_receive_frame.c")
+frameMissingProcess_c_dir = os.path.join(Base_Dir,'GenFile',"frameMissingProcess.c")
+frameMissingProcessEnum_h_dir = os.path.join(Base_Dir,'GenFile',"frameMissingProcessEnum.h")
+ICMSendFrameInterface_h_dir = os.path.join(Base_Dir,'GenFile',"ICMSendFrameInterface.h")
+#文件定义
+fw = file(struct_h_dir, "w+")
+fw3 = file(CAN_IsNoMsgReceived_h_dir, "w+")
+fw1 = file(VariableDefinition_c_dir, "w+")
+fw7 = file(missingCounter_c_dir, "w+")
+fw11=file(SignalAnalysis_c_dir,"w+") #信号解析函数体
+fw12=file(SignalAnalysis_h_dir,"w+") #信号解析函数原型
+fw14=file(CANServiceSetFunBody_c_dir,"w+") #生成获取信号的get函数的函数体
+fw13=file(CANProcess_Init_c_dir,"w+") #生成获取信号的get函数的函数体
+fw15=file(DefaultMissingProcess_c_dir,"w+") #生成获取信号的get函数的函数体
+fw16=file(DefaultMissingProcess_h_dir,"w+") #生成获取信号的get函数的函数体
+fw17=file(vbus_receive_frame_c_dir,"w+") #生成vbus_receive_frame函数的函数体
+fw18=file(frameMissingProcess_c_dir,"w+") #生成frameMissingProcess函数的函数体
+fw2=file(frameMissingProcessEnum_h_dir,"w+") #生成frameMissingProcess函数的函数体中couter的enum
+fw19=file(ICMSendFrameInterface_h_dir,"w+") #生成frameMissingProcess函数的函数体
 singleSigName = []  # 这个是记录每个信号名字的列表
 structName = []  # 去除dbc里边的重复定义的报文
 bitLengthList = []
@@ -30,6 +49,10 @@ global frameID
 CAN_IsNoMsgReceived = 0;
 sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3','frame0_reserve','frame1_reserve','frame2_reserve','frame3_reserve','frame4_reserve']
 eventSendFrame = ['ECS_IMMO_RAND_NUMBER','HUM_EVENT_COMMAND_2','HUM_EVENT_COMMAND_1']
+hardSyncSig = ['ODOMETER_ROLLING','ENGINE_FUEAL_INJECTED'] #实时性信号放在中断里面来解析
+swSyncSig = ['ODOMETER_RESET_COUNTER_BCM']
+
+
 
 def isICMNodeSendFrame(frameStructName):  
     frameStructNameArr = frameStructName.split('_')
@@ -44,14 +67,15 @@ fw18.write('void frameMissingProcess(void)\n{\n')
 fw13.write('void CANProcess_Init(void)\n{\n')
 fw2.write('typedef enum\n{\n')
 fw3.write('#define ISNOMSGRECEIVED()\\\n(')
-for line in open("C51E48Sorted.txt"):  
+for line in open(os.path.join(Base_Dir,'GenFile//SourceGenFile',"C51E48Sorted.txt")):  
     line_split = line.split(' ')
     #print line_split
     if line_split[0] == 'BO_':
         frameID = int(line_split[1])
         frameStructName = line_split[2][:-1]  # [:-1]的目的是去掉末尾的：号
         if hex(frameID)== '0x318' or hex(frameID)== '0x370' or hex(frameID)== '0x660':
-            fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
+            #fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
+            pass
         else: 
             if frameStructName.lower() not in sendFrameStructName:   
                 fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nbreak;\n')
@@ -190,7 +214,7 @@ for line in open("C51E48Sorted.txt"):
             fw.write('#define  GET_' + frameStructName.upper() + '_NEVER_RECE_FLAG() (' + frameStructName.lower() + '.'+frameStructName.capitalize()+ 'NeverReceFlag)\n')
         a = 0
         for i in singleSigName:  # 打印宏定义供外界来调用
-            print i
+            #print i
             ibackup = []
             ibackup.append(i)
             #i = i.split('_')
@@ -231,11 +255,19 @@ for line in open("C51E48Sorted.txt"):
             for k in ibackup:
                 if bitLengthList[a]<=8: 
                     if frameStructName.lower() not in sendFrameStructName:
-                        fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                        if k in swSyncSig:
+                            fw11.write('  Set'+frameStructName.capitalize()+'ReceivedFlag();\n')
+                        else:
+                            fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
                         #fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
                 elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:
                     if frameStructName.lower() not in sendFrameStructName:  
-                        fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                        if k in hardSyncSig:
+                            fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\n')
+                            fw17.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+                            fw17.write('Set'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
+                        else:
+                            fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
                         #fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
                 else: 
                     if frameStructName.lower() not in sendFrameStructName:
