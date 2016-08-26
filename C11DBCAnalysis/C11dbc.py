@@ -1,28 +1,45 @@
 # coding=utf-8
 import string
+import os
+
+Base_Dir = os.path.dirname(__file__)
 global frameStructName
-fw = file("struct.h", "w+")
-fw1 = file("VariableDefinition.c", "w+")
-fw4 = file("CAN_IsNoMsgReceived.h", "w+")
-# fw2 = file("getMissingFlagPrototype.h", "w+")
-# fw3 = file("getNeverReceFlagPrototype.h", "w+")
-# fw4 = file("getMissingFlagFunBody.c", "w+")
-# fw5 = file("getNeverReceFlagFunBody.c", "w+")
-fw7 = file("missingCounter.c", "w+")
-# fw8=file("CANServiceFun.h","w+") #生成获取信号的get函数的函数原型
-# fw9=file("CANServiceFunBody.c","w+") #生成获取信号的get函数的函数体
-fw11 = file("SignalAnalysis.c", "w+")  # 信号解析函数体
-fw12 = file("SignalAnalysis.h", "w+")  # 信号解析函数原型
-fw14 = file("CANServiceSetFunBody.c", "w+")  # 生成获取信号的get函数的函数体
-# fw10=file("bitlength.txt","w+") #生成获取信号的get函数的函数体
-fw13 = file("CANProcess_Init.c", "w+")  # 生成获取信号的get函数的函数体
-fw15 = file("DefaultMissingProcess.c", "w+")  # 生成获取信号的get函数的函数体
-fw16 = file("DefaultMissingProcess.h", "w+")  # 生成获取信号的get函数的函数体
-fw17 = file("vbus_receive_frame.c", "w+")  # 生成vbus_receive_frame函数的函数体
-fw3 = file("abus_receive_frame.c", "w+")  # 生成vbus_receive_frame函数的函数体
-fw18 = file("frameMissingProcess.c", "w+")  # 生成frameMissingProcess函数的函数体
-fw2 = file("frameMissingProcessEnum.h", "w+")  # 生成frameMissingProcess函数的函数体中couter的enum
-fw19 = file("ICMSendFrameInterface.h", "w+")  # 生成frameMissingProcess函数的函数体
+
+#路径定义
+struct_h_dir = os.path.join(Base_Dir,'GenFile','struct.h')
+CAN_IsNoMsgReceived_h_dir = os.path.join(Base_Dir,'GenFile',"CAN_IsNoMsgReceived.h")
+VariableDefinition_c_dir = os.path.join(Base_Dir,'GenFile',"VariableDefinition.c")
+missingCounter_c_dir = os.path.join(Base_Dir,'GenFile',"missingCounter.c")
+SignalAnalysis_c_dir = os.path.join(Base_Dir,'GenFile',"SignalAnalysis.c")
+SignalAnalysis_h_dir = os.path.join(Base_Dir,'GenFile',"SignalAnalysis.h")
+CANServiceSetFunBody_c_dir = os.path.join(Base_Dir,'GenFile',"CANServiceSetFunBody.c")
+CANProcess_Init_c_dir = os.path.join(Base_Dir,'GenFile',"CANProcess_Init.c")
+DefaultMissingProcess_c_dir = os.path.join(Base_Dir,'GenFile',"DefaultMissingProcess.c")
+DefaultMissingProcess_h_dir = os.path.join(Base_Dir,'GenFile',"DefaultMissingProcess.h")
+vbus_receive_frame_c_dir = os.path.join(Base_Dir,'GenFile',"vbus_receive_frame.c")
+abus_receive_frame_c_dir = os.path.join(Base_Dir,'GenFile',"abus_receive_frame.c")
+frameMissingProcess_c_dir = os.path.join(Base_Dir,'GenFile',"frameMissingProcess.c")
+frameMissingProcessEnum_h_dir = os.path.join(Base_Dir,'GenFile',"frameMissingProcessEnum.h")
+ICMSendFrameInterface_h_dir = os.path.join(Base_Dir,'GenFile',"ICMSendFrameInterface.h")
+C11DBCSorted_txt_dir = os.path.join(Base_Dir,'GenFile//SourceGenFile',"C11DBCSorted.txt")
+
+
+#文件定义
+fw = file(struct_h_dir, "w+")
+fw1 = file(VariableDefinition_c_dir, "w+")
+fw4 = file(CAN_IsNoMsgReceived_h_dir, "w+")
+fw7 = file(missingCounter_c_dir, "w+")
+fw11 = file(SignalAnalysis_c_dir, "w+")  # 信号解析函数体
+fw12 = file(SignalAnalysis_h_dir, "w+")  # 信号解析函数原型
+fw14 = file(CANServiceSetFunBody_c_dir, "w+")  # 生成获取信号的get函数的函数体
+fw13 = file(CANProcess_Init_c_dir, "w+")  # 生成获取信号的get函数的函数体
+fw15 = file(DefaultMissingProcess_c_dir, "w+")  # 生成获取信号的get函数的函数体
+fw16 = file(DefaultMissingProcess_h_dir, "w+")  # 生成获取信号的get函数的函数体
+fw17 = file(vbus_receive_frame_c_dir, "w+")  # 生成vbus_receive_frame函数的函数体
+fw3 = file(abus_receive_frame_c_dir, "w+")  # 生成vbus_receive_frame函数的函数体
+fw18 = file(frameMissingProcess_c_dir, "w+")  # 生成frameMissingProcess函数的函数体
+fw2 = file(frameMissingProcessEnum_h_dir, "w+")  # 生成frameMissingProcess函数的函数体中couter的enum
+fw19 = file(ICMSendFrameInterface_h_dir, "w+")  # 生成frameMissingProcess函数的函数体
 singleSigName = []  # 这个是记录每个信号名字的列表
 structName = []  # 去除dbc里边的重复定义的报文
 bitLengthList = []
@@ -58,7 +75,7 @@ fw18.write('void frameMissingProcess(void)\n{\n')
 fw13.write('void CANProcess_Init(void)\n{\n')
 fw2.write('typedef enum\n{\n')
 fw4.write('#define ISNOMSGRECEIVED()\\\n(')
-for line in open("C11DBCSorted.txt"):  
+for line in open(C11DBCSorted_txt_dir):  
     line_split = line.split(' ')
     # print line_split
     if line_split[0] == 'BO_':

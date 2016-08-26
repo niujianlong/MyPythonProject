@@ -1,5 +1,7 @@
 # coding=utf-8
-fw = file("C11DBCSorted.txt", "w+")
+import C11dbc
+
+fw = file(C11dbc.C11DBCSorted_txt_dir, "w+")
 
 def SortDBCFun(filename):
     frameDict = {}
