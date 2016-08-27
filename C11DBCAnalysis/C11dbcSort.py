@@ -1,7 +1,11 @@
 # coding=utf-8
-import C11dbc
+#from C11dbc import C11DBCSorted_txt_dir
+import os
 
-fw = file(C11dbc.C11DBCSorted_txt_dir, "w+")
+Base_Dir = os.path.dirname(__file__)
+C11DBCSorted_txt_dir = os.path.join(Base_Dir,'GenFile//SourceGenFile',"C11DBCSorted.txt")
+
+fw = file(C11DBCSorted_txt_dir, "w+")
 
 def SortDBCFun(filename):
     frameDict = {}
@@ -32,5 +36,5 @@ def SortDBCFun(filename):
             k = k+1
     fw.write('\n')  
 
-SortDBCFun('C11ABUS.txt') #一定要注意在 C11ABUS.txt最后边加上一个空行，否则最后一个frame不会被识别    
-SortDBCFun('C11VBUS.txt') #同上     
+SortDBCFun(os.path.join(Base_Dir,'SourceFile','C11ABUS.txt')) #一定要注意在 C11ABUS.txt最后边加上一个空行，否则最后一个frame不会被识别    
+SortDBCFun(os.path.join(Base_Dir,'SourceFile','C11VBUS.txt')) #同上     

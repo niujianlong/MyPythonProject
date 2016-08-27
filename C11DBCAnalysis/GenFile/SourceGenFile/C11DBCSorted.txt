@@ -102,12 +102,12 @@ BO_ 672 TPMS_0x2A0: 8 TPMS
  SG_ TPMS_2A0_ALARM_STATUS : 56|1@0+ (1,0) [0|1] "" GW,ICM
 
 BO_ 793 SDM_0x319: 8 SDM
- SG_ AirBagFailSts : 7|2@0+ (1,0) [0|3] "" ICM
- SG_ PsngrBagSts_reserve : 5|2@0+ (1,0) [0|3] "" ICM
- SG_ DrvSeatBeltRSt : 23|2@0+ (1,0) [0|3] "" ICM
- SG_ PsSeatBeltRSt : 21|2@0+ (1,0) [0|3] "" ICM
- SG_ SRS_RollingCounter : 39|4@0+ (1,0) [0|15] "" GW,ICM,BCM
- SG_ SRS_Checksum : 47|8@0+ (1,0) [0|255] "" GW,ICM,BCM
+ SG_ SDM_319_AirBagFailSts : 7|2@0+ (1,0) [0|3] "" ICM
+ SG_ SDM_319_PsngrBagSts_reserve : 5|2@0+ (1,0) [0|3] "" ICM
+ SG_ SDM_319_DrvSeatBeltRSt : 23|2@0+ (1,0) [0|3] "" ICM
+ SG_ SDM_319_PsSeatBeltRSt : 21|2@0+ (1,0) [0|3] "" ICM
+ SG_ SDM_319_SRS_RollingCounter : 39|4@0+ (1,0) [0|15] "" GW,ICM,BCM
+ SG_ SDM_319_SRS_Checksum : 47|8@0+ (1,0) [0|255] "" GW,ICM,BCM
 
 BO_ 1145 PEPS_0x479: 8 PEPS
  SG_ PEPS_479_POWER_MODE : 9|2@0+ (1,0) [0|1] "" GW,ICM,BCM,PDC

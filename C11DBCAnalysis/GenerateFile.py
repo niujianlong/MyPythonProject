@@ -1,10 +1,15 @@
 # coding=utf-8
 import datetime
+import C11dbc
+import os
 
-CANProcessH = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\CANProcess.h", "w+")
-CANProcessC = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\private\\CANProcess.c", "w+")
-CANMissingProcessH = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\CANMissingProcess.h", "w+")
-CANMissingProcessC = file("C:\\Users\\cetc\\workspace\\C11DBCAnalysis\\cfg\\private\\CANMissingProcess.c", "w+")
+
+Base_Dir = os.path.dirname(__file__)
+
+CANProcessH = file(os.path.join(Base_Dir,'cfg\\CANProcess.h'), "w+")
+CANProcessC = file(os.path.join(Base_Dir,'cfg\\private\\CANProcess.c'), "w+")
+CANMissingProcessH = file(os.path.join(Base_Dir,'cfg\\CANMissingProcess.h'), "w+")
+CANMissingProcessC = file(os.path.join(Base_Dir,'cfg\\private\\CANMissingProcess.c'), "w+")
                          
         
 def WriteNowTime():
@@ -38,22 +43,22 @@ def GenCANProcessH():
     CANProcessH.write('/*************************************************************************\n')
     CANProcessH.write('**                       CAN Frame struct Declaration                   **\n')
     CANProcessH.write('**************************************************************************/\n')
-    for line in open('struct.h'):
+    for line in open(C11dbc.struct_h_dir):
         CANProcessH.write(line)
     CANProcessH.write('\n/*************************************************************************\n')
     CANProcessH.write('**                  Is NO Frame Received                                **\n')
     CANProcessH.write('**************************************************************************/\n')
-    for line in open('CAN_IsNoMsgReceived.h'):
+    for line in open(C11dbc.CAN_IsNoMsgReceived_h_dir):
         CANProcessH.write(line)    
     CANProcessH.write('\n/*************************************************************************\n')
     CANProcessH.write('**                  Frame Signal Analysis Prototype                     **\n')
     CANProcessH.write('**************************************************************************/\n')
-    for line in open('SignalAnalysis.h'):
+    for line in open(C11dbc.SignalAnalysis_h_dir):
         CANProcessH.write(line)    
     CANProcessH.write('\n/*************************************************************************\n')
     CANProcessH.write('**                  Set Signal Function Prototype                       **\n')
     CANProcessH.write('**************************************************************************/\n')
-    for line in open('ICMSendFrameInterface.h'):
+    for line in open(C11dbc.ICMSendFrameInterface_h_dir):
         CANProcessH.write(line)
     CANProcessH.write('\n\nEXTERN void abus_receive_frame(uint16 frameID, uint8 *data);\n') 
     CANProcessH.write('EXTERN void vbus_receive_frame(uint16 frameID, uint8 *data);\n') 
@@ -69,37 +74,37 @@ def GenCANProcessC():
     CANProcessC.write('/*************************************************************************\n')
     CANProcessC.write('**              CAN Frame Variable Struct Define                        **\n')
     CANProcessC.write('**************************************************************************/\n')
-    for line in open('VariableDefinition.c'):
+    for line in open(C11dbc.VariableDefinition_c_dir):
         CANProcessC.write(line)
     CANProcessC.write('\n\n/*************************************************************************\n')
     CANProcessC.write('**              CAN Missing Count Variable  Define                      **\n')
     CANProcessC.write('**************************************************************************/\n')
-    for line in open('missingCounter.c'):
+    for line in open(C11dbc.missingCounter_c_dir):
         CANProcessC.write(line)
     CANProcessC.write('\n/*************************************************************************\n')
     CANProcessC.write('**              CAN Process Init                                        **\n')
     CANProcessC.write('**************************************************************************/\n\n')
-    for line in open('CANProcess_Init.c'):
+    for line in open(C11dbc.CANProcess_Init_c_dir):
         CANProcessC.write(line)
     CANProcessC.write('\n/*************************************************************************\n')
     CANProcessC.write('**              ABUS frame data handle                                  **\n')
     CANProcessC.write('**************************************************************************/\n\n')
-    for line in open('abus_receive_frame.c'):
+    for line in open(C11dbc.abus_receive_frame_c_dir):
         CANProcessC.write(line) 
     CANProcessC.write('\n/*************************************************************************\n')
     CANProcessC.write('**              VBUS frame data handle                                  **\n')
     CANProcessC.write('**************************************************************************/\n\n')
-    for line in open('vbus_receive_frame.c'):
+    for line in open(C11dbc.vbus_receive_frame_c_dir):
         CANProcessC.write(line)    
     CANProcessC.write('\n/*************************************************************************\n')
     CANProcessC.write('**              Frame Missing Handle                                    **\n')
     CANProcessC.write('**************************************************************************/\n\n')
-    for line in open('frameMissingProcess.c'):
+    for line in open(C11dbc.frameMissingProcess_c_dir):
         CANProcessC.write(line)      
     CANProcessC.write('\n/*************************************************************************\n')
     CANProcessC.write('**              Signal Analysis Task                                    **\n')
     CANProcessC.write('**************************************************************************/\n\n')
-    for line in open('SignalAnalysis.c'):
+    for line in open(C11dbc.SignalAnalysis_c_dir):
         CANProcessC.write(line)      
 def GenCANMissingProcessH():        
     GenCommonAnnotation(CANMissingProcessH,'CANMissingProcess.h')    
@@ -109,7 +114,7 @@ def GenCANMissingProcessH():
     CANMissingProcessH.write('/*************************************************************************\n')
     CANMissingProcessH.write('**              Set Missing Default Value                               **\n')
     CANMissingProcessH.write('**************************************************************************/\n')    
-    for line in open('DefaultMissingProcess.h'):    
+    for line in open(C11dbc.DefaultMissingProcess_h_dir):    
         CANMissingProcessH.write(line)
     CANMissingProcessH.write('\n\n#undef EXTERN\n')     
     CANMissingProcessH.write('#endif')    
@@ -120,12 +125,12 @@ def GenCANMissingProcessC():
     CANMissingProcessC.write('/*************************************************************************\n')
     CANMissingProcessC.write('**              Set Signal Function Body                                **\n')
     CANMissingProcessC.write('**************************************************************************/\n')
-    for line in open('CANServiceSetFunBody.c'):    
+    for line in open(C11dbc.CANServiceSetFunBody_c_dir):    
         CANMissingProcessC.write(line)
     CANMissingProcessC.write('/*************************************************************************\n')
     CANMissingProcessC.write('**              Set Frame Missing Default Value                         **\n')
     CANMissingProcessC.write('**************************************************************************/\n')    
-    for line in open('DefaultMissingProcess.c'):    
+    for line in open(C11dbc.DefaultMissingProcess_c_dir):    
         CANMissingProcessC.write(line)
  
         
