@@ -32,7 +32,7 @@ bitLengthList = []
 bitPragram = []
 global frameID 
 CAN_IsNoMsgReceived = 0;
-sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3','frame0_reserve','frame1_reserve','frame2_reserve','frame3_reserve','frame4_reserve']
+sendFrameStructName = ['pas_general_status','icm_general_status','icm_general_status_2','icm_general_status_3','icm_general_test_1','icm_general_test_2','icm_general_test_3','icm_general_test_4','frame4_reserve']
 eventSendFrame = ['ECS_IMMO_RAND_NUMBER','HUM_EVENT_COMMAND_2','HUM_EVENT_COMMAND_1']
 hardSyncSig = ['ODOMETER_ROLLING','ENGINE_FUEAL_INJECTED'] #实时性信号放在中断里面来解析
 swSyncSig = ['ODOMETER_RESET_COUNTER_BCM']
@@ -78,7 +78,7 @@ def TheMainFunction():
         if line_split[0] == 'BO_':
             frameID = int(line_split[1])
             frameStructName = line_split[2][:-1]  # [:-1]的目的是去掉末尾的：号
-            if hex(frameID)== '0x318' or hex(frameID)== '0x370' or hex(frameID)== '0x660':
+            if hex(frameID)== '0x318' or hex(frameID)== '0x370':
                 #fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\nSet'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
                 pass
             else: 
@@ -261,9 +261,11 @@ def TheMainFunction():
                     if bitLengthList[a]<=8: 
                         if frameStructName.lower() not in sendFrameStructName:
                             if k in swSyncSig:
+                                fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
                                 fw11.write('  Set'+frameStructName.capitalize()+'ReceivedFlag();\n')
                             else:
                                 fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint8SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
+
                             #fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
                     elif 8 < bitLengthList[a] and bitLengthList[a] <= 16:
                         if frameStructName.lower() not in sendFrameStructName:  
@@ -272,6 +274,7 @@ def TheMainFunction():
                                 fw17.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
                                 fw17.write('Set'+frameStructName.capitalize()+'ReceivedFlag();\nbreak;\n')
                             else:
+                                #fw17.write('\ncase '+ hex(frameID)+':\n FRAME_DATA_HANDLE('+frameStructName.lower()+', '+ frameStructName.capitalize() +');\n')
                                 fw11.write('  '+ frameStructName.lower()  +'.'+k+" = getuint16SigValue("+ frameStructName.lower()  +'.'+"data," + str(bitPragram[2+a*4]) + "," + str(bitPragram[3+a*4])+");\n")
                             #fw9.write("  return " + frameStructName.lower()  +'.'+ k + ";\n}\n\n")
                     else: 

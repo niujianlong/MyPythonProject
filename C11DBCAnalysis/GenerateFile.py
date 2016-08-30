@@ -6,10 +6,10 @@ import os
 
 Base_Dir = os.path.dirname(__file__)
 
-CANProcessH = file(os.path.join(Base_Dir,'cfg\\CANProcess.h'), "w+")
-CANProcessC = file(os.path.join(Base_Dir,'cfg\\private\\CANProcess.c'), "w+")
-CANMissingProcessH = file(os.path.join(Base_Dir,'cfg\\CANMissingProcess.h'), "w+")
-CANMissingProcessC = file(os.path.join(Base_Dir,'cfg\\private\\CANMissingProcess.c'), "w+")
+CANProcessH = file(os.path.join(Base_Dir,'CAN\\CANProcess.h'), "w+")
+CANProcessC = file(os.path.join(Base_Dir,'CAN\\private\\CANProcess.c'), "w+")
+CANMissingProcessH = file(os.path.join(Base_Dir,'CAN\\CANMissingProcess.h'), "w+")
+CANMissingProcessC = file(os.path.join(Base_Dir,'CAN\\private\\CANMissingProcess.c'), "w+")
                          
         
 def WriteNowTime():
