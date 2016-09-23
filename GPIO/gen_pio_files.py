@@ -154,109 +154,109 @@ def  main():
                 
     #Port registers configuration
     for index in range(0,2):
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 0 %s CONFIGURATION**********************/\n'%fun_list[index])	        
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 0 %s CONFIGURATION**********************/\n'%fun_list[index])            
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port0_start_index,port0_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port0_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_AWO%s0_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_AWO%s0_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
 
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 1 %s CONFIGURATION**********************/\n'%fun_list[index])	
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 1 %s CONFIGURATION**********************/\n'%fun_list[index])    
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port1_start_index,port1_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port1_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s1_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s1_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
 
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 3 %s CONFIGURATION**********************/\n'%fun_list[index])		
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 3 %s CONFIGURATION**********************/\n'%fun_list[index])        
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port3_start_index,port3_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port3_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s3_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s3_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
 
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 10 %s CONFIGURATION**********************/\n'%fun_list[index])		
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 10 %s CONFIGURATION**********************/\n'%fun_list[index])        
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port10_start_index,port10_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port10_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s10_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s10_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
 
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 11 %s CONFIGURATION**********************/\n'%fun_list[index])		
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 11 %s CONFIGURATION**********************/\n'%fun_list[index])        
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port11_start_index,port11_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port11_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s11_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s11_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
             
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 16 %s CONFIGURATION**********************/\n'%fun_list[index])		
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 16 %s CONFIGURATION**********************/\n'%fun_list[index])        
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port16_start_index,port16_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port16_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s16_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s16_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
             
-        fw.write('\n')	
-        fw.write('/*****************PORT GROUP 17 %s CONFIGURATION**********************/\n'%fun_list[index])		
+        fw.write('\n')    
+        fw.write('/*****************PORT GROUP 17 %s CONFIGURATION**********************/\n'%fun_list[index])        
         for col in range(fun_start_index[index],fun_start_index[index]+12):
-            value = 0;	
+            value = 0;    
             for row in range(port17_start_index,port17_end_index):
                 if ((1 !=  int(sheet.cell(row,col).value)) and (0 != int(sheet.cell(row,col).value))):
                     print 'The config value is illegal, the config value must be 0 or 1.'
                     sys.exit(-1)
                 #print '%d'%(int(sheet.cell(row,col).value))
                 value = value | ((int(sheet.cell(row,col).value)) << (row - port17_start_index))
-            #print '%d'%value	
+            #print '%d'%value    
             first,seecond,third,fourth = dec_to_hex(value)      
-            strline = '#define       PORT_ISO%s17_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])	+ '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
+            strline = '#define       PORT_ISO%s17_%s                            '%(registers[col-fun_start_index[index]],fun_list[index])    + '(0x%X%X%X%Xu)\n'%(first,seecond,third,fourth)
             fw.write(strline)
         
         
@@ -352,7 +352,7 @@ def  main():
             
             
     #***************************************************gen the MACRO  ****************************************************************************       
-    fw.write('\n')	
+    fw.write('\n')    
     fw.write('\n')
     fw.write('/*****************PORT DIRECTION SETTING**********************/\n')  
     fdio_w.write('\n')    
@@ -388,7 +388,7 @@ def  main():
     for col in range(2,3):
         value = 0;
         i = 0 #add for port.h
-        fpor_w.write('\\\n')	
+        fpor_w.write('\\\n')    
         for row in range(port1_start_index,port1_end_index):
             strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC1, BIT_%s);SETBIT(PORT_ISOPM1, BIT_%s);SETBIT(PORT_ISOPIBC1, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port1_start_index,row-port1_start_index,row-port1_start_index)
             fw.write(strline)
@@ -413,7 +413,7 @@ def  main():
     for col in range(2,3):
         value = 0;
         i = 0 #add for port.h
-        fpor_w.write('\\\n')    	
+        fpor_w.write('\\\n')        
         for row in range(port3_start_index,port3_end_index):
             strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC3, BIT_%s);SETBIT(PORT_ISOPM3, BIT_%s);SETBIT(PORT_ISOPIBC3, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port3_start_index,row-port3_start_index,row-port3_start_index)
             fw.write(strline)
@@ -437,7 +437,7 @@ def  main():
     for col in range(2,3):
         value = 0;
         i = 0 #add for port.h
-        fpor_w.write('\\\n')	
+        fpor_w.write('\\\n')    
         for row in range(port10_start_index,port10_end_index):
             
             strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC10, BIT_%s);SETBIT(PORT_ISOPM10, BIT_%s);SETBIT(PORT_ISOPIBC10, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port10_start_index,row-port10_start_index,row-port10_start_index)
@@ -463,7 +463,7 @@ def  main():
         value = 0;
         #add for port.h
         i = 0 
-        fpor_w.write('\\\n')	
+        fpor_w.write('\\\n')    
         for row in range(port11_start_index,port11_end_index):
             strline = '#define      %s_SET_TO_INPUT()          CLEARBIT(PORT_ISOPMC11, BIT_%s);SETBIT(PORT_ISOPM11, BIT_%s);SETBIT(PORT_ISOPIBC11, BIT_%s)\n'%(str(sheet.cell(row,col).value),row-port11_start_index,row-port11_start_index,row-port11_start_index)
             fw.write(strline)
@@ -661,11 +661,11 @@ def  main():
     
     
     
-    fw.write('\n')	
+    fw.write('\n')    
     fdio_w.write('\n')
-    fdio_w.write('/***********JPORT 0 GROUP PORT BIT OPERATION***********/\n')    	
+    fdio_w.write('/***********JPORT 0 GROUP PORT BIT OPERATION***********/\n')        
     for col in range(2,3):
-        value = 0;	
+        value = 0;    
         #add for port.h
         i = 0 
         fpor_w.write('\\\n')   
@@ -814,23 +814,23 @@ def  main():
                         
     fw.write('\n') 
     fw.write('/**************END OF PORT DIRECTION SETTING******************/\n')   
-    fw.write('#endif\n')	
+    fw.write('#endif\n')    
     fw.write('\n')
     fw.write('/**************************************End Of File******************************************/\n')
 
     fdio_w.write('\n')
     fdio_w.write('/*************END OF DIO DBNC CONFIGURATION**************/\n')      
-    fdio_w.write('#endif\n')	
+    fdio_w.write('#endif\n')    
     fdio_w.write('\n')
     fdio_w.write('/**************************************End Of File******************************************/\n')
 
                
-	
+    
     fw.close()
     fdio_w.close()
     fdio_h_w.close()
     fpor_w.close()
-		
+        
 def dec_to_hex(value):
     first_byte = value/(16*16*16)
     second_byte = (value - first_byte*16*16*16)/(16*16)

@@ -1,8 +1,8 @@
 # coding=utf-8
 import datetime
 
-Port_Cfg_H = file("C:\\Users\\cetc\\workspace\\GPIO\\cfg\\Port_Cfg.h", "w+")
-Dio_Cfg_H = file("C:\\Users\\cetc\\workspace\\GPIO\\cfg\\Dio_Cfg.h", "w+")
+Port_Cfg_H = file("C:\\Users\\cetc\\workspace\\C53F_GPIO\\cfg\\Port_Cfg.h", "w+")
+Dio_Cfg_H = file("C:\\Users\\cetc\\workspace\\C53F_GPIO\\cfg\\Dio_Cfg.h", "w+")
                          
         
 def WriteNowTime():
