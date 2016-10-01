@@ -8,7 +8,6 @@ Created on 2016年10月1日
 import sys
 import xlrd
 import datetime
-from symbol import except_clause
 
 # the global variable define
 
@@ -84,6 +83,34 @@ def GetNVMMapID(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
     return str(sheet.cell(row, col).value)
 
+def GetNVMMapType(sheetName, row, col):
+    sheet = excel.sheet_by_name(sheetName)
+    return str(sheet.cell(row, col).value)
+
+def GetNVMMapDefaultValue(sheetName, row, col):
+    sheet = excel.sheet_by_name(sheetName)
+    return str(sheet.cell(row, col).value)
+
+def int32int16Toint8(num, size):
+    if size == 2:
+        return str(str(hex(int(eval(num)) & 0xff)) + ',' + str(hex((int(eval(num)) & 0xff00) >> 8)))
+    elif size == 4:
+        return str(str(hex(int(eval(num)) & 0xff)) + ',' \
+              + str(hex((int(eval(num)) & 0xff00) >> 8)) + ','\
+              + str(hex((int(eval(num)) & 0xff0000) >> 16)) + ','\
+              + str(hex((int(eval(num)) & 0xff000000) >> 24))[:-1])
+    else:
+        print 'the argv size is illegal'
+        sys.exit(-1)
+        
+def StringToASCII(string):
+    unicodeValue = string.decode('utf-8')
+    if len(unicodeValue) == len(string):
+        return map(ord, string)
+    else:
+        print 'the string include illegal ASCII code'
+        sys.exit(-1)  
+             
 def CalcTypeSize(Type):
     BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
     TypePartList = Type.split('[')
@@ -91,15 +118,28 @@ def CalcTypeSize(Type):
         print 'The type value is illegal'
         sys.exit(-1)
     else:
-        if  TypePartList[0] == BasicTypeEnum[0] :
-            if  len(TypePartList)==1:
+        if  TypePartList[0] == BasicTypeEnum[0] or TypePartList[0] == BasicTypeEnum[3]:
+            if  len(TypePartList) == 1:
                 return 1
             else:
-                return 1*int(TypePartList[1])
+                return 1 * int(TypePartList[1].split(']')[0])
+        elif  TypePartList[0] == BasicTypeEnum[1]:
+            if  len(TypePartList) == 1:
+                return 2
+            else:
+                return 2 * int(TypePartList[1].split(']')[0])    
+        elif  TypePartList[0] == BasicTypeEnum[2]:
+            if  len(TypePartList) == 1:
+                return 4
+            else:
+                return 4 * int(TypePartList[1].split(']')[0])    
+        else:
+            print 'Typr Error'
+            sys.exit(-1)    
 def WriteNVMMapID(File):
     File.write('#define NVM_ID_LIST           \\\n')
     for sheetNam in sheetName:
-        print sheetNam
+        # print sheetNam
         File.write('/*the MAP ID in ' + sheetNam + ' list*/\\\n')
         row = NVMMapIdStartRow
         try:
@@ -107,14 +147,67 @@ def WriteNVMMapID(File):
                 File.write('        ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \\\n')
                 row = row + 1
         except IndexError:
-            continue    
-
+            continue  
+        
+def WriteDefaultValue(File):  
+    File.write('#define NVM_DEFAULT_VALUES           \\\n')
+    for sheetNam in sheetName:
+        File.write('/*the NVM Default Value in ' + sheetNam + ' Section*/\\\n')
+        row = NVMMapIdStartRow
+        try:
+            while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
+                BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
+                Type = GetNVMMapType(sheetNam, row, NVMMapTypeCol)
+                DefaultValue = GetNVMMapDefaultValue(sheetNam, row, NVMMapDefaultValueCol)
+                ValueSize = CalcTypeSize(Type)
+                MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
+                TypePartList = Type.split('[')
+                if TypePartList[0] not in BasicTypeEnum:
+                    print 'The type value is illegal'
+                    sys.exit(-1)
+                    '''
+                if Type in BasicTypeEnum:
+                    if Type == BasicTypeEnum[0]:
+                        File.write('{'+hex(int(float(DefaultValue)))+'},    /*'+MapID+'*/    \\\n')
+                    elif Type == BasicTypeEnum[1] or Type == BasicTypeEnum[2]:
+                        File.write('{'+int32int16Toint8(DefaultValue,ValueSize)+'},    /*'+MapID+'*/    \\\n')  
+                    else:
+                        pass
+                        
+                else:'''
+                if TypePartList[0] == BasicTypeEnum[0]:
+                    File.write('{')
+                    for DefaultValue in DefaultValue:
+                        File.write(DefaultValue) 
+                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                elif TypePartList[0] == BasicTypeEnum[1] :
+                    File.write('{')
+                    for DefaultValue in DefaultValue:
+                        File.write(int32int16Toint8(DefaultValue, 2)) 
+                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                elif TypePartList[0] == BasicTypeEnum[2]:
+                    File.write('{')
+                    for DefaultValue in DefaultValue:
+                        File.write(int32int16Toint8(DefaultValue, 4)) 
+                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                elif Type == BasicTypeEnum[3]:
+                    File.write('{')
+                    ASCIIList = StringToASCII(DefaultValue)
+                    for ASCIIElem in ASCIIList:
+                        File.write(str(ASCIIElem) + ',')  
+                    File.write('},    /*the default for ' + MapID + '*/    \\\n')           
+                row = row + 1
+        except IndexError:
+            continue  
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
     WriteNVMMapID(NVM_Cfg)
+    WriteDefaultValue(NVM_Cfg)
 
 
 
 if __name__ == '__main__':
     main()
-    print CalcTypeSize('int8[8]')
+    # print int(eval('256.0'))
+    # print int32int16Toint8('0x6', 4)
+    # print map(ord, 'hello,world')
