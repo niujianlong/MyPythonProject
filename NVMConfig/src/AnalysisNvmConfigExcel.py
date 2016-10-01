@@ -8,6 +8,13 @@ Created on 2016年10月1日
 import sys
 import xlrd
 import datetime
+import os
+
+#the global variable define
+NVM_Cfg_Dir = ur'.\..\gen\NVM_Cfg.h'
+NVM_Cfg_filename = 'NVM_Cfg.h'
+NVM_Cfg = file(NVM_Cfg_Dir,'w+')
+
 
 def WriteNowTime():
     now = datetime.datetime.now()
@@ -51,10 +58,10 @@ def GenCommonAnnotation(File,filename):
 
 
 def main():
-    GenCommonAnnotation()
+    GenCommonAnnotation(NVM_Cfg,NVM_Cfg_filename)
 
 
 
 
 if __name__ == '__main__':
-    pass
+    main()
