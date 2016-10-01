@@ -182,20 +182,37 @@ def WriteDefaultValue(File):
                     File.write('},    /*the default for ' + MapID + '*/    \\\n') 
                 elif TypePartList[0] == BasicTypeEnum[1] :
                     File.write('{')
+                    DefaultValue = DefaultValue.split(',')
+                    a = 0
+                    b = len(DefaultValue)
                     for DefaultValue in DefaultValue:
-                        File.write(int32int16Toint8(DefaultValue, 2)) 
+                        if a < b - 1:
+                            File.write(int32int16Toint8(DefaultValue, 2) + ',')
+                        elif a == b - 1:
+                            File.write(int32int16Toint8(DefaultValue, 2)) 
+                        a = a + 1       
                     File.write('},    /*the default for ' + MapID + '*/    \\\n') 
                 elif TypePartList[0] == BasicTypeEnum[2]:
                     File.write('{')
+                    DefaultValue = DefaultValue.split(',')
+                    a = 0
+                    b = len(DefaultValue)
                     for DefaultValue in DefaultValue:
-                        File.write(int32int16Toint8(DefaultValue, 4)) 
+                        if a < b - 1:
+                            File.write(int32int16Toint8(DefaultValue, 4) + ',')
+                        elif a == b - 1:
+                            File.write(int32int16Toint8(DefaultValue, 4)) 
+                        a = a + 1
                     File.write('},    /*the default for ' + MapID + '*/    \\\n') 
-                elif Type == BasicTypeEnum[3]:
+                elif TypePartList[0] == BasicTypeEnum[3]:
                     File.write('{')
                     ASCIIList = StringToASCII(DefaultValue)
                     for ASCIIElem in ASCIIList:
                         File.write(str(ASCIIElem) + ',')  
-                    File.write('},    /*the default for ' + MapID + '*/    \\\n')           
+                    File.write('0},    /*the default for ' + MapID + '*/    \\\n')
+                else:
+                    print 'The type value is illegal'
+                    sys.exit(-1)               
                 row = row + 1
         except IndexError:
             continue  
@@ -208,6 +225,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+    #print GetNVMMapDefaultValue('ConstNvmMapSection', 7, 4)
     # print int(eval('256.0'))
     # print int32int16Toint8('0x6', 4)
-    # print map(ord, 'hello,world')
+    #print map(ord, '\0')
