@@ -87,6 +87,10 @@ def GetNVMMapType(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
     return str(sheet.cell(row, col).value)
 
+def GetNVMMapResetLevel(sheetName, row, col):
+    sheet = excel.sheet_by_name(sheetName)
+    return int(float(sheet.cell(row, col).value))
+
 def GetNVMMapDefaultValue(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
     return str(sheet.cell(row, col).value)
@@ -95,10 +99,10 @@ def int32int16Toint8(num, size):
     if size == 2:
         return str(str(hex(int(eval(num)) & 0xff)) + ',' + str(hex((int(eval(num)) & 0xff00) >> 8)))
     elif size == 4:
-        return str(str(hex(int(eval(num)) & 0xff)) + ',' \
-              + str(hex((int(eval(num)) & 0xff00) >> 8)) + ','\
-              + str(hex((int(eval(num)) & 0xff0000) >> 16)) + ','\
-              + str(hex((int(eval(num)) & 0xff000000) >> 24))[:-1])
+        return str(str(hex(int(eval(num)) & 0xff)).rstrip('L') + ',' \
+              + str(hex((int(eval(num)) & 0xff00) >> 8)).rstrip('L') + ','\
+              + str(hex((int(eval(num)) & 0xff0000) >> 16)).rstrip('L') + ','\
+              + str(hex((int(eval(num)) & 0xff000000) >> 24)).rstrip('L'))
     else:
         print 'the argv size is illegal'
         sys.exit(-1)
@@ -147,6 +151,8 @@ def WriteNVMMapID(File):
                 File.write('        ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \\\n')
                 row = row + 1
         except IndexError:
+            if sheetNam == sheetName[-1]:
+                File.write('\n\n')
             continue  
         
 def WriteDefaultValue(File):  
@@ -159,7 +165,7 @@ def WriteDefaultValue(File):
                 BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
                 Type = GetNVMMapType(sheetNam, row, NVMMapTypeCol)
                 DefaultValue = GetNVMMapDefaultValue(sheetNam, row, NVMMapDefaultValueCol)
-                ValueSize = CalcTypeSize(Type)
+                
                 MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
                 TypePartList = Type.split('[')
                 if TypePartList[0] not in BasicTypeEnum:
@@ -215,17 +221,50 @@ def WriteDefaultValue(File):
                     sys.exit(-1)               
                 row = row + 1
         except IndexError:
+            if sheetNam == sheetName[-1]:
+                File.write('\n\n')
             continue  
+
+def WriteNVMConfigInfo(File):
+    File.write('#define NVM_CONFIG_INFO_TABLE_LIST           \\\n')
+    for sheetNam in sheetName:
+        File.write('/*the NVM Config Info in ' + sheetNam + ' Section*/\\\n')
+        row = NVMMapIdStartRow
+        nvmOffset = GetNVMStartOffset(sheetNam, StartOffsetRow, StartOffsetCol)
+        LastValueSize = nvmOffset
+        try:
+            while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
+                Type = GetNVMMapType(sheetNam, row, NVMMapTypeCol)
+                ValueSize = CalcTypeSize(Type)
+                # BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
+                # DefaultValue = GetNVMMapDefaultValue(sheetNam, row, NVMMapDefaultValueCol)
+                MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
+                ResetLevel = GetNVMMapResetLevel(sheetNam, row, NVMMapResetLevelCol)
+                
+                File.write('{' + str(LastValueSize) + ',    '\
+                           + str(LastValueSize) + ',    '\
+                           + str(ValueSize) + ',    '\
+                           + str(ResetLevel) + '},'\
+                           + '    /*NVM Config Info for ' + MapID + '*/    \\\n')
+                
+                LastValueSize = LastValueSize + ValueSize
+                
+                row = row + 1
+        except IndexError:
+            if sheetNam == sheetName[-1]:
+                File.write('\n\n')
+            continue          
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
     WriteNVMMapID(NVM_Cfg)
     WriteDefaultValue(NVM_Cfg)
+    WriteNVMConfigInfo(NVM_Cfg)
 
 
 
 if __name__ == '__main__':
     main()
-    #print GetNVMMapDefaultValue('ConstNvmMapSection', 7, 4)
+    # print GetNVMMapDefaultValue('ConstNvmMapSection', 7, 4)
     # print int(eval('256.0'))
     # print int32int16Toint8('0x6', 4)
-    #print map(ord, '\0')
+    # print map(ord, '\0')
