@@ -36,6 +36,8 @@ NVMMapResetLevelCol = 3
 
 NVMMapDefaultValueStartRow = 6
 NVMMapDefaultValueCol = 4
+
+Each_Section_Actual_Size = []
 #
 # generation file define
 NVM_Cfg_Dir = './../gen/NVM_Cfg.h'
@@ -227,11 +229,14 @@ def WriteDefaultValue(File):
 
 def WriteNVMConfigInfo(File):
     File.write('#define NVM_CONFIG_INFO_TABLE_LIST           \\\n')
+    NVM_ACTUAL_SIZE = 0
+    
     for sheetNam in sheetName:
         File.write('/*the NVM Config Info in ' + sheetNam + ' Section*/\\\n')
         row = NVMMapIdStartRow
         nvmOffset = GetNVMStartOffset(sheetNam, StartOffsetRow, StartOffsetCol)
         LastValueSize = nvmOffset
+        EachSectionActualSize = 0
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
                 Type = GetNVMMapType(sheetNam, row, NVMMapTypeCol)
@@ -248,17 +253,31 @@ def WriteNVMConfigInfo(File):
                            + '    /*NVM Config Info for ' + MapID + '*/    \\\n')
                 
                 LastValueSize = LastValueSize + ValueSize
-                
+                EachSectionActualSize = EachSectionActualSize +ValueSize
+                NVM_ACTUAL_SIZE = NVM_ACTUAL_SIZE + ValueSize
                 row = row + 1
         except IndexError:
+            Each_Section_Actual_Size.append(EachSectionActualSize) 
             if sheetNam == sheetName[-1]:
                 File.write('\n\n')
-            continue          
+                File.write('#define  NVM_TOTAL_SIZE        ('+str(2048)+')\n')
+                File.write('#define  NVM_ACTUAL_SIZE        ('+str(NVM_ACTUAL_SIZE)+')\n\n')
+            continue   
+        
+def WriteSectionOffsetAndSize(File):
+    i = 0
+    for sheetNam in sheetName:
+        File.write('#define  '+sheetNam+'_START_OFFSET    '+'('+str(GetNVMStartOffset(sheetNam, StartOffsetRow, StartOffsetCol))+')\n')               
+        File.write('#define  '+sheetNam+'_TOTAL_SIZE    '+'('+str(GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol))+')\n')               
+        File.write('#define  '+sheetNam+'_ACTUAL_SIZE    '+'('+str(Each_Section_Actual_Size[i])+')\n\n') 
+        i = i + 1
+                      
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
     WriteNVMMapID(NVM_Cfg)
     WriteDefaultValue(NVM_Cfg)
     WriteNVMConfigInfo(NVM_Cfg)
+    WriteSectionOffsetAndSize(NVM_Cfg)
 
 
 
