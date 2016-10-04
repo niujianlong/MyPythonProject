@@ -190,7 +190,7 @@ def WriteDefaultValue(File):
     for sheetNam in sheetName:
         File.write('/*the NVM Default Value in ' + sheetNam + ' Section*/\\\n')
         row = NVMMapIdStartRow
-        Each_Section_Total_Content=['0xff']*GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol)
+        Each_Section_Total_Content = ['0xff'] * GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol)
         print len(Each_Section_Total_Content)
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
@@ -268,16 +268,16 @@ def WriteDefaultValue(File):
                     sys.exit(-1)               
                 row = row + 1
         except IndexError:
-            a=0
-            b=len(Each_Section_Total_Content)
+            a = 0
+            b = len(Each_Section_Total_Content)
             print b
             File.write('{')
             S19DataMapList.write('[')
             for elem in Each_Section_Total_Content:
-                if a<b-1:
-                    File.write(elem+',')
-                    S19DataMapList.write(elem+',')
-                elif a == b -1:
+                if a < b - 1:
+                    File.write(elem + ',')
+                    S19DataMapList.write(elem + ',')
+                elif a == b - 1:
                     File.write(elem) 
                     S19DataMapList.write(elem) 
                 a = a + 1
