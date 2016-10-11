@@ -849,4 +849,5 @@ def get_port_number(sheet, row):#这个函数就是为了获取第二列中的P1
     return PortNum
 if __name__ == '__main__':
     main()
+    print dec_to_hex(10000)
   

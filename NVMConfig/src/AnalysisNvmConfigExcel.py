@@ -420,3 +420,4 @@ if __name__ == '__main__':
     # print int(eval('256.0'))
     # print int32int16Toint8('0x6', 4)
     # print map(ord, '\0')
+    print StringToASCII('abc')
