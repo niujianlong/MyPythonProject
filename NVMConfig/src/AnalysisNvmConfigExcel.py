@@ -11,7 +11,9 @@ import xlwt
 import datetime
 
 # the global variable define
-
+BIG_ENDIAN = 0
+LITTLE_ENDIAN = 0
+MEMOMY_MODE = LITTLE_ENDIAN
 # resource file define
 NVM_Table_Dir = './../res/NVM_Table.xlsx'
 sheetName = ['ConstNvmMapSection', \
@@ -51,6 +53,19 @@ NVM_MAP_TABLE_filename = 'NVM_MAP_TABLE.xls'
 # NVM_MAP_TABLE = file(NVM_MAP_TABLE_Dir, 'w+')
 S19DataMapList = file('S19DataMapList.py', 'w+')
 
+def dec_to_hex(value):
+    '''
+    first_byte = value/(256*256*256)
+    second_byte = (value - first_byte*256*256*256)/(256*256)
+    third_byte = (value - first_byte*256*256*256 - second_byte*256*256)/256
+    fourth_byte = value - first_byte*256*256*256 - second_byte*256*256 - third_byte*256
+    return (first_byte,second_byte,third_byte,fourth_byte)
+    '''
+    first_byte = int((int(eval(value)) & 0xff000000) >> 24)
+    second_byte = int((int(eval(value)) & 0xff0000) >> 16)
+    third_byte = int((int(eval(value)) & 0xff00) >> 8)
+    fourth_byte = int((int(eval(value)) & 0xff))
+    return (first_byte,second_byte,third_byte,fourth_byte)
 
 def WriteNowTime():
     now = datetime.datetime.now()
@@ -110,7 +125,7 @@ def GetNVMSectionSize(sheetName, StartOffsetRow, StartOffsetCol):
 
 def GetNVMMapID(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
-    return str(sheet.cell(row, col).value)
+    return str(sheet.cell(row, col).value).strip()
 
 def GetNVMMapType(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
@@ -122,9 +137,9 @@ def GetNVMMapResetLevel(sheetName, row, col):
 
 def GetNVMMapDefaultValue(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
-    return str(sheet.cell(row, col).value)
+    return str(sheet.cell(row, col).value).strip()
 
-def int32int16Toint8(num, size):
+def int32int16Toint8(num,size):
     if size == 2:
         return str(str(hex(int(eval(num)) & 0xff)) + ',' + str(hex((int(eval(num)) & 0xff00) >> 8)))
     elif size == 4:
@@ -197,7 +212,7 @@ def WriteDefaultValue(File):
         File.write('/*the NVM Default Value in ' + sheetNam + ' Section*/\\\n')
         row = NVMMapIdStartRow
         Each_Section_Total_Content = ['0xff'] * GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol)
-        print len(Each_Section_Total_Content)
+        #print len(Each_Section_Total_Content)
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
                 BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
@@ -223,10 +238,15 @@ def WriteDefaultValue(File):
                 if TypePartList[0] == BasicTypeEnum[0]:
                     #File.write('{')
                     S19DataMapList.write('[')
+                    #print DefaultValue
+                    for DefaultValuetemp in DefaultValue:
+                        S19DataMapList.write(DefaultValuetemp)
+                    DefaultValue = DefaultValue.split(',')
                     for DefaultValue in DefaultValue:
-                        File.write(DefaultValue)
-                        S19DataMapList.write(DefaultValue)
-                    File.write(',    /*the default for ' + MapID + '*/    \\\n') 
+                        DefaultValue = eval(DefaultValue)
+                        print str(DefaultValue)+'->'+MapID 
+                        File.write('0x%02X, '%DefaultValue)
+                    File.write('    /*the default for ' + MapID + '*/    \\\n') 
                     S19DataMapList.write(']+\\\n') 
                 elif TypePartList[0] == BasicTypeEnum[1] :
                     #File.write('{')
@@ -236,10 +256,10 @@ def WriteDefaultValue(File):
                     b = len(DefaultValue)
                     for DefaultValue in DefaultValue:
                         if a < b - 1:
-                            File.write(int32int16Toint8(DefaultValue, 2) + ',')
+                            File.write(int32int16Toint8(DefaultValue, 2).upper() + ',')
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 2) + ',')
                         elif a == b - 1:
-                            File.write(int32int16Toint8(DefaultValue, 2)) 
+                            File.write(int32int16Toint8(DefaultValue, 2).upper()) 
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 2)) 
                         a = a + 1       
                     File.write(',    /*the default for ' + MapID + '*/    \\\n') 
@@ -252,10 +272,10 @@ def WriteDefaultValue(File):
                     b = len(DefaultValue)
                     for DefaultValue in DefaultValue:
                         if a < b - 1:
-                            File.write(int32int16Toint8(DefaultValue, 4) + ',')
+                            File.write(int32int16Toint8(DefaultValue, 4).upper() + ',')
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 4) + ',')
                         elif a == b - 1:
-                            File.write(int32int16Toint8(DefaultValue, 4)) 
+                            File.write(int32int16Toint8(DefaultValue, 4).upper()) 
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 4)) 
                         a = a + 1
                     File.write(',    /*the default for ' + MapID + '*/    \\\n') 
@@ -276,8 +296,8 @@ def WriteDefaultValue(File):
         except IndexError:
             a = 0
             b = len(Each_Section_Total_Content)
-            print b
-            File.write('{')
+            #print b
+            #File.write('{')
             S19DataMapList.write('[')
             for elem in Each_Section_Total_Content:
                 if a < b - 1:
@@ -288,14 +308,133 @@ def WriteDefaultValue(File):
                     S19DataMapList.write(elem) 
                 a = a + 1
             if sheetNam != sheetName[-1]:    
-                File.write('},    /*the default for reversed data*/    \\\n')
+                File.write(',    /*the default for reversed data*/    \\\n')
                 S19DataMapList.write(']+\\\n') 
             elif  sheetNam == sheetName[-1]: 
-                File.write('}    /*the default for reversed data*/    \\\n')          
+                File.write('    /*the default for reversed data*/    \\\n')          
                 S19DataMapList.write(']\\\n')   
             if sheetNam == sheetName[-1]:
                 File.write('\n\n')
             continue  
+
+def AppendDefaultValue2List(defaultList):  
+    for sheetNam in sheetName:
+        row = NVMMapIdStartRow
+        Each_Section_Total_Content = ['0x00'] * GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol)
+        #print len(Each_Section_Total_Content)
+        try:
+            while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
+                hex_value_list = []
+                defaultValue_temp = ''
+                BasicTypeEnum = ['int8', 'int16', 'int32', 'string']
+                Type = GetNVMMapType(sheetNam, row, NVMMapTypeCol)
+                DefaultValue = GetNVMMapDefaultValue(sheetNam, row, NVMMapDefaultValueCol)
+                MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
+                ValueSize = CalcTypeSize(Type)
+                del Each_Section_Total_Content[0:ValueSize] 
+                TypePartList = Type.split('[')
+                
+                if TypePartList[0] not in BasicTypeEnum:
+                    print 'The type value is illegal'
+                    sys.exit(-1)
+                 
+                if TypePartList[0] == BasicTypeEnum[0]:
+                    DefaultValue = DefaultValue.split(',')
+                    for DefaultValue in DefaultValue:
+                        first,second,third,fourth = dec_to_hex(DefaultValue)
+                        hex_value_list.append(fourth)
+                elif TypePartList[0] == BasicTypeEnum[1] :
+                    DefaultValue = DefaultValue.split(',')
+                    for DefaultValue in DefaultValue:
+                        first,second,third,fourth = dec_to_hex(DefaultValue)
+                        if LITTLE_ENDIAN == MEMOMY_MODE:
+                            hex_value_list.append(fourth)
+                            hex_value_list.append(third)
+                        else:
+                            hex_value_list.append(first)
+                            hex_value_list.append(second)      
+                elif TypePartList[0] == BasicTypeEnum[2]:
+                    #File.write('{')
+                    DefaultValue = DefaultValue.split(',')
+                    for DefaultValue in DefaultValue:
+                        first,second,third,fourth = dec_to_hex(DefaultValue)
+                        if LITTLE_ENDIAN == MEMOMY_MODE:
+                            hex_value_list.append(fourth)
+                            hex_value_list.append(third)
+                            hex_value_list.append(second)
+                            hex_value_list.append(first)
+                        else:
+                            hex_value_list.append(first)
+                            hex_value_list.append(second)
+                            hex_value_list.append(third)
+                            hex_value_list.append(fourth) 
+                for i in range(0, ValueSize):
+                    if (i != 0) and (i % 16 == 0):
+                        #Newline when size greater than 16
+                        if i < len(hex_value_list):
+                            defaultValue_temp += ('      \\\n          0x%02X, '%hex_value_list[i])
+                        else:
+                            defaultValue_temp += '      \\\n          0x00, ' 
+                    else:
+                        if i < len(hex_value_list):
+                            defaultValue_temp += ('0x%02X, '%hex_value_list[i])
+                        else:
+                            defaultValue_temp += '0x00, '
+                
+                defaultValue_temp += '    /*%s*/     \\'%MapID  
+                             
+                if TypePartList[0] == BasicTypeEnum[3]:
+                    #File.write('{')
+                    ASCIIList = StringToASCII(DefaultValue)
+                    for ASCIIElem in ASCIIList:
+                        hex_value_list.append(ASCIIElem) 
+                    
+                    for i in range(0, ValueSize): 
+                        if (i != 0) and (i % 16 == 0):
+                            #Newline when size greater than 16
+                            if (i < len(hex_value_list)):
+                                defaultValue_temp += ('      \\\n          0x%02X, '%ord(hex_value_list[i]))
+                            else:
+                                defaultValue_temp += '      \\\n          0x00, '
+                        else:                    
+                            if (i < len(hex_value_list)):
+                                defaultValue_temp += ('0x%02X, '%ord(hex_value_list[i]))
+                            else:
+                                defaultValue_temp += '0x00, '
+                        
+                    defaultValue_temp += '    /*%s*/     \\'%MapID    
+                              
+                row = row + 1
+                defaultList.append(defaultValue_temp)
+        except IndexError:
+            ValueSize = len(Each_Section_Total_Content)
+            for i in range(0, ValueSize):
+                if (i != 0) and (i % 16 == 0):
+                    # Newline when size greater than 16
+                    if i < len(Each_Section_Total_Content):
+                        defaultValue_temp += ('      \\\n          0x%02X, ' % int(eval(Each_Section_Total_Content[i])))
+                    else:
+                        defaultValue_temp += '      \\\n          0x00, ' 
+                else:
+                    if i < len(Each_Section_Total_Content):
+                        defaultValue_temp += ('0x%02X, ' % int(eval(Each_Section_Total_Content[i])))
+                    else:
+                        defaultValue_temp += '0x00, '
+                
+            defaultValue_temp += '    /*%s*/     \\' % MapID  
+                     
+            if sheetNam == sheetName[-1]:
+                #defaultList.append(defaultValue_temp)
+                pass
+            continue  
+
+
+def WriteDefaultValueNew(File):  
+    File.write('#define NVM_DEFAULT_VALUES           \\\n')
+    defaultValue_list = []
+    AppendDefaultValue2List(defaultValue_list)
+    for eachline in defaultValue_list:
+        File.write("          "+ eachline + "\n")
 
 def WriteNVMConfigInfo(File):
     File.write('#define NVM_CONFIG_INFO_TABLE_LIST           \\\n')
@@ -414,16 +553,22 @@ def WriteNVMMapTable():
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
     WriteNVMMapID(NVM_Cfg)
-    WriteDefaultValue(NVM_Cfg)
+    #WriteDefaultValue(NVM_Cfg)
     WriteNVMConfigInfo(NVM_Cfg)
+    WriteDefaultValueNew(NVM_Cfg)
     WriteSectionOffsetAndSize(NVM_Cfg)
     WriteNVMMapTable()
 
 
 if __name__ == '__main__':
+    print dec_to_hex('10000')
     main()
     # print GetNVMMapDefaultValue('ConstNvmMapSection', 7, 4)
     # print int(eval('256.0'))
     # print int32int16Toint8('0x6', 4)
     # print map(ord, '\0')
     print StringToASCII('abc')
+    default1 = []
+    AppendDefaultValue2List(default1)
+    print default1
+   

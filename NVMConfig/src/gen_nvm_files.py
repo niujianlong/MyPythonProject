@@ -303,4 +303,5 @@ def hex_str_to_dec(str):
     
 if __name__ == '__main__':
     main()
+    print dec_to_hex(10000)
   
