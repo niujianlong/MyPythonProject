@@ -170,18 +170,24 @@ def CalcTypeSize(Type):
             print 'Typr Error'
             sys.exit(-1)    
 def WriteNVMMapID(File):
-    File.write('#define NVM_ID_LIST           \\\n')
+    File.write("/*NVM ID enum definition*/\n")
+    File.write("typedef enum\n")
+    File.write("{\n")
+    File.write("    NVM_ID_START  =  0,\n")
+    File.write('\n')
     for sheetNam in sheetName:
         # print sheetNam
         File.write('/*the MAP ID in ' + sheetNam + ' list*/\\\n')
         row = NVMMapIdStartRow
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
-                File.write('        ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \\\n')
+                File.write('    ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \n')
                 row = row + 1
         except IndexError:
             if sheetNam == sheetName[-1]:
-                File.write('\n\n')
+                File.write('\n')
+                File.write("    NVM_ID_END\n")
+                File.write("}  NVM_ID_TYPE;\n")
             continue  
         
 def WriteDefaultValue(File):  
@@ -215,15 +221,15 @@ def WriteDefaultValue(File):
                         
                 else:'''
                 if TypePartList[0] == BasicTypeEnum[0]:
-                    File.write('{')
+                    #File.write('{')
                     S19DataMapList.write('[')
                     for DefaultValue in DefaultValue:
                         File.write(DefaultValue)
                         S19DataMapList.write(DefaultValue)
-                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                    File.write(',    /*the default for ' + MapID + '*/    \\\n') 
                     S19DataMapList.write(']+\\\n') 
                 elif TypePartList[0] == BasicTypeEnum[1] :
-                    File.write('{')
+                    #File.write('{')
                     S19DataMapList.write('[')
                     DefaultValue = DefaultValue.split(',')
                     a = 0
@@ -236,10 +242,10 @@ def WriteDefaultValue(File):
                             File.write(int32int16Toint8(DefaultValue, 2)) 
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 2)) 
                         a = a + 1       
-                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                    File.write(',    /*the default for ' + MapID + '*/    \\\n') 
                     S19DataMapList.write(']+\\\n') 
                 elif TypePartList[0] == BasicTypeEnum[2]:
-                    File.write('{')
+                    #File.write('{')
                     S19DataMapList.write('[')
                     DefaultValue = DefaultValue.split(',')
                     a = 0
@@ -252,16 +258,16 @@ def WriteDefaultValue(File):
                             File.write(int32int16Toint8(DefaultValue, 4)) 
                             S19DataMapList.write(int32int16Toint8(DefaultValue, 4)) 
                         a = a + 1
-                    File.write('},    /*the default for ' + MapID + '*/    \\\n') 
+                    File.write(',    /*the default for ' + MapID + '*/    \\\n') 
                     S19DataMapList.write(']+\\\n') 
                 elif TypePartList[0] == BasicTypeEnum[3]:
-                    File.write('{')
+                    #File.write('{')
                     S19DataMapList.write('[')
                     ASCIIList = StringToASCII(DefaultValue)
                     for ASCIIElem in ASCIIList:
                         File.write(str(ASCIIElem) + ',')  
                         S19DataMapList.write(str(ASCIIElem) + ',')  
-                    File.write('0},    /*the default for ' + MapID + '*/    \\\n')
+                    File.write('0x00,    /*the default for ' + MapID + '*/    \\\n')
                     S19DataMapList.write('0]+\\\n')
                 else:
                     print 'The type value is illegal'
