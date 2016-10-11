@@ -25,6 +25,10 @@ section_actual_size_table = {}
 nvm_total_size = 0
 nvm_actual_size = 0 
 
+S19_Dir = './../gen/c51e.s19'
+S19_filename = 'c51e.s19'
+S19 = file(S19_Dir, 'w+')
+
 # resource file define
 NVM_Table_Dir = './../res/NVM_Table.xlsx'
 sheetName = ['ConstNvmMapSection', \
@@ -400,7 +404,7 @@ def WriteSectionOffsetAndSize(File):
     File.write("#define        NVM_TOTAL_SIZE" + '            %d\n'%nvm_total_size) 
     File.write("#define        NVM_ACTUAL_SIZE" + '            %d\n'%nvm_actual_size)
     for section in sheetName:
-        print section_start_nvm_offset_table
+        #print section_start_nvm_offset_table
         File.write("#define        " + section + '_START_NVM_OFFSET' + '            %d\n'%section_start_nvm_offset_table[section])
         File.write("#define        " + section + '_START_RAM_OFFSET' + '            %d\n'%section_start_ram_offset_table[section])
         File.write("#define        " + section + '_TOTAL_SIZE' + '            %d\n'%section_total_size_table[section])
@@ -416,21 +420,11 @@ def WriteSectionOffsetAndSize(File):
 def WriteNVMMapTable():
     workbook = xlwt.Workbook()
     worksheet = workbook.add_sheet('NVM_MAP_TABLE', cell_overwrite_ok=True)
-    '''
-    pattern = xlwt.Pattern() # Create the Pattern
-    pattern.pattern = xlwt.Pattern.SOLID_PATTERN # May be: NO_PATTERN, SOLID_PATTERN, or 0x00 through 0x12
-    pattern.pattern_fore_colour = 7 # May be: 8 through 63. 0 = Black, 1 = White, 2 = Red, 3 = Green, 4 = Blue, 5 = Yellow, 6 = Magenta, 7 = Cyan, 16 = Maroon, 17 = Dark Green, 18 = Dark Blue, 19 = Dark Yellow , almost brown), 20 = Dark Magenta, 21 = Teal, 22 = Light Gray, 23 = Dark Gray, the list goes on...
-    style = xlwt.XFStyle() # Create the Pattern
-    style.pattern = pattern # Add Pattern to Style'''
+    
     AnnotationStyle = xlwt.easyxf('pattern: pattern solid, fore_colour sea_green; font: bold on;')
     GenExcelCommonAnnotation(worksheet, NVM_MAP_TABLE_filename, AnnotationStyle)
     # workbook.save(NVM_MAP_TABLE_Dir)
-    '''
-    Headpattern = xlwt.Pattern()
-    xlwt.easyxf()
-    Headpattern.pattern_fore_colour = 4 # May be: 8 through 63. 0 = Black, 1 = White, 2 = Red, 3 = Green, 4 = Blue, 5 = Yellow, 6 = Magenta, 7 = Cyan, 16 = Maroon, 17 = Dark Green, 18 = Dark Blue, 19 = Dark Yellow , almost brown), 20 = Dark Magenta, 21 = Teal, 22 = Light Gray, 23 = Dark Gray, the list goes on...
-    Headstyle = xlwt.XFStyle() # Create the Pattern
-    Headstyle.pattern = pattern'''
+   
     Headstyle = xlwt.easyxf('pattern: pattern solid, fore_colour ocean_blue; font: bold on;')
     # style.pattern.pattern_fore_colour = 4
     worksheet.write(18, 1, 'ID', Headstyle)
@@ -443,12 +437,12 @@ def WriteNVMMapTable():
     worksheet.write(18, 8, 'Default Value', Headstyle)
     worksheet.write(18, 9, 'Section', Headstyle)
     Tablerow = 19
-    HeadstyleColor = ['rose', 'cyan_ega', 'ice_blue', 'lime', 'pink']
+    HeadstyleColor = ['rose', 'cyan_ega', 'ice_blue', 'lime', 'gray25']
+    ramOffset = 0
     for sheetNam in sheetName:
-        Headstyle = xlwt.easyxf('pattern: pattern solid, fore_colour ' + HeadstyleColor.pop() + '; font: bold on;')
+        Headstyle = xlwt.easyxf('pattern: pattern solid, fore_colour ' + HeadstyleColor.pop() + '; font: bold off;')
         row = NVMMapIdStartRow
         nvmOffset = GetNVMStartOffset(sheetNam, StartOffsetRow, StartOffsetCol)
-        LastValueSize = nvmOffset
         EachSectionActualSize = 0
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
@@ -459,16 +453,21 @@ def WriteNVMMapTable():
                 MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
                 ResetLevel = GetNVMMapResetLevel(sheetNam, row, NVMMapResetLevelCol)
                 worksheet.write(Tablerow, 1, MapID, Headstyle)
-                worksheet.write(Tablerow, 2, str(LastValueSize), Headstyle)
-                worksheet.write(Tablerow, 3, str(LastValueSize), Headstyle)
+                worksheet.write(Tablerow, 2, str(nvmOffset), Headstyle)
+                worksheet.write(Tablerow, 3, str(ramOffset), Headstyle)
                 worksheet.write(Tablerow, 4, str(ValueSize), Headstyle)
-                worksheet.write(Tablerow, 5, str(hex(0x3FCE4000 + LastValueSize)), Headstyle)
-                worksheet.write(Tablerow, 6, str(hex(0x0000 + LastValueSize)), Headstyle)
+                worksheet.write(Tablerow, 5, str(hex(0x3FCE4000 + ramOffset)), Headstyle)
+                worksheet.write(Tablerow, 6, str(hex(0x0000 + nvmOffset)), Headstyle)
                 worksheet.write(Tablerow, 7, str(ResetLevel), Headstyle)
-                worksheet.write(Tablerow, 8, DefaultValue, Headstyle)
+                if -1 != DefaultValue.find('.0'):
+                    DefaultValue = str(int(float(DefaultValue)))
+                    worksheet.write(Tablerow, 8, DefaultValue, Headstyle)
+                else:
+                    worksheet.write(Tablerow, 8, DefaultValue, Headstyle)
                 worksheet.write(Tablerow, 9, sheetNam, Headstyle)
                 
-                LastValueSize = LastValueSize + ValueSize
+                nvmOffset = nvmOffset + ValueSize
+                ramOffset = ramOffset + ValueSize
                 EachSectionActualSize = EachSectionActualSize + ValueSize
                 # NVM_ACTUAL_SIZE = NVM_ACTUAL_SIZE + ValueSize
                 row = row + 1
@@ -479,8 +478,41 @@ def WriteNVMMapTable():
                 pass
             continue 
     workbook.save(NVM_MAP_TABLE_Dir)
+    
+def ChangeTheDataFormat(elem):
+    if elem > 0xf:
+        elem = str(elem)
+        if elem.startswith('0x' or '0X'):
+            elem = elem[2:]
+        else:
+            elem = str(hex(int(elem)))
+            elem = elem[2:]  
+    else:
+        elem = str(elem)
+        if elem.startswith('0x' or '0X'):
+            elem = '0' + elem[2:]
+        else:
+            elem = str(hex(int(elem)))
+            elem = '0' + elem[2:]            
+    return elem.upper()    
 
-
+def WriteS19File(File):
+    index = 0
+    address = 0
+    dataSum = 0
+    for elem in S19DataList:
+        if (index % 28 == 0):
+            dataSum = 0
+            addressHex = '0' * (8 - len(str(hex(address))[2:])) + str(hex(address))[2:]
+            # print addressHex
+            File.write('S321' + addressHex.upper())
+            address = address + 28
+        index = index + 1
+        File.write(ChangeTheDataFormat(elem))
+        dataSum = dataSum + elem
+        if (index % 28 == 0):
+            checksum = 0xff - (dataSum & 0xff)
+            File.write(ChangeTheDataFormat(checksum) + '\n')
 
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
@@ -490,11 +522,12 @@ def main():
     WriteNVMMapID(NVM_Cfg)
     WriteNVMConfigInfo(NVM_Cfg)
     WriteDefaultValueNew(NVM_Cfg)
+    NVM_Cfg.write('\n\n')
     NVM_Cfg.write('/*************************************End Of File*******************************************/\n')   
     NVM_Cfg.close()
     
     WriteNVMMapTable()
-
+    WriteS19File(S19)
 
 if __name__ == '__main__':
     main()
