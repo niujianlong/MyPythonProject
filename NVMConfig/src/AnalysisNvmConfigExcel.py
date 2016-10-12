@@ -9,6 +9,8 @@ import sys
 import xlrd
 import xlwt
 import datetime
+import os
+import shutil
 
 # the global variable define
 BIG_ENDIAN = 0
@@ -25,6 +27,10 @@ section_actual_size_table = {}
 nvm_total_size = 0
 nvm_actual_size = 0 
 
+if True==os.path.exists(ur'./../gen'):
+    shutil.rmtree(ur'./../gen')
+os.mkdir(ur'./../gen')
+    
 S19_Dir = './../gen/c51e.s19'
 S19_filename = 'c51e.s19'
 S19 = file(S19_Dir, 'w+')
@@ -242,16 +248,15 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                 if TypePartList[0] not in BasicTypeEnum:
                     print 'The type value is illegal'
                     sys.exit(-1)
-                 
-                if TypePartList[0] == BasicTypeEnum[0]:
-                    DefaultValue = DefaultValue.split(',')
-                    for DefaultValue in DefaultValue:
+                DefaultValue = DefaultValue.split(',')
+                for DefaultValue in DefaultValue: 
+                    if DefaultValue=='':
+                        DefaultValue = '0'
+                    if TypePartList[0] == BasicTypeEnum[0]:
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         hex_value_list.append(fourth)
                         S19DataList.append(fourth)
-                elif TypePartList[0] == BasicTypeEnum[1] :
-                    DefaultValue = DefaultValue.split(',')
-                    for DefaultValue in DefaultValue:
+                    elif TypePartList[0] == BasicTypeEnum[1] :
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         if LITTLE_ENDIAN == MEMOMY_MODE:
                             hex_value_list.append(fourth)
@@ -261,10 +266,7 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                         else:
                             hex_value_list.append(first)
                             hex_value_list.append(second)      
-                elif TypePartList[0] == BasicTypeEnum[2]:
-                    # File.write('{')
-                    DefaultValue = DefaultValue.split(',')
-                    for DefaultValue in DefaultValue:
+                    elif TypePartList[0] == BasicTypeEnum[2]:
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         if LITTLE_ENDIAN == MEMOMY_MODE:
                             hex_value_list.append(fourth)
