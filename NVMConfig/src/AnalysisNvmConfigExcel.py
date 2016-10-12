@@ -219,7 +219,7 @@ def WriteNVMMapID(File):
                 File.write("    NVM_ID_END\n")
                 File.write("}  NVM_ID_TYPE;\n")
             continue  
-        
+    File.write('\n\n\n')    
  
 
 def AppendDefaultValue2List(defaultList,S19DataList):  
@@ -353,7 +353,7 @@ def WriteNVMConfigInfo(File):
     File.write("#define  NVM_CONFIG_INFO_TABLE_LIST      \\\n")
     for eachline in nvm_config_info_list:
         File.write("          "+ eachline + "\n")
-        
+    File.write('\n\n\n')    
 def AppendSectionSize():
     global nvm_total_size
     global nvm_actual_size
@@ -401,14 +401,16 @@ def AppendSectionSize():
         
 def WriteSectionOffsetAndSize(File):
     #i = 0
-    File.write("#define        NVM_TOTAL_SIZE" + '            %d\n'%nvm_total_size) 
-    File.write("#define        NVM_ACTUAL_SIZE" + '            %d\n'%nvm_actual_size)
+    File.write('\n\n')
+    File.write("#define        NVM_TOTAL_SIZE" + '            (%d)\n'%nvm_total_size) 
+    File.write("#define        NVM_ACTUAL_SIZE" + '            (%d)\n'%nvm_actual_size)
+    File.write('\n')
     for section in sheetName:
         #print section_start_nvm_offset_table
-        File.write("#define        " + section + '_START_NVM_OFFSET' + '            %d\n'%section_start_nvm_offset_table[section])
-        File.write("#define        " + section + '_START_RAM_OFFSET' + '            %d\n'%section_start_ram_offset_table[section])
-        File.write("#define        " + section + '_TOTAL_SIZE' + '            %d\n'%section_total_size_table[section])
-        File.write("#define        " + section + '_ACTUAL_SIZE' + '            %d\n'%section_actual_size_table[section])
+        File.write("#define        " + section + '_START_NVM_OFFSET' + '            (%d)\n'%section_start_nvm_offset_table[section])
+        File.write("#define        " + section + '_START_RAM_OFFSET' + '            (%d)\n'%section_start_ram_offset_table[section])
+        File.write("#define        " + section + '_TOTAL_SIZE' + '            (%d)\n'%section_total_size_table[section])
+        File.write("#define        " + section + '_ACTUAL_SIZE' + '            (%d)\n'%section_actual_size_table[section])
         File.write('\n')
         
         '''
