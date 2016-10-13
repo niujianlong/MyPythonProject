@@ -29,7 +29,7 @@ nvm_actual_size = 0
 
 if True==os.path.exists(ur'./../gen'):
     shutil.rmtree(ur'./../gen')
-os.mkdir(ur'./../gen')
+os.makedirs(ur'./../gen')
     
 S19_Dir = './../gen/c51e.s19'
 S19_filename = 'c51e.s19'
@@ -72,7 +72,7 @@ NVM_Cfg = file(NVM_Cfg_Dir, 'w+')
 NVM_MAP_TABLE_Dir = './../gen/NVM_MAP_TABLE.xls'
 NVM_MAP_TABLE_filename = 'NVM_MAP_TABLE.xls'
 # NVM_MAP_TABLE = file(NVM_MAP_TABLE_Dir, 'w+')
-S19DataMapList = file('S19DataMapList.py', 'w+')
+#S19DataMapList = file('S19DataMapList.py', 'w+')
 
 def dec_to_hex(value):
     '''
@@ -213,7 +213,7 @@ def WriteNVMMapID(File):
     File.write('\n')
     for sheetNam in sheetName:
         # print sheetNam
-        File.write('/*the MAP ID in ' + sheetNam + ' list*/\\\n')
+        File.write('/*the MAP ID in ' + sheetNam + ' list*/\n')
         row = NVMMapIdStartRow
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
@@ -255,14 +255,14 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                     if TypePartList[0] == BasicTypeEnum[0]:
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         hex_value_list.append(fourth)
-                        S19DataList.append(fourth)
+                        #S19DataList.append(fourth)
                     elif TypePartList[0] == BasicTypeEnum[1] :
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         if LITTLE_ENDIAN == MEMOMY_MODE:
                             hex_value_list.append(fourth)
                             hex_value_list.append(third)
-                            S19DataList.append(fourth)
-                            S19DataList.append(third)
+                            #S19DataList.append(fourth)
+                            #S19DataList.append(third)
                         else:
                             hex_value_list.append(first)
                             hex_value_list.append(second)      
@@ -273,10 +273,10 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                             hex_value_list.append(third)
                             hex_value_list.append(second)
                             hex_value_list.append(first)
-                            S19DataList.append(fourth)
-                            S19DataList.append(third)
-                            S19DataList.append(second)
-                            S19DataList.append(first)
+                            #S19DataList.append(fourth)
+                            #S19DataList.append(third)
+                            #S19DataList.append(second)
+                            #S19DataList.append(first)
                         else:
                             hex_value_list.append(first)
                             hex_value_list.append(second)
@@ -287,12 +287,14 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                         # Newline when size greater than 16
                         if i < len(hex_value_list):
                             defaultValue_temp += ('      \\\n          0x%02X, ' % hex_value_list[i])
+                            S19DataList.append(hex_value_list[i])
                         else:
                             defaultValue_temp += '      \\\n          0x00, '   #如果用户在Excel填的数据小于实际的size就在后边补0
                             S19DataList.append(0x00)
                     else:
                         if i < len(hex_value_list):
                             defaultValue_temp += ('0x%02X, ' % hex_value_list[i])
+                            S19DataList.append(hex_value_list[i])
                         else:
                             defaultValue_temp += '0x00, '
                             S19DataList.append(0x00)
@@ -310,12 +312,14 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                             # Newline when size greater than 16
                             if (i < len(hex_value_list)):
                                 defaultValue_temp += ('      \\\n          0x%02X, ' % ord(hex_value_list[i]))
+                                S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '      \\\n          0x00, '
                                 S19DataList.append(0x00)
                         else:                    
                             if (i < len(hex_value_list)):
                                 defaultValue_temp += ('0x%02X, ' % ord(hex_value_list[i]))
+                                S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '0x00, '
                                 S19DataList.append(0x00)
