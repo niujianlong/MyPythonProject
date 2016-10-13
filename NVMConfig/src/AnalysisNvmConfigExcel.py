@@ -330,6 +330,8 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                 defaultList.append(defaultValue_temp)
         except IndexError:
             ValueSize = len(Each_Section_Total_Content)
+            print Each_Section_Total_Content
+            print ValueSize
             for elem in Each_Section_Total_Content:
                 S19DataList.append(elem)
                    
@@ -416,7 +418,11 @@ def WriteSectionOffsetAndSize(File):
         File.write("#define        " + section + '_START_NVM_OFFSET' + '            (%d)\n'%section_start_nvm_offset_table[section])
         File.write("#define        " + section + '_START_RAM_OFFSET' + '            (%d)\n'%section_start_ram_offset_table[section])
         File.write("#define        " + section + '_TOTAL_SIZE' + '            (%d)\n'%section_total_size_table[section])
-        File.write("#define        " + section + '_ACTUAL_SIZE' + '            (%d)\n'%section_actual_size_table[section])
+        if section_actual_size_table[section]<=section_total_size_table[section]:
+            File.write("#define        " + section + '_ACTUAL_SIZE' + '            (%d)\n'%section_actual_size_table[section])
+        else:
+            print 'Error:    section_actual_size > section_total_size'
+            sys.exit(-1)
         File.write('\n')
         
         '''
