@@ -27,7 +27,7 @@ section_actual_size_table = {}
 nvm_total_size = 0
 nvm_actual_size = 0 
 
-if True==os.path.exists(ur'./../gen'):
+if True == os.path.exists(ur'./../gen'):
     shutil.rmtree(ur'./../gen')
 os.makedirs(ur'./../gen')
     
@@ -39,9 +39,9 @@ S19 = file(S19_Dir, 'w+')
 NVM_Table_Dir = './../res/NVM_Table.xlsx'
 sheetName = ['ConstNvmMapSection', \
              'VariableNvmMapSection', \
-             'FblNvmMapSection', \
              'DtcNvmMapSection', \
-             'OdoNvmMapSection']
+             'OdoNvmMapSection', \
+             'FblNvmMapSection']
 excel = xlrd.open_workbook(NVM_Table_Dir)
 # resource row and col define
 StartOffsetRow = 1
@@ -72,7 +72,7 @@ NVM_Cfg = file(NVM_Cfg_Dir, 'w+')
 NVM_MAP_TABLE_Dir = './../gen/NVM_MAP_TABLE.xls'
 NVM_MAP_TABLE_filename = 'NVM_MAP_TABLE.xls'
 # NVM_MAP_TABLE = file(NVM_MAP_TABLE_Dir, 'w+')
-#S19DataMapList = file('S19DataMapList.py', 'w+')
+# S19DataMapList = file('S19DataMapList.py', 'w+')
 
 def dec_to_hex(value):
     '''
@@ -211,24 +211,41 @@ def WriteNVMMapID(File):
     File.write("{\n")
     File.write("    NVM_ID_START  =  0,\n")
     File.write('\n')
+    StartAndEndList = []
+   
     for sheetNam in sheetName:
         # print sheetNam
+        IDListTemp = []
         File.write('/*the MAP ID in ' + sheetNam + ' list*/\n')
         row = NVMMapIdStartRow
         try:
             while GetNVMMapID(sheetNam, row, NVMMapIdCol) != '':
+                IDListTemp.append(GetNVMMapID(sheetNam, row, NVMMapIdCol))
                 File.write('    ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \n')
                 row = row + 1
         except IndexError:
+            print IDListTemp
+            if not IDListTemp:
+                IDListTemp = [None, None]
+                StartAndEndList.append(IDListTemp)
+            else:  
+                IDListTemp = [IDListTemp[0], IDListTemp[-1]]  
+                StartAndEndList.append(IDListTemp)
+            print StartAndEndList
             if sheetNam == sheetName[-1]:
                 File.write('\n')
-                File.write("    NVM_ID_END\n")
+                File.write("    NVM_ID_END,\n")
+                for i in range(len(sheetName)):
+                    if StartAndEndList[i][0] != None:
+                        File.write('    NVM_'+str(sheetName[i])+'ID_START  =  '+str(StartAndEndList[i][0])+',\n')
+                        File.write('    NVM_'+str(sheetName[i])+'ID_END  =  '+str(StartAndEndList[i][1])+',\n')
+                    
                 File.write("}  NVM_ID_TYPE;\n")
             continue  
     File.write('\n\n\n')    
  
 
-def AppendDefaultValue2List(defaultList,S19DataList):  
+def AppendDefaultValue2List(defaultList, S19DataList):  
     for sheetNam in sheetName:
         row = NVMMapIdStartRow
         Each_Section_Total_Content = [0xFF] * GetNVMSectionSize(sheetNam, SectionSizeRow, SectionSizecol)
@@ -250,19 +267,19 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                     sys.exit(-1)
                 DefaultValue = DefaultValue.split(',')
                 for DefaultValue in DefaultValue: 
-                    if DefaultValue=='':
+                    if DefaultValue == '':
                         DefaultValue = '0'
                     if TypePartList[0] == BasicTypeEnum[0]:
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         hex_value_list.append(fourth)
-                        #S19DataList.append(fourth)
+                        # S19DataList.append(fourth)
                     elif TypePartList[0] == BasicTypeEnum[1] :
                         first, second, third, fourth = dec_to_hex(DefaultValue)
                         if LITTLE_ENDIAN == MEMOMY_MODE:
                             hex_value_list.append(fourth)
                             hex_value_list.append(third)
-                            #S19DataList.append(fourth)
-                            #S19DataList.append(third)
+                            # S19DataList.append(fourth)
+                            # S19DataList.append(third)
                         else:
                             hex_value_list.append(first)
                             hex_value_list.append(second)      
@@ -273,10 +290,10 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                             hex_value_list.append(third)
                             hex_value_list.append(second)
                             hex_value_list.append(first)
-                            #S19DataList.append(fourth)
-                            #S19DataList.append(third)
-                            #S19DataList.append(second)
-                            #S19DataList.append(first)
+                            # S19DataList.append(fourth)
+                            # S19DataList.append(third)
+                            # S19DataList.append(second)
+                            # S19DataList.append(first)
                         else:
                             hex_value_list.append(first)
                             hex_value_list.append(second)
@@ -289,7 +306,7 @@ def AppendDefaultValue2List(defaultList,S19DataList):
                             defaultValue_temp += ('      \\\n          0x%02X, ' % hex_value_list[i])
                             S19DataList.append(hex_value_list[i])
                         else:
-                            defaultValue_temp += '      \\\n          0x00, '   #如果用户在Excel填的数据小于实际的size就在后边补0
+                            defaultValue_temp += '      \\\n          0x00, '  # 如果用户在Excel填的数据小于实际的size就在后边补0
                             S19DataList.append(0x00)
                     else:
                         if i < len(hex_value_list):
@@ -348,7 +365,7 @@ def WriteDefaultValueNew(File):
         File.write("          " + eachline + "\n")
 
 def WriteNVMConfigInfo(File):
-    #AppendSectionSize()
+    # AppendSectionSize()
     File.write("/*\n")
     File.write("typedef struct\n")
     File.write("{\n")
@@ -360,7 +377,7 @@ def WriteNVMConfigInfo(File):
     File.write("*/\n")
     File.write("#define  NVM_CONFIG_INFO_TABLE_LIST      \\\n")
     for eachline in nvm_config_info_list:
-        File.write("          "+ eachline + "\n")
+        File.write("          " + eachline + "\n")
     File.write('\n\n\n')    
 def AppendSectionSize():
     global nvm_total_size
@@ -391,7 +408,7 @@ def AppendSectionSize():
                 MapID = GetNVMMapID(sheetNam, row, NVMMapIdCol)
                 ResetLevel = GetNVMMapResetLevel(sheetNam, row, NVMMapResetLevelCol)
                 
-                nvm_config_info = "{%d,     %d,     %d,     %d},    /*%s*/    \\"%(nvmOffset, ramOffset, ValueSize, ResetLevel, MapID)
+                nvm_config_info = "{%d,     %d,     %d,     %d},    /*%s*/    \\" % (nvmOffset, ramOffset, ValueSize, ResetLevel, MapID)
                 nvm_config_info_list.append(nvm_config_info)
                 ramOffset += ValueSize
                 nvmOffset += ValueSize
@@ -408,18 +425,18 @@ def AppendSectionSize():
             continue         
         
 def WriteSectionOffsetAndSize(File):
-    #i = 0
+    # i = 0
     File.write('\n\n')
-    File.write("#define        NVM_TOTAL_SIZE" + '            (%d)\n'%nvm_total_size) 
-    File.write("#define        NVM_ACTUAL_SIZE" + '            (%d)\n'%nvm_actual_size)
+    File.write("#define        NVM_TOTAL_SIZE" + '            (%d)\n' % nvm_total_size) 
+    File.write("#define        NVM_ACTUAL_SIZE" + '            (%d)\n' % nvm_actual_size)
     File.write('\n')
     for section in sheetName:
-        #print section_start_nvm_offset_table
-        File.write("#define        " + section + '_START_NVM_OFFSET' + '            (%d)\n'%section_start_nvm_offset_table[section])
-        File.write("#define        " + section + '_START_RAM_OFFSET' + '            (%d)\n'%section_start_ram_offset_table[section])
-        File.write("#define        " + section + '_TOTAL_SIZE' + '            (%d)\n'%section_total_size_table[section])
-        if section_actual_size_table[section]<=section_total_size_table[section]:
-            File.write("#define        " + section + '_ACTUAL_SIZE' + '            (%d)\n'%section_actual_size_table[section])
+        # print section_start_nvm_offset_table
+        File.write("#define        " + section + '_START_NVM_OFFSET' + '            (%d)\n' % section_start_nvm_offset_table[section])
+        File.write("#define        " + section + '_START_RAM_OFFSET' + '            (%d)\n' % section_start_ram_offset_table[section])
+        File.write("#define        " + section + '_TOTAL_SIZE' + '            (%d)\n' % section_total_size_table[section])
+        if section_actual_size_table[section] <= section_total_size_table[section]:
+            File.write("#define        " + section + '_ACTUAL_SIZE' + '            (%d)\n' % section_actual_size_table[section])
         else:
             print 'Error:    section_actual_size > section_total_size'
             sys.exit(-1)
@@ -531,7 +548,7 @@ def WriteS19File(File):
 def main():
     GenCommonAnnotation(NVM_Cfg, NVM_Cfg_filename)
     AppendSectionSize()
-    AppendDefaultValue2List(defaultValue_list,S19DataList)
+    AppendDefaultValue2List(defaultValue_list, S19DataList)
     WriteSectionOffsetAndSize(NVM_Cfg)
     WriteNVMMapID(NVM_Cfg)
     WriteNVMConfigInfo(NVM_Cfg)
