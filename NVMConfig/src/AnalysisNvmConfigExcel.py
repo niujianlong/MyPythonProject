@@ -30,17 +30,17 @@ section_actual_size_table = {}
 
 nvm_total_size = 0
 nvm_actual_size = 0 
-
+'''
 if True == os.path.exists(ur'./../gen'):
     shutil.rmtree(ur'./../gen')
 os.makedirs(ur'./../gen')
-    
-S19_Dir = './../gen/c51e.s19'
-S19_filename = 'c51e.s19'
+'''    
+S19_Dir = './lib/c51e_nvm.s19'
+S19_filename = 'c51e_nvm.s19'
 S19 = file(S19_Dir, 'w+')
 
 # resource file define
-NVM_Table_Dir = './../res/NVM_Table.xlsx'
+NVM_Table_Dir = './res/NVM_Table.xlsx'
 sheetName = ['ConstNvmMapSection', \
              'VariableNvmMapSection', \
              'DtcNvmMapSection', \
@@ -71,19 +71,19 @@ Var_Gen_C_List = []
 NVM_RAM_MAP_INFO_LIST = []
 #
 # generation file define
-NVM_Cfg_Dir = './../gen/NVM_Cfg.h'
+NVM_Cfg_Dir = './lib/NVM_Cfg.h'
 NVM_Cfg_filename = 'NVM_Cfg.h'
 NVM_Cfg = file(NVM_Cfg_Dir, 'w+')
 
-nvm_cfg_dir = './../gen/nvm_config.h'
+nvm_cfg_dir = './lib/nvm_config.h'
 nvm_cfg_filename = 'nvm_config.h'
 nvm_cfg = file(nvm_cfg_dir, 'w+')
 
-nvm_cfg_c_dir = './../gen/nvm_config.c'
+nvm_cfg_c_dir = './src/nvm_config.c'
 nvm_cfg_c_filename = 'nvm_config.c'
 nvm_cfg_c = file(nvm_cfg_c_dir, 'w+')
 
-NVM_MAP_TABLE_Dir = './../gen/NVM_MAP_TABLE.xls'
+NVM_MAP_TABLE_Dir = './lib/NVM_MAP_TABLE.xls'
 NVM_MAP_TABLE_filename = 'NVM_MAP_TABLE.xls'
 # NVM_MAP_TABLE = file(NVM_MAP_TABLE_Dir, 'w+')
 # S19DataMapList = file('S19DataMapList.py', 'w+')
@@ -240,14 +240,14 @@ def WriteNVMMapID(File):
                 File.write('    ' + GetNVMMapID(sheetNam, row, NVMMapIdCol) + ',    \n')
                 row = row + 1
         except IndexError:
-            print IDListTemp
+            #print IDListTemp
             if not IDListTemp:
                 IDListTemp = [None, None]
                 StartAndEndList.append(IDListTemp)
             else:  
                 IDListTemp = [IDListTemp[0], IDListTemp[-1]]  
                 StartAndEndList.append(IDListTemp)
-            print StartAndEndList
+            #print StartAndEndList
             if sheetNam == sheetName[-1]:
                 File.write('\n')
                 File.write("    NVM_ID_END,\n")
@@ -416,8 +416,8 @@ def AppendDefaultValue2List(defaultList, S19DataList):
                 defaultList.append(defaultValue_temp)
         except IndexError:
             ValueSize = len(Each_Section_Total_Content)
-            print Each_Section_Total_Content
-            print ValueSize
+            #print Each_Section_Total_Content
+            #print ValueSize
             for elem in Each_Section_Total_Content:
                 if sheetNam != 'FblNvmMapSection':
                     S19DataList.append(elem)
@@ -600,20 +600,29 @@ def ChangeTheDataFormat(elem):
 def WriteS19File(File):
     index = 0
     address = 0
+    addressSum = 0
     dataSum = 0
+    linenum = 0
     for elem in S19DataList:
         if (index % 28 == 0):
             dataSum = 0
             addressHex = '0' * (8 - len(str(hex(address))[2:])) + str(hex(address))[2:]
             # print addressHex
             File.write('S321' + addressHex.upper())
+            #if linenum != 0:
             address = address + 28
         index = index + 1
         File.write(ChangeTheDataFormat(elem))
         dataSum = dataSum + elem
-        if (index % 28 == 0):
-            checksum = 0xff - (dataSum & 0xff)
+        if (index % 28 == 0):  
+            first, second, third, fourth = dec_to_hex(str(addressSum)) 
+            addressSum = first + second + third + fourth
+            checksum = 0xff - ((dataSum+addressSum+0x21) & 0xff)
+            addressSum = addressSum + 28
+            #print address
+            print linenum
             File.write(ChangeTheDataFormat(checksum) + '\n')
+            linenum = linenum + 1
 
 def WriteExternVar(File):
     File.write('\n')
@@ -666,5 +675,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print S19DataList 
-    print len(S19DataList)
+    #print S19DataList 
+    #print len(S19DataList)
