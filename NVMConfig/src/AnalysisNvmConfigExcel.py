@@ -12,6 +12,10 @@ import datetime
 import os
 import shutil
 
+
+
+
+
 # the global variable define
 BIG_ENDIAN = 0
 LITTLE_ENDIAN = 0
@@ -158,7 +162,7 @@ def GetNVMSectionSize(sheetName, StartOffsetRow, StartOffsetCol):
 
 def GetNVMMapID(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
-    return str(sheet.cell(row, col).value).strip()
+    return str((sheet.cell(row, col).value).strip())
 
 def GetNVMMapType(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
@@ -170,7 +174,7 @@ def GetNVMMapResetLevel(sheetName, row, col):
 
 def GetNVMMapDefaultValue(sheetName, row, col):
     sheet = excel.sheet_by_name(sheetName)
-    return str(sheet.cell(row, col).value).strip()
+    return str((sheet.cell(row, col).value)).strip()
 
 def int32int16Toint8(num, size):
     if size == 2:
@@ -361,17 +365,21 @@ def AppendDefaultValue2List(defaultList, S19DataList):
                             # Newline when size greater than 16
                             if i < len(hex_value_list):
                                 defaultValue_temp += ('      \\\n          0x%02X, ' % hex_value_list[i])
-                                S19DataList.append(hex_value_list[i])
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '      \\\n          0x00, '  # 如果用户在Excel填的数据小于实际的size就在后边补0
-                                S19DataList.append(0x00)
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(0x00)
                         else:
                             if i < len(hex_value_list):
                                 defaultValue_temp += ('0x%02X, ' % hex_value_list[i])
-                                S19DataList.append(hex_value_list[i])
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '0x00, '
-                                S19DataList.append(0x00)
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(0x00)
                     
                     defaultValue_temp += '    /*%s*/     \\' % MapID  
                                  
@@ -386,17 +394,21 @@ def AppendDefaultValue2List(defaultList, S19DataList):
                             # Newline when size greater than 16
                             if (i < len(hex_value_list)):
                                 defaultValue_temp += ('      \\\n          0x%02X, ' % (hex_value_list[i]))
-                                S19DataList.append(hex_value_list[i])
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '      \\\n          0x00, '
-                                S19DataList.append(0x00)
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(0x00)
                         else:                    
                             if (i < len(hex_value_list)):
                                 defaultValue_temp += ('0x%02X, ' % (hex_value_list[i]))
-                                S19DataList.append(hex_value_list[i])
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(hex_value_list[i])
                             else:
                                 defaultValue_temp += '0x00, '
-                                S19DataList.append(0x00)
+                                if sheetNam != 'FblNvmMapSection':
+                                    S19DataList.append(0x00)
                         
                     defaultValue_temp += '    /*%s*/     \\' % MapID    
                               
@@ -407,7 +419,8 @@ def AppendDefaultValue2List(defaultList, S19DataList):
             print Each_Section_Total_Content
             print ValueSize
             for elem in Each_Section_Total_Content:
-                S19DataList.append(elem)
+                if sheetNam != 'FblNvmMapSection':
+                    S19DataList.append(elem)
                    
             if sheetNam == sheetName[-1]:
                 # defaultList.append(defaultValue_temp)
