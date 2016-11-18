@@ -33,7 +33,7 @@ bitPragram = []
 global frameID 
 CAN_IsNoMsgReceived = 0;
 sendFrameStructName = ['icm_response', 'pas_general_status', 'icm_general_status', 'icm_general_status_2', 'icm_general_status_3', 'icm_general_test_1', 'icm_general_test_2', 'icm_general_test_3', 'icm_general_test_4', 'icm_general_test_5']
-eventSendFrame = ['ECS_IMMO_RAND_NUMBER', 'HUM_EVENT_COMMAND_2', 'HUM_EVENT_COMMAND_1']
+eventSendFrame = ['ECS_IMMO_RAND_NUMBER', 'HUM_EVENT_COMMAND_1']
 hardSyncSig = ['ODOMETER_ROLLING', 'ENGINE_FUEAL_INJECTED']  # 实时性信号放在中断里面来解析
 swSyncSig = ['ODOMETER_RESET_COUNTER_BCM', 'LENGTH_of_MESSAGE_NAVI', 'LENGTH_of_MESSAGE_MEDIA']
 
