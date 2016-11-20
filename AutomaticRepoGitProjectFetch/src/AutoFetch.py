@@ -65,30 +65,24 @@ for filename in os.listdir(r'E:\AllProjectGit'):
 
 print '---------------------------------------------------------------------------\n repo sync done!\n\n'    
 #IOC git project update
-IOCGitProjectList = []
-SOCGitProjectList = []
+
 for filename in os.listdir(r'E:\AllProjectGit\GitProject'):
-    if filename != 'SOC' and filename != 'Tool': #and filename != 'common_base' and filename != 'QNX':
-        IOCGitProjectList.append(filename)
-    elif filename == 'SOC':
-        for filename in os.listdir(r'E:\AllProjectGit\GitProject\SOC'): 
-            SOCGitProjectList.append(filename)
-    else:
-        pass        
-print IOCGitProjectList
-print len(IOCGitProjectList)
-print SOCGitProjectList
-print len(SOCGitProjectList)
-#cygwin('cd E:AllProjectGit/GitProject/QNX ; pwd; git branch -av')
-for dirname in IOCGitProjectList:
-    print dirname
-    cygwin('cd E:AllProjectGit/GitProject/'+dirname+' ; git branch -av')
-    #pass
+    if filename not in ['SOC', 'Tool']: #'' and filename != '': #and filename != 'common_base' and filename != 'QNX':
+        print filename
+        cygwin('cd E:AllProjectGit/GitProject/'+filename+' ; git branch -av')
+   
 print '---------------------------------------------------------------------------\nIOC git fetch done!\n\n'    
-print '---------------------------------------------------------------------------\nSOC git fetch start!\n\n'    
-for dirname in SOCGitProjectList:
-    print dirname
-    cygwin('cd E:AllProjectGit/GitProject/SOC/'+dirname+' ; pwd ; git branch -av')
+print '---------------------------------------------------------------------------\nSOC git fetch start!\n\n' 
+
+for filename in os.listdir(r'E:\AllProjectGit\GitProject\SOC'): 
+    print filename
+    cygwin('cd E:AllProjectGit/GitProject/SOC/'+filename+' ; pwd ; git branch -av')
+         
+#cygwin('cd E:AllProjectGit/GitProject/QNX ; pwd; git branch -av')
+    
+    #pass
+   
+    
     #pass
 print '---------------------------------------------------------------------------\nSOC git fetch done!\n\n'    
     
