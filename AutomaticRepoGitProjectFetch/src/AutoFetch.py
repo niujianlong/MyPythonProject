@@ -9,6 +9,7 @@ import os
 import subprocess 
 import time
 
+
 def cygwin(command):
     """
     Run a Bash command with Cygwin and return output.
@@ -25,10 +26,18 @@ def cygwin(command):
     #print cygwin_bin   
     # Launch Bash
     p = subprocess.Popen(
-        args=['bash', '--login', '-c', command],bufsize=10240,
+        args=['bash', '--login', '-c', command],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#     with p.stdout:
+#         for line in iter(p.stdout.readline,b''):
+#             print line
+#     with p.stderr:
+#         for line in iter(p.stderr.readline,b''):
+#             print line
     timebefore = time.time()
-    p.wait()
+    #p.wait()
+    stdout, stderr = p.communicate() 
+    print stdout,stderr
     timeafter = time.time()
     
     print 'Total Time Spent = '+str(timeafter - timebefore)+'s'
