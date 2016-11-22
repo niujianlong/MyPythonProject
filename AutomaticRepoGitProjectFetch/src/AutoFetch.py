@@ -25,7 +25,7 @@ def cygwin(command):
     #print cygwin_bin   
     # Launch Bash
     p = subprocess.Popen(
-        args=['bash', '--login', '-c', command],
+        args=['bash', '--login', '-c', command],bufsize=10240,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     timebefore = time.time()
     p.wait()
