@@ -28,16 +28,18 @@ def cygwin(command):
     p = subprocess.Popen(
         args=['bash', '--login', '-c', command],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    timebefore = time.time()
 #     with p.stdout:
 #         for line in iter(p.stdout.readline,b''):
 #             print line
 #     with p.stderr:
 #         for line in iter(p.stderr.readline,b''):
 #             print line
-    timebefore = time.time()
+    
     #p.wait()
     stdout, stderr = p.communicate() 
     print stdout,stderr
+    #print (stdout.read() + stderr.read()).rstrip()
     timeafter = time.time()
     
     print 'Total Time Spent = '+str(timeafter - timebefore)+'s'
