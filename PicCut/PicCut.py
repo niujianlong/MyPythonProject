@@ -73,7 +73,7 @@ def reverseNum(hang, lie):
         # json.dump(new_dict,srcfile)
         print(load_dict['layers'][1]['data'])
         temlist = load_dict['layers'][1]['data']
-        hang = 1;
+        hang = 1
         strtem = ''
         strReverse = ''
         strtest = ''
